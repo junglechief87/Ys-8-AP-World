@@ -48,9 +48,6 @@ class Ys8World(World):
     fillers = {}
     fillers.update(get_items_by_category("Consumable"))
 
-    def _get_slot_data(self) -> Dict[str, Any]:
-        pass
-
     def generate_early(self):
         pass
 
@@ -79,7 +76,12 @@ class Ys8World(World):
         return self.random.choices([filler for filler in self.fillers.keys()], weights)[0]
 
     def fill_slot_data(self) -> Dict[str, Any]:
-        pass 
+        slot_data = {}
+        slot_options = ["final_boss_access"]
+
+        slot_data = {"options": {option_name: getattr(self.options, option_name).value for option_name in slot_options}}
+
+        return slot_data
 
     def create_item(self, name: str) -> Ys8Item:
         data = item_table[name]
