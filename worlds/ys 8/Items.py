@@ -11,7 +11,6 @@ class Ys8ItemData(NamedTuple):
     category: str
     code: int
     type: str
-    quantity: int = 1
     classification: ItemClassification = ItemClassification.filler
     weight: int = 1
     flags: Optional[list[bytes]] = None
@@ -21,9 +20,9 @@ def get_items_by_category(category: str) -> Dict[str, Ys8ItemData]:
     return {name: data for name, data in item_table.items() if data.category == category}
 
 item_table: Dict[str, Ys8ItemData] = {
-    "Leather Armor":                    Ys8ItemData("Armor",        code = 243, classification = ItemClassification.useful, type = "Item", quantity = 2),
-    "Heal Potion":                      Ys8ItemData("Consumable",   code = 500, classification = ItemClassification.filler, type = "Item", quantity = 1),
-    "Coconut":                          Ys8ItemData("Consumable",   code = 531, classification = ItemClassification.filler, type = "Item", quantity = 1),
+    "Leather Armor x2":                 Ys8ItemData("Armor",        code = 24300, classification = ItemClassification.useful, type = "Item"),
+    "Heal Potion":                      Ys8ItemData("Consumable",   code = 50000, classification = ItemClassification.filler, type = "Item"),
+    "Coconut":                          Ys8ItemData("Consumable",   code = 53100, classification = ItemClassification.filler, type = "Item"),
 }
 
 #Make item categories
