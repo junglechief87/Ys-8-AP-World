@@ -13,8 +13,11 @@ def create_regions(Ys8World):
     options    = Ys8World.options
 
     regions: Dict[str, Ys8RegionData] = {
-        "Calm Inlet Area":      Ys8RegionData([],["Waterdrop Cave"]),
-        "Waterdrop Cave":       Ys8RegionData([],["Calm Inlet Area"])
+        "Calm Inlet Area":      Ys8RegionData([],["Exit to Waterdrop Cave", "Exit to North of Boulder"]),
+        "Waterdrop Cave":       Ys8RegionData([],["Exit to Calm Inlet Cave"]),
+        "Nameless Coast North of Boulder": Ys8RegionData([], ["Exit to South of Boulder", "Exit to TCF Before Mid-Boss"]),
+        "Towering Coral Forest Before Mid-Boss": Ys8RegionData([], ["Exit to TCF After Mid-Boss", "Exit to North of Boulder"]),
+        "Towering Coral Forest After Mid-Boss": Ys8RegionData([], ["Exit to TCF Before Mid-Boss", "Exit After TCF Boss"]),
     }
 
     for location in location_table:
@@ -29,8 +32,13 @@ def connect_entrances(Ys8World):
     player     = Ys8World.player
     options    = Ys8World.options
     
-    multiworld.get_entrance("Calm Inlet Area", player).connect(multiworld.get_region("Calm Inlet Area", player))
-    multiworld.get_entrance("Waterdrop Cave", player).connect(multiworld.get_region("Waterdrop Cave", player))
+    multiworld.get_entrance("Exit to Calm Inlet Cave", player).connect(multiworld.get_region("Calm Inlet Area", player))
+    multiworld.get_entrance("Exit to South of Boulder", player).connect(multiworld.get_region("Calm Inlet Area", player))
+    multiworld.get_entrance("Exit to Waterdrop Cave", player).connect(multiworld.get_region("Waterdrop Cave", player))
+    multiworld.get_entrance("Exit to North of Boulder", player).connect(multiworld.get_region("Nameless Coast North of Boulder", player))
+    multiworld.get_entrance("Exit to TCF Before Mid-Boss", player).connect(multiworld.get_region("Nameless Coast North of Boulder", player))
+    multiworld.get_entrance("Exit to TCF Before Mid-Boss", player).connect(multiworld.get_region("Towering Coral Forest Before Mid-Boss", player))
+    multiworld.get_entrance("Exit to TCF After Mid-Boss", player).connect(multiworld.get_region("Towering Coral Forest After Mid-Boss", player))
 
 def create_region(multiworld: MultiWorld, player: int, name: str, data: Ys8RegionData):
     region = Region(name, player, multiworld)
