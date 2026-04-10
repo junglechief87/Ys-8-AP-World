@@ -10,11 +10,11 @@ from worlds.AutoWorld import WebWorld, World
 from worlds.LauncherComponents import Component, components, Type, launch
 from .Options import Ys8Options, Ys8_option_groups, Ys8_option_presets
 from .Locations import Ys8Location, location_table, location_name_groups
-from .Items import Ys8Item, Ys8ItemData, get_items_by_category, item_table, item_name_groups
-from .Rules import set_rules
+from .Items import Ys8Item, Ys8ItemData, get_items_by_category, item_table, item_name_groups, event_item_table
+from .Rules import set_all_rules
 from .Regions import create_regions, connect_entrances
 
-class Ys8(WebWorld):
+class Ys8Web(WebWorld):
     theme = "jungle"
     setup_en = Tutorial(
         "Multiworld Setup Guide",
@@ -58,6 +58,14 @@ class Ys8World(World):
         connect_entrances(self)
 
     def create_items(self):
+        self.place_predetermined_items()
+
+        # Determine Starting Character and add to precollected items
+        party = [item_name for item_name in item_table.keys() if "Party" in item_table[item_name].flags]
+        starting_character = self.random.choice(party)
+        item = self.create_item(starting_character)
+        self.multiworld.push_precollected(item, self.multiworld, self.player)
+
         LocationsToFill = len(self.multiworld.get_unfilled_locations(self.player))
         ItemPool = []
         for name, data in item_table.items():
@@ -70,6 +78,13 @@ class Ys8World(World):
 
         self.multiworld.itempool += ItemPool
         print(self.multiworld.itempool)
+
+    def place_predetermined_items(self):
+        # Place event items that are required for progression or victory
+        for item_name in event_item_table.keys():
+            item = self.create_event(item_name)
+            location = self.multiworld.get_location(event_item_table[item_name].category, self.player)
+            location.place_locked_item(item)
 
     def get_filler_item_name(self) -> str:
         weights = [data.weight for data in self.fillers.values()]
@@ -86,11 +101,11 @@ class Ys8World(World):
     def create_item(self, name: str) -> Ys8Item:
         data = item_table[name]
         return Ys8Item(name, data.classification, data.code, self.player)
-    """
-    def create_event(self, name: str) -> KH1Item:
+    
+    def create_event(self, name: str) -> Ys8Item:
         data = event_item_table[name]
-        return KH1Item(name, data.classification, data.code, self.player)
-    """
+        return Ys8Item(name, data.classification, data.code, self.player)
+    
     def set_rules(self):
-        set_rules(self)
+        set_all_rules(self)
 
