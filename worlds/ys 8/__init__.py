@@ -38,7 +38,7 @@ class Ys8World(World):
     origin_region_name = "Calm Inlet Area"
     options_dataclass = Ys8Options
     options: Ys8Options
-    web = Ys8()
+    web = Ys8Web()
     topology_present = True
 
     item_name_to_id = {name: data.code for name, data in item_table.items()}
