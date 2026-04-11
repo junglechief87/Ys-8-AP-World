@@ -18,6 +18,7 @@ def has_required_crew(state: CollectionState, player: int, crew_count: int) -> b
     return state.has_from_list([item for item, data in item_table.items() if data.category == "Crew"], player, crew_count)
 
 def battle_logic(state: CollectionState, player: int, required_str: int, options: Ys8Options) -> bool:
+    
     return True
 
 def map_completion_logic(state: CollectionState, player: int, options: Ys8Options) -> bool:
