@@ -3,8 +3,6 @@ import csv
 import shared.classr as classr
 from shared.functions import *
 
-#The idea here is to place 1 item in every chest in the game and use an item that does nothing. The player will get nothing for receiving it.
-#We have to place something in the chests or else the chest actor will flag itself as opened.
 #Every chest in Ys can take a script parameter that it calls on open, if there is something in it.
 #We write a series of scripts onto that chest paremeter based on the randos locID, we want the scripts to be exactly 8 character lengths as this is the game's min script length for the chests. 
 #This guarantees we don't overwrite important bytes.

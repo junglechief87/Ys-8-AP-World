@@ -688,11 +688,11 @@
       "region_count": 4,
       "drops": {
         "common": {
-          "item": "strong bones",
+          "item": "Sturdy Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "beast skin",
+          "item": "Beast Hide",
           "rate": "5.0%"
         },
         "special": {
@@ -713,15 +713,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "light bones",
+          "item": "Light Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "strong bones",
+          "item": "Sturdy Bone",
           "rate": "5.0%"
         },
         "special": {
-          "item": "solid shell",
+          "item": "Strong Shell",
           "rate": "1.0%"
         }
       }
@@ -737,11 +737,11 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "cloudy mucus",
+          "item": "Murky Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "strange lump",
+          "item": "Strange Mass",
           "rate": "5.0%"
         },
         "special": {
@@ -761,11 +761,11 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "thin skin",
+          "item": "Thin Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "clear mucus",
+          "item": "Sterile Mucus",
           "rate": "5.0%"
         },
         "special": {
@@ -785,15 +785,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "cloudy mucus",
+          "item": "Murky Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "clear mucus",
+          "item": "Sterile Mucus",
           "rate": "15.0%"
         },
         "special": {
-          "item": "soft fiber",
+          "item": "Soft Fiber",
           "rate": "5.0%"
         }
       }
@@ -809,15 +809,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "thin skin",
+          "item": "Thin Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "thick skin",
+          "item": "Thick Hide",
           "rate": "5.0%"
         },
         "special": {
-          "item": "wing quill",
+          "item": "Remex",
           "rate": "1.0%"
         }
       }
@@ -834,15 +834,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "thin skin",
+          "item": "Thin Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "strong bones",
+          "item": "Sturdy Bone",
           "rate": "15.0%"
         },
         "special": {
-          "item": "soft fiber",
+          "item": "Soft Fiber",
           "rate": "5.0%"
         }
       }
@@ -858,11 +858,11 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "thin skin",
+          "item": "Thin Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "light bones",
+          "item": "Light Bone",
           "rate": "5.0%"
         },
         "special": {
@@ -882,11 +882,11 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "light bones",
+          "item": "Light Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "strange lump",
+          "item": "Strange Mass",
           "rate": "5.0%"
         },
         "special": {
@@ -907,15 +907,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "thin skin",
+          "item": "Thin Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "light bones",
+          "item": "Light Bone",
           "rate": "5.0%"
         },
         "special": {
-          "item": "thick skin",
+          "item": "Thick Hide",
           "rate": "1.0%"
         }
       }
@@ -932,15 +932,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "cloudy mucus",
+          "item": "Murky Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "strange lump",
+          "item": "Strange Mass",
           "rate": "5.0%"
         },
         "special": {
-          "item": "clear mucus",
+          "item": "Sterile Mucus",
           "rate": "1.0%"
         }
       }
@@ -980,11 +980,11 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "light bones",
+          "item": "Light Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "cloudy mucus",
+          "item": "Murky Mucus",
           "rate": "5.0%"
         },
         "special": {
@@ -1004,15 +1004,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "light bones",
+          "item": "Light Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "thin skin",
+          "item": "Thin Hide",
           "rate": "5.0%"
         },
         "special": {
-          "item": "soft fiber",
+          "item": "Soft Fiber",
           "rate": "1.0%"
         }
       }
@@ -1028,11 +1028,11 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "light bones",
+          "item": "Light Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "thick skin",
+          "item": "Thick Hide",
           "rate": "5.0%"
         },
         "special": {
@@ -1052,11 +1052,11 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "light bones",
+          "item": "Light Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "strong bones",
+          "item": "Sturdy Bone",
           "rate": "5.0%"
         },
         "special": {
@@ -1076,11 +1076,11 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "thin skin",
+          "item": "Thin Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "clear mucus",
+          "item": "Sterile Mucus",
           "rate": "5.0%"
         },
         "special": {
@@ -1102,15 +1102,15 @@
       "region_count": 3,
       "drops": {
         "common": {
-          "item": "strong bones",
+          "item": "Sturdy Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "solid shell",
+          "item": "Strong Shell",
           "rate": "15.0%"
         },
         "special": {
-          "item": "Guwaraniga scissors",
+          "item": "Gwaranga Pincer",
           "rate": "5.0%"
         }
       }
@@ -1126,15 +1126,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "bending twig",
+          "item": "Flexible Branch",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "glossy wood",
+          "item": "Sturdy Lumber",
           "rate": "5.0%"
         },
         "special": {
-          "item": "foxglove leaves",
+          "item": "Digitalis Leaf",
           "rate": "1.0%"
         }
       }
@@ -1150,11 +1150,11 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "light bones",
+          "item": "Light Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "clear mucus",
+          "item": "Sterile Mucus",
           "rate": "5.0%"
         },
         "special": {
@@ -1174,11 +1174,11 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "light bones",
+          "item": "Light Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "strong bones",
+          "item": "Sturdy Bone",
           "rate": "1.0%"
         },
         "special": {
@@ -1199,15 +1199,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "thin skin",
+          "item": "Thin Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "thick skin",
+          "item": "Thick Hide",
           "rate": "15.0%"
         },
         "special": {
-          "item": "beast claw",
+          "item": "Beast Claw",
           "rate": "5.0%"
         }
       }
@@ -1224,11 +1224,11 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "small leaves",
+          "item": "Small Leaf",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "beautiful flowers",
+          "item": "Beautiful Flower",
           "rate": "15.0%"
         },
         "special": {
@@ -1248,11 +1248,11 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "thin skin",
+          "item": "Thin Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "thick skin",
+          "item": "Thick Hide",
           "rate": "15.0%"
         },
         "special": {
@@ -1272,15 +1272,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "thin skin",
+          "item": "Thin Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "clear mucus",
+          "item": "Sterile Mucus",
           "rate": "5.0%"
         },
         "special": {
-          "item": "wing quill",
+          "item": "Remex",
           "rate": "1.0%"
         }
       }
@@ -1296,15 +1296,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "glossy wood",
+          "item": "Sturdy Lumber",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "beautiful flowers",
+          "item": "Beautiful Flower",
           "rate": "20.0%"
         },
         "special": {
-          "item": "foxglove leaves",
+          "item": "Digitalis Leaf",
           "rate": "10.0%"
         }
       }
@@ -1322,15 +1322,15 @@
       "region_count": 3,
       "drops": {
         "common": {
-          "item": "strong bones",
+          "item": "Sturdy Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "solid shell",
+          "item": "Strong Shell",
           "rate": "15.0%"
         },
         "special": {
-          "item": "evil crest shell",
+          "item": "Accursed Shell",
           "rate": "5.0%"
         }
       }
@@ -1347,15 +1347,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "thin skin",
+          "item": "Thin Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "thick skin",
+          "item": "Thick Hide",
           "rate": "5.0%"
         },
         "special": {
-          "item": "wing quill",
+          "item": "Remex",
           "rate": "1.0%"
         }
       }
@@ -1371,15 +1371,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "beast skin",
+          "item": "Beast Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Glittering mucus",
+          "item": "Sparkling Mucus",
           "rate": "5.0%"
         },
         "special": {
-          "item": "Pangu slime",
+          "item": "Ancient Mucus",
           "rate": "1.0%"
         }
       }
@@ -1395,15 +1395,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Glittering mucus",
+          "item": "Sparkling Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "rigid fiber",
+          "item": "Hard Fiber",
           "rate": "20.0%"
         },
         "special": {
-          "item": "Pangu skin",
+          "item": "Ancient Hide",
           "rate": "10.0%"
         }
       }
@@ -1419,15 +1419,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "clear mucus",
+          "item": "Sterile Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "beast skin",
+          "item": "Beast Hide",
           "rate": "15.0%"
         },
         "special": {
-          "item": "Glory scales",
+          "item": "Lustrous Scale",
           "rate": "5.0%"
         }
       }
@@ -1444,11 +1444,11 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "thin skin",
+          "item": "Thin Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "strong bones",
+          "item": "Sturdy Bone",
           "rate": "5.0%"
         },
         "special": {
@@ -1468,11 +1468,11 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "small leaves",
+          "item": "Small Leaf",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "clear mucus",
+          "item": "Sterile Mucus",
           "rate": "5.0%"
         },
         "special": {
@@ -1493,15 +1493,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "wing quill",
+          "item": "Remex",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Zhan Gangyu",
+          "item": "Razor Feather",
           "rate": "15.0%"
         },
         "special": {
-          "item": "Blue Sky Feather",
+          "item": "Blue Feather",
           "rate": "5.0%"
         }
       }
@@ -1517,15 +1517,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "thick skin",
+          "item": "Thick Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "soft fiber",
+          "item": "Soft Fiber",
           "rate": "15.0%"
         },
         "special": {
-          "item": "Kentoga",
+          "item": "Sword Tip Fang",
           "rate": "1.0%"
         }
       }
@@ -1541,11 +1541,11 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "thin skin",
+          "item": "Thin Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "clear mucus",
+          "item": "Sterile Mucus",
           "rate": "5.0%"
         },
         "special": {
@@ -1565,15 +1565,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "small leaves",
+          "item": "Small Leaf",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "beautiful flowers",
+          "item": "Beautiful Flower",
           "rate": "5.0%"
         },
         "special": {
-          "item": "lateca resin",
+          "item": "Lateka Resin",
           "rate": "1.0%"
         }
       }
@@ -1591,15 +1591,15 @@
       "region_count": 3,
       "drops": {
         "common": {
-          "item": "warm wood",
+          "item": "Warm Lumber",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "rim flower",
+          "item": "Rim Flower",
           "rate": "15.0%"
         },
         "special": {
-          "item": "Vivine bitters",
+          "item": "Vivine Bitters",
           "rate": "10.0%"
         }
       }
@@ -1615,15 +1615,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "cloudy mucus",
+          "item": "Murky Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "strong bones",
+          "item": "Sturdy Bone",
           "rate": "5.0%"
         },
         "special": {
-          "item": "Kentoga",
+          "item": "Sword Tip Fang",
           "rate": "1.0%"
         }
       }
@@ -1639,15 +1639,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "thick skin",
+          "item": "Thick Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "clear mucus",
+          "item": "Sterile Mucus",
           "rate": "20.0%"
         },
         "special": {
-          "item": "Salamandine skin",
+          "item": "Salamandine Hide",
           "rate": "20.0%"
         }
       }
@@ -1670,15 +1670,15 @@
       "region_count": 8,
       "drops": {
         "common": {
-          "item": "thin skin",
+          "item": "Thin Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "light bones",
+          "item": "Light Bone",
           "rate": "15.0%"
         },
         "special": {
-          "item": "wing quill",
+          "item": "Remex",
           "rate": "1.0%"
         }
       }
@@ -1730,15 +1730,15 @@
       "region_count": 6,
       "drops": {
         "common": {
-          "item": "strong bones",
+          "item": "Sturdy Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "thick skin",
+          "item": "Thick Hide",
           "rate": "15.0%"
         },
         "special": {
-          "item": "Zhan Gangyu",
+          "item": "Razor Feather",
           "rate": "1.0%"
         }
       }
@@ -1785,15 +1785,15 @@
       "region_count": 3,
       "drops": {
         "common": {
-          "item": "thick skin",
+          "item": "Thick Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "strong bones",
+          "item": "Sturdy Bone",
           "rate": "15.0%"
         },
         "special": {
-          "item": "wing quill",
+          "item": "Remex",
           "rate": "5.0%"
         }
       }
@@ -1810,15 +1810,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "light bones",
+          "item": "Light Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "thick skin",
+          "item": "Thick Hide",
           "rate": "10.0%"
         },
         "special": {
-          "item": "beast claw",
+          "item": "Beast Claw",
           "rate": "5.0%"
         }
       }
@@ -1836,15 +1836,15 @@
       "region_count": 3,
       "drops": {
         "common": {
-          "item": "thick skin",
+          "item": "Thick Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Iron ore",
+          "item": "Iron Ore",
           "rate": "5.0%"
         },
         "special": {
-          "item": "beast claw",
+          "item": "Beast Claw",
           "rate": "1.0%"
         }
       }
@@ -1861,15 +1861,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "beast claw",
+          "item": "Beast Claw",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "soft fiber",
+          "item": "Soft Fiber",
           "rate": "60.0%"
         },
         "special": {
-          "item": "Kentoga",
+          "item": "Sword Tip Fang",
           "rate": "40.0%"
         }
       }
@@ -1885,15 +1885,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "thick skin",
+          "item": "Thick Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "soft fiber",
+          "item": "Soft Fiber",
           "rate": "15.0%"
         },
         "special": {
-          "item": "Kentoga",
+          "item": "Sword Tip Fang",
           "rate": "5.0%"
         }
       }
@@ -1909,15 +1909,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "strange lump",
+          "item": "Strange Mass",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "thick skin",
+          "item": "Thick Hide",
           "rate": "5.0%"
         },
         "special": {
-          "item": "strong bones",
+          "item": "Sturdy Bone",
           "rate": "5.0%"
         }
       }
@@ -1933,11 +1933,11 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "light bones",
+          "item": "Light Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "thick skin",
+          "item": "Thick Hide",
           "rate": "5.0%"
         },
         "special": {
@@ -1957,11 +1957,11 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "thin skin",
+          "item": "Thin Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "strong bones",
+          "item": "Sturdy Bone",
           "rate": "5.0%"
         },
         "special": {
@@ -1981,15 +1981,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "beast skin",
+          "item": "Beast Hide",
           "rate": "40.0%"
         },
         "special": {
-          "item": "tektite ore",
+          "item": "Tectite Ore",
           "rate": "5.0%"
         }
       }
@@ -2006,15 +2006,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "Glittering mucus",
+          "item": "Sparkling Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "15.0%"
         },
         "special": {
-          "item": "Thunderclaw",
+          "item": "Thunder Claw",
           "rate": "1.0%"
         }
       }
@@ -2030,15 +2030,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "clear mucus",
+          "item": "Sterile Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "evil crest shell",
+          "item": "Accursed Shell",
           "rate": "20.0%"
         },
         "special": {
-          "item": "Thespion's Tail",
+          "item": "Zaspion Tail",
           "rate": "10.0%"
         }
       }
@@ -2054,11 +2054,11 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "thick skin",
+          "item": "Thick Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "beast claw",
+          "item": "Beast Claw",
           "rate": "5.0%"
         },
         "special": {
@@ -2078,15 +2078,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "strong bones",
+          "item": "Sturdy Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "thick skin",
+          "item": "Thick Hide",
           "rate": "5.0%"
         },
         "special": {
-          "item": "Glory scales",
+          "item": "Lustrous Scale",
           "rate": "1.0%"
         }
       }
@@ -2102,15 +2102,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "strong bones",
+          "item": "Sturdy Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "solid shell",
+          "item": "Strong Shell",
           "rate": "10.0%"
         },
         "special": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "5.0%"
         }
       }
@@ -2127,15 +2127,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "beast skin",
+          "item": "Beast Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "15.0%"
         },
         "special": {
-          "item": "Blue Sky Feather",
+          "item": "Blue Feather",
           "rate": "1.0%"
         }
       }
@@ -2152,11 +2152,11 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "clear mucus",
+          "item": "Sterile Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Glittering mucus",
+          "item": "Sparkling Mucus",
           "rate": "5.0%"
         },
         "special": {
@@ -2176,11 +2176,11 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "glossy wood",
+          "item": "Sturdy Lumber",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "warm wood",
+          "item": "Warm Lumber",
           "rate": "5.0%"
         },
         "special": {
@@ -2201,11 +2201,11 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Pangu bones",
+          "item": "Ancient Bone",
           "rate": "15.0%"
         },
         "special": {
@@ -2226,11 +2226,11 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "beast skin",
+          "item": "Beast Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Pangu skin",
+          "item": "Ancient Hide",
           "rate": "5.0%"
         },
         "special": {
@@ -2251,11 +2251,11 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "shining leaves",
+          "item": "Sparkling Leaf",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Pangu flower",
+          "item": "Ancient Flower",
           "rate": "5.0%"
         },
         "special": {
@@ -2276,15 +2276,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "beast skin",
+          "item": "Beast Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "15.0%"
         },
         "special": {
-          "item": "rigid fiber",
+          "item": "Hard Fiber",
           "rate": "1.0%"
         }
       }
@@ -2300,15 +2300,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Glittering mucus",
+          "item": "Sparkling Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Pangu skin",
+          "item": "Ancient Hide",
           "rate": "5.0%"
         },
         "special": {
-          "item": "Pangu slime",
+          "item": "Ancient Mucus",
           "rate": "1.0%"
         }
       }
@@ -2324,15 +2324,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "evil crest shell",
+          "item": "Accursed Shell",
           "rate": "5.0%"
         },
         "special": {
-          "item": "Pangu bones",
+          "item": "Ancient Bone",
           "rate": "1.0%"
         }
       }
@@ -2348,15 +2348,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Pangu skin",
+          "item": "Ancient Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "rigid fiber",
+          "item": "Hard Fiber",
           "rate": "40.0%"
         },
         "special": {
-          "item": "Dundeel's Horn",
+          "item": "Dandale Horn",
           "rate": "10.0%"
         }
       }
@@ -2372,15 +2372,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Iron ore",
+          "item": "Iron Ore",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "tektite ore",
+          "item": "Tectite Ore",
           "rate": "5.0%"
         },
         "special": {
-          "item": "Rispar",
+          "item": "Essence Stone",
           "rate": "1.0%"
         }
       }
@@ -2396,15 +2396,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Iron ore",
+          "item": "Iron Ore",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "tektite ore",
+          "item": "Tectite Ore",
           "rate": "5.0%"
         },
         "special": {
-          "item": "Rispar",
+          "item": "Essence Stone",
           "rate": "1.0%"
         }
       }
@@ -2420,15 +2420,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "tektite ore",
+          "item": "Tectite Ore",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Rispar",
+          "item": "Essence Stone",
           "rate": "15.0%"
         },
         "special": {
-          "item": "mental armor",
+          "item": "Essence Panzer",
           "rate": "5.0%"
         }
       }
@@ -2444,15 +2444,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Glittering mucus",
+          "item": "Sparkling Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Pangu slime",
+          "item": "Ancient Mucus",
           "rate": "5.0%"
         },
         "special": {
-          "item": "diamond shell",
+          "item": "Diamond Shell",
           "rate": "1.0%"
         }
       }
@@ -2468,15 +2468,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Pangu bones",
+          "item": "Ancient Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Thunderclaw",
+          "item": "Thunder Claw",
           "rate": "15.0%"
         },
         "special": {
-          "item": "Strong acidic hard liquid",
+          "item": "Acidic Liquid",
           "rate": "1.0%"
         }
       }
@@ -2493,15 +2493,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "Rispar",
+          "item": "Essence Stone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "dragonite",
+          "item": "Dragon Crest Stone",
           "rate": "10.0%"
         },
         "special": {
-          "item": "Star Crystal Armor",
+          "item": "Starry Shell",
           "rate": "1.0%"
         }
       }
@@ -2517,15 +2517,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Rispar",
+          "item": "Essence Stone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Star Crystal Armor",
+          "item": "Starry Shell",
           "rate": "40.0%"
         },
         "special": {
-          "item": "Strong acidic hard liquid",
+          "item": "Acidic Liquid",
           "rate": "20.0%"
         }
       }
@@ -2589,15 +2589,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "beast skin",
+          "item": "Beast Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Pangu slime",
+          "item": "Ancient Mucus",
           "rate": "20.0%"
         },
         "special": {
-          "item": "rigid fiber",
+          "item": "Hard Fiber",
           "rate": "10.0%"
         }
       }
@@ -2613,15 +2613,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Glittering mucus",
+          "item": "Sparkling Mucus",
           "rate": "5.0%"
         },
         "special": {
-          "item": "Pangu bones",
+          "item": "Ancient Bone",
           "rate": "1.0%"
         }
       }
@@ -2637,15 +2637,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Pangu bones",
+          "item": "Ancient Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Pangu skin",
+          "item": "Ancient Hide",
           "rate": "40.0%"
         },
         "special": {
-          "item": "Dwanikr's shell",
+          "item": "Dornicle Shell",
           "rate": "20.0%"
         }
       }
@@ -2661,15 +2661,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "warm wood",
+          "item": "Warm Lumber",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "shining leaves",
+          "item": "Sparkling Leaf",
           "rate": "5.0%"
         },
         "special": {
-          "item": "Pangu tree",
+          "item": "Ancient Lumber",
           "rate": "1.0%"
         }
       }
@@ -2686,15 +2686,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Pangu skin",
+          "item": "Ancient Hide",
           "rate": "20.0%"
         },
         "special": {
-          "item": "Pangu tree",
+          "item": "Ancient Lumber",
           "rate": "10.0%"
         }
       }
@@ -2710,11 +2710,11 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Glittering mucus",
+          "item": "Sparkling Mucus",
           "rate": "15.0%"
         },
         "special": {
@@ -2734,15 +2734,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Glittering mucus",
+          "item": "Sparkling Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "diamond shell",
+          "item": "Diamond Shell",
           "rate": "15.0%"
         },
         "special": {
-          "item": "Pangu bones",
+          "item": "Ancient Bone",
           "rate": "5.0%"
         }
       }
@@ -2758,15 +2758,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Pangu skin",
+          "item": "Ancient Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Pangu slime",
+          "item": "Ancient Mucus",
           "rate": "5.0%"
         },
         "special": {
-          "item": "Spirit skin of another world",
+          "item": "Underworld Hide",
           "rate": "1.0%"
         }
       }
@@ -2782,15 +2782,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Pangu bones",
+          "item": "Ancient Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "dragonite",
+          "item": "Dragon Crest Stone",
           "rate": "15.0%"
         },
         "special": {
-          "item": "Spiritual bones of another world",
+          "item": "Underworld Bone",
           "rate": "5.0%"
         }
       }
@@ -2806,15 +2806,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Pangu skin",
+          "item": "Ancient Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Pangu slime",
+          "item": "Ancient Mucus",
           "rate": "5.0%"
         },
         "special": {
-          "item": "Spirit skin of another world",
+          "item": "Underworld Hide",
           "rate": "1.0%"
         }
       }
@@ -2830,15 +2830,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Pangu bones",
+          "item": "Ancient Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "dragonite",
+          "item": "Dragon Crest Stone",
           "rate": "15.0%"
         },
         "special": {
-          "item": "Spiritual bones of another world",
+          "item": "Underworld Bone",
           "rate": "5.0%"
         }
       }
@@ -2854,15 +2854,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Pangu skin",
+          "item": "Ancient Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Pangu slime",
+          "item": "Ancient Mucus",
           "rate": "5.0%"
         },
         "special": {
-          "item": "Spirit skin of another world",
+          "item": "Underworld Hide",
           "rate": "1.0%"
         }
       }
@@ -2878,15 +2878,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Pangu bones",
+          "item": "Ancient Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "dragonite",
+          "item": "Dragon Crest Stone",
           "rate": "15.0%"
         },
         "special": {
-          "item": "Spiritual bones of another world",
+          "item": "Underworld Bone",
           "rate": "5.0%"
         }
       }
@@ -2903,15 +2903,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "Pangu skin",
+          "item": "Ancient Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Pangu slime",
+          "item": "Ancient Mucus",
           "rate": "5.0%"
         },
         "special": {
-          "item": "Spirit skin of another world",
+          "item": "Underworld Hide",
           "rate": "1.0%"
         }
       }
@@ -2928,15 +2928,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "Pangu bones",
+          "item": "Ancient Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "dragonite",
+          "item": "Dragon Crest Stone",
           "rate": "15.0%"
         },
         "special": {
-          "item": "Spiritual bones of another world",
+          "item": "Underworld Bone",
           "rate": "5.0%"
         }
       }
@@ -2952,15 +2952,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Pangu slime",
+          "item": "Ancient Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "moon shadow wing",
+          "item": "Lunar Wings",
           "rate": "5.0%"
         },
         "special": {
-          "item": "Spiritual bones of another world",
+          "item": "Underworld Bone",
           "rate": "1.0%"
         }
       }
@@ -2976,15 +2976,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Pangu tree",
+          "item": "Ancient Lumber",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Treasure branch of the great tree",
+          "item": "Great Tree Lumber",
           "rate": "5.0%"
         },
         "special": {
-          "item": "Strong acidic hard liquid",
+          "item": "Acidic Liquid",
           "rate": "1.0%"
         }
       }
@@ -3000,15 +3000,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Rispar",
+          "item": "Essence Stone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Star Crystal Armor",
+          "item": "Starry Shell",
           "rate": "5.0%"
         },
         "special": {
-          "item": "Spiritual bones of another world",
+          "item": "Underworld Bone",
           "rate": "1.0%"
         }
       }
@@ -3024,15 +3024,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "sunshine tooth",
+          "item": "Sunlight Fang",
           "rate": "40.0%"
         },
         "rare": {
-          "item": "Treasure branch of the great tree",
+          "item": "Great Tree Lumber",
           "rate": "40.0%"
         },
         "special": {
-          "item": "Spirit skin of another world",
+          "item": "Underworld Hide",
           "rate": "40.0%"
         }
       }
@@ -3048,15 +3048,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "moon shadow wing",
+          "item": "Lunar Wings",
           "rate": "40.0%"
         },
         "rare": {
-          "item": "Strong acidic hard liquid",
+          "item": "Acidic Liquid",
           "rate": "40.0%"
         },
         "special": {
-          "item": "Spirit skin of another world",
+          "item": "Underworld Hide",
           "rate": "40.0%"
         }
       }
@@ -3073,15 +3073,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "Pangu flower",
+          "item": "Ancient Flower",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Treasure branch of the great tree",
+          "item": "Great Tree Lumber",
           "rate": "5.0%"
         },
         "special": {
-          "item": "Spiritual bones of another world",
+          "item": "Underworld Bone",
           "rate": "1.0%"
         }
       }
@@ -3097,15 +3097,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Strong acidic hard liquid",
+          "item": "Acidic Liquid",
           "rate": "40.0%"
         },
         "rare": {
-          "item": "Spirit skin of another world",
+          "item": "Underworld Hide",
           "rate": "40.0%"
         },
         "special": {
-          "item": "Spiritual bones of another world",
+          "item": "Underworld Bone",
           "rate": "40.0%"
         }
       }
@@ -3121,15 +3121,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "moon shadow wing",
+          "item": "Lunar Wings",
           "rate": "40.0%"
         },
         "rare": {
-          "item": "Spiritual bones of another world",
+          "item": "Underworld Bone",
           "rate": "40.0%"
         },
         "special": {
-          "item": "Spirit skin of another world",
+          "item": "Underworld Hide",
           "rate": "40.0%"
         }
       }
@@ -3148,15 +3148,15 @@
       "region_count": 4,
       "drops": {
         "common": {
-          "item": "dragonite",
+          "item": "Dragon Crest Stone",
           "rate": "40.0%"
         },
         "rare": {
-          "item": "Spiritual bones of another world",
+          "item": "Underworld Bone",
           "rate": "40.0%"
         },
         "special": {
-          "item": "Goryu's heavy shell",
+          "item": "Saurian Carapace",
           "rate": "5.0%"
         }
       }
@@ -3172,15 +3172,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Strong acidic hard liquid",
+          "item": "Acidic Liquid",
           "rate": "40.0%"
         },
         "rare": {
-          "item": "Spiritual bones of another world",
+          "item": "Underworld Bone",
           "rate": "40.0%"
         },
         "special": {
-          "item": "Spirit skin of another world",
+          "item": "Underworld Hide",
           "rate": "40.0%"
         }
       }
@@ -3196,15 +3196,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "dragonite",
+          "item": "Dragon Crest Stone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Spiritual bones of another world",
+          "item": "Underworld Bone",
           "rate": "80.0%"
         },
         "special": {
-          "item": "Goryu's heavy shell",
+          "item": "Saurian Carapace",
           "rate": "10.0%"
         }
       }
@@ -3220,15 +3220,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Senryu's Great Fang",
+          "item": "Saurian Fang",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Spirit skin of another world",
+          "item": "Underworld Hide",
           "rate": "80.0%"
         },
         "special": {
-          "item": "Goryu's heavy shell",
+          "item": "Saurian Carapace",
           "rate": "15.0%"
         }
       }
@@ -3244,15 +3244,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Treasure branch of the great tree",
+          "item": "Great Tree Lumber",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Spirit skin of another world",
+          "item": "Underworld Hide",
           "rate": "80.0%"
         },
         "special": {
-          "item": "Goryu's heavy shell",
+          "item": "Saurian Carapace",
           "rate": "15.0%"
         }
       }
@@ -3268,15 +3268,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Strong acidic hard liquid",
+          "item": "Acidic Liquid",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Spirit skin of another world",
+          "item": "Underworld Hide",
           "rate": "80.0%"
         },
         "special": {
-          "item": "Goryu's heavy shell",
+          "item": "Saurian Carapace",
           "rate": "20.0%"
         }
       }
@@ -3292,15 +3292,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "dragonite",
+          "item": "Dragon Crest Stone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Spiritual bones of another world",
+          "item": "Underworld Bone",
           "rate": "80.0%"
         },
         "special": {
-          "item": "Goryu's heavy shell",
+          "item": "Saurian Carapace",
           "rate": "20.0%"
         }
       }
@@ -3317,15 +3317,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "Senryu's Great Fang",
+          "item": "Saurian Fang",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Spiritual bones of another world",
+          "item": "Underworld Bone",
           "rate": "80.0%"
         },
         "special": {
-          "item": "Goryu's heavy shell",
+          "item": "Saurian Carapace",
           "rate": "25.0%"
         }
       }
@@ -3341,15 +3341,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "dragonite",
+          "item": "Dragon Crest Stone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Spiritual bones of another world",
+          "item": "Underworld Bone",
           "rate": "80.0%"
         },
         "special": {
-          "item": "Goryu's heavy shell",
+          "item": "Saurian Carapace",
           "rate": "25.0%"
         }
       }
@@ -3365,15 +3365,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Spiritual bones of another world",
+          "item": "Underworld Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Spirit skin of another world",
+          "item": "Underworld Hide",
           "rate": "80.0%"
         },
         "special": {
-          "item": "Goryu's heavy shell",
+          "item": "Saurian Carapace",
           "rate": "25.0%"
         }
       }
@@ -3389,15 +3389,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Spiritual bones of another world",
+          "item": "Underworld Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Spirit skin of another world",
+          "item": "Underworld Hide",
           "rate": "80.0%"
         },
         "special": {
-          "item": "Goryu's heavy shell",
+          "item": "Saurian Carapace",
           "rate": "30.0%"
         }
       }
@@ -3413,15 +3413,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Spiritual bones of another world",
+          "item": "Underworld Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Spirit skin of another world",
+          "item": "Underworld Hide",
           "rate": "80.0%"
         },
         "special": {
-          "item": "Goryu's heavy shell",
+          "item": "Saurian Carapace",
           "rate": "30.0%"
         }
       }
@@ -3438,15 +3438,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "strong bones",
+          "item": "Sturdy Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "5.0%"
         },
         "special": {
-          "item": "Pangu bones",
+          "item": "Ancient Bone",
           "rate": "1.0%"
         }
       }
@@ -3463,15 +3463,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "Glittering mucus",
+          "item": "Sparkling Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Pangu skin",
+          "item": "Ancient Hide",
           "rate": "40.0%"
         },
         "special": {
-          "item": "Pangu slime",
+          "item": "Ancient Mucus",
           "rate": "20.0%"
         }
       }
@@ -3487,11 +3487,11 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Pangu slime",
+          "item": "Ancient Mucus",
           "rate": "5.0%"
         },
         "special": {
@@ -3512,11 +3512,11 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "bending twig",
+          "item": "Flexible Branch",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "lateca resin",
+          "item": "Lateka Resin",
           "rate": "5.0%"
         },
         "special": {
@@ -3537,15 +3537,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "cloudy mucus",
+          "item": "Murky Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "thick skin",
+          "item": "Thick Hide",
           "rate": "5.0%"
         },
         "special": {
-          "item": "clear mucus",
+          "item": "Sterile Mucus",
           "rate": "1.0%"
         }
       }
@@ -3561,15 +3561,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "cloudy mucus",
+          "item": "Murky Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "thick skin",
+          "item": "Thick Hide",
           "rate": "15.0%"
         },
         "special": {
-          "item": "stalactite",
+          "item": "Stalactite",
           "rate": "5.0%"
         }
       }
@@ -3585,15 +3585,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Glittering mucus",
+          "item": "Sparkling Mucus",
           "rate": "5.0%"
         },
         "special": {
-          "item": "evil crest shell",
+          "item": "Accursed Shell",
           "rate": "5.0%"
         }
       }
@@ -3609,15 +3609,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Pangu skin",
+          "item": "Ancient Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Pangu slime",
+          "item": "Ancient Mucus",
           "rate": "40.0%"
         },
         "special": {
-          "item": "rigid fiber",
+          "item": "Hard Fiber",
           "rate": "5.0%"
         }
       }
@@ -3633,15 +3633,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "beast skin",
+          "item": "Beast Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Glittering mucus",
+          "item": "Sparkling Mucus",
           "rate": "15.0%"
         },
         "special": {
-          "item": "Zhan Gangyu",
+          "item": "Razor Feather",
           "rate": "5.0%"
         }
       }
@@ -3657,11 +3657,11 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "glossy wood",
+          "item": "Sturdy Lumber",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "shining leaves",
+          "item": "Sparkling Leaf",
           "rate": "15.0%"
         },
         "special": {
@@ -3682,15 +3682,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "beast skin",
+          "item": "Beast Hide",
           "rate": "80.0%"
         },
         "special": {
-          "item": "tektite ore",
+          "item": "Tectite Ore",
           "rate": "80.0%"
         }
       }
@@ -3707,15 +3707,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "beast skin",
+          "item": "Beast Hide",
           "rate": "80.0%"
         },
         "special": {
-          "item": "warm wood",
+          "item": "Warm Lumber",
           "rate": "80.0%"
         }
       }
@@ -3731,15 +3731,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Pangu slime",
+          "item": "Ancient Mucus",
           "rate": "5.0%"
         },
         "special": {
-          "item": "Pangu bones",
+          "item": "Ancient Bone",
           "rate": "1.0%"
         }
       }
@@ -3756,15 +3756,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "Pangu slime",
+          "item": "Ancient Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Pangu bones",
+          "item": "Ancient Bone",
           "rate": "15.0%"
         },
         "special": {
-          "item": "Star Crystal Armor",
+          "item": "Starry Shell",
           "rate": "1.0%"
         }
       }
@@ -3782,15 +3782,15 @@
       "region_count": 3,
       "drops": {
         "common": {
-          "item": "Pangu skin",
+          "item": "Ancient Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Pangu bones",
+          "item": "Ancient Bone",
           "rate": "5.0%"
         },
         "special": {
-          "item": "moon shadow wing",
+          "item": "Lunar Wings",
           "rate": "1.0%"
         }
       }
@@ -3806,15 +3806,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Rispar",
+          "item": "Essence Stone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "dragonite",
+          "item": "Dragon Crest Stone",
           "rate": "5.0%"
         },
         "special": {
-          "item": "sunshine tooth",
+          "item": "Sunlight Fang",
           "rate": "1.0%"
         }
       }
@@ -3831,15 +3831,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "Rispar",
+          "item": "Essence Stone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "dragonite",
+          "item": "Dragon Crest Stone",
           "rate": "15.0%"
         },
         "special": {
-          "item": "Star Crystal Armor",
+          "item": "Starry Shell",
           "rate": "5.0%"
         }
       }
@@ -3857,15 +3857,15 @@
       "region_count": 3,
       "drops": {
         "common": {
-          "item": "strong bones",
+          "item": "Sturdy Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Iron ore",
+          "item": "Iron Ore",
           "rate": "5.0%"
         },
         "special": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "1.0%"
         }
       }
@@ -3881,15 +3881,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "beautiful flowers",
+          "item": "Beautiful Flower",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Glittering mucus",
+          "item": "Sparkling Mucus",
           "rate": "5.0%"
         },
         "special": {
-          "item": "shining leaves",
+          "item": "Sparkling Leaf",
           "rate": "1.0%"
         }
       }
@@ -3905,15 +3905,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "evil crest shell",
+          "item": "Accursed Shell",
           "rate": "15.0%"
         },
         "special": {
-          "item": "dragon scales",
+          "item": "Saurian Scale",
           "rate": "1.0%"
         }
       }
@@ -3929,15 +3929,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "beast skin",
+          "item": "Beast Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "15.0%"
         },
         "special": {
-          "item": "dragon scales",
+          "item": "Saurian Scale",
           "rate": "5.0%"
         }
       }
@@ -3955,15 +3955,15 @@
       "region_count": 3,
       "drops": {
         "common": {
-          "item": "beast skin",
+          "item": "Beast Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "evil crest shell",
+          "item": "Accursed Shell",
           "rate": "15.0%"
         },
         "special": {
-          "item": "Blue Sky Feather",
+          "item": "Blue Feather",
           "rate": "5.0%"
         }
       }
@@ -3980,15 +3980,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "dragon scales",
+          "item": "Saurian Scale",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Strong acidic hard liquid",
+          "item": "Acidic Liquid",
           "rate": "60.0%"
         },
         "special": {
-          "item": "Senryu's Great Fang",
+          "item": "Saurian Fang",
           "rate": "40.0%"
         }
       }
@@ -4005,15 +4005,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "Pangu bones",
+          "item": "Ancient Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "dragon scales",
+          "item": "Saurian Scale",
           "rate": "15.0%"
         },
         "special": {
-          "item": "moon shadow wing",
+          "item": "Lunar Wings",
           "rate": "5.0%"
         }
       }
@@ -4029,15 +4029,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Thunderclaw",
+          "item": "Thunder Claw",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "dragon scales",
+          "item": "Saurian Scale",
           "rate": "15.0%"
         },
         "special": {
-          "item": "sunshine tooth",
+          "item": "Sunlight Fang",
           "rate": "1.0%"
         }
       }
@@ -4053,15 +4053,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Senryu's Great Fang",
+          "item": "Saurian Fang",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Aura grass",
+          "item": "Aura Grass",
           "rate": "60.0%"
         },
         "special": {
-          "item": "Goryu's heavy shell",
+          "item": "Saurian Carapace",
           "rate": "40.0%"
         }
       }
@@ -4079,15 +4079,15 @@
       "region_count": 3,
       "drops": {
         "common": {
-          "item": "dragon scales",
+          "item": "Saurian Scale",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Thunderclaw",
+          "item": "Thunder Claw",
           "rate": "60.0%"
         },
         "special": {
-          "item": "sunshine tooth",
+          "item": "Sunlight Fang",
           "rate": "20.0%"
         }
       }
@@ -4105,15 +4105,15 @@
       "region_count": 3,
       "drops": {
         "common": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "evil crest shell",
+          "item": "Accursed Shell",
           "rate": "15.0%"
         },
         "special": {
-          "item": "dragon scales",
+          "item": "Saurian Scale",
           "rate": "5.0%"
         }
       }
@@ -4129,15 +4129,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Pangu bones",
+          "item": "Ancient Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "dragon scales",
+          "item": "Saurian Scale",
           "rate": "40.0%"
         },
         "special": {
-          "item": "Star Crystal Armor",
+          "item": "Starry Shell",
           "rate": "10.0%"
         }
       }
@@ -4153,15 +4153,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "evil crest shell",
+          "item": "Accursed Shell",
           "rate": "20.0%"
         },
         "special": {
-          "item": "dragon scales",
+          "item": "Saurian Scale",
           "rate": "10.0%"
         }
       }
@@ -4178,15 +4178,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "beast skin",
+          "item": "Beast Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "15.0%"
         },
         "special": {
-          "item": "dragon scales",
+          "item": "Saurian Scale",
           "rate": "1.0%"
         }
       }
@@ -4202,15 +4202,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "beast skin",
+          "item": "Beast Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "evil crest shell",
+          "item": "Accursed Shell",
           "rate": "15.0%"
         },
         "special": {
-          "item": "dragon scales",
+          "item": "Saurian Scale",
           "rate": "1.0%"
         }
       }
@@ -4233,15 +4233,15 @@
       "region_count": 8,
       "drops": {
         "common": {
-          "item": "Pangu skin",
+          "item": "Ancient Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Thunderclaw",
+          "item": "Thunder Claw",
           "rate": "15.0%"
         },
         "special": {
-          "item": "sunshine tooth",
+          "item": "Sunlight Fang",
           "rate": "5.0%"
         }
       }
@@ -4260,15 +4260,15 @@
       "region_count": 4,
       "drops": {
         "common": {
-          "item": "dragon scales",
+          "item": "Saurian Scale",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "moon shadow wing",
+          "item": "Lunar Wings",
           "rate": "40.0%"
         },
         "special": {
-          "item": "Senryu's Great Fang",
+          "item": "Saurian Fang",
           "rate": "20.0%"
         }
       }
@@ -4288,15 +4288,15 @@
       "region_count": 5,
       "drops": {
         "common": {
-          "item": "Star Crystal Armor",
+          "item": "Starry Shell",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Senryu's Great Fang",
+          "item": "Saurian Fang",
           "rate": "60.0%"
         },
         "special": {
-          "item": "Goryu's heavy shell",
+          "item": "Saurian Carapace",
           "rate": "5.0%"
         }
       }
@@ -4313,15 +4313,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "beast skin",
+          "item": "Beast Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "diamond shell",
+          "item": "Diamond Shell",
           "rate": "5.0%"
         },
         "special": {
-          "item": "dragon scales",
+          "item": "Saurian Scale",
           "rate": "5.0%"
         }
       }
@@ -4338,15 +4338,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "Kentoga",
+          "item": "Sword Tip Fang",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Thunderclaw",
+          "item": "Thunder Claw",
           "rate": "5.0%"
         },
         "special": {
-          "item": "dragon scales",
+          "item": "Saurian Scale",
           "rate": "1.0%"
         }
       }
@@ -4362,15 +4362,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Pangu bones",
+          "item": "Ancient Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "dragon scales",
+          "item": "Saurian Scale",
           "rate": "40.0%"
         },
         "special": {
-          "item": "sunshine tooth",
+          "item": "Sunlight Fang",
           "rate": "20.0%"
         }
       }
@@ -4386,15 +4386,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Pangu skin",
+          "item": "Ancient Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "dragon scales",
+          "item": "Saurian Scale",
           "rate": "40.0%"
         },
         "special": {
-          "item": "Star Crystal Armor",
+          "item": "Starry Shell",
           "rate": "20.0%"
         }
       }
@@ -4410,15 +4410,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "Pangu slime",
+          "item": "Ancient Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "dragon scales",
+          "item": "Saurian Scale",
           "rate": "40.0%"
         },
         "special": {
-          "item": "Senryu's Great Fang",
+          "item": "Saurian Fang",
           "rate": "20.0%"
         }
       }
@@ -4434,15 +4434,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "beautiful flowers",
+          "item": "Beautiful Flower",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "clear mucus",
+          "item": "Sterile Mucus",
           "rate": "5.0%"
         },
         "special": {
-          "item": "shining leaves",
+          "item": "Sparkling Leaf",
           "rate": "1.0%"
         }
       }
@@ -4458,11 +4458,11 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "beautiful flowers",
+          "item": "Beautiful Flower",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "foxglove leaves",
+          "item": "Digitalis Leaf",
           "rate": "5.0%"
         },
         "special": {
@@ -4483,15 +4483,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "strong bones",
+          "item": "Sturdy Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "solid shell",
+          "item": "Strong Shell",
           "rate": "5.0%"
         },
         "special": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "1.0%"
         }
       }
@@ -4508,15 +4508,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "clear mucus",
+          "item": "Sterile Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "warm wood",
+          "item": "Warm Lumber",
           "rate": "5.0%"
         },
         "special": {
-          "item": "Glittering mucus",
+          "item": "Sparkling Mucus",
           "rate": "1.0%"
         }
       }
@@ -4533,15 +4533,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "strong bones",
+          "item": "Sturdy Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "solid shell",
+          "item": "Strong Shell",
           "rate": "5.0%"
         },
         "special": {
-          "item": "evil crest shell",
+          "item": "Accursed Shell",
           "rate": "1.0%"
         }
       }
@@ -4557,15 +4557,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "clear mucus",
+          "item": "Sterile Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "beast skin",
+          "item": "Beast Hide",
           "rate": "5.0%"
         },
         "special": {
-          "item": "Glittering mucus",
+          "item": "Sparkling Mucus",
           "rate": "1.0%"
         }
       }
@@ -4581,15 +4581,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "light bones",
+          "item": "Light Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "strong bones",
+          "item": "Sturdy Bone",
           "rate": "15.0%"
         },
         "special": {
-          "item": "wing quill",
+          "item": "Remex",
           "rate": "5.0%"
         }
       }
@@ -4605,15 +4605,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "thick skin",
+          "item": "Thick Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "wing quill",
+          "item": "Remex",
           "rate": "40.0%"
         },
         "special": {
-          "item": "Zhan Gangyu",
+          "item": "Razor Feather",
           "rate": "40.0%"
         }
       }
@@ -4630,15 +4630,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Glittering mucus",
+          "item": "Sparkling Mucus",
           "rate": "40.0%"
         },
         "special": {
-          "item": "diamond shell",
+          "item": "Diamond Shell",
           "rate": "20.0%"
         }
       }
@@ -4654,15 +4654,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "strong bones",
+          "item": "Sturdy Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "15.0%"
         },
         "special": {
-          "item": "evil crest shell",
+          "item": "Accursed Shell",
           "rate": "5.0%"
         }
       }
@@ -4678,15 +4678,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "coconut palm",
+          "item": "Coconut",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "mango",
+          "item": "Mango",
           "rate": "5.0%"
         },
         "special": {
-          "item": "Dragonfruit",
+          "item": "Dragon Tree Fruit",
           "rate": "1.0%"
         }
       }
@@ -4703,11 +4703,11 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "ripe coconut",
+          "item": "Ripe Coconut",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "ripe mango",
+          "item": "Ripe Mango",
           "rate": "40.0%"
         },
         "special": {
@@ -4738,11 +4738,11 @@
       "region_count": 12,
       "drops": {
         "common": {
-          "item": "cloudy mucus",
+          "item": "Murky Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "clear mucus",
+          "item": "Sterile Mucus",
           "rate": "5.0%"
         },
         "special": {
@@ -4772,15 +4772,15 @@
       "region_count": 11,
       "drops": {
         "common": {
-          "item": "cloudy mucus",
+          "item": "Murky Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "clear mucus",
+          "item": "Sterile Mucus",
           "rate": "15.0%"
         },
         "special": {
-          "item": "Glory scales",
+          "item": "Lustrous Scale",
           "rate": "5.0%"
         }
       }
@@ -4806,15 +4806,15 @@
       "region_count": 11,
       "drops": {
         "common": {
-          "item": "clear mucus",
+          "item": "Sterile Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Glory scales",
+          "item": "Lustrous Scale",
           "rate": "15.0%"
         },
         "special": {
-          "item": "bitter elixir",
+          "item": "Bitter Remedy",
           "rate": "5.0%"
         }
       }
@@ -4840,15 +4840,15 @@
       "region_count": 11,
       "drops": {
         "common": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "beast skin",
+          "item": "Beast Hide",
           "rate": "15.0%"
         },
         "special": {
-          "item": "tektite ore",
+          "item": "Tectite Ore",
           "rate": "5.0%"
         }
       }
@@ -4875,15 +4875,15 @@
       "region_count": 12,
       "drops": {
         "common": {
-          "item": "clear mucus",
+          "item": "Sterile Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Glittering mucus",
+          "item": "Sparkling Mucus",
           "rate": "15.0%"
         },
         "special": {
-          "item": "Pangu slime",
+          "item": "Ancient Mucus",
           "rate": "5.0%"
         }
       }
@@ -4910,15 +4910,15 @@
       "region_count": 12,
       "drops": {
         "common": {
-          "item": "beast skin",
+          "item": "Beast Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Pangu skin",
+          "item": "Ancient Hide",
           "rate": "60.0%"
         },
         "special": {
-          "item": "Pangu slime",
+          "item": "Ancient Mucus",
           "rate": "40.0%"
         }
       }
@@ -4944,15 +4944,15 @@
       "region_count": 11,
       "drops": {
         "common": {
-          "item": "Pangu bones",
+          "item": "Ancient Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "diamond shell",
+          "item": "Diamond Shell",
           "rate": "5.0%"
         },
         "special": {
-          "item": "dragonite",
+          "item": "Dragon Crest Stone",
           "rate": "1.0%"
         }
       }
@@ -4978,15 +4978,15 @@
       "region_count": 11,
       "drops": {
         "common": {
-          "item": "Strong acidic hard liquid",
+          "item": "Acidic Liquid",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Aura grass",
+          "item": "Aura Grass",
           "rate": "5.0%"
         },
         "special": {
-          "item": "elixir of life",
+          "item": "Life Elixir",
           "rate": "1.0%"
         }
       }
@@ -5015,15 +5015,15 @@
       "region_count": 14,
       "drops": {
         "common": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Pangu bones",
+          "item": "Ancient Bone",
           "rate": "15.0%"
         },
         "special": {
-          "item": "dragonite",
+          "item": "Dragon Crest Stone",
           "rate": "5.0%"
         }
       }
@@ -5049,15 +5049,15 @@
       "region_count": 11,
       "drops": {
         "common": {
-          "item": "elixir of power",
+          "item": "Power Elixir",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Guardian's elixir",
+          "item": "Defense Elixir",
           "rate": "80.0%"
         },
         "special": {
-          "item": "elixir of life",
+          "item": "Life Elixir",
           "rate": "80.0%"
         }
       }
@@ -5103,15 +5103,15 @@
       "region_count": 5,
       "drops": {
         "common": {
-          "item": "strange lump",
+          "item": "Strange Mass",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Iron ore",
+          "item": "Iron Ore",
           "rate": "40.0%"
         },
         "special": {
-          "item": "tektite ore",
+          "item": "Tectite Ore",
           "rate": "20.0%"
         }
       }
@@ -5130,15 +5130,15 @@
       "region_count": 4,
       "drops": {
         "common": {
-          "item": "Glittering mucus",
+          "item": "Sparkling Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Pangu slime",
+          "item": "Ancient Mucus",
           "rate": "20.0%"
         },
         "special": {
-          "item": "glow rock",
+          "item": "Glow Rock",
           "rate": "5.0%"
         }
       }
@@ -5158,15 +5158,15 @@
       "region_count": 5,
       "drops": {
         "common": {
-          "item": "shining leaves",
+          "item": "Sparkling Leaf",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Pangu flower",
+          "item": "Ancient Flower",
           "rate": "20.0%"
         },
         "special": {
-          "item": "moonlight grass",
+          "item": "Moonlight Grass",
           "rate": "5.0%"
         }
       }
@@ -5184,15 +5184,15 @@
       "region_count": 3,
       "drops": {
         "common": {
-          "item": "tektite ore",
+          "item": "Tectite Ore",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Rispar",
+          "item": "Essence Stone",
           "rate": "20.0%"
         },
         "special": {
-          "item": "mental armor",
+          "item": "Essence Panzer",
           "rate": "5.0%"
         }
       }
@@ -5211,15 +5211,15 @@
       "region_count": 4,
       "drops": {
         "common": {
-          "item": "tektite ore",
+          "item": "Tectite Ore",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Rispar",
+          "item": "Essence Stone",
           "rate": "20.0%"
         },
         "special": {
-          "item": "diamond shell",
+          "item": "Diamond Shell",
           "rate": "5.0%"
         }
       }
@@ -5240,15 +5240,15 @@
       "region_count": 6,
       "drops": {
         "common": {
-          "item": "thick skin",
+          "item": "Thick Hide",
           "rate": "50.0%"
         },
         "rare": {
-          "item": "beast skin",
+          "item": "Beast Hide",
           "rate": "20.0%"
         },
         "special": {
-          "item": "beast bone",
+          "item": "Beast Bone",
           "rate": "20.0%"
         }
       }
@@ -5269,15 +5269,15 @@
       "region_count": 6,
       "drops": {
         "common": {
-          "item": "tektite ore",
+          "item": "Tectite Ore",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Rispar",
+          "item": "Essence Stone",
           "rate": "2.0%"
         },
         "special": {
-          "item": "mental armor",
+          "item": "Essence Panzer",
           "rate": "10.0%"
         }
       }
@@ -5297,15 +5297,15 @@
       "region_count": 5,
       "drops": {
         "common": {
-          "item": "Glittering mucus",
+          "item": "Sparkling Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "moon shadow wing",
+          "item": "Lunar Wings",
           "rate": "20.0%"
         },
         "special": {
-          "item": "Rivera's Immortal Flower",
+          "item": "Rivera's Undying Flower",
           "rate": "5.0%"
         }
       }
@@ -5324,15 +5324,15 @@
       "region_count": 4,
       "drops": {
         "common": {
-          "item": "Pangu bones",
+          "item": "Ancient Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "Star Crystal Armor",
+          "item": "Starry Shell",
           "rate": "20.0%"
         },
         "special": {
-          "item": "Spiritual bones of another world",
+          "item": "Underworld Bone",
           "rate": "1.0%"
         }
       }
@@ -5349,15 +5349,15 @@
       "region_count": 2,
       "drops": {
         "common": {
-          "item": "light bones",
+          "item": "Light Bone",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "strange lump",
+          "item": "Strange Mass",
           "rate": "5.0%"
         },
         "special": {
-          "item": "clear mucus",
+          "item": "Sterile Mucus",
           "rate": "5.0%"
         }
       }
@@ -5373,15 +5373,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "thick skin",
+          "item": "Thick Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "wing quill",
+          "item": "Remex",
           "rate": "5.0%"
         },
         "special": {
-          "item": "Zhan Gangyu",
+          "item": "Razor Feather",
           "rate": "1.0%"
         }
       }
@@ -5400,15 +5400,15 @@
       "region_count": 4,
       "drops": {
         "common": {
-          "item": "clear mucus",
+          "item": "Sterile Mucus",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "stalactite",
+          "item": "Stalactite",
           "rate": "20.0%"
         },
         "special": {
-          "item": "Bullfrodon mucus",
+          "item": "Bullfrodon Mucus",
           "rate": "20.0%"
         }
       }
@@ -5424,15 +5424,15 @@
       "region_count": 1,
       "drops": {
         "common": {
-          "item": "thin skin",
+          "item": "Thin Hide",
           "rate": "80.0%"
         },
         "rare": {
-          "item": "thick skin",
+          "item": "Thick Hide",
           "rate": "5.0%"
         },
         "special": {
-          "item": "wing quill",
+          "item": "Remex",
           "rate": "1.0%"
         }
       }

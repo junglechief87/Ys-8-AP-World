@@ -674,7 +674,97 @@ event_location_table: Dict[str, Ys8LocationData] = {
     "Vista Ridge Vista Ridge Lower Master Kong Adol": Ys8LocationData("Vista Ridge", 10031, None),
     "Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma": Ys8LocationData("Former Sanctuary Crypt", 10032, None),
     "East Coast Cave East Coast Cave Gilkyra Encounter": Ys8LocationData("East Coast Cave Before Gilkyra", 10033, None),
-    "Valley of Kings Entrance Force Garmr Encounter": Ys8LocationData("Valley of Kings Entrance", 10034, None)
+    "Valley of Kings Entrance Force Garmr Encounter": Ys8LocationData("Valley of Kings Entrance", 10034, None),
+    # Grind area access events
+    "Towering Coral Forest Front Grind Access": Ys8LocationData("Towering Coral Forest Front", 10035, None),
+    "Eroded Valley Front Grind Access": Ys8LocationData("Eroded Valley Front", 10036, None),
+    "Schlamm Jungle Front Grind Access": Ys8LocationData("Schlamm Jungle Front", 10037, None),
+    "Mont Gendarme Front Grind Access": Ys8LocationData("Mont Gendarme Front", 10038, None),
+    "Western Foot of Gendarme Grind Access": Ys8LocationData("Western Foot of Gendarme", 10039, None),
+    "Seiren North Access Grind Access": Ys8LocationData("Seiren North Access", 10040, None),
+    "Temple of the Great Tree Grind Access": Ys8LocationData("Temple of the Great Tree", 10041, None),
+    "Towal Highway Grind Access": Ys8LocationData("Towal Highway", 10042, None),
+    "Baja Tower Lower Floors Grind Access": Ys8LocationData("Baja Tower Lower Floors", 10043, None),
+    "Nostalgia Cape Area Grind Access": Ys8LocationData("Nostalgia Cape Area", 10044, None),
+    "Archeozoic Chasm Front Grind Access": Ys8LocationData("Archeozoic Chasm Front", 10045, None),
+    "Lodinia Marshlands Entrance Grind Access": Ys8LocationData("Lodinia Marshlands Entrance", 10046, None),
+    "Bolado Monastery Grind Access": Ys8LocationData("Bolado Monastery", 10047, None),
+    "Valley of Kings Entrance Grind Access": Ys8LocationData("Valley of Kings Entrance", 10048, None),
+    "Silent Tower Grind Access": Ys8LocationData("Silent Tower", 10049, None),
+    "Octus Overlook Grind Access": Ys8LocationData("Octus Overlook", 10050, None),
+    # Rear-entrance grind access events (for areas reachable from both ends)
+    "Towering Coral Forest Boss Area Grind Access": Ys8LocationData("Towering Coral Forest Boss Area", 10051, None),
+    "Eroded Valley Before Boss Grind Access": Ys8LocationData("Eroded Valley Before Boss", 10052, None),
+    "Schlamm Jungle Before Boss Grind Access": Ys8LocationData("Schlamm Jungle Before Boss", 10053, None),
+    "Mont Gendarme Upper Grind Access": Ys8LocationData("Mont Gendarme Upper", 10054, None),
+    "Lodinia Marshlands Near Sky Garden Grind Access": Ys8LocationData("Lodinia Marshlands Near Sky Garden", 10055, None),
+    # Material farming access events
+    # Iron Ore — item points: Eroded Valley (10–20%), Towering Coral Forest (10%)
+    "Iron Ore Farming - Eroded Valley": Ys8LocationData("Eroded Valley Front", 10056, None),
+    "Iron Ore Farming - Towering Coral Forest": Ys8LocationData("Towering Coral Forest Front", 10057, None),
+    # Tektite Ore — item points: Western Foot of Gendarme (10%), Mont Gendarme (10%), Towal Highway (10%)
+    "Tektite Ore Farming - Western Foot of Gendarme": Ys8LocationData("Western Foot of Gendarme", 10058, None),
+    "Tektite Ore Farming - Mont Gendarme": Ys8LocationData("Mont Gendarme Front", 10059, None),
+    "Tektite Ore Farming - Towal Highway": Ys8LocationData("Towal Highway", 10060, None),
+    # Essence Stone — enemy drops: Baja Tower M0623 Masquard 15%, Valley of Kings M0642 80%
+    "Essence Stone Farming - Baja Tower": Ys8LocationData("Baja Tower Lower Floors", 10061, None),
+    "Essence Stone Farming - Valley of Kings": Ys8LocationData("Valley of Kings Entrance", 10062, None),
+    # Dragon Crest Stone — enemy drops: Valley of Kings M0642 10%, Silent Tower M0942 15%
+    "Dragon Crest Stone Farming - Valley of Kings": Ys8LocationData("Valley of Kings Entrance", 10063, None),
+    "Dragon Crest Stone Farming - Silent Tower": Ys8LocationData("Silent Tower", 10064, None),
+    # Ancient Bone — enemy drops: TotGT M0680 Ratnilarda 80%, AC M0663 Dornicle 80%
+    "Ancient Bone Farming - Temple of the Great Tree": Ys8LocationData("Temple of the Great Tree", 10065, None),
+    "Ancient Bone Farming - Archeozoic Chasm": Ys8LocationData("Archeozoic Chasm Front", 10066, None),
+    # Ancient Hide — enemy drops: Waterdrop Cave M1405 Specklamander 60%, Nostalgia Cape M1405 60%
+    "Ancient Hide Farming - Waterdrop Cave": Ys8LocationData("Waterdrop Cave", 10067, None),
+    "Ancient Hide Farming - Nostalgia Cape": Ys8LocationData("Nostalgia Cape Area", 10068, None),
+    # Saurian Scale — enemy drops: GRV M1010 Gigantyrannus 80%, Towal Highway M1021 Primarivaur 80%
+    "Saurian Scale Farming - Great River Valley": Ys8LocationData("Great River Valley Area", 10069, None),
+    "Saurian Scale Farming - Towal Highway": Ys8LocationData("Towal Highway", 10070, None),
+    # Underworld Hide / Bone — Octus Overlook Vula-Menua/Marut variants 80% (only realistic source)
+    "Underworld Hide Farming - Octus Overlook": Ys8LocationData("Octus Overlook", 10071, None),
+    "Underworld Bone Farming - Octus Overlook": Ys8LocationData("Octus Overlook", 10072, None),
+    # Beast Hide — enemy drops: Schlamm Jungle M0300 Shabil 80%, WF Gendarme M0302 Badessa 80%
+    "Beast Hide Farming - Schlamm Jungle": Ys8LocationData("Schlamm Jungle Front", 10073, None),
+    "Beast Hide Farming - Western Foot of Gendarme": Ys8LocationData("Western Foot of Gendarme", 10074, None),
+    # Beast Bone — enemy drops: East Coast Cave M0700 Gibo 80%, Vista Ridge M0504 Gilaaf 80%
+    "Beast Bone Farming - East Coast Cave": Ys8LocationData("East Coast Cave Before Gilkyra", 10075, None),
+    "Beast Bone Farming - Vista Ridge": Ys8LocationData("Vista Ridge", 10076, None),
+    # Dandale Horn — M0605 Dandale in Lodinia Marshland (Past) 10%; LM Near Sky Garden is closest present-day proxy
+    "Dandale Horn Farming - Lodinia Marshlands": Ys8LocationData("Lodinia Marshlands Near Sky Garden", 10077, None),
+    # Beautiful Flower — Nameless Coast item points; always accessible
+    "Beautiful Flower Farming - Nameless Coast": Ys8LocationData("Calm Inlet Area", 10078, None),
+    # Stalactite — Nameless Coast item points; always accessible
+    "Stalactite Farming - Nameless Coast": Ys8LocationData("Calm Inlet Area", 10079, None),
+    # Glow Rock — TCF Night (t2) item points; requires Glow Stone (CIA → TCF Night)
+    "Glow Rock Farming - TCF Night": Ys8LocationData("Towering Coral Forest (Night) Front Half", 10080, None),
+    # Flexible Branch — M0124 Larfo TCF Night Front 80%; M0910 Cramatange Waterfall Grotto Dark Area 80%
+    "Flexible Branch Farming - TCF Night": Ys8LocationData("Towering Coral Forest (Night) Front Half", 10081, None),
+    "Flexible Branch Farming - Waterfall Grotto": Ys8LocationData("Waterfall Grotto Dark Area", 10082, None),
+    # Beast Claw — M0303 Warsadessa Western Foot of Gendarme 80%
+    "Beast Claw Farming - Western Foot of Gendarme": Ys8LocationData("Western Foot of Gendarme", 10083, None),
+    # Razor Feather — M0202 Valquito Schlamm Jungle Front 15% rare
+    "Razor Feather Farming - Schlamm Jungle": Ys8LocationData("Schlamm Jungle Front", 10084, None),
+    # Sword Tip Fang — M0303 Warsadessa Western Foot of Gendarme 40% special
+    "Sword Tip Fang Farming - Western Foot of Gendarme": Ys8LocationData("Western Foot of Gendarme", 10085, None),
+    # Thick Hide — M0302 Badessa WFG 80%; M0300 Shabil Schlamm Jungle Front 80%
+    "Thick Hide Farming - Western Foot of Gendarme": Ys8LocationData("Western Foot of Gendarme", 10086, None),
+    "Thick Hide Farming - Schlamm Jungle": Ys8LocationData("Schlamm Jungle Front", 10087, None),
+    # Lustrous Scale — M1401 Orseapus East Coast Cave Before Gilkyra 5%; Nostalgia Cape 5%
+    "Lustrous Scale Farming - East Coast Cave": Ys8LocationData("East Coast Cave Before Gilkyra", 10088, None),
+    "Lustrous Scale Farming - Nostalgia Cape": Ys8LocationData("Nostalgia Cape Area", 10089, None),
+    # Accursed Shell — M0303 Warsadessa Western Foot of Gendarme 60% special
+    "Accursed Shell Farming - Western Foot of Gendarme": Ys8LocationData("Western Foot of Gendarme", 10090, None),
+    # Thunder Claw — M1010 Gigantyrannus Great River Valley 60%; M0641 Fabnir Valley of Kings Entrance 15%
+    "Thunder Claw Farming - Great River Valley": Ys8LocationData("Great River Valley Area", 10091, None),
+    "Thunder Claw Farming - Valley of Kings": Ys8LocationData("Valley of Kings Entrance", 10092, None),
+    # Ancient Lumber — M0680 Ratnilarda Temple of the Great Tree 10%; M0831 Squeed Octus Overlook 5%
+    "Ancient Lumber Farming - Temple of the Great Tree": Ys8LocationData("Temple of the Great Tree", 10093, None),
+    "Ancient Lumber Farming - Octus Overlook": Ys8LocationData("Octus Overlook", 10094, None),
+    # Night exploration grind access events — higher EXP density than day equivalents
+    "Towering Coral Forest (Night) Grind Access": Ys8LocationData("Towering Coral Forest (Night) Front Half", 10095, None),
+    "Mont Gendarme (Night) Grind Access": Ys8LocationData("Mont Gendarme (Night) Front Half", 10096, None),
+    "Pangaia Plains (Night) Grind Access": Ys8LocationData("Pangaia Plains (Night)", 10097, None),
 }
 
 # === PAST LOCATIONS (PRESERVED FOR REFERENCE) ===

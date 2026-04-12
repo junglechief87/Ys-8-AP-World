@@ -9,7 +9,16 @@ from .Options import Ys8Options
 
 if TYPE_CHECKING:
     from . import Ys8World
-    
+
+# STR values from Level Scaling.csv, keyed by level at intervals of 5.
+# Used with player_level floored to the nearest multiple of 5.
+_GRIND_STR: dict[int, int] = {
+     5:  20, 10:  43, 15:  66, 20:  90, 25: 113,
+    30: 138, 35: 162, 40: 187, 45: 211, 50: 236,
+    55: 260, 60: 285, 65: 310, 70: 335, 75: 359,
+    80: 384, 85: 408, 90: 434, 95: 459,
+}
+
 def set_all_rules(Ys8World: Ys8World):
     set_entrance_rules(Ys8World)
     set_location_rules(Ys8World)
@@ -23,13 +32,173 @@ def has_required_party(state: CollectionState, player: int, party_count: int) ->
 def bosses_defeated(state: CollectionState, player: int) -> int:
     return sum(1 for item, data in event_item_table.items() if data.type == "Boss" and state.has(item, player))
 
-# TODO: implement — returns True if the named material is reachable in the current state
 def material_access(material: str, state: CollectionState, player: int) -> bool:
+    """Returns True if the player can reach a viable farming spot for the named material."""
+    if material == "Iron Ore":
+        # Item points: Eroded Valley (10–20%, many nodes), Towering Coral Forest (10%)
+        return state.has_any({
+            "Material: Iron Ore (Eroded Valley)",
+            "Material: Iron Ore (Towering Coral Forest)",
+        }, player)
+    if material == "Tektite Ore":
+        # Item points: Western Foot of Gendarme (10%), Mont Gendarme (10%), Towal Highway (10%)
+        return state.has_any({
+            "Material: Tektite Ore (Western Foot of Gendarme)",
+            "Material: Tektite Ore (Mont Gendarme)",
+            "Material: Tektite Ore (Towal Highway)",
+        }, player)
+    if material == "Essence Stone":
+        # Enemy drops: Baja Tower M0623 Masquard 15%, Valley of Kings M0642 80%
+        return state.has_any({
+            "Material: Essence Stone (Baja Tower)",
+            "Material: Essence Stone (Valley of Kings)",
+        }, player)
+    if material == "Dragon Crest Stone":
+        # Enemy drops: Valley of Kings M0642 10%, Silent Tower M0942 15%
+        return state.has_any({
+            "Material: Dragon Crest Stone (Valley of Kings)",
+            "Material: Dragon Crest Stone (Silent Tower)",
+        }, player)
+    if material == "Ancient Bone":
+        # Enemy drops: TotGT M0680 Ratnilarda 80% (Dana gate), AC M0663 Dornicle 80% (Frozen Flower gate)
+        return state.has_any({
+            "Material: Ancient Bone (Temple of the Great Tree)",
+            "Material: Ancient Bone (Archeozoic Chasm)",
+        }, player)
+    if material == "Ancient Hide":
+        # Enemy drops: Specklamander M1405 60% in Waterdrop Cave (early) and Nostalgia Cape (AW gate)
+        return state.has_any({
+            "Material: Ancient Hide (Waterdrop Cave)",
+            "Material: Ancient Hide (Nostalgia Cape)",
+        }, player)
+    if material == "Saurian Scale":
+        # Enemy drops: GRV M1010 Gigantyrannus 80% (crew 8/AW gate), Towal Highway M1021 Primarivaur 80% (Dana gate)
+        return state.has_any({
+            "Material: Saurian Scale (Great River Valley)",
+            "Material: Saurian Scale (Towal Highway)",
+        }, player)
+    if material == "Underworld Hide":
+        # Enemy drops: Octus Overlook Vula-Menua variants 80% (only accessible source)
+        return state.has("Material: Underworld Hide (Octus Overlook)", player)
+    if material == "Underworld Bone":
+        # Enemy drops: Octus Overlook Vula-Marut variants 80% (only accessible source)
+        return state.has("Material: Underworld Bone (Octus Overlook)", player)
+    if material == "Beast Hide":
+        # Enemy drops: Schlamm Jungle M0300 Shabil 80% (Float Shoes gate), WF Gendarme M0302 Badessa 80% (crew 11 gate)
+        return state.has_any({
+            "Material: Beast Hide (Schlamm Jungle)",
+            "Material: Beast Hide (Western Foot of Gendarme)",
+        }, player)
+    if material == "Beast Bone":
+        # Enemy drops: East Coast Cave M0700 Gibo 80% (Hidden Pirate Storehouse item), Vista Ridge M0504 Gilaaf 80% (post-TotGT)
+        return state.has_any({
+            "Material: Beast Bone (East Coast Cave)",
+            "Material: Beast Bone (Vista Ridge)",
+        }, player)
+    if material == "Dandale Horn":
+        # M0605 Dandale — Lodinia Marshland (Past) only at 10%; LM Near Sky Garden is the closest present-day proxy
+        return state.has("Material: Dandale Horn (Lodinia Marshlands)", player)
+    if material == "Beautiful Flower":
+        # Nameless Coast item points; always accessible
+        return state.has("Material: Beautiful Flower (Nameless Coast)", player)
+    if material == "Stalactite":
+        # Nameless Coast item points; always accessible
+        return state.has("Material: Stalactite (Nameless Coast)", player)
+    if material == "Glow Rock":
+        # TCF Night (t2) item points; requires Glow Stone (CIA → TCF Night)
+        return state.has("Material: Glow Rock (Towering Coral Forest Night)", player)
+    if material == "Flexible Branch":
+        # M0124 Larfo TCF Night Front 80%; M0910 Cramatange Waterfall Grotto Dark Area 80%
+        return state.has_any({
+            "Material: Flexible Branch (Towering Coral Forest Night)",
+            "Material: Flexible Branch (Waterfall Grotto)",
+        }, player)
+    if material == "Beast Claw":
+        # M0303 Warsadessa Western Foot of Gendarme 80%
+        return state.has("Material: Beast Claw (Western Foot of Gendarme)", player)
+    if material == "Razor Feather":
+        # M0202 Valquito Schlamm Jungle Front 15% rare
+        return state.has("Material: Razor Feather (Schlamm Jungle)", player)
+    if material == "Sword Tip Fang":
+        # M0303 Warsadessa Western Foot of Gendarme 40% special
+        return state.has("Material: Sword Tip Fang (Western Foot of Gendarme)", player)
+    if material == "Thick Hide":
+        # M0302 Badessa WFG 80%; M0300 Shabil Schlamm Jungle Front 80%
+        return state.has_any({
+            "Material: Thick Hide (Western Foot of Gendarme)",
+            "Material: Thick Hide (Schlamm Jungle)",
+        }, player)
+    if material == "Lustrous Scale":
+        # M1401 Orseapus East Coast Cave Before Gilkyra 5%; Nostalgia Cape 5%
+        return state.has_any({
+            "Material: Lustrous Scale (East Coast Cave)",
+            "Material: Lustrous Scale (Nostalgia Cape)",
+        }, player)
+    if material == "Accursed Shell":
+        # M0303 Warsadessa Western Foot of Gendarme 60% special
+        return state.has("Material: Accursed Shell (Western Foot of Gendarme)", player)
+    if material == "Thunder Claw":
+        # M1010 Gigantyrannus Great River Valley 60%; M0641 Fabnir Valley of Kings Entrance 15%
+        return state.has_any({
+            "Material: Thunder Claw (Great River Valley)",
+            "Material: Thunder Claw (Valley of Kings)",
+        }, player)
+    if material == "Ancient Lumber":
+        # M0680 Ratnilarda Temple of the Great Tree 10%; M0831 Squeed Octus Overlook 5%
+        return state.has_any({
+            "Material: Ancient Lumber (Temple of the Great Tree)",
+            "Material: Ancient Lumber (Octus Overlook)",
+        }, player)
     return True
 
 # TODO: implement — returns True if the player has access to grinding spots yielding ~threshold EXP
-def quick_grind(state: CollectionState, player: int, threshold: int) -> bool:
-    return True
+def grind_level(state: CollectionState, player: int) -> int:
+    """Returns the level a player could theoretically reach through grinding,
+    based on which grind areas they can access. Each accessible area adds 2 levels,
+    capped at a total gain of 30 (so max returned value is 31).
+    Night explorations are worth more: TCF Night and MG Night add 4 levels each;
+    Pangaia Plains (Night) adds 10 levels."""
+    gained = 2  # Calm Inlet Area is always accessible from the start
+
+    # Single-entrance areas: count +2 if item is held
+    single_entrance_items = [
+        "Grind: Western Foot of Gendarme",
+        "Grind: Seiren North Access",
+        "Grind: Temple of the Great Tree",
+        "Grind: Towal Highway",
+        "Grind: Baja Tower",
+        "Grind: Nostalgia Cape",
+        "Grind: Archeozoic Chasm",
+        "Grind: Bolado Monastery",
+        "Grind: Valley of Kings",
+        "Grind: Silent Tower",
+        "Grind: Octus Overlook",
+    ]
+    for item in single_entrance_items:
+        if state.has(item, player):
+            gained += 2
+
+    # Dual-entrance areas: count +2 once if accessible from either end
+    dual_entrance_areas = [
+        ("Grind: Towering Coral Forest",    "Grind: Towering Coral Forest Rear"),
+        ("Grind: Eroded Valley",             "Grind: Eroded Valley Rear"),
+        ("Grind: Schlamm Jungle",            "Grind: Schlamm Jungle Rear"),
+        ("Grind: Mont Gendarme",             "Grind: Mont Gendarme Rear"),
+        ("Grind: Lodinia Marshlands",        "Grind: Lodinia Marshlands Rear"),
+    ]
+    for front_item, rear_item in dual_entrance_areas:
+        if state.has_any({front_item, rear_item}, player):
+            gained += 2
+
+    # Night explorations: higher EXP density warrants larger level gains
+    if state.has("Grind: Towering Coral Forest Night", player):
+        gained += 4
+    if state.has("Grind: Mont Gendarme Night", player):
+        gained += 4
+    if state.has("Grind: Pangaia Plains Night", player):
+        gained += 10
+
+    return 1 + min(gained, 30)
 
 # TODO: implement — returns the highest armlet strength value from found checks
 def armlet_str(state: CollectionState, player: int) -> int:
@@ -53,9 +222,20 @@ def battle_logic(state: CollectionState, player: int, required_str: int, options
     armorStr = 0
     armStr = 0
     accStr = 0
+    boss_count = bosses_defeated(state, player)
+
+    # Cache material_access results within this call to avoid redundant state lookups
+    _mat_cache: dict[str, bool] = {}
+    def mat(name: str) -> bool:
+        if name not in _mat_cache:
+            _mat_cache[name] = material_access(name, state, player)
+        return _mat_cache[name]
+
+    player_level = boss_count * 3 + 3 + grind_level(state, player)  # Base level 3, +3 per boss, +grind levels
+
+    baseStr = _GRIND_STR[max(5, min((player_level // 5) * 5, 95))]
 
     if scaled:
-        boss_count = bosses_defeated(state, player)
         if boss_count >= 21:
             required_str = 425
         elif boss_count == 20:
@@ -96,87 +276,98 @@ def battle_logic(state: CollectionState, player: int, required_str: int, options
         weaponStr = 290
     elif not options.progressive_super_weapons and super_weapons:
         weaponStr = 290
-    elif state.has("Flame Stone", player, 7) and material_access("Dragon Crest Stone", state, player):
+    elif state.has("Flame Stone", player, 7) and mat("Dragon Crest Stone"):
         weaponStr = 270
     elif state.has("Flame Stone", player, 6) and (
-            (material_access("Essence Stone", state, player) and
-             material_access("Iron Ore", state, player) and
-             material_access("Tektite Ore", state, player)) or
-            (material_access("Dragon Crest Stone", state, player) and state.has("Dina", player))):
+            (mat("Essence Stone") and
+             mat("Iron Ore") and
+             mat("Tektite Ore")) or
+            (mat("Dragon Crest Stone") and state.has("Dina", player))):
         weaponStr = 240
     elif state.has("Flame Stone", player, 5) and (
-            (material_access("Essence Stone", state, player) and
-             material_access("Iron Ore", state, player) and
-             material_access("Tektite Ore", state, player)) or
-            (material_access("Dragon Crest Stone", state, player) and state.has("Dina", player))):
+            (mat("Essence Stone") and
+             mat("Iron Ore") and
+             mat("Tektite Ore")) or
+            (mat("Dragon Crest Stone") and state.has("Dina", player))):
         weaponStr = 210
     elif state.has("Flame Stone", player, 4) and (
-            (material_access("Essence Stone", state, player) and state.has("Dina", player)) or
-            (material_access("Dragon Crest Stone", state, player) and state.has("Dina", player)) or
-            (material_access("Iron Ore", state, player) and material_access("Tektite Ore", state, player))):
+            (mat("Essence Stone") and state.has("Dina", player)) or
+            (mat("Dragon Crest Stone") and state.has("Dina", player)) or
+            (mat("Iron Ore") and mat("Tektite Ore"))):
         weaponStr = 180
     elif state.has("Flame Stone", player, 3):
         weaponStr = 150
     elif state.has("Flame Stone", player, 2) and (
-            (material_access("Essence Stone", state, player) and state.has("Dina", player)) or
-            (material_access("Dragon Crest Stone", state, player) and state.has("Dina", player)) or
-            (material_access("Tektite Ore", state, player) and state.has("Dina", player)) or
-            material_access("Iron Ore", state, player)):
+            (mat("Essence Stone") and state.has("Dina", player)) or
+            (mat("Dragon Crest Stone") and state.has("Dina", player)) or
+            (mat("Tektite Ore") and state.has("Dina", player)) or
+            mat("Iron Ore")):
         weaponStr = 100
     elif state.has("Flame Stone", player, 1) and (
-            (material_access("Essence Stone", state, player) and state.has("Dina", player)) or
-            (material_access("Dragon Crest Stone", state, player) and state.has("Dina", player)) or
-            (material_access("Tektite Ore", state, player) and state.has("Dina", player)) or
-            material_access("Iron Ore", state, player)):
+            (mat("Essence Stone") and state.has("Dina", player)) or
+            (mat("Dragon Crest Stone") and state.has("Dina", player)) or
+            (mat("Tektite Ore") and state.has("Dina", player)) or
+            mat("Iron Ore")):
         weaponStr = 50
 
     # Armor strength
-    if state.has("Flame Stone", player, 7) and material_access("Underworld Parts", state, player):
+    if state.has("Flame Stone", player, 7) and mat("Underworld Hide") and \
+                        mat("Underworld Bone"):
         armorStr = 25
     elif state.has("Flame Stone", player, 6) and (
-            (material_access("Underworld Parts", state, player) and state.has("Dina", player)) or
-            (material_access("Ancient Bone", state, player) and
-             material_access("Ancient Hide", state, player) and
-             material_access("Saurian Scale", state, player))):
+            (mat("Underworld Hide") and \
+            mat("Underworld Bone") and state.has("Dina", player)) or
+            (mat("Ancient Bone") and
+             mat("Ancient Hide") and
+             mat("Saurian Scale"))):
         armorStr = 20
     elif state.has("Flame Stone", player, 5) and (
-            (material_access("Underworld Parts", state, player) and state.has("Dina", player)) or
-            (material_access("Ancient Bone", state, player) and
-             material_access("Ancient Hide", state, player) and
-             material_access("Saurian Scale", state, player))):
+            (mat("Underworld Hide") and \
+            mat("Underworld Bone") and state.has("Dina", player)) or
+            (mat("Ancient Bone") and
+             mat("Ancient Hide") and
+             mat("Saurian Scale"))):
         armorStr = 16
     elif state.has("Flame Stone", player, 4) and (
-            (material_access("Underworld Parts", state, player) and state.has("Dina", player)) or
-            (material_access("Ancient Bone", state, player) and
-             material_access("Ancient Hide", state, player) and
-             material_access("Saurian Scale", state, player) and state.has("Dina", player)) or
-            material_access("Beast Parts", state, player)):
+            (mat("Underworld Hide") and \
+            mat("Underworld Bone") and state.has("Dina", player)) or
+            (mat("Ancient Bone") and
+             mat("Ancient Hide") and
+             mat("Saurian Scale") and state.has("Dina", player)) or
+            (mat("Beast Hide") and \
+            mat("Beast Bone") and state.has("Dina", player))):
         armorStr = 13
     elif state.has("Flame Stone", player, 2) and (
-            (material_access("Underworld Parts", state, player) and state.has("Dina", player)) or
-            (material_access("Ancient Bone", state, player) and
-             material_access("Ancient Hide", state, player) and
-             material_access("Saurian Scale", state, player) and state.has("Dina", player)) or
-            material_access("Beast Parts", state, player)):
+            (mat("Underworld Hide") and \
+            mat("Underworld Bone") and state.has("Dina", player)) or
+            (mat("Ancient Bone") and
+             mat("Ancient Hide") and
+             mat("Saurian Scale") and state.has("Dina", player)) or
+            (mat("Beast Hide") and \
+            mat("Beast Bone"))):
         armorStr = 10
     elif state.has("Flame Stone", player, 1) and (
-            (material_access("Underworld Parts", state, player) and state.has("Dina", player)) or
-            (material_access("Ancient Bone", state, player) and
-             material_access("Ancient Hide", state, player) and
-             material_access("Saurian Scale", state, player) and state.has("Dina", player)) or
-            (material_access("Beast Parts", state, player) and state.has("Dina", player)) or
+            (mat("Underworld Hide") and \
+            mat("Underworld Bone") and state.has("Dina", player)) or
+            (mat("Ancient Bone") and
+             mat("Ancient Hide") and
+             mat("Saurian Scale") and state.has("Dina", player)) or
+             (mat("Beast Hide") and \
+            mat("Beast Bone")) or
             state.has("Dina", player)):
         armorStr = 6
 
     # Armlet strength — take the higher of shop tiers and found items
     foundArmStr = armlet_str(state, player)
-    if state.has("Flame Stone", player, 7) and state.has("Euron", player) and material_access("Beast Parts", state, player):
+    if state.has("Flame Stone", player, 7) and state.has("Euron", player) and \
+            (mat("Beast Hide") and \
+                mat("Beast Bone")):
         armStr = 30
     elif state.has("Flame Stone", player, 6) and state.has("Euron", player) and \
-            material_access("Saurian Scale", state, player) and material_access("Ancient Hide", state, player):
+            mat("Saurian Scale") and mat("Ancient Hide"):
         armStr = 20
     elif state.has("Flame Stone", player, 4) and state.has("Euron", player) and \
-            material_access("Dragon Crest Stone", state, player) and material_access("Dandale Horn", state, player):
+            mat("Dragon Crest Stone") and mat("Dandale Horn"):
         armStr = 10
     armStr = max(armStr, foundArmStr)
 
@@ -189,40 +380,43 @@ def battle_logic(state: CollectionState, player: int, required_str: int, options
     dragonAcc  = [0]
     otherAcc   = [0]
 
-    if state.has("Alison", player) and not state.has("Euron", player):
+    if state.has("Alison", player) and not state.has("Euron", player) and \
+            mat("Beast Claw"):
         bladeRings.append(10)  # Blade Ring
-        if coast_north_side_access(state, player) or state.has("Dina", player):
+        if mat("Glow Rock") and mat("Flexible Branch") and \
+                    mat("Beautiful Flower") or state.has("Dina", player):
             hopeAndLum.append(20)  # Hope Stone
     if state.has("Euron", player) and state.has("Flame Stone", player, 2):
-        if material_access("Razor Feather", state, player) and south_side_open(state, player):
+        if mat("Razor Feather") and mat("Stalactite"):
             fenrirAcc.append(5)   # Fenrir Talisman
-        if south_side_open(state, player):
+        if mat("Sword Tip Fang") and mat("Thick Hide"):
             bladeRings.append(20) # Blade Ring 2
-        if ((state.has("Fishing Rod", player) and state.has("Large Pearl", player, 7)) or
-                state.has("Dina", player)) and south_side_open(state, player):
+        if ((state.has("Fishing Rod", player) and state.has("Large Pearl", player, 8)) or
+                state.has("Dina", player)) and mat("Lustrous Scale") and \
+                    mat("Beautiful Flower"):
             hopeAndLum.append(40) # Luminous Ring
-        if material_access("Accursed Shell", state, player) and south_side_open(state, player):
+        if mat("Accursed Shell") and mat("Stalactite"):
             pyriosAcc.append(5)   # Pyrios Talisman
     if state.has("Euron", player) and state.has("Flame Stone", player, 4):
-        if material_access("Thunder Claw", state, player) and material_access("Tektite Ore", state, player):
+        if mat("Thunder Claw") and mat("Tektite Ore"):
             otherAcc.append(10)   # Lightning Stone
-        if material_access("Thunder Claw", state, player) and material_access("Beast Parts", state, player):
+        if mat("Thunder Claw") and mat("Beast Hide"):
             bladeRings.append(30) # Blade Ring 3
-        if material_access("Dandale Horn", state, player) and material_access("Tektite Ore", state, player):
+        if mat("Dandale Horn") and mat("Tektite Ore"):
             otherAcc.append(10)   # Crow Stone
-        if material_access("Tektite Ore", state, player) and material_access("Ancient Lumber", state, player):
+        if mat("Tektite Ore") and mat("Ancient Lumber"):
             otherAcc.append(10)   # Snake Stone
     if state.has("Euron", player) and state.has("Flame Stone", player, 5):
-        if south_side_open(state, player):
+        if mat("Lustrous Scale") and mat("Stalactite"):
             dragonAcc.append(10)  # Dragon Pauldron
-        if material_access("Dandale Horn", state, player):
+        if mat("Dandale Horn"):
             dragonAcc.append(20)  # Dragon Stone
-        if material_access("Dandale Horn", state, player) and material_access("Dragon Crest Stone", state, player):
+        if mat("Dandale Horn") and mat("Dragon Crest Stone"):
             fenrirAcc.append(15)  # Fenrir Stone
             pyriosAcc.append(15)  # Pyrios Stone
             otherAcc.append(10)   # Nature Talisman
     if state.has("Euron", player) and state.has("Flame Stone", player, 7):
-        if material_access("Dragon Crest Stone", state, player) and material_access("Ancient Hide", state, player):
+        if mat("Dragon Crest Stone") and mat("Ancient Hide"):
             bladeRings.append(40) # Blade Ring 4
 
     # Combine: take best from each conflicting category, sum top two of the merged list
@@ -239,18 +433,18 @@ def battle_logic(state: CollectionState, player: int, required_str: int, options
     total = weaponStr + armorStr + armStr + accStr
     if required_str >= 350:
         return (total >= required_str and has_required_party(state, player, 3) and
-                state.has("Flame Stone", player, 6) and quick_grind(state, player, 60) and
+                state.has("Flame Stone", player, 6) and
                 has_str_recipe(state, player))
     elif required_str >= 300:
         return (total >= required_str and has_required_party(state, player, 3) and
-                state.has("Flame Stone", player, 5) and quick_grind(state, player, 50) and
+                state.has("Flame Stone", player, 5) and
                 has_str_recipe(state, player))
     elif required_str >= 250:
         return (total >= required_str and has_required_party(state, player, 3) and
-                state.has("Flame Stone", player, 3) and quick_grind(state, player, 40))
+                state.has("Flame Stone", player, 3))
     elif required_str >= 230:
         return (total >= required_str and has_required_party(state, player, 2) and
-                state.has("Flame Stone", player, 3) and quick_grind(state, player, 30))
+                state.has("Flame Stone", player, 3))
     elif required_str >= 200:
         return (total >= required_str and has_required_party(state, player, 2) and
                 state.has("Flame Stone", player, 2))
@@ -427,7 +621,7 @@ def set_entrance_rules(Ys8World: Ys8World):
     set_rule(get_ent("RoE to TotGT"), lambda state: state.has("Green Seal of Roaring Stone", Ys8World.player))
     set_rule(get_ent("RoE to AC:Bridge"), lambda state: state.has("Frozen Flower", Ys8World.player))
     set_rule(get_ent("RoE to TH"), lambda state: state.has("Dana", Ys8World.player))
-    set_rule(get_ent("RoE to FSC First Barrier"), lambda state: state.has_all(["Jade Pendant", "Dina"], Ys8World.player) and battle_logic(state, player, 400, options)) 
+    set_rule(get_ent("RoE to FSC First Barrier"), lambda state: state.has_all(["Jade Pendant", "Dina"], Ys8World.player) and battle_logic(state, player, 800, options)) 
     set_rule(get_ent("RoE to Bolado"), lambda state: state.has("Frozen Flower", Ys8World.player))
     set_rule(get_ent("Bolado to Bolado Basement"), lambda state: state.has("Glow Stone", Ys8World.player))
     set_rule(get_ent("AC:Bridge to RoE"), lambda state: state.has("Frozen Flower", Ys8World.player))
@@ -581,14 +775,14 @@ def set_location_rules(Ys8World: Ys8World):
 
     # Calm Inlet — Intercept stages
     add_rule(loc("Calm Inlet Intercept Stage 2"),
-             lambda state: (battle_logic(state, player, 30, options) and has_required_party(state, player, 2))
+             lambda state: (battle_logic(state, player, 45, options) and has_required_party(state, player, 2))
                            or battle_logic(state, player, 80, options))
     add_rule(loc("Calm Inlet Intercept Stage 3"),
-             lambda state: (battle_logic(state, player, 75, options) and has_required_party(state, player, 2))
-                           or battle_logic(state, player, 110, options))
+             lambda state: (battle_logic(state, player, 80, options) and has_required_party(state, player, 2))
+                           or battle_logic(state, player, 130, options))
     add_rule(loc("Calm Inlet Intercept Stage 5"),
-             lambda state: (battle_logic(state, player, 120, options) and has_required_party(state, player, 2))
-                           or battle_logic(state, player, 140, options))
+             lambda state: (battle_logic(state, player, 200, options) and has_required_party(state, player, 2))
+                           or battle_logic(state, player, 240, options))
     add_rule(loc("Calm Inlet Intercept Stage 7"),
              lambda state: state.has("Flame Stone", player, 3)
                            and has_required_party(state, player, 2))
@@ -809,99 +1003,111 @@ def set_location_rules(Ys8World: Ys8World):
     # BOSS & ENCOUNTER EVENTS  (ordered by battle_logic threshold)
     # =====================================================================
 
-    # --- 0 ---
+    # --- Calm Inlet Area ---
     set_rule(loc("Nameless Coast First Avalodragil Arena Avalodragil"),
-             lambda state: battle_logic(state, player, 0, options))
+             lambda state: battle_logic(state, player, 45, options))
     set_rule(loc("Waterdrop Cave Boss Arena Byfteriza"),
-             lambda state: battle_logic(state, player, 0, options))
-
-    # --- 10-40: Towering Coral Forest ---
-    set_rule(loc("Towering Coral Forest Mid-Boss Arena Serpentus"),
              lambda state: battle_logic(state, player, 10, options))
-    set_rule(loc("Towering Coral Forest Boss Arena Clareon"),
-             lambda state: battle_logic(state, player, 40, options))
 
-    # --- 70-85: Eroded Valley ---
-    set_rule(loc("Eroded Valley Mid-Boss Arena Lonbrigius"),
+    # --- Towering Coral Forest ---
+    set_rule(loc("Towering Coral Forest Mid-Boss Arena Serpentus"),
              lambda state: battle_logic(state, player, 70, options))
-    set_rule(loc("Eroded Valley Boss Arena Gargantula"),
-             lambda state: battle_logic(state, player, 85, options))
+    set_rule(loc("Towering Coral Forest Boss Arena Clareon"),
+             lambda state: battle_logic(state, player, 80, options))
 
-    # --- 110-120: Schlamm Jungle ---
+    # --- Eroded Valley ---
+    set_rule(loc("Eroded Valley Mid-Boss Arena Lonbrigius"),
+             lambda state: battle_logic(state, player, 180, options))
+    set_rule(loc("Eroded Valley Boss Arena Gargantula"),
+             lambda state: battle_logic(state, player, 200, options))
+
+    # --- Schlamm Jungle ---
     set_rule(loc("Schlamm Jungle Mid-Boss Arena Magamandra"),
-             lambda state: battle_logic(state, player, 110, options))
+             lambda state: battle_logic(state, player, 220, options))
     set_rule(loc("Schlamm Jungle Boss Arena Laspisus"),
-             lambda state: battle_logic(state, player, 120, options))
+             lambda state: battle_logic(state, player, 250, options))
 
     # --- 155-170 ---
     set_rule(loc("Eroded Valley Dark Passage Chest"),
-             lambda state: battle_logic(state, player, 155, options))
+             lambda state: battle_logic(state, player, 250, options))
     set_rule(loc("East Coast Cave East Coast Cave Gilkyra Encounter"),
-             lambda state: battle_logic(state, player, 170, options))
+             lambda state: battle_logic(state, player, 320, options))
 
     # --- 200 ---
     set_rule(loc("Mont Gendarme Mid-Boss Arena Avalodragil 2"),
-             lambda state: battle_logic(state, player, 200, options))
+             lambda state: battle_logic(state, player, 320, options))
     set_rule(loc("Odd Rock Coast Odd Rock Coast Kiergaard Weissman"),
-             lambda state: battle_logic(state, player, 200, options))
+             lambda state: battle_logic(state, player, 320, options))
     add_rule(loc("Roaring Seashore Parasequoia Master Kong Ricotta"),
-             lambda state: battle_logic(state, player, 200, options))
+             lambda state: battle_logic(state, player, 360, options))
     add_rule(loc("Sunrise Beach Sunrise Beach Master Kong Sahad"),
-             lambda state: battle_logic(state, player, 200, options))
+             lambda state: battle_logic(state, player, 400, options))
 
     # --- 230 ---
     set_rule(loc("Baja Tower Mid-Boss Arena Exmetal"),
-             lambda state: battle_logic(state, player, 230, options))
+             lambda state: battle_logic(state, player, 420, options))
     set_rule(loc("Mont Gendarme Boss Arena Giasburn"),
-             lambda state: battle_logic(state, player, 230, options))
+             lambda state: battle_logic(state, player, 350, options))
     add_rule(loc("Odd Rock Coast Odd Rock Coast Master Kong Dana"),
-             lambda state: battle_logic(state, player, 230, options))
+             lambda state: battle_logic(state, player, 430, options))
 
     # --- 240 ---
     set_rule(loc("Temple of the Great Tree Temple Boss Arena Brachion"),
-             lambda state: battle_logic(state, player, 240, options))
+             lambda state: battle_logic(state, player, 400, options))
     add_rule(loc("Mont Gendarme Boss Arena Master Kong Laxia"),
-             lambda state: battle_logic(state, player, 240, options))
+             lambda state: battle_logic(state, player, 440, options))
     add_rule(loc("Pangaia Plains Ancient Tree Master Kong Hummel"),
-             lambda state: battle_logic(state, player, 240, options))
+             lambda state: battle_logic(state, player, 450, options))
     add_rule(loc("Vista Ridge Vista Ridge Lower Master Kong Adol"),
-             lambda state: battle_logic(state, player, 240, options))
+             lambda state: battle_logic(state, player, 550, options))
 
     # --- 250-260 ---
     set_rule(loc("Archeozoic Chasm Mid-Boss Arena Coelacantos"),
-             lambda state: battle_logic(state, player, 250, options))
+             lambda state: battle_logic(state, player, 400, options))
     set_rule(loc("Calm Inlet Calm Inlet (Castaway Village Area) Silvia"),
-             lambda state: battle_logic(state, player, 260, options))
+             lambda state: battle_logic(state, player, 440, options))
 
     # --- 270 ---
     set_rule(loc("Valley of Kings Entrance Force Garmr Encounter"),
-             lambda state: battle_logic(state, player, 270, options))
+             lambda state: battle_logic(state, player, 450, options))
     set_rule(loc("Valley of Kings Mid-Boss Arena Doxa Griel"),
-             lambda state: battle_logic(state, player, 270, options))
+             lambda state: battle_logic(state, player, 450, options))
     set_rule(loc("Pirate Ship Eleftheria Deck Pirate Revenant"),
-             lambda state: battle_logic(state, player, 270, options))
+             lambda state: battle_logic(state, player, 450, options))
 
     # --- 280-425 ---
     set_rule(loc("Baja Tower Boss Arena Carveros"),
-             lambda state: battle_logic(state, player, 280, options))
+             lambda state: battle_logic(state, player, 500, options))
     set_rule(loc("Archeozoic Chasm Boss Arena Oceanus"),
-             lambda state: battle_logic(state, player, 320, options))
+             lambda state: battle_logic(state, player, 600, options))
     set_rule(loc("Valley of Kings Boss Arena Basileus"),
-             lambda state: battle_logic(state, player, 340, options))
+             lambda state: battle_logic(state, player, 650, options))
     set_rule(loc("Octus Overlook Path of the Ocean Era Psyche-Hydra"),
-             lambda state: battle_logic(state, player, 340, options))
+             lambda state: battle_logic(state, player, 700, options))
     set_rule(loc("Octus Overlook Path of the Frozen Era Psyche-Minos"),
-             lambda state: battle_logic(state, player, 350, options))
+             lambda state: battle_logic(state, player, 720, options))
     set_rule(loc("Octus Overlook Path of the Insectoid Era Psyche-Nestor"),
-             lambda state: battle_logic(state, player, 360, options))
+             lambda state: battle_logic(state, player, 740, options))
     set_rule(loc("Octus Overlook Path of the Sky Era Psyche-Ura"),
-             lambda state: battle_logic(state, player, 370, options))
+             lambda state: battle_logic(state, player, 760, options))
     set_rule(loc("Silent Tower Second Basement Mephorash"),
-             lambda state: battle_logic(state, player, 380, options))
+             lambda state: battle_logic(state, player, 760, options))
     set_rule(loc("Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma"),
-             lambda state: battle_logic(state, player, 425, options))
+             lambda state: battle_logic(state, player, 850, options))
 
     # --- Goal (placeholder) ---
     set_rule(loc("Octus Overlook Selection Sphere Goal"),
-             lambda state: True)  # TODO: implement goal completion logic
-
+             lambda state: battle_logic(state, player, 760, options))
+    
+    if options.final_boss_access == 0:
+        add_rule(loc("Octus Overlook Selection Sphere Goal"),
+                 lambda state: has_required_crew(state, player, options.goal_count_crew_threshold))
+    elif options.final_boss_access == 1:
+        add_rule(loc("Octus Overlook Selection Sphere Goal"),
+                 lambda state: state.has_all(["Mistiltein", "Ship Blueprint", "Seiren Nautical Chart"], player))
+    elif options.final_boss_access == 2:
+        add_rule(loc("Octus Overlook Selection Sphere Goal"),
+                 lambda state: state.has_all(["Psyche-Ura Defeated", "Psyche-Nestor Defeated", "Psyche-Minos Defeated", "Psyche-Hydra Defeated"], player))
+    elif options.final_boss_access == 3:
+        add_rule(loc("Octus Overlook Selection Sphere Goal"),
+                 lambda state: state.has("Melaiduma Defeated", player))

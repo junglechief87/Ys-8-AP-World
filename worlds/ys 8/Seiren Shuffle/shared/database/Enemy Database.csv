@@ -26,194 +26,194 @@ B163,Argura,アーギュラ,Sanctuary Crypt - Chamber of Clairvoyance (Past),1,1
 B164,Crusos,クリューソス,Sanctuary Crypt - Chamber of Frost (Past),1,1,,,,,,
 B165,Blasphima,ブラスフィマ,Sanctuary Crypt - Chamber of Magma (Past),1,1,,,,,,
 B170,Melaiduma,メライドゥマ,Former Sanctuary Crypt - Final Floor,1,1,,,,,,
-M0100,Ratni,ラタニー,Former Sanctuary Crypt - B3; Pangaia Plains (Night); Royal Capital Aegias (Past); Temple of the Great Tree,6,4,strong bones,80.0%,beast skin,5.0%,,
-M0101,Rikad,リカード,Great River Valley; Nameless Coast,2,2,light bones,80.0%,strong bones,5.0%,solid shell,1.0%
-M0102,Maltu,マルトゥ,Nameless Coast,2,1,cloudy mucus,80.0%,strange lump,5.0%,,
-M0103,Sangator,サンディール,Great River Valley,1,1,thin skin,80.0%,clear mucus,5.0%,,
-M0104,Vastera,ヴェアスデーラ,Nameless Coast,2,1,cloudy mucus,80.0%,clear mucus,15.0%,soft fiber,5.0%
-M0105,Lugaes,ルシーガ,Roaring Seashore,2,1,thin skin,80.0%,thick skin,5.0%,wing quill,1.0%
-M0106,Wollof,ヴォルロフ,Nameless Coast; Western Foot of Gendarme,4,2,thin skin,80.0%,strong bones,15.0%,soft fiber,5.0%
-M0107,Raemitt,レーミット,Nameless Coast,4,1,thin skin,80.0%,light bones,5.0%,,
-M0108,Molvie,モルヴィ,Nameless Coast,5,1,light bones,80.0%,strange lump,5.0%,,
-M0109,Buar,ブアル,Nameless Coast; Waterdrop Cave,3,2,thin skin,80.0%,light bones,5.0%,thick skin,1.0%
-M0110,Anapushi,アナプシー,Nameless Coast; Waterdrop Cave,5,2,cloudy mucus,80.0%,strange lump,5.0%,clear mucus,1.0%
+M0100,Ratni,ラタニー,Former Sanctuary Crypt - B3; Pangaia Plains (Night); Royal Capital Aegias (Past); Temple of the Great Tree,6,4,Sturdy Bone,80.0%,Beast Hide,5.0%,,
+M0101,Rikad,リカード,Great River Valley; Nameless Coast,2,2,Light Bone,80.0%,Sturdy Bone,5.0%,Strong Shell,1.0%
+M0102,Maltu,マルトゥ,Nameless Coast,2,1,Murky Mucus,80.0%,Strange Mass,5.0%,,
+M0103,Sangator,サンディール,Great River Valley,1,1,Thin Hide,80.0%,Sterile Mucus,5.0%,,
+M0104,Vastera,ヴェアスデーラ,Nameless Coast,2,1,Murky Mucus,80.0%,Sterile Mucus,15.0%,Soft Fiber,5.0%
+M0105,Lugaes,ルシーガ,Roaring Seashore,2,1,Thin Hide,80.0%,Thick Hide,5.0%,Remex,1.0%
+M0106,Wollof,ヴォルロフ,Nameless Coast; Western Foot of Gendarme,4,2,Thin Hide,80.0%,Sturdy Bone,15.0%,Soft Fiber,5.0%
+M0107,Raemitt,レーミット,Nameless Coast,4,1,Thin Hide,80.0%,Light Bone,5.0%,,
+M0108,Molvie,モルヴィ,Nameless Coast,5,1,Light Bone,80.0%,Strange Mass,5.0%,,
+M0109,Buar,ブアル,Nameless Coast; Waterdrop Cave,3,2,Thin Hide,80.0%,Light Bone,5.0%,Thick Hide,1.0%
+M0110,Anapushi,アナプシー,Nameless Coast; Waterdrop Cave,5,2,Murky Mucus,80.0%,Strange Mass,5.0%,Sterile Mucus,1.0%
 M0111,Byfteriza,ビフテリザ,Waterdrop Cave,1,1,,,,,,
-M0112,Ripseus,リプシオス,Nameless Coast,1,1,light bones,80.0%,cloudy mucus,5.0%,,
-M0113,Worgle,ワーグル,Nameless Coast,3,1,light bones,80.0%,thin skin,5.0%,soft fiber,1.0%
-M0120,Repleon,レプレオン,Towering Coral Forest (Night),6,1,light bones,80.0%,thick skin,5.0%,,
-M0121,Targanean,ターガニオン,Towering Coral Forest (Night),6,1,light bones,80.0%,strong bones,5.0%,,
-M0122,Pinha,ピーニャ,Towering Coral Forest (Night),2,1,thin skin,80.0%,clear mucus,5.0%,,
-M0123,Gwaranga,グワラニーガ,Great River Valley; Towering Coral Forest (Night); White Sand Cape,7,3,strong bones,80.0%,solid shell,15.0%,Guwaraniga scissors,5.0%
-M0124,Larfo,ラルフォ,Towering Coral Forest (Night),2,1,bending twig,80.0%,glossy wood,5.0%,foxglove leaves,1.0%
-M0140,Seapus,シーピス,White Sand Cape,4,1,light bones,80.0%,clear mucus,5.0%,,
-M0141,Organean,オーガニオン,White Sand Cape,4,1,light bones,80.0%,strong bones,1.0%,,
-M0142,Sabrodo,セイバオット,Towering Coral Forest (Night); White Sand Cape,8,2,thin skin,80.0%,thick skin,15.0%,beast claw,5.0%
-M0143,Pewd,ピュード,Roaring Seashore; Towering Coral Forest (Night),5,2,small leaves,80.0%,beautiful flowers,15.0%,,
-M0144,Grimodo,グレモアード,Roaring Seashore,1,1,thin skin,80.0%,thick skin,15.0%,,
-M0145,Splart,スプラート,Great River Valley,5,1,thin skin,80.0%,clear mucus,5.0%,wing quill,1.0%
-M0146,Spoun,スポゥン,Great River Valley,4,1,glossy wood,80.0%,beautiful flowers,20.0%,foxglove leaves,10.0%
-M0147,Gwarrab,グワララーブ,Longhorn Coast; Longuefone Beach; Towering Coral Forest (Night),7,3,strong bones,80.0%,solid shell,15.0%,evil crest shell,5.0%
-M0148,Gulugaes,グレルシーガ,Longhorn Coast; Longuefone Beach,2,2,thin skin,80.0%,thick skin,5.0%,wing quill,1.0%
-M0149,Moreel,モライール,Nostalgia Cape,1,1,beast skin,80.0%,Glittering mucus,5.0%,Pangu slime,1.0%
-M0150,Pervastera,パルヴェスデーラ,Nostalgia Cape,1,1,Glittering mucus,80.0%,rigid fiber,20.0%,Pangu skin,10.0%
-M0151,Orclash,オケラーシュ,White Sand Cape,1,1,clear mucus,80.0%,beast skin,15.0%,Glory scales,5.0%
-M0200,Doona,ドゥーナ,Great River Valley; Nameless Coast,6,2,thin skin,80.0%,strong bones,5.0%,,
-M0201,Lanonen,ラーノーネン,Nameless Coast,2,1,small leaves,80.0%,clear mucus,5.0%,,
-M0202,Valquito,ヴァルキート,Lodinia Marshland (Past); Schlamm Jungle,5,2,wing quill,80.0%,Zhan Gangyu,15.0%,Blue Sky Feather,5.0%
-M0203,Buldebeet,ブルトビトゥ,Beast Hills,2,1,thick skin,80.0%,soft fiber,15.0%,Kentoga,1.0%
-M0220,Bicillus,ビチルス,Schlamm Jungle,3,1,thin skin,80.0%,clear mucus,5.0%,,
-M0221,Shotsolla,ショットズーラ,Schlamm Jungle,7,1,small leaves,80.0%,beautiful flowers,5.0%,lateca resin,1.0%
-M0222,Vivine,カズカズラ,Mont Gendarme (Night); Titis Primeval Forest; Titis Primeval Forest (Past),7,3,warm wood,80.0%,rim flower,15.0%,Vivine bitters,10.0%
-M0223,Lugaadi,ルガーディ,Schlamm Jungle,2,1,cloudy mucus,80.0%,strong bones,5.0%,Kentoga,1.0%
-M0224,Salamandine,サラマンダイン,Schlamm Jungle,5,1,thick skin,80.0%,clear mucus,20.0%,Salamandine skin,20.0%
-M0225,Vespa,ヴェスパ,Beast Hills; Former Sanctuary Crypt - B1; Great River Valley; Headwater Falls; Longhorn Coast; Royal Capital Aegias (Past); Schlamm Jungle; Towering Coral Forest (Night),12,8,thin skin,80.0%,light bones,15.0%,wing quill,1.0%
+M0112,Ripseus,リプシオス,Nameless Coast,1,1,Light Bone,80.0%,Murky Mucus,5.0%,,
+M0113,Worgle,ワーグル,Nameless Coast,3,1,Light Bone,80.0%,Thin Hide,5.0%,Soft Fiber,1.0%
+M0120,Repleon,レプレオン,Towering Coral Forest (Night),6,1,Light Bone,80.0%,Thick Hide,5.0%,,
+M0121,Targanean,ターガニオン,Towering Coral Forest (Night),6,1,Light Bone,80.0%,Sturdy Bone,5.0%,,
+M0122,Pinha,ピーニャ,Towering Coral Forest (Night),2,1,Thin Hide,80.0%,Sterile Mucus,5.0%,,
+M0123,Gwaranga,グワラニーガ,Great River Valley; Towering Coral Forest (Night); White Sand Cape,7,3,Sturdy Bone,80.0%,Strong Shell,15.0%,Gwaranga Pincer,5.0%
+M0124,Larfo,ラルフォ,Towering Coral Forest (Night),2,1,Flexible Branch,80.0%,Sturdy Lumber,5.0%,Digitalis Leaf,1.0%
+M0140,Seapus,シーピス,White Sand Cape,4,1,Light Bone,80.0%,Sterile Mucus,5.0%,,
+M0141,Organean,オーガニオン,White Sand Cape,4,1,Light Bone,80.0%,Sturdy Bone,1.0%,,
+M0142,Sabrodo,セイバオット,Towering Coral Forest (Night); White Sand Cape,8,2,Thin Hide,80.0%,Thick Hide,15.0%,Beast Claw,5.0%
+M0143,Pewd,ピュード,Roaring Seashore; Towering Coral Forest (Night),5,2,Small Leaf,80.0%,Beautiful Flower,15.0%,,
+M0144,Grimodo,グレモアード,Roaring Seashore,1,1,Thin Hide,80.0%,Thick Hide,15.0%,,
+M0145,Splart,スプラート,Great River Valley,5,1,Thin Hide,80.0%,Sterile Mucus,5.0%,Remex,1.0%
+M0146,Spoun,スポゥン,Great River Valley,4,1,Sturdy Lumber,80.0%,Beautiful Flower,20.0%,Digitalis Leaf,10.0%
+M0147,Gwarrab,グワララーブ,Longhorn Coast; Longuefone Beach; Towering Coral Forest (Night),7,3,Sturdy Bone,80.0%,Strong Shell,15.0%,Accursed Shell,5.0%
+M0148,Gulugaes,グレルシーガ,Longhorn Coast; Longuefone Beach,2,2,Thin Hide,80.0%,Thick Hide,5.0%,Remex,1.0%
+M0149,Moreel,モライール,Nostalgia Cape,1,1,Beast Hide,80.0%,Sparkling Mucus,5.0%,Ancient Mucus,1.0%
+M0150,Pervastera,パルヴェスデーラ,Nostalgia Cape,1,1,Sparkling Mucus,80.0%,Hard Fiber,20.0%,Ancient Hide,10.0%
+M0151,Orclash,オケラーシュ,White Sand Cape,1,1,Sterile Mucus,80.0%,Beast Hide,15.0%,Lustrous Scale,5.0%
+M0200,Doona,ドゥーナ,Great River Valley; Nameless Coast,6,2,Thin Hide,80.0%,Sturdy Bone,5.0%,,
+M0201,Lanonen,ラーノーネン,Nameless Coast,2,1,Small Leaf,80.0%,Sterile Mucus,5.0%,,
+M0202,Valquito,ヴァルキート,Lodinia Marshland (Past); Schlamm Jungle,5,2,Remex,80.0%,Razor Feather,15.0%,Blue Feather,5.0%
+M0203,Buldebeet,ブルトビトゥ,Beast Hills,2,1,Thick Hide,80.0%,Soft Fiber,15.0%,Sword Tip Fang,1.0%
+M0220,Bicillus,ビチルス,Schlamm Jungle,3,1,Thin Hide,80.0%,Sterile Mucus,5.0%,,
+M0221,Shotsolla,ショットズーラ,Schlamm Jungle,7,1,Small Leaf,80.0%,Beautiful Flower,5.0%,Lateka Resin,1.0%
+M0222,Vivine,カズカズラ,Mont Gendarme (Night); Titis Primeval Forest; Titis Primeval Forest (Past),7,3,Warm Lumber,80.0%,Rim Flower,15.0%,Vivine Bitters,10.0%
+M0223,Lugaadi,ルガーディ,Schlamm Jungle,2,1,Murky Mucus,80.0%,Sturdy Bone,5.0%,Sword Tip Fang,1.0%
+M0224,Salamandine,サラマンダイン,Schlamm Jungle,5,1,Thick Hide,80.0%,Sterile Mucus,20.0%,Salamandine Hide,20.0%
+M0225,Vespa,ヴェスパ,Beast Hills; Former Sanctuary Crypt - B1; Great River Valley; Headwater Falls; Longhorn Coast; Royal Capital Aegias (Past); Schlamm Jungle; Towering Coral Forest (Night),12,8,Thin Hide,80.0%,Light Bone,15.0%,Remex,1.0%
 M0226,Nespa,クノス,Beast Hills; Former Sanctuary Crypt - B1; Great River Valley; Headwater Falls; Longhorn Coast; Royal Capital Aegias (Past); Schlamm Jungle; Towering Coral Forest (Night),12,8,Honey,80.0%,,,,
-M0240,Giruvespa,ゲルヴェスパ,Former Sanctuary Crypt - B3; Lodinia Marshland (Past); Nostalgia Cape; Valley of Kings; Valley of Kings (Past); Vista Ridge (Past),8,6,strong bones,80.0%,thick skin,15.0%,Zhan Gangyu,1.0%
+M0240,Giruvespa,ゲルヴェスパ,Former Sanctuary Crypt - B3; Lodinia Marshland (Past); Nostalgia Cape; Valley of Kings; Valley of Kings (Past); Vista Ridge (Past),8,6,Sturdy Bone,80.0%,Thick Hide,15.0%,Razor Feather,1.0%
 M0241,Girunespa,ゲルクノス,Former Sanctuary Crypt - B3; Lodinia Marshland (Past); Nostalgia Cape; Valley of Kings; Valley of Kings (Past); Vista Ridge (Past),7,6,Honey,80.0%,,,,
-M0300,Shabil,シャービル,Great Valley (Past); Schlamm Jungle; Western Foot of Gendarme,5,3,thick skin,80.0%,strong bones,15.0%,wing quill,5.0%
-M0301,Werecus,ヴェラルコス,Beast Hills; Towering Coral Forest (Night),3,2,light bones,80.0%,thick skin,10.0%,beast claw,5.0%
-M0302,Badessa,バオデッサ,Great Valley (Past); Mont Gendarme (Night); Western Foot of Gendarme,11,3,thick skin,80.0%,Iron ore,5.0%,beast claw,1.0%
-M0303,Warsadessa,ヴォースデッサ,Mont Gendarme (Night); Western Foot of Gendarme,9,2,beast claw,80.0%,soft fiber,60.0%,Kentoga,40.0%
-M0340,Popatobeet,ロガロトビトゥ,Weathervane Hills,2,1,thick skin,80.0%,soft fiber,15.0%,Kentoga,5.0%
-M0341,Morobadessa,モホロバオデッサ,Weathervane Hills,2,1,strange lump,80.0%,thick skin,5.0%,strong bones,5.0%
-M0400,Illmodo,イルモアード,Great River Valley,3,1,light bones,80.0%,thick skin,5.0%,,
-M0401,Angveetle,アングヴォータル,Eroded Valley,1,1,thin skin,80.0%,strong bones,5.0%,,
-M0402,Garban,ガルバン,Mountain Pinnacle Trail,4,1,beast bone,80.0%,beast skin,40.0%,tektite ore,5.0%
-M0403,Zentipede,ゾンドピーダ,Towal Highway; Towal Highway (Past),3,2,Glittering mucus,80.0%,beast bone,15.0%,Thunderclaw,1.0%
-M0440,Zaspion,ザスピオン,Mont Gendarme (Night),6,1,clear mucus,80.0%,evil crest shell,20.0%,Thespion's Tail,10.0%
-M0441,Zagroon,ザグルーン,Mont Gendarme (Night),8,1,thick skin,80.0%,beast claw,5.0%,,
-M0442,Neydeek,ネイディク,Mont Gendarme (Night),8,1,strong bones,80.0%,thick skin,5.0%,Glory scales,1.0%
-M0500,Dictyon,ディクティオン,Mountain Pinnacle Trail,5,1,strong bones,80.0%,solid shell,10.0%,beast bone,5.0%
-M0501,Fureoanton,フラレオアントン,Titis Primeval Forest; Titis Primeval Forest (Past),3,2,beast skin,80.0%,beast bone,15.0%,Blue Sky Feather,1.0%
-M0502,Jeld,ジャード,Titis Primeval Forest; Titis Primeval Forest (Past),2,2,clear mucus,80.0%,Glittering mucus,5.0%,,
-M0503,Befael,ヴィファエール,Mountain Pinnacle Trail,6,1,glossy wood,80.0%,warm wood,5.0%,,
-M0504,Gilaaf,ジラーフェ,Vista Ridge; Vista Ridge (Past),2,2,beast bone,80.0%,Pangu bones,15.0%,,
-M0600,Gricust,ギリーカ,Vista Ridge; Vista Ridge (Past),2,2,beast skin,80.0%,Pangu skin,5.0%,,
-M0601,Gulengen,グーリンゲン,Vista Ridge; Vista Ridge (Past),2,2,shining leaves,80.0%,Pangu flower,5.0%,,
-M0602,Horndagh,ホーンダーグ,Towal Highway; Towal Highway (Past),3,2,beast skin,80.0%,beast bone,15.0%,rigid fiber,1.0%
-M0603,Frogeous,フロギアス,Lodinia Marshland (Past),4,1,Glittering mucus,80.0%,Pangu skin,5.0%,Pangu slime,1.0%
-M0604,Redricora,レドリコーラ,Lodinia Marshland (Past),3,1,beast bone,80.0%,evil crest shell,5.0%,Pangu bones,1.0%
-M0605,Dandale,ダンディール,Lodinia Marshland (Past),3,1,Pangu skin,80.0%,rigid fiber,40.0%,Dundeel's Horn,10.0%
-M0621,Xivega,シュイヴェガー,Baja Tower,6,1,Iron ore,80.0%,tektite ore,5.0%,Rispar,1.0%
-M0622,Uni-Attacker,ユニアタッカ,Baja Tower,7,1,Iron ore,80.0%,tektite ore,5.0%,Rispar,1.0%
-M0623,Masquard,マスカーデル,Baja Tower,4,1,tektite ore,80.0%,Rispar,15.0%,mental armor,5.0%
-M0640,Gorba,グーリーバ,Valley of Kings,6,1,Glittering mucus,80.0%,Pangu slime,5.0%,diamond shell,1.0%
-M0641,Fabnir,ファブニール,Valley of Kings,5,1,Pangu bones,80.0%,Thunderclaw,15.0%,Strong acidic hard liquid,1.0%
-M0642,Dhampul,ダンポウル,Former Sanctuary Crypt - B1; Valley of Kings,8,2,Rispar,80.0%,dragonite,10.0%,Star Crystal Armor,1.0%
-M0643,Force Garmr,フォースガルム,Valley of Kings,1,1,Rispar,80.0%,Star Crystal Armor,40.0%,Strong acidic hard liquid,20.0%
+M0300,Shabil,シャービル,Great Valley (Past); Schlamm Jungle; Western Foot of Gendarme,5,3,Thick Hide,80.0%,Sturdy Bone,15.0%,Remex,5.0%
+M0301,Werecus,ヴェラルコス,Beast Hills; Towering Coral Forest (Night),3,2,Light Bone,80.0%,Thick Hide,10.0%,Beast Claw,5.0%
+M0302,Badessa,バオデッサ,Great Valley (Past); Mont Gendarme (Night); Western Foot of Gendarme,11,3,Thick Hide,80.0%,Iron Ore,5.0%,Beast Claw,1.0%
+M0303,Warsadessa,ヴォースデッサ,Mont Gendarme (Night); Western Foot of Gendarme,9,2,Beast Claw,80.0%,Soft Fiber,60.0%,Sword Tip Fang,40.0%
+M0340,Popatobeet,ロガロトビトゥ,Weathervane Hills,2,1,Thick Hide,80.0%,Soft Fiber,15.0%,Sword Tip Fang,5.0%
+M0341,Morobadessa,モホロバオデッサ,Weathervane Hills,2,1,Strange Mass,80.0%,Thick Hide,5.0%,Sturdy Bone,5.0%
+M0400,Illmodo,イルモアード,Great River Valley,3,1,Light Bone,80.0%,Thick Hide,5.0%,,
+M0401,Angveetle,アングヴォータル,Eroded Valley,1,1,Thin Hide,80.0%,Sturdy Bone,5.0%,,
+M0402,Garban,ガルバン,Mountain Pinnacle Trail,4,1,Beast Bone,80.0%,Beast Hide,40.0%,Tectite Ore,5.0%
+M0403,Zentipede,ゾンドピーダ,Towal Highway; Towal Highway (Past),3,2,Sparkling Mucus,80.0%,Beast Bone,15.0%,Thunder Claw,1.0%
+M0440,Zaspion,ザスピオン,Mont Gendarme (Night),6,1,Sterile Mucus,80.0%,Accursed Shell,20.0%,Zaspion Tail,10.0%
+M0441,Zagroon,ザグルーン,Mont Gendarme (Night),8,1,Thick Hide,80.0%,Beast Claw,5.0%,,
+M0442,Neydeek,ネイディク,Mont Gendarme (Night),8,1,Sturdy Bone,80.0%,Thick Hide,5.0%,Lustrous Scale,1.0%
+M0500,Dictyon,ディクティオン,Mountain Pinnacle Trail,5,1,Sturdy Bone,80.0%,Strong Shell,10.0%,Beast Bone,5.0%
+M0501,Fureoanton,フラレオアントン,Titis Primeval Forest; Titis Primeval Forest (Past),3,2,Beast Hide,80.0%,Beast Bone,15.0%,Blue Feather,1.0%
+M0502,Jeld,ジャード,Titis Primeval Forest; Titis Primeval Forest (Past),2,2,Sterile Mucus,80.0%,Sparkling Mucus,5.0%,,
+M0503,Befael,ヴィファエール,Mountain Pinnacle Trail,6,1,Sturdy Lumber,80.0%,Warm Lumber,5.0%,,
+M0504,Gilaaf,ジラーフェ,Vista Ridge; Vista Ridge (Past),2,2,Beast Bone,80.0%,Ancient Bone,15.0%,,
+M0600,Gricust,ギリーカ,Vista Ridge; Vista Ridge (Past),2,2,Beast Hide,80.0%,Ancient Hide,5.0%,,
+M0601,Gulengen,グーリンゲン,Vista Ridge; Vista Ridge (Past),2,2,Sparkling Leaf,80.0%,Ancient Flower,5.0%,,
+M0602,Horndagh,ホーンダーグ,Towal Highway; Towal Highway (Past),3,2,Beast Hide,80.0%,Beast Bone,15.0%,Hard Fiber,1.0%
+M0603,Frogeous,フロギアス,Lodinia Marshland (Past),4,1,Sparkling Mucus,80.0%,Ancient Hide,5.0%,Ancient Mucus,1.0%
+M0604,Redricora,レドリコーラ,Lodinia Marshland (Past),3,1,Beast Bone,80.0%,Accursed Shell,5.0%,Ancient Bone,1.0%
+M0605,Dandale,ダンディール,Lodinia Marshland (Past),3,1,Ancient Hide,80.0%,Hard Fiber,40.0%,Dandale Horn,10.0%
+M0621,Xivega,シュイヴェガー,Baja Tower,6,1,Iron Ore,80.0%,Tectite Ore,5.0%,Essence Stone,1.0%
+M0622,Uni-Attacker,ユニアタッカ,Baja Tower,7,1,Iron Ore,80.0%,Tectite Ore,5.0%,Essence Stone,1.0%
+M0623,Masquard,マスカーデル,Baja Tower,4,1,Tectite Ore,80.0%,Essence Stone,15.0%,Essence Panzer,5.0%
+M0640,Gorba,グーリーバ,Valley of Kings,6,1,Sparkling Mucus,80.0%,Ancient Mucus,5.0%,Diamond Shell,1.0%
+M0641,Fabnir,ファブニール,Valley of Kings,5,1,Ancient Bone,80.0%,Thunder Claw,15.0%,Acidic Liquid,1.0%
+M0642,Dhampul,ダンポウル,Former Sanctuary Crypt - B1; Valley of Kings,8,2,Essence Stone,80.0%,Dragon Crest Stone,10.0%,Starry Shell,1.0%
+M0643,Force Garmr,フォースガルム,Valley of Kings,1,1,Essence Stone,80.0%,Starry Shell,40.0%,Acidic Liquid,20.0%
 M0644,Vallesdominus,バレスドミナス,Valley of Kings,1,1,,,,,,
 M0660,Explosive Plant,爆弾植物,Archeozoic Chasm,3,1,,,,,,
-M0661,Gerub,ゲルブ,Archeozoic Chasm,5,1,beast skin,80.0%,Pangu slime,20.0%,rigid fiber,10.0%
-M0662,Daile,ダイラー,Archeozoic Chasm,8,1,beast bone,80.0%,Glittering mucus,5.0%,Pangu bones,1.0%
-M0663,Dornicle,ドワニクル,Archeozoic Chasm,4,1,Pangu bones,80.0%,Pangu skin,40.0%,Dwanikr's shell,20.0%
-M0664,Dustalpho,ダスタラルフォ,Archeozoic Chasm,6,1,warm wood,80.0%,shining leaves,5.0%,Pangu tree,1.0%
-M0680,Ratnilarda,ラタニーラダー,Former Sanctuary Crypt - B3; Temple of the Great Tree,2,2,beast bone,80.0%,Pangu skin,20.0%,Pangu tree,10.0%
-M0700,Gibo,ガイボ,East Coast Cave,1,1,beast bone,80.0%,Glittering mucus,15.0%,,
-M0701,Kedah Bommy,クダボミー,East Coast Cave,1,1,Glittering mucus,80.0%,diamond shell,15.0%,Pangu bones,5.0%
-M0800,Vula-Menua,ヴァラ・メヌア,Octus Overlook,1,1,Pangu skin,80.0%,Pangu slime,5.0%,Spirit skin of another world,1.0%
-M0801,Vula-Marut,ヴァラ・マルト,Octus Overlook,1,1,Pangu bones,80.0%,dragonite,15.0%,Spiritual bones of another world,5.0%
-M0805,Vulo-Menua,ヴロー・メヌア,Octus Overlook,1,1,Pangu skin,80.0%,Pangu slime,5.0%,Spirit skin of another world,1.0%
-M0806,Vulo-Marut,ヴロー・マルト,Octus Overlook,1,1,Pangu bones,80.0%,dragonite,15.0%,Spiritual bones of another world,5.0%
-M0810,Vunu-Menua,ヴェーヌ・メヌア,Octus Overlook,1,1,Pangu skin,80.0%,Pangu slime,5.0%,Spirit skin of another world,1.0%
-M0811,Vunu-Marut,ヴェーヌ・マルト,Octus Overlook,1,1,Pangu bones,80.0%,dragonite,15.0%,Spiritual bones of another world,5.0%
-M0815,Vuno-Menua,ヴノ・メヌア,Former Sanctuary Crypt - B5; Octus Overlook,3,2,Pangu skin,80.0%,Pangu slime,5.0%,Spirit skin of another world,1.0%
-M0816,Vuno-Marut,ヴノ・マルト,Former Sanctuary Crypt - B5; Octus Overlook,2,2,Pangu bones,80.0%,dragonite,15.0%,Spiritual bones of another world,5.0%
-M0830,Zanvis,ザンフィッス,Octus Overlook,1,1,Pangu slime,80.0%,moon shadow wing,5.0%,Spiritual bones of another world,1.0%
-M0831,Squeed,スクイード,Octus Overlook,1,1,Pangu tree,80.0%,Treasure branch of the great tree,5.0%,Strong acidic hard liquid,1.0%
-M0840,Trema,トレムゥ,Octus Overlook,1,1,Rispar,80.0%,Star Crystal Armor,5.0%,Spiritual bones of another world,1.0%
-M0841,Giganess,ギガヌス,Octus Overlook,1,1,sunshine tooth,40.0%,Treasure branch of the great tree,40.0%,Spirit skin of another world,40.0%
-M0850,Prugeccia,プルゲッチュ,Octus Overlook,1,1,moon shadow wing,40.0%,Strong acidic hard liquid,40.0%,Spirit skin of another world,40.0%
-M0851,Elpion,エルピオン,Former Sanctuary Crypt - B5; Octus Overlook,4,2,Pangu flower,80.0%,Treasure branch of the great tree,5.0%,Spiritual bones of another world,1.0%
-M0860,Oroodanyo,ウーエルダーニョ,Octus Overlook,1,1,Strong acidic hard liquid,40.0%,Spirit skin of another world,40.0%,Spiritual bones of another world,40.0%
-M0861,Palejeni,ペイルジェニー,Octus Overlook,1,1,moon shadow wing,40.0%,Spiritual bones of another world,40.0%,Spirit skin of another world,40.0%
-M0870,Hanmorph,ハンムオルフェ,Former Sanctuary Crypt - B1; Former Sanctuary Crypt - B4; Former Sanctuary Crypt - Final Floor; Octus Overlook,5,4,dragonite,40.0%,Spiritual bones of another world,40.0%,Goryu's heavy shell,5.0%
-M0871,Morx,モルクス,Octus Overlook,1,1,Strong acidic hard liquid,40.0%,Spiritual bones of another world,40.0%,Spirit skin of another world,40.0%
-M0881,Zindare,ザインデール,Octus Overlook,2,1,dragonite,80.0%,Spiritual bones of another world,80.0%,Goryu's heavy shell,10.0%
-M0882,Superion,スペリオル,Octus Overlook,2,1,Senryu's Great Fang,80.0%,Spirit skin of another world,80.0%,Goryu's heavy shell,15.0%
-M0883,Abyss Bloom,アビスブルーメ,Octus Overlook,2,1,Treasure branch of the great tree,80.0%,Spirit skin of another world,80.0%,Goryu's heavy shell,15.0%
-M0884,Deanafrog,ディアナフロッグ,Octus Overlook,2,1,Strong acidic hard liquid,80.0%,Spirit skin of another world,80.0%,Goryu's heavy shell,20.0%
-M0885,Chronotylan,クロノタイラン,Octus Overlook,2,1,dragonite,80.0%,Spiritual bones of another world,80.0%,Goryu's heavy shell,20.0%
-M0886,Blightsoul,ブライティソウル,Former Sanctuary Crypt - Final Floor; Octus Overlook,3,2,Senryu's Great Fang,80.0%,Spiritual bones of another world,80.0%,Goryu's heavy shell,25.0%
-M0887,Audibax,オーディールバックス,Octus Overlook,1,1,dragonite,80.0%,Spiritual bones of another world,80.0%,Goryu's heavy shell,25.0%
-M0888,Palladiosage,パレーディアセイジ,Octus Overlook,1,1,Spiritual bones of another world,80.0%,Spirit skin of another world,80.0%,Goryu's heavy shell,25.0%
-M0889,Desmagazel,デスマギャゼル,Octus Overlook,2,1,Spiritual bones of another world,80.0%,Spirit skin of another world,80.0%,Goryu's heavy shell,30.0%
-M0890,Duskova,ダスクヴァッツァ,Octus Overlook,2,1,Spiritual bones of another world,80.0%,Spirit skin of another world,80.0%,Goryu's heavy shell,30.0%
-M0901,Zokru,ザッカール,Former Sanctuary Crypt - B5; Pirate Ship Eleftheria,7,2,strong bones,80.0%,beast bone,5.0%,Pangu bones,1.0%
-M0902,Gilkyra,ギルクイラ,East Coast Cave; Pirate Ship Eleftheria,4,2,Glittering mucus,80.0%,Pangu skin,40.0%,Pangu slime,20.0%
-M0903,Catablepne,カタベローヌ,Pirate Ship Eleftheria,2,1,beast bone,80.0%,Pangu slime,5.0%,,
-M0910,Cramatange,クラマタンゲ,Former Sanctuary Crypt - B2; Waterfall Grotto,2,2,bending twig,80.0%,lateca resin,5.0%,,
-M0911,Ercaota,エルカオータ,Towering Coral Forest (Night); Waterfall Grotto,6,2,cloudy mucus,80.0%,thick skin,5.0%,clear mucus,1.0%
-M0915,Gyashark,ギャルサーク,Headwater Falls,1,1,cloudy mucus,80.0%,thick skin,15.0%,stalactite,5.0%
-M0916,Gidol,ガイドル,Underground Water Vein,1,1,beast bone,80.0%,Glittering mucus,5.0%,evil crest shell,5.0%
-M0920,Velgyashark,ヴェル・ギャルサーク,Underground Water Vein,1,1,Pangu skin,80.0%,Pangu slime,40.0%,rigid fiber,5.0%
-M0925,Zaroz,ザロッズ,Stone Pillar Wind Cave,1,1,beast skin,80.0%,Glittering mucus,15.0%,Zhan Gangyu,5.0%
-M0926,Nidoras,ニドラース,Stone Pillar Wind Cave,1,1,glossy wood,80.0%,shining leaves,15.0%,,
-M0930,Caim Dahn,カイム・ダーン,Balado Monastery; Former Sanctuary Crypt - B2,3,2,beast bone,80.0%,beast skin,80.0%,tektite ore,80.0%
-M0931,Caim Basch,カイム・バッシュ,Balado Monastery; Former Sanctuary Crypt - B2,3,2,beast bone,80.0%,beast skin,80.0%,warm wood,80.0%
-M0935,Zosh,ザッシュ,The Submerged Cemetery,1,1,beast bone,80.0%,Pangu slime,5.0%,Pangu bones,1.0%
-M0936,Bunymembo,ブニメンボ,Former Sanctuary Crypt - B5; The Submerged Cemetery,3,2,Pangu slime,80.0%,Pangu bones,15.0%,Star Crystal Armor,1.0%
-M0940,Chuchu Batusi,チュチュヴァッツァ,Former Sanctuary Crypt - B1; Former Sanctuary Crypt - B2; Silent Tower,5,3,Pangu skin,80.0%,Pangu bones,5.0%,moon shadow wing,1.0%
-M0941,Xeno-Attacker,ゼノアタッカ,Silent Tower,3,1,Rispar,80.0%,dragonite,5.0%,sunshine tooth,1.0%
-M0942,Mata Maguff,マータマガン,Former Sanctuary Crypt - B2; Silent Tower,3,2,Rispar,80.0%,dragonite,15.0%,Star Crystal Armor,5.0%
-M0945,Masquerd,マスカード,Cavern of the Ancient King; Mont Gendarme (Night); Western Foot of Gendarme,10,3,strong bones,80.0%,Iron ore,5.0%,beast bone,1.0%
-M0960,Hermitocon,ヘルミトコン,Water and Wood Hills,1,1,beautiful flowers,80.0%,Glittering mucus,5.0%,shining leaves,1.0%
-M1000,Zakobanis,ザッカバニオス,Mont Gendarme (Night),6,1,beast bone,80.0%,evil crest shell,15.0%,dragon scales,1.0%
-M1001,Guanodon,グアナノドン,Pangaia Plains (Night),3,1,beast skin,80.0%,beast bone,15.0%,dragon scales,5.0%
-M1003,Parekhan,ペイルカーン,Mont Gendarme (Night); Towal Highway; Towal Highway (Past),7,3,beast skin,80.0%,evil crest shell,15.0%,Blue Sky Feather,5.0%
-M1004,Eldebronto,エルディロブロンディア,Former Sanctuary Crypt - B4; Hill of Eternity,3,2,dragon scales,80.0%,Strong acidic hard liquid,60.0%,Senryu's Great Fang,40.0%
-M1005,Hydroskelo,ハイドロスケイラ,Former Sanctuary Crypt - B4; Lodinia Marshland (Past),5,2,Pangu bones,80.0%,dragon scales,15.0%,moon shadow wing,5.0%
-M1007,Valvalchia,ヴァルヴァロキア,Water and Wood Hills,2,1,Thunderclaw,80.0%,dragon scales,15.0%,sunshine tooth,1.0%
-M1009,Dilodicus,ダイロドクス,Pangaia Plains (Night),2,1,Senryu's Great Fang,80.0%,Aura grass,60.0%,Goryu's heavy shell,40.0%
-M1010,Gigantyrannus,ギガン・タイラン,Great River Valley; Mont Gendarme (Night); Mountain Pinnacle Trail,5,3,dragon scales,80.0%,Thunderclaw,60.0%,sunshine tooth,20.0%
-M1011,Sergesius,セルゲイシオス,Mont Gendarme (Night); Primordial Den; Titis Primeval Forest,5,3,beast bone,80.0%,evil crest shell,15.0%,dragon scales,5.0%
-M1012,Dogosecops,ドゴスコプス,Pangaia Plains (Night),2,1,Pangu bones,80.0%,dragon scales,40.0%,Star Crystal Armor,10.0%
-M1013,Beodaren,ベイオダラン,Pangaia Plains (Night),2,1,beast bone,80.0%,evil crest shell,20.0%,dragon scales,10.0%
-M1014,Paracelsis,プラ・セルシス,Primordial Den; Titis Primeval Forest,2,2,beast skin,80.0%,beast bone,15.0%,dragon scales,1.0%
-M1015,Meraldius,メラルディアス,Great Valley (Past),1,1,beast skin,80.0%,evil crest shell,15.0%,dragon scales,1.0%
-M1020,Giesaur,ゲイゼル,Former Sanctuary Crypt - Final Floor; Mountain Pinnacle Trail; Pangaia Plains (Night); Titis Primeval Forest; Titis Primeval Forest (Past); Vista Ridge; Vista Ridge (Past); White Sand Cape,16,8,Pangu skin,80.0%,Thunderclaw,15.0%,sunshine tooth,5.0%
-M1021,Primarivaur,プリムリーヴァ,Lodinia Marshland (Past); Pangaia Plains (Night); Towal Highway; Towal Highway (Past),8,4,dragon scales,80.0%,moon shadow wing,40.0%,Senryu's Great Fang,20.0%
-M1022,Dictidoadus,ディクティドエイデス,Former Sanctuary Crypt - Final Floor; Hill of Eternity; Mountain Pinnacle Trail; Pangaia Plains; Pangaia Plains (Night),8,5,Star Crystal Armor,80.0%,Senryu's Great Fang,60.0%,Goryu's heavy shell,5.0%
-M1030,Gerasecops,ゲラスコプス,Titis Primeval Forest (Past); Towal Highway (Past),3,2,beast skin,80.0%,diamond shell,5.0%,dragon scales,5.0%
-M1031,Coelavalvalo,シェーラヴァルヴァロ,Lodinia Marshland (Past); Valley of Kings (Past),2,2,Kentoga,80.0%,Thunderclaw,5.0%,dragon scales,1.0%
-M1040,Jaegantyrannus,ジャガン・タイラン,Towal Highway (Past),1,1,Pangu bones,80.0%,dragon scales,40.0%,sunshine tooth,20.0%
-M1041,Madroskelo,マディロスケイラ,Lodinia Marshland (Past),1,1,Pangu skin,80.0%,dragon scales,40.0%,Star Crystal Armor,20.0%
-M1042,Magirodocus,マギロドクス,Lodinia Marshland (Past),1,1,Pangu slime,80.0%,dragon scales,40.0%,Senryu's Great Fang,20.0%
-M1100,Skelps,スケルプス,Titis Primeval Forest (Past),1,1,beautiful flowers,80.0%,clear mucus,5.0%,shining leaves,1.0%
-M1101,Gorengen,ゴーリンゲン,Titis Primeval Forest (Past),1,1,beautiful flowers,80.0%,foxglove leaves,5.0%,,
-M1102,Zaspeony,ザスピオニー,Titis Primeval Forest (Past); Towal Highway (Past),3,2,strong bones,80.0%,solid shell,5.0%,beast bone,1.0%
-M1103,Montsolia,モントズーラ,Towal Highway (Past); Vista Ridge (Past),3,2,clear mucus,80.0%,warm wood,5.0%,Glittering mucus,1.0%
-M1104,Soldiant,ソルディアント,Lodinia Marshland (Past); Valley of Kings (Past),4,2,strong bones,80.0%,solid shell,5.0%,evil crest shell,1.0%
-M1105,Toadius,トーディアス,Lodinia Marshland (Past),1,1,clear mucus,80.0%,beast skin,5.0%,Glittering mucus,1.0%
-M1200,Hyupper,ヒュッパー,Nameless Coast,1,1,light bones,80.0%,strong bones,15.0%,wing quill,5.0%
-M1201,Agiagila,アギアギラ,Great River Valley,1,1,thick skin,80.0%,wing quill,40.0%,Zhan Gangyu,40.0%
-M1202,Valkyra,ヴァルクイラ,Former Sanctuary Crypt - B1; Lodinia Marshland (Past),4,2,beast bone,80.0%,Glittering mucus,40.0%,diamond shell,20.0%
-M1203,Graduna,グラドゥーナ,Mont Gendarme (Night),1,1,strong bones,80.0%,beast bone,15.0%,evil crest shell,5.0%
-M1300,Prahni-Va,プラニー・ヴァ,The Abyss of Origins,2,1,coconut palm,80.0%,mango,5.0%,Dragonfruit,1.0%
-M1301,Voh-Adoh,ヴォ・アード,Former Sanctuary Crypt - Final Floor; The Abyss of Origins,3,2,ripe coconut,80.0%,ripe mango,40.0%,Dragon Tree Treasure,20.0%
-M1400,Spamaltu,スポマルトゥ,East Coast Cave; Lodinia Marshland; Lodinia Marshland (Past); Mountain Pinnacle Trail; Nameless Coast; Nostalgia Cape; Odd Rock Coast; Roaring Seashore; Solitude Island; Sunrise Beach; Underground Water Vein; Waterdrop Cave,12,12,cloudy mucus,80.0%,clear mucus,5.0%,,
-M1401,Orseapus,オルシーピス,East Coast Cave; Lodinia Marshland; Lodinia Marshland (Past); Mountain Pinnacle Trail; Nostalgia Cape; Odd Rock Coast; Roaring Seashore; Solitude Island; Sunrise Beach; Underground Water Vein; Waterdrop Cave,11,11,cloudy mucus,80.0%,clear mucus,15.0%,Glory scales,5.0%
-M1402,Depanglo,デップアングロ,East Coast Cave; Lodinia Marshland; Lodinia Marshland (Past); Mountain Pinnacle Trail; Nostalgia Cape; Odd Rock Coast; Roaring Seashore; Solitude Island; Sunrise Beach; Underground Water Vein; Waterdrop Cave,11,11,clear mucus,80.0%,Glory scales,15.0%,bitter elixir,5.0%
-M1403,Guaranzel,グワランゼル,East Coast Cave; Lodinia Marshland; Lodinia Marshland (Past); Mountain Pinnacle Trail; Nostalgia Cape; Odd Rock Coast; Roaring Seashore; Solitude Island; Sunrise Beach; Underground Water Vein; Waterdrop Cave,11,11,beast bone,80.0%,beast skin,15.0%,tektite ore,5.0%
-M1404,Oreanapushi,オレアナプシー,East Coast Cave; Former Sanctuary Crypt - B5; Lodinia Marshland; Lodinia Marshland (Past); Mountain Pinnacle Trail; Nostalgia Cape; Odd Rock Coast; Roaring Seashore; Solitude Island; Sunrise Beach; Underground Water Vein; Waterdrop Cave,14,12,clear mucus,80.0%,Glittering mucus,15.0%,Pangu slime,5.0%
-M1405,Specklamander,スペクルマンド,East Coast Cave; Former Sanctuary Crypt - B3; Lodinia Marshland; Lodinia Marshland (Past); Mountain Pinnacle Trail; Nostalgia Cape; Odd Rock Coast; Roaring Seashore; Solitude Island; Sunrise Beach; Underground Water Vein; Waterdrop Cave,13,12,beast skin,80.0%,Pangu skin,60.0%,Pangu slime,40.0%
-M1406,Sidragodi,シートルゴーディ,East Coast Cave; Lodinia Marshland; Lodinia Marshland (Past); Mountain Pinnacle Trail; Nostalgia Cape; Odd Rock Coast; Roaring Seashore; Solitude Island; Sunrise Beach; Underground Water Vein; Waterdrop Cave,11,11,Pangu bones,80.0%,diamond shell,5.0%,dragonite,1.0%
-M1407,Blobrovia,ブロブロヴィア,East Coast Cave; Lodinia Marshland; Lodinia Marshland (Past); Mountain Pinnacle Trail; Nostalgia Cape; Odd Rock Coast; Roaring Seashore; Solitude Island; Sunrise Beach; Underground Water Vein; Waterdrop Cave,11,11,Strong acidic hard liquid,80.0%,Aura grass,5.0%,elixir of life,1.0%
-M1408,Zokumethus,ゾックメタス,East Coast Cave; Former Sanctuary Crypt - B1; Former Sanctuary Crypt - B4; Former Sanctuary Crypt - B5; Lodinia Marshland; Lodinia Marshland (Past); Mountain Pinnacle Trail; Nostalgia Cape; Odd Rock Coast; Roaring Seashore; Solitude Island; Sunrise Beach; Underground Water Vein; Waterdrop Cave,16,14,beast bone,80.0%,Pangu bones,15.0%,dragonite,5.0%
-M1409,Grengan,グレインガン,East Coast Cave; Lodinia Marshland; Lodinia Marshland (Past); Mountain Pinnacle Trail; Nostalgia Cape; Odd Rock Coast; Roaring Seashore; Solitude Island; Sunrise Beach; Underground Water Vein; Waterdrop Cave,11,11,elixir of power,80.0%,Guardian's elixir,80.0%,elixir of life,80.0%
+M0661,Gerub,ゲルブ,Archeozoic Chasm,5,1,Beast Hide,80.0%,Ancient Mucus,20.0%,Hard Fiber,10.0%
+M0662,Daile,ダイラー,Archeozoic Chasm,8,1,Beast Bone,80.0%,Sparkling Mucus,5.0%,Ancient Bone,1.0%
+M0663,Dornicle,ドワニクル,Archeozoic Chasm,4,1,Ancient Bone,80.0%,Ancient Hide,40.0%,Dornicle Shell,20.0%
+M0664,Dustalpho,ダスタラルフォ,Archeozoic Chasm,6,1,Warm Lumber,80.0%,Sparkling Leaf,5.0%,Ancient Lumber,1.0%
+M0680,Ratnilarda,ラタニーラダー,Former Sanctuary Crypt - B3; Temple of the Great Tree,2,2,Beast Bone,80.0%,Ancient Hide,20.0%,Ancient Lumber,10.0%
+M0700,Gibo,ガイボ,East Coast Cave,1,1,Beast Bone,80.0%,Sparkling Mucus,15.0%,,
+M0701,Kedah Bommy,クダボミー,East Coast Cave,1,1,Sparkling Mucus,80.0%,Diamond Shell,15.0%,Ancient Bone,5.0%
+M0800,Vula-Menua,ヴァラ・メヌア,Octus Overlook,1,1,Ancient Hide,80.0%,Ancient Mucus,5.0%,Underworld Hide,1.0%
+M0801,Vula-Marut,ヴァラ・マルト,Octus Overlook,1,1,Ancient Bone,80.0%,Dragon Crest Stone,15.0%,Underworld Bone,5.0%
+M0805,Vulo-Menua,ヴロー・メヌア,Octus Overlook,1,1,Ancient Hide,80.0%,Ancient Mucus,5.0%,Underworld Hide,1.0%
+M0806,Vulo-Marut,ヴロー・マルト,Octus Overlook,1,1,Ancient Bone,80.0%,Dragon Crest Stone,15.0%,Underworld Bone,5.0%
+M0810,Vunu-Menua,ヴェーヌ・メヌア,Octus Overlook,1,1,Ancient Hide,80.0%,Ancient Mucus,5.0%,Underworld Hide,1.0%
+M0811,Vunu-Marut,ヴェーヌ・マルト,Octus Overlook,1,1,Ancient Bone,80.0%,Dragon Crest Stone,15.0%,Underworld Bone,5.0%
+M0815,Vuno-Menua,ヴノ・メヌア,Former Sanctuary Crypt - B5; Octus Overlook,3,2,Ancient Hide,80.0%,Ancient Mucus,5.0%,Underworld Hide,1.0%
+M0816,Vuno-Marut,ヴノ・マルト,Former Sanctuary Crypt - B5; Octus Overlook,2,2,Ancient Bone,80.0%,Dragon Crest Stone,15.0%,Underworld Bone,5.0%
+M0830,Zanvis,ザンフィッス,Octus Overlook,1,1,Ancient Mucus,80.0%,Lunar Wings,5.0%,Underworld Bone,1.0%
+M0831,Squeed,スクイード,Octus Overlook,1,1,Ancient Lumber,80.0%,Great Tree Lumber,5.0%,Acidic Liquid,1.0%
+M0840,Trema,トレムゥ,Octus Overlook,1,1,Essence Stone,80.0%,Starry Shell,5.0%,Underworld Bone,1.0%
+M0841,Giganess,ギガヌス,Octus Overlook,1,1,Sunlight Fang,40.0%,Great Tree Lumber,40.0%,Underworld Hide,40.0%
+M0850,Prugeccia,プルゲッチュ,Octus Overlook,1,1,Lunar Wings,40.0%,Acidic Liquid,40.0%,Underworld Hide,40.0%
+M0851,Elpion,エルピオン,Former Sanctuary Crypt - B5; Octus Overlook,4,2,Ancient Flower,80.0%,Great Tree Lumber,5.0%,Underworld Bone,1.0%
+M0860,Oroodanyo,ウーエルダーニョ,Octus Overlook,1,1,Acidic Liquid,40.0%,Underworld Hide,40.0%,Underworld Bone,40.0%
+M0861,Palejeni,ペイルジェニー,Octus Overlook,1,1,Lunar Wings,40.0%,Underworld Bone,40.0%,Underworld Hide,40.0%
+M0870,Hanmorph,ハンムオルフェ,Former Sanctuary Crypt - B1; Former Sanctuary Crypt - B4; Former Sanctuary Crypt - Final Floor; Octus Overlook,5,4,Dragon Crest Stone,40.0%,Underworld Bone,40.0%,Saurian Carapace,5.0%
+M0871,Morx,モルクス,Octus Overlook,1,1,Acidic Liquid,40.0%,Underworld Bone,40.0%,Underworld Hide,40.0%
+M0881,Zindare,ザインデール,Octus Overlook,2,1,Dragon Crest Stone,80.0%,Underworld Bone,80.0%,Saurian Carapace,10.0%
+M0882,Superion,スペリオル,Octus Overlook,2,1,Saurian Fang,80.0%,Underworld Hide,80.0%,Saurian Carapace,15.0%
+M0883,Abyss Bloom,アビスブルーメ,Octus Overlook,2,1,Great Tree Lumber,80.0%,Underworld Hide,80.0%,Saurian Carapace,15.0%
+M0884,Deanafrog,ディアナフロッグ,Octus Overlook,2,1,Acidic Liquid,80.0%,Underworld Hide,80.0%,Saurian Carapace,20.0%
+M0885,Chronotylan,クロノタイラン,Octus Overlook,2,1,Dragon Crest Stone,80.0%,Underworld Bone,80.0%,Saurian Carapace,20.0%
+M0886,Blightsoul,ブライティソウル,Former Sanctuary Crypt - Final Floor; Octus Overlook,3,2,Saurian Fang,80.0%,Underworld Bone,80.0%,Saurian Carapace,25.0%
+M0887,Audibax,オーディールバックス,Octus Overlook,1,1,Dragon Crest Stone,80.0%,Underworld Bone,80.0%,Saurian Carapace,25.0%
+M0888,Palladiosage,パレーディアセイジ,Octus Overlook,1,1,Underworld Bone,80.0%,Underworld Hide,80.0%,Saurian Carapace,25.0%
+M0889,Desmagazel,デスマギャゼル,Octus Overlook,2,1,Underworld Bone,80.0%,Underworld Hide,80.0%,Saurian Carapace,30.0%
+M0890,Duskova,ダスクヴァッツァ,Octus Overlook,2,1,Underworld Bone,80.0%,Underworld Hide,80.0%,Saurian Carapace,30.0%
+M0901,Zokru,ザッカール,Former Sanctuary Crypt - B5; Pirate Ship Eleftheria,7,2,Sturdy Bone,80.0%,Beast Bone,5.0%,Ancient Bone,1.0%
+M0902,Gilkyra,ギルクイラ,East Coast Cave; Pirate Ship Eleftheria,4,2,Sparkling Mucus,80.0%,Ancient Hide,40.0%,Ancient Mucus,20.0%
+M0903,Catablepne,カタベローヌ,Pirate Ship Eleftheria,2,1,Beast Bone,80.0%,Ancient Mucus,5.0%,,
+M0910,Cramatange,クラマタンゲ,Former Sanctuary Crypt - B2; Waterfall Grotto,2,2,Flexible Branch,80.0%,Lateka Resin,5.0%,,
+M0911,Ercaota,エルカオータ,Towering Coral Forest (Night); Waterfall Grotto,6,2,Murky Mucus,80.0%,Thick Hide,5.0%,Sterile Mucus,1.0%
+M0915,Gyashark,ギャルサーク,Headwater Falls,1,1,Murky Mucus,80.0%,Thick Hide,15.0%,Stalactite,5.0%
+M0916,Gidol,ガイドル,Underground Water Vein,1,1,Beast Bone,80.0%,Sparkling Mucus,5.0%,Accursed Shell,5.0%
+M0920,Velgyashark,ヴェル・ギャルサーク,Underground Water Vein,1,1,Ancient Hide,80.0%,Ancient Mucus,40.0%,Hard Fiber,5.0%
+M0925,Zaroz,ザロッズ,Stone Pillar Wind Cave,1,1,Beast Hide,80.0%,Sparkling Mucus,15.0%,Razor Feather,5.0%
+M0926,Nidoras,ニドラース,Stone Pillar Wind Cave,1,1,Sturdy Lumber,80.0%,Sparkling Leaf,15.0%,,
+M0930,Caim Dahn,カイム・ダーン,Balado Monastery; Former Sanctuary Crypt - B2,3,2,Beast Bone,80.0%,Beast Hide,80.0%,Tectite Ore,80.0%
+M0931,Caim Basch,カイム・バッシュ,Balado Monastery; Former Sanctuary Crypt - B2,3,2,Beast Bone,80.0%,Beast Hide,80.0%,Warm Lumber,80.0%
+M0935,Zosh,ザッシュ,The Submerged Cemetery,1,1,Beast Bone,80.0%,Ancient Mucus,5.0%,Ancient Bone,1.0%
+M0936,Bunymembo,ブニメンボ,Former Sanctuary Crypt - B5; The Submerged Cemetery,3,2,Ancient Mucus,80.0%,Ancient Bone,15.0%,Starry Shell,1.0%
+M0940,Chuchu Batusi,チュチュヴァッツァ,Former Sanctuary Crypt - B1; Former Sanctuary Crypt - B2; Silent Tower,5,3,Ancient Hide,80.0%,Ancient Bone,5.0%,Lunar Wings,1.0%
+M0941,Xeno-Attacker,ゼノアタッカ,Silent Tower,3,1,Essence Stone,80.0%,Dragon Crest Stone,5.0%,Sunlight Fang,1.0%
+M0942,Mata Maguff,マータマガン,Former Sanctuary Crypt - B2; Silent Tower,3,2,Essence Stone,80.0%,Dragon Crest Stone,15.0%,Starry Shell,5.0%
+M0945,Masquerd,マスカード,Cavern of the Ancient King; Mont Gendarme (Night); Western Foot of Gendarme,10,3,Sturdy Bone,80.0%,Iron Ore,5.0%,Beast Bone,1.0%
+M0960,Hermitocon,ヘルミトコン,Water and Wood Hills,1,1,Beautiful Flower,80.0%,Sparkling Mucus,5.0%,Sparkling Leaf,1.0%
+M1000,Zakobanis,ザッカバニオス,Mont Gendarme (Night),6,1,Beast Bone,80.0%,Accursed Shell,15.0%,Saurian Scale,1.0%
+M1001,Guanodon,グアナノドン,Pangaia Plains (Night),3,1,Beast Hide,80.0%,Beast Bone,15.0%,Saurian Scale,5.0%
+M1003,Parekhan,ペイルカーン,Mont Gendarme (Night); Towal Highway; Towal Highway (Past),7,3,Beast Hide,80.0%,Accursed Shell,15.0%,Blue Feather,5.0%
+M1004,Eldebronto,エルディロブロンディア,Former Sanctuary Crypt - B4; Hill of Eternity,3,2,Saurian Scale,80.0%,Acidic Liquid,60.0%,Saurian Fang,40.0%
+M1005,Hydroskelo,ハイドロスケイラ,Former Sanctuary Crypt - B4; Lodinia Marshland (Past),5,2,Ancient Bone,80.0%,Saurian Scale,15.0%,Lunar Wings,5.0%
+M1007,Valvalchia,ヴァルヴァロキア,Water and Wood Hills,2,1,Thunder Claw,80.0%,Saurian Scale,15.0%,Sunlight Fang,1.0%
+M1009,Dilodicus,ダイロドクス,Pangaia Plains (Night),2,1,Saurian Fang,80.0%,Aura Grass,60.0%,Saurian Carapace,40.0%
+M1010,Gigantyrannus,ギガン・タイラン,Great River Valley; Mont Gendarme (Night); Mountain Pinnacle Trail,5,3,Saurian Scale,80.0%,Thunder Claw,60.0%,Sunlight Fang,20.0%
+M1011,Sergesius,セルゲイシオス,Mont Gendarme (Night); Primordial Den; Titis Primeval Forest,5,3,Beast Bone,80.0%,Accursed Shell,15.0%,Saurian Scale,5.0%
+M1012,Dogosecops,ドゴスコプス,Pangaia Plains (Night),2,1,Ancient Bone,80.0%,Saurian Scale,40.0%,Starry Shell,10.0%
+M1013,Beodaren,ベイオダラン,Pangaia Plains (Night),2,1,Beast Bone,80.0%,Accursed Shell,20.0%,Saurian Scale,10.0%
+M1014,Paracelsis,プラ・セルシス,Primordial Den; Titis Primeval Forest,2,2,Beast Hide,80.0%,Beast Bone,15.0%,Saurian Scale,1.0%
+M1015,Meraldius,メラルディアス,Great Valley (Past),1,1,Beast Hide,80.0%,Accursed Shell,15.0%,Saurian Scale,1.0%
+M1020,Giesaur,ゲイゼル,Former Sanctuary Crypt - Final Floor; Mountain Pinnacle Trail; Pangaia Plains (Night); Titis Primeval Forest; Titis Primeval Forest (Past); Vista Ridge; Vista Ridge (Past); White Sand Cape,16,8,Ancient Hide,80.0%,Thunder Claw,15.0%,Sunlight Fang,5.0%
+M1021,Primarivaur,プリムリーヴァ,Lodinia Marshland (Past); Pangaia Plains (Night); Towal Highway; Towal Highway (Past),8,4,Saurian Scale,80.0%,Lunar Wings,40.0%,Saurian Fang,20.0%
+M1022,Dictidoadus,ディクティドエイデス,Former Sanctuary Crypt - Final Floor; Hill of Eternity; Mountain Pinnacle Trail; Pangaia Plains; Pangaia Plains (Night),8,5,Starry Shell,80.0%,Saurian Fang,60.0%,Saurian Carapace,5.0%
+M1030,Gerasecops,ゲラスコプス,Titis Primeval Forest (Past); Towal Highway (Past),3,2,Beast Hide,80.0%,Diamond Shell,5.0%,Saurian Scale,5.0%
+M1031,Coelavalvalo,シェーラヴァルヴァロ,Lodinia Marshland (Past); Valley of Kings (Past),2,2,Sword Tip Fang,80.0%,Thunder Claw,5.0%,Saurian Scale,1.0%
+M1040,Jaegantyrannus,ジャガン・タイラン,Towal Highway (Past),1,1,Ancient Bone,80.0%,Saurian Scale,40.0%,Sunlight Fang,20.0%
+M1041,Madroskelo,マディロスケイラ,Lodinia Marshland (Past),1,1,Ancient Hide,80.0%,Saurian Scale,40.0%,Starry Shell,20.0%
+M1042,Magirodocus,マギロドクス,Lodinia Marshland (Past),1,1,Ancient Mucus,80.0%,Saurian Scale,40.0%,Saurian Fang,20.0%
+M1100,Skelps,スケルプス,Titis Primeval Forest (Past),1,1,Beautiful Flower,80.0%,Sterile Mucus,5.0%,Sparkling Leaf,1.0%
+M1101,Gorengen,ゴーリンゲン,Titis Primeval Forest (Past),1,1,Beautiful Flower,80.0%,Digitalis Leaf,5.0%,,
+M1102,Zaspeony,ザスピオニー,Titis Primeval Forest (Past); Towal Highway (Past),3,2,Sturdy Bone,80.0%,Strong Shell,5.0%,Beast Bone,1.0%
+M1103,Montsolia,モントズーラ,Towal Highway (Past); Vista Ridge (Past),3,2,Sterile Mucus,80.0%,Warm Lumber,5.0%,Sparkling Mucus,1.0%
+M1104,Soldiant,ソルディアント,Lodinia Marshland (Past); Valley of Kings (Past),4,2,Sturdy Bone,80.0%,Strong Shell,5.0%,Accursed Shell,1.0%
+M1105,Toadius,トーディアス,Lodinia Marshland (Past),1,1,Sterile Mucus,80.0%,Beast Hide,5.0%,Sparkling Mucus,1.0%
+M1200,Hyupper,ヒュッパー,Nameless Coast,1,1,Light Bone,80.0%,Sturdy Bone,15.0%,Remex,5.0%
+M1201,Agiagila,アギアギラ,Great River Valley,1,1,Thick Hide,80.0%,Remex,40.0%,Razor Feather,40.0%
+M1202,Valkyra,ヴァルクイラ,Former Sanctuary Crypt - B1; Lodinia Marshland (Past),4,2,Beast Bone,80.0%,Sparkling Mucus,40.0%,Diamond Shell,20.0%
+M1203,Graduna,グラドゥーナ,Mont Gendarme (Night),1,1,Sturdy Bone,80.0%,Beast Bone,15.0%,Accursed Shell,5.0%
+M1300,Prahni-Va,プラニー・ヴァ,The Abyss of Origins,2,1,Coconut,80.0%,Mango,5.0%,Dragon Tree Fruit,1.0%
+M1301,Voh-Adoh,ヴォ・アード,Former Sanctuary Crypt - Final Floor; The Abyss of Origins,3,2,Ripe Coconut,80.0%,Ripe Mango,40.0%,Dragon Tree Treasure,20.0%
+M1400,Spamaltu,スポマルトゥ,East Coast Cave; Lodinia Marshland; Lodinia Marshland (Past); Mountain Pinnacle Trail; Nameless Coast; Nostalgia Cape; Odd Rock Coast; Roaring Seashore; Solitude Island; Sunrise Beach; Underground Water Vein; Waterdrop Cave,12,12,Murky Mucus,80.0%,Sterile Mucus,5.0%,,
+M1401,Orseapus,オルシーピス,East Coast Cave; Lodinia Marshland; Lodinia Marshland (Past); Mountain Pinnacle Trail; Nostalgia Cape; Odd Rock Coast; Roaring Seashore; Solitude Island; Sunrise Beach; Underground Water Vein; Waterdrop Cave,11,11,Murky Mucus,80.0%,Sterile Mucus,15.0%,Lustrous Scale,5.0%
+M1402,Depanglo,デップアングロ,East Coast Cave; Lodinia Marshland; Lodinia Marshland (Past); Mountain Pinnacle Trail; Nostalgia Cape; Odd Rock Coast; Roaring Seashore; Solitude Island; Sunrise Beach; Underground Water Vein; Waterdrop Cave,11,11,Sterile Mucus,80.0%,Lustrous Scale,15.0%,Bitter Remedy,5.0%
+M1403,Guaranzel,グワランゼル,East Coast Cave; Lodinia Marshland; Lodinia Marshland (Past); Mountain Pinnacle Trail; Nostalgia Cape; Odd Rock Coast; Roaring Seashore; Solitude Island; Sunrise Beach; Underground Water Vein; Waterdrop Cave,11,11,Beast Bone,80.0%,Beast Hide,15.0%,Tectite Ore,5.0%
+M1404,Oreanapushi,オレアナプシー,East Coast Cave; Former Sanctuary Crypt - B5; Lodinia Marshland; Lodinia Marshland (Past); Mountain Pinnacle Trail; Nostalgia Cape; Odd Rock Coast; Roaring Seashore; Solitude Island; Sunrise Beach; Underground Water Vein; Waterdrop Cave,14,12,Sterile Mucus,80.0%,Sparkling Mucus,15.0%,Ancient Mucus,5.0%
+M1405,Specklamander,スペクルマンド,East Coast Cave; Former Sanctuary Crypt - B3; Lodinia Marshland; Lodinia Marshland (Past); Mountain Pinnacle Trail; Nostalgia Cape; Odd Rock Coast; Roaring Seashore; Solitude Island; Sunrise Beach; Underground Water Vein; Waterdrop Cave,13,12,Beast Hide,80.0%,Ancient Hide,60.0%,Ancient Mucus,40.0%
+M1406,Sidragodi,シートルゴーディ,East Coast Cave; Lodinia Marshland; Lodinia Marshland (Past); Mountain Pinnacle Trail; Nostalgia Cape; Odd Rock Coast; Roaring Seashore; Solitude Island; Sunrise Beach; Underground Water Vein; Waterdrop Cave,11,11,Ancient Bone,80.0%,Diamond Shell,5.0%,Dragon Crest Stone,1.0%
+M1407,Blobrovia,ブロブロヴィア,East Coast Cave; Lodinia Marshland; Lodinia Marshland (Past); Mountain Pinnacle Trail; Nostalgia Cape; Odd Rock Coast; Roaring Seashore; Solitude Island; Sunrise Beach; Underground Water Vein; Waterdrop Cave,11,11,Acidic Liquid,80.0%,Aura Grass,5.0%,Life Elixir,1.0%
+M1408,Zokumethus,ゾックメタス,East Coast Cave; Former Sanctuary Crypt - B1; Former Sanctuary Crypt - B4; Former Sanctuary Crypt - B5; Lodinia Marshland; Lodinia Marshland (Past); Mountain Pinnacle Trail; Nostalgia Cape; Odd Rock Coast; Roaring Seashore; Solitude Island; Sunrise Beach; Underground Water Vein; Waterdrop Cave,16,14,Beast Bone,80.0%,Ancient Bone,15.0%,Dragon Crest Stone,5.0%
+M1409,Grengan,グレインガン,East Coast Cave; Lodinia Marshland; Lodinia Marshland (Past); Mountain Pinnacle Trail; Nostalgia Cape; Odd Rock Coast; Roaring Seashore; Solitude Island; Sunrise Beach; Underground Water Vein; Waterdrop Cave,11,11,Power Elixir,80.0%,Defense Elixir,80.0%,Life Elixir,80.0%
 M1600,Rama,ラーマ,Sanctuary Crypt - Chamber of Braziers (Past); Sanctuary Crypt - Chamber of Clairvoyance (Past); Sanctuary Crypt - Chamber of Frost (Past),5,3,,,,,,
-M1601,Angattacker,アンガアタッカ,Sanctuary Crypt - Chamber of Braziers (Past); Sanctuary Crypt - Chamber of Clairvoyance (Past); Sanctuary Crypt - Chamber of Frost (Past); Sanctuary Crypt - Chamber of Magma (Past); Sanctuary Crypt - Chamber of Stone (Past),10,5,strange lump,80.0%,Iron ore,40.0%,tektite ore,20.0%
-M1602,Spitza,スピーツァ,Sanctuary Crypt - Chamber of Clairvoyance (Past); Sanctuary Crypt - Chamber of Frost (Past); Sanctuary Crypt - Chamber of Magma (Past); Sanctuary Crypt - Chamber of the Final Trial (Past),5,4,Glittering mucus,80.0%,Pangu slime,20.0%,glow rock,5.0%
-M1603,Floria,フロリア,Sanctuary Crypt - Chamber of Clairvoyance (Past); Sanctuary Crypt - Chamber of Frost (Past); Sanctuary Crypt - Chamber of Magma (Past); Sanctuary Crypt - Chamber of Stone (Past); Sanctuary Crypt - Chamber of the Final Trial (Past),8,5,shining leaves,80.0%,Pangu flower,20.0%,moonlight grass,5.0%
-M1604,Tormvega,トルムヴェガー,Sanctuary Crypt - Chamber of Clairvoyance (Past); Sanctuary Crypt - Chamber of Frost (Past); Sanctuary Crypt - Chamber of Magma (Past),3,3,tektite ore,80.0%,Rispar,20.0%,mental armor,5.0%
-M1605,Angatraz,アンガトラズ,Sanctuary Crypt - Chamber of Clairvoyance (Past); Sanctuary Crypt - Chamber of Frost (Past); Sanctuary Crypt - Chamber of Magma (Past); Sanctuary Crypt - Chamber of the Final Trial (Past),6,4,tektite ore,80.0%,Rispar,20.0%,diamond shell,5.0%
-M1610,Gresbalon,グレスバイラン,Former Sanctuary Crypt - B4; Sanctuary Crypt - Chamber of Braziers (Past); Sanctuary Crypt - Chamber of Clairvoyance (Past); Sanctuary Crypt - Chamber of Frost (Past); Sanctuary Crypt - Chamber of Magma (Past); Sanctuary Crypt - Chamber of Stone (Past),11,6,thick skin,50.0%,beast skin,20.0%,beast bone,20.0%
-M1611,Emisdoot,イミスドゥーテ,Sanctuary Crypt - Chamber of Braziers (Past); Sanctuary Crypt - Chamber of Clairvoyance (Past); Sanctuary Crypt - Chamber of Frost (Past); Sanctuary Crypt - Chamber of Magma (Past); Sanctuary Crypt - Chamber of Stone (Past); Sanctuary Crypt - Chamber of the Final Trial (Past),9,6,tektite ore,80.0%,Rispar,2.0%,mental armor,10.0%
-M1612,Spitsa Ire,スピーツァ・イレ,Sanctuary Crypt - Chamber of Clairvoyance (Past); Sanctuary Crypt - Chamber of Frost (Past); Sanctuary Crypt - Chamber of Magma (Past); Sanctuary Crypt - Chamber of Stone (Past); Sanctuary Crypt - Chamber of the Final Trial (Past),6,5,Glittering mucus,80.0%,moon shadow wing,20.0%,Rivera's Immortal Flower,5.0%
-M1613,Shivalva,シヴァルヴァ,Sanctuary Crypt - Chamber of Clairvoyance (Past); Sanctuary Crypt - Chamber of Frost (Past); Sanctuary Crypt - Chamber of Magma (Past); Sanctuary Crypt - Chamber of the Final Trial (Past),7,4,Pangu bones,80.0%,Star Crystal Armor,20.0%,Spiritual bones of another world,1.0%
-M2100,Staeda,ステアーダ,Eroded Valley; Former Sanctuary Crypt - B3,7,2,light bones,80.0%,strange lump,5.0%,clear mucus,5.0%
-M2101,Tyrondor,タイランウェザー,Eroded Valley,1,1,thick skin,80.0%,wing quill,5.0%,Zhan Gangyu,1.0%
-M2102,Bullfrodon,ブルフロドン,Eroded Valley; Nameless Coast; Schlamm Jungle; White Sand Cape,9,4,clear mucus,80.0%,stalactite,20.0%,Bullfrodon mucus,20.0%
-M2103,Zupig,ピグラ,Eroded Valley,4,1,thin skin,80.0%,thick skin,5.0%,wing quill,1.0%
+M1601,Angattacker,アンガアタッカ,Sanctuary Crypt - Chamber of Braziers (Past); Sanctuary Crypt - Chamber of Clairvoyance (Past); Sanctuary Crypt - Chamber of Frost (Past); Sanctuary Crypt - Chamber of Magma (Past); Sanctuary Crypt - Chamber of Stone (Past),10,5,Strange Mass,80.0%,Iron Ore,40.0%,Tectite Ore,20.0%
+M1602,Spitza,スピーツァ,Sanctuary Crypt - Chamber of Clairvoyance (Past); Sanctuary Crypt - Chamber of Frost (Past); Sanctuary Crypt - Chamber of Magma (Past); Sanctuary Crypt - Chamber of the Final Trial (Past),5,4,Sparkling Mucus,80.0%,Ancient Mucus,20.0%,Glow Rock,5.0%
+M1603,Floria,フロリア,Sanctuary Crypt - Chamber of Clairvoyance (Past); Sanctuary Crypt - Chamber of Frost (Past); Sanctuary Crypt - Chamber of Magma (Past); Sanctuary Crypt - Chamber of Stone (Past); Sanctuary Crypt - Chamber of the Final Trial (Past),8,5,Sparkling Leaf,80.0%,Ancient Flower,20.0%,Moonlight Grass,5.0%
+M1604,Tormvega,トルムヴェガー,Sanctuary Crypt - Chamber of Clairvoyance (Past); Sanctuary Crypt - Chamber of Frost (Past); Sanctuary Crypt - Chamber of Magma (Past),3,3,Tectite Ore,80.0%,Essence Stone,20.0%,Essence Panzer,5.0%
+M1605,Angatraz,アンガトラズ,Sanctuary Crypt - Chamber of Clairvoyance (Past); Sanctuary Crypt - Chamber of Frost (Past); Sanctuary Crypt - Chamber of Magma (Past); Sanctuary Crypt - Chamber of the Final Trial (Past),6,4,Tectite Ore,80.0%,Essence Stone,20.0%,Diamond Shell,5.0%
+M1610,Gresbalon,グレスバイラン,Former Sanctuary Crypt - B4; Sanctuary Crypt - Chamber of Braziers (Past); Sanctuary Crypt - Chamber of Clairvoyance (Past); Sanctuary Crypt - Chamber of Frost (Past); Sanctuary Crypt - Chamber of Magma (Past); Sanctuary Crypt - Chamber of Stone (Past),11,6,Thick Hide,50.0%,Beast Hide,20.0%,Beast Bone,20.0%
+M1611,Emisdoot,イミスドゥーテ,Sanctuary Crypt - Chamber of Braziers (Past); Sanctuary Crypt - Chamber of Clairvoyance (Past); Sanctuary Crypt - Chamber of Frost (Past); Sanctuary Crypt - Chamber of Magma (Past); Sanctuary Crypt - Chamber of Stone (Past); Sanctuary Crypt - Chamber of the Final Trial (Past),9,6,Tectite Ore,80.0%,Essence Stone,2.0%,Essence Panzer,10.0%
+M1612,Spitsa Ire,スピーツァ・イレ,Sanctuary Crypt - Chamber of Clairvoyance (Past); Sanctuary Crypt - Chamber of Frost (Past); Sanctuary Crypt - Chamber of Magma (Past); Sanctuary Crypt - Chamber of Stone (Past); Sanctuary Crypt - Chamber of the Final Trial (Past),6,5,Sparkling Mucus,80.0%,Lunar Wings,20.0%,Rivera's Undying Flower,5.0%
+M1613,Shivalva,シヴァルヴァ,Sanctuary Crypt - Chamber of Clairvoyance (Past); Sanctuary Crypt - Chamber of Frost (Past); Sanctuary Crypt - Chamber of Magma (Past); Sanctuary Crypt - Chamber of the Final Trial (Past),7,4,Ancient Bone,80.0%,Starry Shell,20.0%,Underworld Bone,1.0%
+M2100,Staeda,ステアーダ,Eroded Valley; Former Sanctuary Crypt - B3,7,2,Light Bone,80.0%,Strange Mass,5.0%,Sterile Mucus,5.0%
+M2101,Tyrondor,タイランウェザー,Eroded Valley,1,1,Thick Hide,80.0%,Remex,5.0%,Razor Feather,1.0%
+M2102,Bullfrodon,ブルフロドン,Eroded Valley; Nameless Coast; Schlamm Jungle; White Sand Cape,9,4,Sterile Mucus,80.0%,Stalactite,20.0%,Bullfrodon Mucus,20.0%
+M2103,Zupig,ピグラ,Eroded Valley,4,1,Thin Hide,80.0%,Thick Hide,5.0%,Remex,1.0%
 MAT01,,Unknown (MAT01),Nameless Coast,1,1,,,,,,
 MAT02,,Unknown (MAT02),Nameless Coast,1,1,,,,,,
 MAT03,,Unknown (MAT03),Nameless Coast,1,1,,,,,,
