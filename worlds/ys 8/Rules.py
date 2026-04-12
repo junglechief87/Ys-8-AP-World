@@ -31,14 +31,6 @@ def material_access(material: str, state: CollectionState, player: int) -> bool:
 def quick_grind(state: CollectionState, player: int, threshold: int) -> bool:
     return True
 
-# TODO: implement — returns True if south side of the island is reachable
-def south_side_open(state: CollectionState, player: int) -> bool:
-    return True
-
-# TODO: implement — returns True if the north coast area is reachable
-def coast_north_side_access(state: CollectionState, player: int) -> bool:
-    return True
-
 # TODO: implement — returns the highest armlet strength value from found checks
 def armlet_str(state: CollectionState, player: int) -> int:
     return 0

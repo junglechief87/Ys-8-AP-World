@@ -1,0 +1,6113 @@
+{
+  "metadata": {
+    "total_enemies": 243,
+    "enemies_with_names": 214,
+    "enemies_with_drops": 184,
+    "enemies_with_regions": 243,
+    "last_updated": "2026-04-12",
+    "sources": [
+      "status.csv",
+      "enemy_drops.csv",
+      "COMPREHENSIVE_ENEMY_DATABASE_V2.csv"
+    ]
+  },
+  "enemies": {
+    "1": {
+      "id": "1",
+      "english_name": null,
+      "jp_name": "Unknown (1)",
+      "regions": [
+        "Nameless Coast"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B001": {
+      "id": "B001",
+      "english_name": "Gargantula",
+      "jp_name": "グルガンチュラ",
+      "regions": [
+        "Eroded Valley",
+        "Former Sanctuary Crypt - B3"
+      ],
+      "location_count": 1,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B002": {
+      "id": "B002",
+      "english_name": "Laspisus",
+      "jp_name": "ラスピスース",
+      "regions": [
+        "Schlamm Jungle"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B003": {
+      "id": "B003",
+      "english_name": "Giasburn",
+      "jp_name": "ギアスバーン",
+      "regions": [
+        "Mont Gendarme (Night)"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B005": {
+      "id": "B005",
+      "english_name": "Basileus",
+      "jp_name": "バシレウス",
+      "regions": [
+        "Temple of the Great Tree",
+        "Valley of Kings"
+      ],
+      "location_count": 2,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B006": {
+      "id": "B006",
+      "english_name": "Brachion",
+      "jp_name": "ブラキオン",
+      "regions": [
+        "Former Sanctuary Crypt - B4",
+        "Temple of the Great Tree"
+      ],
+      "location_count": 2,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B007": {
+      "id": "B007",
+      "english_name": "Oceanus",
+      "jp_name": "オケアノス",
+      "regions": [
+        "Archeozoic Chasm"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B008": {
+      "id": "B008",
+      "english_name": "Psyche-Ura",
+      "jp_name": "アニムス・ウーラ",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B011": {
+      "id": "B011",
+      "english_name": "Le-Kyanos",
+      "jp_name": "レ・キュアノス",
+      "regions": [
+        "Royal Capital Aegias (Past)",
+        "Temple of the Great Tree"
+      ],
+      "location_count": 2,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B012": {
+      "id": "B012",
+      "english_name": "Le-Erythros",
+      "jp_name": "レ・エリュトロン",
+      "regions": [
+        "Temple of the Great Tree"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B030": {
+      "id": "B030",
+      "english_name": "Io",
+      "jp_name": "“イオ”",
+      "regions": [
+        "Sanctuary Crypt - Chamber of the Final Trial (Past)"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B100": {
+      "id": "B100",
+      "english_name": "Serpentus",
+      "jp_name": "セルペンタス",
+      "regions": [
+        "Towering Coral Forest (Night)"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B102": {
+      "id": "B102",
+      "english_name": "Magamandra",
+      "jp_name": "マガマンドラ",
+      "regions": [
+        "Schlamm Jungle"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B103": {
+      "id": "B103",
+      "english_name": "Pirate Revenant",
+      "jp_name": "ピラティスアニマ",
+      "regions": [
+        "Former Sanctuary Crypt - B5",
+        "Pirate Ship Eleftheria"
+      ],
+      "location_count": 2,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B104": {
+      "id": "B104",
+      "english_name": "Exmetal",
+      "jp_name": "エクスメーテル",
+      "regions": [
+        "Baja Tower"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B105": {
+      "id": "B105",
+      "english_name": "Doxa Griel",
+      "jp_name": "ドクサ・グリエル",
+      "regions": [
+        "Former Sanctuary Crypt - B2",
+        "Valley of Kings"
+      ],
+      "location_count": 2,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B106": {
+      "id": "B106",
+      "english_name": "Coelacantos",
+      "jp_name": "シエラカントゥス",
+      "regions": [
+        "Archeozoic Chasm"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B150": {
+      "id": "B150",
+      "english_name": "Avalodragil",
+      "jp_name": "アヴァロドラギル",
+      "regions": [
+        "Nameless Coast"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B151": {
+      "id": "B151",
+      "english_name": "Master Kong",
+      "jp_name": "マスターコング",
+      "regions": [
+        "Mont Gendarme (Night)",
+        "Odd Rock Coast",
+        "Pangaia Plains (Night)",
+        "Roaring Seashore",
+        "Sunrise Beach",
+        "Temple of the Great Tree",
+        "Vista Ridge (Past)",
+        "Waterdrop Cave"
+      ],
+      "location_count": 7,
+      "region_count": 8,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B153": {
+      "id": "B153",
+      "english_name": "Mephorash",
+      "jp_name": "メフォラシュム",
+      "regions": [
+        "Silent Tower"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B154": {
+      "id": "B154",
+      "english_name": "Avalodragil",
+      "jp_name": "アヴァロドラギル",
+      "regions": [
+        "Mont Gendarme (Night)"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B161": {
+      "id": "B161",
+      "english_name": "Grazios",
+      "jp_name": "グラジオス",
+      "regions": [
+        "Former Sanctuary Crypt - B1",
+        "Sanctuary Crypt - Chamber of Braziers (Past)"
+      ],
+      "location_count": 1,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B162": {
+      "id": "B162",
+      "english_name": "Nebritia",
+      "jp_name": "ネブリティア",
+      "regions": [
+        "Sanctuary Crypt - Chamber of Stone (Past)"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B163": {
+      "id": "B163",
+      "english_name": "Argura",
+      "jp_name": "アーギュラ",
+      "regions": [
+        "Sanctuary Crypt - Chamber of Clairvoyance (Past)"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B164": {
+      "id": "B164",
+      "english_name": "Crusos",
+      "jp_name": "クリューソス",
+      "regions": [
+        "Sanctuary Crypt - Chamber of Frost (Past)"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B165": {
+      "id": "B165",
+      "english_name": "Blasphima",
+      "jp_name": "ブラスフィマ",
+      "regions": [
+        "Sanctuary Crypt - Chamber of Magma (Past)"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "B170": {
+      "id": "B170",
+      "english_name": "Melaiduma",
+      "jp_name": "メライドゥマ",
+      "regions": [
+        "Former Sanctuary Crypt - Final Floor"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0100": {
+      "id": "M0100",
+      "english_name": "Ratni",
+      "jp_name": "ラタニー",
+      "regions": [
+        "Former Sanctuary Crypt - B3",
+        "Pangaia Plains (Night)",
+        "Royal Capital Aegias (Past)",
+        "Temple of the Great Tree"
+      ],
+      "location_count": 6,
+      "region_count": 4,
+      "drops": {
+        "common": {
+          "item": "strong bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "beast skin",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0101": {
+      "id": "M0101",
+      "english_name": "Rikad",
+      "jp_name": "リカード",
+      "regions": [
+        "Great River Valley",
+        "Nameless Coast"
+      ],
+      "location_count": 2,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "light bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "strong bones",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "solid shell",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0102": {
+      "id": "M0102",
+      "english_name": "Maltu",
+      "jp_name": "マルトゥ",
+      "regions": [
+        "Nameless Coast"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "cloudy mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "strange lump",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0103": {
+      "id": "M0103",
+      "english_name": "Sangator",
+      "jp_name": "サンディール",
+      "regions": [
+        "Great River Valley"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "thin skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "clear mucus",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0104": {
+      "id": "M0104",
+      "english_name": "Vastera",
+      "jp_name": "ヴェアスデーラ",
+      "regions": [
+        "Nameless Coast"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "cloudy mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "clear mucus",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "soft fiber",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0105": {
+      "id": "M0105",
+      "english_name": "Lugaes",
+      "jp_name": "ルシーガ",
+      "regions": [
+        "Roaring Seashore"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "thin skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "thick skin",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "wing quill",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0106": {
+      "id": "M0106",
+      "english_name": "Wollof",
+      "jp_name": "ヴォルロフ",
+      "regions": [
+        "Nameless Coast",
+        "Western Foot of Gendarme"
+      ],
+      "location_count": 4,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "thin skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "strong bones",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "soft fiber",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0107": {
+      "id": "M0107",
+      "english_name": "Raemitt",
+      "jp_name": "レーミット",
+      "regions": [
+        "Nameless Coast"
+      ],
+      "location_count": 4,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "thin skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "light bones",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0108": {
+      "id": "M0108",
+      "english_name": "Molvie",
+      "jp_name": "モルヴィ",
+      "regions": [
+        "Nameless Coast"
+      ],
+      "location_count": 5,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "light bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "strange lump",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0109": {
+      "id": "M0109",
+      "english_name": "Buar",
+      "jp_name": "ブアル",
+      "regions": [
+        "Nameless Coast",
+        "Waterdrop Cave"
+      ],
+      "location_count": 3,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "thin skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "light bones",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "thick skin",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0110": {
+      "id": "M0110",
+      "english_name": "Anapushi",
+      "jp_name": "アナプシー",
+      "regions": [
+        "Nameless Coast",
+        "Waterdrop Cave"
+      ],
+      "location_count": 5,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "cloudy mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "strange lump",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "clear mucus",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0111": {
+      "id": "M0111",
+      "english_name": "Byfteriza",
+      "jp_name": "ビフテリザ",
+      "regions": [
+        "Waterdrop Cave"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0112": {
+      "id": "M0112",
+      "english_name": "Ripseus",
+      "jp_name": "リプシオス",
+      "regions": [
+        "Nameless Coast"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "light bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "cloudy mucus",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0113": {
+      "id": "M0113",
+      "english_name": "Worgle",
+      "jp_name": "ワーグル",
+      "regions": [
+        "Nameless Coast"
+      ],
+      "location_count": 3,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "light bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "thin skin",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "soft fiber",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0120": {
+      "id": "M0120",
+      "english_name": "Repleon",
+      "jp_name": "レプレオン",
+      "regions": [
+        "Towering Coral Forest (Night)"
+      ],
+      "location_count": 6,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "light bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "thick skin",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0121": {
+      "id": "M0121",
+      "english_name": "Targanean",
+      "jp_name": "ターガニオン",
+      "regions": [
+        "Towering Coral Forest (Night)"
+      ],
+      "location_count": 6,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "light bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "strong bones",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0122": {
+      "id": "M0122",
+      "english_name": "Pinha",
+      "jp_name": "ピーニャ",
+      "regions": [
+        "Towering Coral Forest (Night)"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "thin skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "clear mucus",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0123": {
+      "id": "M0123",
+      "english_name": "Gwaranga",
+      "jp_name": "グワラニーガ",
+      "regions": [
+        "Great River Valley",
+        "Towering Coral Forest (Night)",
+        "White Sand Cape"
+      ],
+      "location_count": 7,
+      "region_count": 3,
+      "drops": {
+        "common": {
+          "item": "strong bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "solid shell",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "Guwaraniga scissors",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0124": {
+      "id": "M0124",
+      "english_name": "Larfo",
+      "jp_name": "ラルフォ",
+      "regions": [
+        "Towering Coral Forest (Night)"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "bending twig",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "glossy wood",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "foxglove leaves",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0140": {
+      "id": "M0140",
+      "english_name": "Seapus",
+      "jp_name": "シーピス",
+      "regions": [
+        "White Sand Cape"
+      ],
+      "location_count": 4,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "light bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "clear mucus",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0141": {
+      "id": "M0141",
+      "english_name": "Organean",
+      "jp_name": "オーガニオン",
+      "regions": [
+        "White Sand Cape"
+      ],
+      "location_count": 4,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "light bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "strong bones",
+          "rate": "1.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0142": {
+      "id": "M0142",
+      "english_name": "Sabrodo",
+      "jp_name": "セイバオット",
+      "regions": [
+        "Towering Coral Forest (Night)",
+        "White Sand Cape"
+      ],
+      "location_count": 8,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "thin skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "thick skin",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "beast claw",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0143": {
+      "id": "M0143",
+      "english_name": "Pewd",
+      "jp_name": "ピュード",
+      "regions": [
+        "Roaring Seashore",
+        "Towering Coral Forest (Night)"
+      ],
+      "location_count": 5,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "small leaves",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "beautiful flowers",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0144": {
+      "id": "M0144",
+      "english_name": "Grimodo",
+      "jp_name": "グレモアード",
+      "regions": [
+        "Roaring Seashore"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "thin skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "thick skin",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0145": {
+      "id": "M0145",
+      "english_name": "Splart",
+      "jp_name": "スプラート",
+      "regions": [
+        "Great River Valley"
+      ],
+      "location_count": 5,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "thin skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "clear mucus",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "wing quill",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0146": {
+      "id": "M0146",
+      "english_name": "Spoun",
+      "jp_name": "スポゥン",
+      "regions": [
+        "Great River Valley"
+      ],
+      "location_count": 4,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "glossy wood",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "beautiful flowers",
+          "rate": "20.0%"
+        },
+        "special": {
+          "item": "foxglove leaves",
+          "rate": "10.0%"
+        }
+      }
+    },
+    "M0147": {
+      "id": "M0147",
+      "english_name": "Gwarrab",
+      "jp_name": "グワララーブ",
+      "regions": [
+        "Longhorn Coast",
+        "Longuefone Beach",
+        "Towering Coral Forest (Night)"
+      ],
+      "location_count": 7,
+      "region_count": 3,
+      "drops": {
+        "common": {
+          "item": "strong bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "solid shell",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "evil crest shell",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0148": {
+      "id": "M0148",
+      "english_name": "Gulugaes",
+      "jp_name": "グレルシーガ",
+      "regions": [
+        "Longhorn Coast",
+        "Longuefone Beach"
+      ],
+      "location_count": 2,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "thin skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "thick skin",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "wing quill",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0149": {
+      "id": "M0149",
+      "english_name": "Moreel",
+      "jp_name": "モライール",
+      "regions": [
+        "Nostalgia Cape"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "beast skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Glittering mucus",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "Pangu slime",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0150": {
+      "id": "M0150",
+      "english_name": "Pervastera",
+      "jp_name": "パルヴェスデーラ",
+      "regions": [
+        "Nostalgia Cape"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Glittering mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "rigid fiber",
+          "rate": "20.0%"
+        },
+        "special": {
+          "item": "Pangu skin",
+          "rate": "10.0%"
+        }
+      }
+    },
+    "M0151": {
+      "id": "M0151",
+      "english_name": "Orclash",
+      "jp_name": "オケラーシュ",
+      "regions": [
+        "White Sand Cape"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "clear mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "beast skin",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "Glory scales",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0200": {
+      "id": "M0200",
+      "english_name": "Doona",
+      "jp_name": "ドゥーナ",
+      "regions": [
+        "Great River Valley",
+        "Nameless Coast"
+      ],
+      "location_count": 6,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "thin skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "strong bones",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0201": {
+      "id": "M0201",
+      "english_name": "Lanonen",
+      "jp_name": "ラーノーネン",
+      "regions": [
+        "Nameless Coast"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "small leaves",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "clear mucus",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0202": {
+      "id": "M0202",
+      "english_name": "Valquito",
+      "jp_name": "ヴァルキート",
+      "regions": [
+        "Lodinia Marshland (Past)",
+        "Schlamm Jungle"
+      ],
+      "location_count": 5,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "wing quill",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Zhan Gangyu",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "Blue Sky Feather",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0203": {
+      "id": "M0203",
+      "english_name": "Buldebeet",
+      "jp_name": "ブルトビトゥ",
+      "regions": [
+        "Beast Hills"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "thick skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "soft fiber",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "Kentoga",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0220": {
+      "id": "M0220",
+      "english_name": "Bicillus",
+      "jp_name": "ビチルス",
+      "regions": [
+        "Schlamm Jungle"
+      ],
+      "location_count": 3,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "thin skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "clear mucus",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0221": {
+      "id": "M0221",
+      "english_name": "Shotsolla",
+      "jp_name": "ショットズーラ",
+      "regions": [
+        "Schlamm Jungle"
+      ],
+      "location_count": 7,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "small leaves",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "beautiful flowers",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "lateca resin",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0222": {
+      "id": "M0222",
+      "english_name": "Vivine",
+      "jp_name": "カズカズラ",
+      "regions": [
+        "Mont Gendarme (Night)",
+        "Titis Primeval Forest",
+        "Titis Primeval Forest (Past)"
+      ],
+      "location_count": 7,
+      "region_count": 3,
+      "drops": {
+        "common": {
+          "item": "warm wood",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "rim flower",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "Vivine bitters",
+          "rate": "10.0%"
+        }
+      }
+    },
+    "M0223": {
+      "id": "M0223",
+      "english_name": "Lugaadi",
+      "jp_name": "ルガーディ",
+      "regions": [
+        "Schlamm Jungle"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "cloudy mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "strong bones",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "Kentoga",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0224": {
+      "id": "M0224",
+      "english_name": "Salamandine",
+      "jp_name": "サラマンダイン",
+      "regions": [
+        "Schlamm Jungle"
+      ],
+      "location_count": 5,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "thick skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "clear mucus",
+          "rate": "20.0%"
+        },
+        "special": {
+          "item": "Salamandine skin",
+          "rate": "20.0%"
+        }
+      }
+    },
+    "M0225": {
+      "id": "M0225",
+      "english_name": "Vespa",
+      "jp_name": "ヴェスパ",
+      "regions": [
+        "Beast Hills",
+        "Former Sanctuary Crypt - B1",
+        "Great River Valley",
+        "Headwater Falls",
+        "Longhorn Coast",
+        "Royal Capital Aegias (Past)",
+        "Schlamm Jungle",
+        "Towering Coral Forest (Night)"
+      ],
+      "location_count": 12,
+      "region_count": 8,
+      "drops": {
+        "common": {
+          "item": "thin skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "light bones",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "wing quill",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0226": {
+      "id": "M0226",
+      "english_name": "Nespa",
+      "jp_name": "クノス",
+      "regions": [
+        "Beast Hills",
+        "Former Sanctuary Crypt - B1",
+        "Great River Valley",
+        "Headwater Falls",
+        "Longhorn Coast",
+        "Royal Capital Aegias (Past)",
+        "Schlamm Jungle",
+        "Towering Coral Forest (Night)"
+      ],
+      "location_count": 12,
+      "region_count": 8,
+      "drops": {
+        "common": {
+          "item": "Honey",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0240": {
+      "id": "M0240",
+      "english_name": "Giruvespa",
+      "jp_name": "ゲルヴェスパ",
+      "regions": [
+        "Former Sanctuary Crypt - B3",
+        "Lodinia Marshland (Past)",
+        "Nostalgia Cape",
+        "Valley of Kings",
+        "Valley of Kings (Past)",
+        "Vista Ridge (Past)"
+      ],
+      "location_count": 8,
+      "region_count": 6,
+      "drops": {
+        "common": {
+          "item": "strong bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "thick skin",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "Zhan Gangyu",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0241": {
+      "id": "M0241",
+      "english_name": "Girunespa",
+      "jp_name": "ゲルクノス",
+      "regions": [
+        "Former Sanctuary Crypt - B3",
+        "Lodinia Marshland (Past)",
+        "Nostalgia Cape",
+        "Valley of Kings",
+        "Valley of Kings (Past)",
+        "Vista Ridge (Past)"
+      ],
+      "location_count": 7,
+      "region_count": 6,
+      "drops": {
+        "common": {
+          "item": "Honey",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0300": {
+      "id": "M0300",
+      "english_name": "Shabil",
+      "jp_name": "シャービル",
+      "regions": [
+        "Great Valley (Past)",
+        "Schlamm Jungle",
+        "Western Foot of Gendarme"
+      ],
+      "location_count": 5,
+      "region_count": 3,
+      "drops": {
+        "common": {
+          "item": "thick skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "strong bones",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "wing quill",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0301": {
+      "id": "M0301",
+      "english_name": "Werecus",
+      "jp_name": "ヴェラルコス",
+      "regions": [
+        "Beast Hills",
+        "Towering Coral Forest (Night)"
+      ],
+      "location_count": 3,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "light bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "thick skin",
+          "rate": "10.0%"
+        },
+        "special": {
+          "item": "beast claw",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0302": {
+      "id": "M0302",
+      "english_name": "Badessa",
+      "jp_name": "バオデッサ",
+      "regions": [
+        "Great Valley (Past)",
+        "Mont Gendarme (Night)",
+        "Western Foot of Gendarme"
+      ],
+      "location_count": 11,
+      "region_count": 3,
+      "drops": {
+        "common": {
+          "item": "thick skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Iron ore",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "beast claw",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0303": {
+      "id": "M0303",
+      "english_name": "Warsadessa",
+      "jp_name": "ヴォースデッサ",
+      "regions": [
+        "Mont Gendarme (Night)",
+        "Western Foot of Gendarme"
+      ],
+      "location_count": 9,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "beast claw",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "soft fiber",
+          "rate": "60.0%"
+        },
+        "special": {
+          "item": "Kentoga",
+          "rate": "40.0%"
+        }
+      }
+    },
+    "M0340": {
+      "id": "M0340",
+      "english_name": "Popatobeet",
+      "jp_name": "ロガロトビトゥ",
+      "regions": [
+        "Weathervane Hills"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "thick skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "soft fiber",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "Kentoga",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0341": {
+      "id": "M0341",
+      "english_name": "Morobadessa",
+      "jp_name": "モホロバオデッサ",
+      "regions": [
+        "Weathervane Hills"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "strange lump",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "thick skin",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "strong bones",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0400": {
+      "id": "M0400",
+      "english_name": "Illmodo",
+      "jp_name": "イルモアード",
+      "regions": [
+        "Great River Valley"
+      ],
+      "location_count": 3,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "light bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "thick skin",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0401": {
+      "id": "M0401",
+      "english_name": "Angveetle",
+      "jp_name": "アングヴォータル",
+      "regions": [
+        "Eroded Valley"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "thin skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "strong bones",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0402": {
+      "id": "M0402",
+      "english_name": "Garban",
+      "jp_name": "ガルバン",
+      "regions": [
+        "Mountain Pinnacle Trail"
+      ],
+      "location_count": 4,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "beast bone",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "beast skin",
+          "rate": "40.0%"
+        },
+        "special": {
+          "item": "tektite ore",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0403": {
+      "id": "M0403",
+      "english_name": "Zentipede",
+      "jp_name": "ゾンドピーダ",
+      "regions": [
+        "Towal Highway",
+        "Towal Highway (Past)"
+      ],
+      "location_count": 3,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "Glittering mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "beast bone",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "Thunderclaw",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0440": {
+      "id": "M0440",
+      "english_name": "Zaspion",
+      "jp_name": "ザスピオン",
+      "regions": [
+        "Mont Gendarme (Night)"
+      ],
+      "location_count": 6,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "clear mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "evil crest shell",
+          "rate": "20.0%"
+        },
+        "special": {
+          "item": "Thespion's Tail",
+          "rate": "10.0%"
+        }
+      }
+    },
+    "M0441": {
+      "id": "M0441",
+      "english_name": "Zagroon",
+      "jp_name": "ザグルーン",
+      "regions": [
+        "Mont Gendarme (Night)"
+      ],
+      "location_count": 8,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "thick skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "beast claw",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0442": {
+      "id": "M0442",
+      "english_name": "Neydeek",
+      "jp_name": "ネイディク",
+      "regions": [
+        "Mont Gendarme (Night)"
+      ],
+      "location_count": 8,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "strong bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "thick skin",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "Glory scales",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0500": {
+      "id": "M0500",
+      "english_name": "Dictyon",
+      "jp_name": "ディクティオン",
+      "regions": [
+        "Mountain Pinnacle Trail"
+      ],
+      "location_count": 5,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "strong bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "solid shell",
+          "rate": "10.0%"
+        },
+        "special": {
+          "item": "beast bone",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0501": {
+      "id": "M0501",
+      "english_name": "Fureoanton",
+      "jp_name": "フラレオアントン",
+      "regions": [
+        "Titis Primeval Forest",
+        "Titis Primeval Forest (Past)"
+      ],
+      "location_count": 3,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "beast skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "beast bone",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "Blue Sky Feather",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0502": {
+      "id": "M0502",
+      "english_name": "Jeld",
+      "jp_name": "ジャード",
+      "regions": [
+        "Titis Primeval Forest",
+        "Titis Primeval Forest (Past)"
+      ],
+      "location_count": 2,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "clear mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Glittering mucus",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0503": {
+      "id": "M0503",
+      "english_name": "Befael",
+      "jp_name": "ヴィファエール",
+      "regions": [
+        "Mountain Pinnacle Trail"
+      ],
+      "location_count": 6,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "glossy wood",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "warm wood",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0504": {
+      "id": "M0504",
+      "english_name": "Gilaaf",
+      "jp_name": "ジラーフェ",
+      "regions": [
+        "Vista Ridge",
+        "Vista Ridge (Past)"
+      ],
+      "location_count": 2,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "beast bone",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Pangu bones",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0600": {
+      "id": "M0600",
+      "english_name": "Gricust",
+      "jp_name": "ギリーカ",
+      "regions": [
+        "Vista Ridge",
+        "Vista Ridge (Past)"
+      ],
+      "location_count": 2,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "beast skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Pangu skin",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0601": {
+      "id": "M0601",
+      "english_name": "Gulengen",
+      "jp_name": "グーリンゲン",
+      "regions": [
+        "Vista Ridge",
+        "Vista Ridge (Past)"
+      ],
+      "location_count": 2,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "shining leaves",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Pangu flower",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0602": {
+      "id": "M0602",
+      "english_name": "Horndagh",
+      "jp_name": "ホーンダーグ",
+      "regions": [
+        "Towal Highway",
+        "Towal Highway (Past)"
+      ],
+      "location_count": 3,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "beast skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "beast bone",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "rigid fiber",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0603": {
+      "id": "M0603",
+      "english_name": "Frogeous",
+      "jp_name": "フロギアス",
+      "regions": [
+        "Lodinia Marshland (Past)"
+      ],
+      "location_count": 4,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Glittering mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Pangu skin",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "Pangu slime",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0604": {
+      "id": "M0604",
+      "english_name": "Redricora",
+      "jp_name": "レドリコーラ",
+      "regions": [
+        "Lodinia Marshland (Past)"
+      ],
+      "location_count": 3,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "beast bone",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "evil crest shell",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "Pangu bones",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0605": {
+      "id": "M0605",
+      "english_name": "Dandale",
+      "jp_name": "ダンディール",
+      "regions": [
+        "Lodinia Marshland (Past)"
+      ],
+      "location_count": 3,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Pangu skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "rigid fiber",
+          "rate": "40.0%"
+        },
+        "special": {
+          "item": "Dundeel's Horn",
+          "rate": "10.0%"
+        }
+      }
+    },
+    "M0621": {
+      "id": "M0621",
+      "english_name": "Xivega",
+      "jp_name": "シュイヴェガー",
+      "regions": [
+        "Baja Tower"
+      ],
+      "location_count": 6,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Iron ore",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "tektite ore",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "Rispar",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0622": {
+      "id": "M0622",
+      "english_name": "Uni-Attacker",
+      "jp_name": "ユニアタッカ",
+      "regions": [
+        "Baja Tower"
+      ],
+      "location_count": 7,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Iron ore",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "tektite ore",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "Rispar",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0623": {
+      "id": "M0623",
+      "english_name": "Masquard",
+      "jp_name": "マスカーデル",
+      "regions": [
+        "Baja Tower"
+      ],
+      "location_count": 4,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "tektite ore",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Rispar",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "mental armor",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0640": {
+      "id": "M0640",
+      "english_name": "Gorba",
+      "jp_name": "グーリーバ",
+      "regions": [
+        "Valley of Kings"
+      ],
+      "location_count": 6,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Glittering mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Pangu slime",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "diamond shell",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0641": {
+      "id": "M0641",
+      "english_name": "Fabnir",
+      "jp_name": "ファブニール",
+      "regions": [
+        "Valley of Kings"
+      ],
+      "location_count": 5,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Pangu bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Thunderclaw",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "Strong acidic hard liquid",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0642": {
+      "id": "M0642",
+      "english_name": "Dhampul",
+      "jp_name": "ダンポウル",
+      "regions": [
+        "Former Sanctuary Crypt - B1",
+        "Valley of Kings"
+      ],
+      "location_count": 8,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "Rispar",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "dragonite",
+          "rate": "10.0%"
+        },
+        "special": {
+          "item": "Star Crystal Armor",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0643": {
+      "id": "M0643",
+      "english_name": "Force Garmr",
+      "jp_name": "フォースガルム",
+      "regions": [
+        "Valley of Kings"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Rispar",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Star Crystal Armor",
+          "rate": "40.0%"
+        },
+        "special": {
+          "item": "Strong acidic hard liquid",
+          "rate": "20.0%"
+        }
+      }
+    },
+    "M0644": {
+      "id": "M0644",
+      "english_name": "Vallesdominus",
+      "jp_name": "バレスドミナス",
+      "regions": [
+        "Valley of Kings"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0660": {
+      "id": "M0660",
+      "english_name": "Explosive Plant",
+      "jp_name": "爆弾植物",
+      "regions": [
+        "Archeozoic Chasm"
+      ],
+      "location_count": 3,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0661": {
+      "id": "M0661",
+      "english_name": "Gerub",
+      "jp_name": "ゲルブ",
+      "regions": [
+        "Archeozoic Chasm"
+      ],
+      "location_count": 5,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "beast skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Pangu slime",
+          "rate": "20.0%"
+        },
+        "special": {
+          "item": "rigid fiber",
+          "rate": "10.0%"
+        }
+      }
+    },
+    "M0662": {
+      "id": "M0662",
+      "english_name": "Daile",
+      "jp_name": "ダイラー",
+      "regions": [
+        "Archeozoic Chasm"
+      ],
+      "location_count": 8,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "beast bone",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Glittering mucus",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "Pangu bones",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0663": {
+      "id": "M0663",
+      "english_name": "Dornicle",
+      "jp_name": "ドワニクル",
+      "regions": [
+        "Archeozoic Chasm"
+      ],
+      "location_count": 4,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Pangu bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Pangu skin",
+          "rate": "40.0%"
+        },
+        "special": {
+          "item": "Dwanikr's shell",
+          "rate": "20.0%"
+        }
+      }
+    },
+    "M0664": {
+      "id": "M0664",
+      "english_name": "Dustalpho",
+      "jp_name": "ダスタラルフォ",
+      "regions": [
+        "Archeozoic Chasm"
+      ],
+      "location_count": 6,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "warm wood",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "shining leaves",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "Pangu tree",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0680": {
+      "id": "M0680",
+      "english_name": "Ratnilarda",
+      "jp_name": "ラタニーラダー",
+      "regions": [
+        "Former Sanctuary Crypt - B3",
+        "Temple of the Great Tree"
+      ],
+      "location_count": 2,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "beast bone",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Pangu skin",
+          "rate": "20.0%"
+        },
+        "special": {
+          "item": "Pangu tree",
+          "rate": "10.0%"
+        }
+      }
+    },
+    "M0700": {
+      "id": "M0700",
+      "english_name": "Gibo",
+      "jp_name": "ガイボ",
+      "regions": [
+        "East Coast Cave"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "beast bone",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Glittering mucus",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0701": {
+      "id": "M0701",
+      "english_name": "Kedah Bommy",
+      "jp_name": "クダボミー",
+      "regions": [
+        "East Coast Cave"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Glittering mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "diamond shell",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "Pangu bones",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0800": {
+      "id": "M0800",
+      "english_name": "Vula-Menua",
+      "jp_name": "ヴァラ・メヌア",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Pangu skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Pangu slime",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "Spirit skin of another world",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0801": {
+      "id": "M0801",
+      "english_name": "Vula-Marut",
+      "jp_name": "ヴァラ・マルト",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Pangu bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "dragonite",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "Spiritual bones of another world",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0805": {
+      "id": "M0805",
+      "english_name": "Vulo-Menua",
+      "jp_name": "ヴロー・メヌア",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Pangu skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Pangu slime",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "Spirit skin of another world",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0806": {
+      "id": "M0806",
+      "english_name": "Vulo-Marut",
+      "jp_name": "ヴロー・マルト",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Pangu bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "dragonite",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "Spiritual bones of another world",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0810": {
+      "id": "M0810",
+      "english_name": "Vunu-Menua",
+      "jp_name": "ヴェーヌ・メヌア",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Pangu skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Pangu slime",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "Spirit skin of another world",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0811": {
+      "id": "M0811",
+      "english_name": "Vunu-Marut",
+      "jp_name": "ヴェーヌ・マルト",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Pangu bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "dragonite",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "Spiritual bones of another world",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0815": {
+      "id": "M0815",
+      "english_name": "Vuno-Menua",
+      "jp_name": "ヴノ・メヌア",
+      "regions": [
+        "Former Sanctuary Crypt - B5",
+        "Octus Overlook"
+      ],
+      "location_count": 3,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "Pangu skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Pangu slime",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "Spirit skin of another world",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0816": {
+      "id": "M0816",
+      "english_name": "Vuno-Marut",
+      "jp_name": "ヴノ・マルト",
+      "regions": [
+        "Former Sanctuary Crypt - B5",
+        "Octus Overlook"
+      ],
+      "location_count": 2,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "Pangu bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "dragonite",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "Spiritual bones of another world",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0830": {
+      "id": "M0830",
+      "english_name": "Zanvis",
+      "jp_name": "ザンフィッス",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Pangu slime",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "moon shadow wing",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "Spiritual bones of another world",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0831": {
+      "id": "M0831",
+      "english_name": "Squeed",
+      "jp_name": "スクイード",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Pangu tree",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Treasure branch of the great tree",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "Strong acidic hard liquid",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0840": {
+      "id": "M0840",
+      "english_name": "Trema",
+      "jp_name": "トレムゥ",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Rispar",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Star Crystal Armor",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "Spiritual bones of another world",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0841": {
+      "id": "M0841",
+      "english_name": "Giganess",
+      "jp_name": "ギガヌス",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "sunshine tooth",
+          "rate": "40.0%"
+        },
+        "rare": {
+          "item": "Treasure branch of the great tree",
+          "rate": "40.0%"
+        },
+        "special": {
+          "item": "Spirit skin of another world",
+          "rate": "40.0%"
+        }
+      }
+    },
+    "M0850": {
+      "id": "M0850",
+      "english_name": "Prugeccia",
+      "jp_name": "プルゲッチュ",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "moon shadow wing",
+          "rate": "40.0%"
+        },
+        "rare": {
+          "item": "Strong acidic hard liquid",
+          "rate": "40.0%"
+        },
+        "special": {
+          "item": "Spirit skin of another world",
+          "rate": "40.0%"
+        }
+      }
+    },
+    "M0851": {
+      "id": "M0851",
+      "english_name": "Elpion",
+      "jp_name": "エルピオン",
+      "regions": [
+        "Former Sanctuary Crypt - B5",
+        "Octus Overlook"
+      ],
+      "location_count": 4,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "Pangu flower",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Treasure branch of the great tree",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "Spiritual bones of another world",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0860": {
+      "id": "M0860",
+      "english_name": "Oroodanyo",
+      "jp_name": "ウーエルダーニョ",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Strong acidic hard liquid",
+          "rate": "40.0%"
+        },
+        "rare": {
+          "item": "Spirit skin of another world",
+          "rate": "40.0%"
+        },
+        "special": {
+          "item": "Spiritual bones of another world",
+          "rate": "40.0%"
+        }
+      }
+    },
+    "M0861": {
+      "id": "M0861",
+      "english_name": "Palejeni",
+      "jp_name": "ペイルジェニー",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "moon shadow wing",
+          "rate": "40.0%"
+        },
+        "rare": {
+          "item": "Spiritual bones of another world",
+          "rate": "40.0%"
+        },
+        "special": {
+          "item": "Spirit skin of another world",
+          "rate": "40.0%"
+        }
+      }
+    },
+    "M0870": {
+      "id": "M0870",
+      "english_name": "Hanmorph",
+      "jp_name": "ハンムオルフェ",
+      "regions": [
+        "Former Sanctuary Crypt - B1",
+        "Former Sanctuary Crypt - B4",
+        "Former Sanctuary Crypt - Final Floor",
+        "Octus Overlook"
+      ],
+      "location_count": 5,
+      "region_count": 4,
+      "drops": {
+        "common": {
+          "item": "dragonite",
+          "rate": "40.0%"
+        },
+        "rare": {
+          "item": "Spiritual bones of another world",
+          "rate": "40.0%"
+        },
+        "special": {
+          "item": "Goryu's heavy shell",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0871": {
+      "id": "M0871",
+      "english_name": "Morx",
+      "jp_name": "モルクス",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Strong acidic hard liquid",
+          "rate": "40.0%"
+        },
+        "rare": {
+          "item": "Spiritual bones of another world",
+          "rate": "40.0%"
+        },
+        "special": {
+          "item": "Spirit skin of another world",
+          "rate": "40.0%"
+        }
+      }
+    },
+    "M0881": {
+      "id": "M0881",
+      "english_name": "Zindare",
+      "jp_name": "ザインデール",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "dragonite",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Spiritual bones of another world",
+          "rate": "80.0%"
+        },
+        "special": {
+          "item": "Goryu's heavy shell",
+          "rate": "10.0%"
+        }
+      }
+    },
+    "M0882": {
+      "id": "M0882",
+      "english_name": "Superion",
+      "jp_name": "スペリオル",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Senryu's Great Fang",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Spirit skin of another world",
+          "rate": "80.0%"
+        },
+        "special": {
+          "item": "Goryu's heavy shell",
+          "rate": "15.0%"
+        }
+      }
+    },
+    "M0883": {
+      "id": "M0883",
+      "english_name": "Abyss Bloom",
+      "jp_name": "アビスブルーメ",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Treasure branch of the great tree",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Spirit skin of another world",
+          "rate": "80.0%"
+        },
+        "special": {
+          "item": "Goryu's heavy shell",
+          "rate": "15.0%"
+        }
+      }
+    },
+    "M0884": {
+      "id": "M0884",
+      "english_name": "Deanafrog",
+      "jp_name": "ディアナフロッグ",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Strong acidic hard liquid",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Spirit skin of another world",
+          "rate": "80.0%"
+        },
+        "special": {
+          "item": "Goryu's heavy shell",
+          "rate": "20.0%"
+        }
+      }
+    },
+    "M0885": {
+      "id": "M0885",
+      "english_name": "Chronotylan",
+      "jp_name": "クロノタイラン",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "dragonite",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Spiritual bones of another world",
+          "rate": "80.0%"
+        },
+        "special": {
+          "item": "Goryu's heavy shell",
+          "rate": "20.0%"
+        }
+      }
+    },
+    "M0886": {
+      "id": "M0886",
+      "english_name": "Blightsoul",
+      "jp_name": "ブライティソウル",
+      "regions": [
+        "Former Sanctuary Crypt - Final Floor",
+        "Octus Overlook"
+      ],
+      "location_count": 3,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "Senryu's Great Fang",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Spiritual bones of another world",
+          "rate": "80.0%"
+        },
+        "special": {
+          "item": "Goryu's heavy shell",
+          "rate": "25.0%"
+        }
+      }
+    },
+    "M0887": {
+      "id": "M0887",
+      "english_name": "Audibax",
+      "jp_name": "オーディールバックス",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "dragonite",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Spiritual bones of another world",
+          "rate": "80.0%"
+        },
+        "special": {
+          "item": "Goryu's heavy shell",
+          "rate": "25.0%"
+        }
+      }
+    },
+    "M0888": {
+      "id": "M0888",
+      "english_name": "Palladiosage",
+      "jp_name": "パレーディアセイジ",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Spiritual bones of another world",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Spirit skin of another world",
+          "rate": "80.0%"
+        },
+        "special": {
+          "item": "Goryu's heavy shell",
+          "rate": "25.0%"
+        }
+      }
+    },
+    "M0889": {
+      "id": "M0889",
+      "english_name": "Desmagazel",
+      "jp_name": "デスマギャゼル",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Spiritual bones of another world",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Spirit skin of another world",
+          "rate": "80.0%"
+        },
+        "special": {
+          "item": "Goryu's heavy shell",
+          "rate": "30.0%"
+        }
+      }
+    },
+    "M0890": {
+      "id": "M0890",
+      "english_name": "Duskova",
+      "jp_name": "ダスクヴァッツァ",
+      "regions": [
+        "Octus Overlook"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Spiritual bones of another world",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Spirit skin of another world",
+          "rate": "80.0%"
+        },
+        "special": {
+          "item": "Goryu's heavy shell",
+          "rate": "30.0%"
+        }
+      }
+    },
+    "M0901": {
+      "id": "M0901",
+      "english_name": "Zokru",
+      "jp_name": "ザッカール",
+      "regions": [
+        "Former Sanctuary Crypt - B5",
+        "Pirate Ship Eleftheria"
+      ],
+      "location_count": 7,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "strong bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "beast bone",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "Pangu bones",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0902": {
+      "id": "M0902",
+      "english_name": "Gilkyra",
+      "jp_name": "ギルクイラ",
+      "regions": [
+        "East Coast Cave",
+        "Pirate Ship Eleftheria"
+      ],
+      "location_count": 4,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "Glittering mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Pangu skin",
+          "rate": "40.0%"
+        },
+        "special": {
+          "item": "Pangu slime",
+          "rate": "20.0%"
+        }
+      }
+    },
+    "M0903": {
+      "id": "M0903",
+      "english_name": "Catablepne",
+      "jp_name": "カタベローヌ",
+      "regions": [
+        "Pirate Ship Eleftheria"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "beast bone",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Pangu slime",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0910": {
+      "id": "M0910",
+      "english_name": "Cramatange",
+      "jp_name": "クラマタンゲ",
+      "regions": [
+        "Former Sanctuary Crypt - B2",
+        "Waterfall Grotto"
+      ],
+      "location_count": 2,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "bending twig",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "lateca resin",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0911": {
+      "id": "M0911",
+      "english_name": "Ercaota",
+      "jp_name": "エルカオータ",
+      "regions": [
+        "Towering Coral Forest (Night)",
+        "Waterfall Grotto"
+      ],
+      "location_count": 6,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "cloudy mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "thick skin",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "clear mucus",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0915": {
+      "id": "M0915",
+      "english_name": "Gyashark",
+      "jp_name": "ギャルサーク",
+      "regions": [
+        "Headwater Falls"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "cloudy mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "thick skin",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "stalactite",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0916": {
+      "id": "M0916",
+      "english_name": "Gidol",
+      "jp_name": "ガイドル",
+      "regions": [
+        "Underground Water Vein"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "beast bone",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Glittering mucus",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "evil crest shell",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0920": {
+      "id": "M0920",
+      "english_name": "Velgyashark",
+      "jp_name": "ヴェル・ギャルサーク",
+      "regions": [
+        "Underground Water Vein"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Pangu skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Pangu slime",
+          "rate": "40.0%"
+        },
+        "special": {
+          "item": "rigid fiber",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0925": {
+      "id": "M0925",
+      "english_name": "Zaroz",
+      "jp_name": "ザロッズ",
+      "regions": [
+        "Stone Pillar Wind Cave"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "beast skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Glittering mucus",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "Zhan Gangyu",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0926": {
+      "id": "M0926",
+      "english_name": "Nidoras",
+      "jp_name": "ニドラース",
+      "regions": [
+        "Stone Pillar Wind Cave"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "glossy wood",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "shining leaves",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M0930": {
+      "id": "M0930",
+      "english_name": "Caim Dahn",
+      "jp_name": "カイム・ダーン",
+      "regions": [
+        "Balado Monastery",
+        "Former Sanctuary Crypt - B2"
+      ],
+      "location_count": 3,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "beast bone",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "beast skin",
+          "rate": "80.0%"
+        },
+        "special": {
+          "item": "tektite ore",
+          "rate": "80.0%"
+        }
+      }
+    },
+    "M0931": {
+      "id": "M0931",
+      "english_name": "Caim Basch",
+      "jp_name": "カイム・バッシュ",
+      "regions": [
+        "Balado Monastery",
+        "Former Sanctuary Crypt - B2"
+      ],
+      "location_count": 3,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "beast bone",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "beast skin",
+          "rate": "80.0%"
+        },
+        "special": {
+          "item": "warm wood",
+          "rate": "80.0%"
+        }
+      }
+    },
+    "M0935": {
+      "id": "M0935",
+      "english_name": "Zosh",
+      "jp_name": "ザッシュ",
+      "regions": [
+        "The Submerged Cemetery"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "beast bone",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Pangu slime",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "Pangu bones",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0936": {
+      "id": "M0936",
+      "english_name": "Bunymembo",
+      "jp_name": "ブニメンボ",
+      "regions": [
+        "Former Sanctuary Crypt - B5",
+        "The Submerged Cemetery"
+      ],
+      "location_count": 3,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "Pangu slime",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Pangu bones",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "Star Crystal Armor",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0940": {
+      "id": "M0940",
+      "english_name": "Chuchu Batusi",
+      "jp_name": "チュチュヴァッツァ",
+      "regions": [
+        "Former Sanctuary Crypt - B1",
+        "Former Sanctuary Crypt - B2",
+        "Silent Tower"
+      ],
+      "location_count": 5,
+      "region_count": 3,
+      "drops": {
+        "common": {
+          "item": "Pangu skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Pangu bones",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "moon shadow wing",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0941": {
+      "id": "M0941",
+      "english_name": "Xeno-Attacker",
+      "jp_name": "ゼノアタッカ",
+      "regions": [
+        "Silent Tower"
+      ],
+      "location_count": 3,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Rispar",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "dragonite",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "sunshine tooth",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0942": {
+      "id": "M0942",
+      "english_name": "Mata Maguff",
+      "jp_name": "マータマガン",
+      "regions": [
+        "Former Sanctuary Crypt - B2",
+        "Silent Tower"
+      ],
+      "location_count": 3,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "Rispar",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "dragonite",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "Star Crystal Armor",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M0945": {
+      "id": "M0945",
+      "english_name": "Masquerd",
+      "jp_name": "マスカード",
+      "regions": [
+        "Cavern of the Ancient King",
+        "Mont Gendarme (Night)",
+        "Western Foot of Gendarme"
+      ],
+      "location_count": 10,
+      "region_count": 3,
+      "drops": {
+        "common": {
+          "item": "strong bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Iron ore",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "beast bone",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M0960": {
+      "id": "M0960",
+      "english_name": "Hermitocon",
+      "jp_name": "ヘルミトコン",
+      "regions": [
+        "Water and Wood Hills"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "beautiful flowers",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Glittering mucus",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "shining leaves",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M1000": {
+      "id": "M1000",
+      "english_name": "Zakobanis",
+      "jp_name": "ザッカバニオス",
+      "regions": [
+        "Mont Gendarme (Night)"
+      ],
+      "location_count": 6,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "beast bone",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "evil crest shell",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "dragon scales",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M1001": {
+      "id": "M1001",
+      "english_name": "Guanodon",
+      "jp_name": "グアナノドン",
+      "regions": [
+        "Pangaia Plains (Night)"
+      ],
+      "location_count": 3,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "beast skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "beast bone",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "dragon scales",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M1003": {
+      "id": "M1003",
+      "english_name": "Parekhan",
+      "jp_name": "ペイルカーン",
+      "regions": [
+        "Mont Gendarme (Night)",
+        "Towal Highway",
+        "Towal Highway (Past)"
+      ],
+      "location_count": 7,
+      "region_count": 3,
+      "drops": {
+        "common": {
+          "item": "beast skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "evil crest shell",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "Blue Sky Feather",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M1004": {
+      "id": "M1004",
+      "english_name": "Eldebronto",
+      "jp_name": "エルディロブロンディア",
+      "regions": [
+        "Former Sanctuary Crypt - B4",
+        "Hill of Eternity"
+      ],
+      "location_count": 3,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "dragon scales",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Strong acidic hard liquid",
+          "rate": "60.0%"
+        },
+        "special": {
+          "item": "Senryu's Great Fang",
+          "rate": "40.0%"
+        }
+      }
+    },
+    "M1005": {
+      "id": "M1005",
+      "english_name": "Hydroskelo",
+      "jp_name": "ハイドロスケイラ",
+      "regions": [
+        "Former Sanctuary Crypt - B4",
+        "Lodinia Marshland (Past)"
+      ],
+      "location_count": 5,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "Pangu bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "dragon scales",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "moon shadow wing",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M1007": {
+      "id": "M1007",
+      "english_name": "Valvalchia",
+      "jp_name": "ヴァルヴァロキア",
+      "regions": [
+        "Water and Wood Hills"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Thunderclaw",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "dragon scales",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "sunshine tooth",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M1009": {
+      "id": "M1009",
+      "english_name": "Dilodicus",
+      "jp_name": "ダイロドクス",
+      "regions": [
+        "Pangaia Plains (Night)"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Senryu's Great Fang",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Aura grass",
+          "rate": "60.0%"
+        },
+        "special": {
+          "item": "Goryu's heavy shell",
+          "rate": "40.0%"
+        }
+      }
+    },
+    "M1010": {
+      "id": "M1010",
+      "english_name": "Gigantyrannus",
+      "jp_name": "ギガン・タイラン",
+      "regions": [
+        "Great River Valley",
+        "Mont Gendarme (Night)",
+        "Mountain Pinnacle Trail"
+      ],
+      "location_count": 5,
+      "region_count": 3,
+      "drops": {
+        "common": {
+          "item": "dragon scales",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Thunderclaw",
+          "rate": "60.0%"
+        },
+        "special": {
+          "item": "sunshine tooth",
+          "rate": "20.0%"
+        }
+      }
+    },
+    "M1011": {
+      "id": "M1011",
+      "english_name": "Sergesius",
+      "jp_name": "セルゲイシオス",
+      "regions": [
+        "Mont Gendarme (Night)",
+        "Primordial Den",
+        "Titis Primeval Forest"
+      ],
+      "location_count": 5,
+      "region_count": 3,
+      "drops": {
+        "common": {
+          "item": "beast bone",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "evil crest shell",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "dragon scales",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M1012": {
+      "id": "M1012",
+      "english_name": "Dogosecops",
+      "jp_name": "ドゴスコプス",
+      "regions": [
+        "Pangaia Plains (Night)"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Pangu bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "dragon scales",
+          "rate": "40.0%"
+        },
+        "special": {
+          "item": "Star Crystal Armor",
+          "rate": "10.0%"
+        }
+      }
+    },
+    "M1013": {
+      "id": "M1013",
+      "english_name": "Beodaren",
+      "jp_name": "ベイオダラン",
+      "regions": [
+        "Pangaia Plains (Night)"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "beast bone",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "evil crest shell",
+          "rate": "20.0%"
+        },
+        "special": {
+          "item": "dragon scales",
+          "rate": "10.0%"
+        }
+      }
+    },
+    "M1014": {
+      "id": "M1014",
+      "english_name": "Paracelsis",
+      "jp_name": "プラ・セルシス",
+      "regions": [
+        "Primordial Den",
+        "Titis Primeval Forest"
+      ],
+      "location_count": 2,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "beast skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "beast bone",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "dragon scales",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M1015": {
+      "id": "M1015",
+      "english_name": "Meraldius",
+      "jp_name": "メラルディアス",
+      "regions": [
+        "Great Valley (Past)"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "beast skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "evil crest shell",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "dragon scales",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M1020": {
+      "id": "M1020",
+      "english_name": "Giesaur",
+      "jp_name": "ゲイゼル",
+      "regions": [
+        "Former Sanctuary Crypt - Final Floor",
+        "Mountain Pinnacle Trail",
+        "Pangaia Plains (Night)",
+        "Titis Primeval Forest",
+        "Titis Primeval Forest (Past)",
+        "Vista Ridge",
+        "Vista Ridge (Past)",
+        "White Sand Cape"
+      ],
+      "location_count": 16,
+      "region_count": 8,
+      "drops": {
+        "common": {
+          "item": "Pangu skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Thunderclaw",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "sunshine tooth",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M1021": {
+      "id": "M1021",
+      "english_name": "Primarivaur",
+      "jp_name": "プリムリーヴァ",
+      "regions": [
+        "Lodinia Marshland (Past)",
+        "Pangaia Plains (Night)",
+        "Towal Highway",
+        "Towal Highway (Past)"
+      ],
+      "location_count": 8,
+      "region_count": 4,
+      "drops": {
+        "common": {
+          "item": "dragon scales",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "moon shadow wing",
+          "rate": "40.0%"
+        },
+        "special": {
+          "item": "Senryu's Great Fang",
+          "rate": "20.0%"
+        }
+      }
+    },
+    "M1022": {
+      "id": "M1022",
+      "english_name": "Dictidoadus",
+      "jp_name": "ディクティドエイデス",
+      "regions": [
+        "Former Sanctuary Crypt - Final Floor",
+        "Hill of Eternity",
+        "Mountain Pinnacle Trail",
+        "Pangaia Plains",
+        "Pangaia Plains (Night)"
+      ],
+      "location_count": 8,
+      "region_count": 5,
+      "drops": {
+        "common": {
+          "item": "Star Crystal Armor",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Senryu's Great Fang",
+          "rate": "60.0%"
+        },
+        "special": {
+          "item": "Goryu's heavy shell",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M1030": {
+      "id": "M1030",
+      "english_name": "Gerasecops",
+      "jp_name": "ゲラスコプス",
+      "regions": [
+        "Titis Primeval Forest (Past)",
+        "Towal Highway (Past)"
+      ],
+      "location_count": 3,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "beast skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "diamond shell",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "dragon scales",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M1031": {
+      "id": "M1031",
+      "english_name": "Coelavalvalo",
+      "jp_name": "シェーラヴァルヴァロ",
+      "regions": [
+        "Lodinia Marshland (Past)",
+        "Valley of Kings (Past)"
+      ],
+      "location_count": 2,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "Kentoga",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Thunderclaw",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "dragon scales",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M1040": {
+      "id": "M1040",
+      "english_name": "Jaegantyrannus",
+      "jp_name": "ジャガン・タイラン",
+      "regions": [
+        "Towal Highway (Past)"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Pangu bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "dragon scales",
+          "rate": "40.0%"
+        },
+        "special": {
+          "item": "sunshine tooth",
+          "rate": "20.0%"
+        }
+      }
+    },
+    "M1041": {
+      "id": "M1041",
+      "english_name": "Madroskelo",
+      "jp_name": "マディロスケイラ",
+      "regions": [
+        "Lodinia Marshland (Past)"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Pangu skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "dragon scales",
+          "rate": "40.0%"
+        },
+        "special": {
+          "item": "Star Crystal Armor",
+          "rate": "20.0%"
+        }
+      }
+    },
+    "M1042": {
+      "id": "M1042",
+      "english_name": "Magirodocus",
+      "jp_name": "マギロドクス",
+      "regions": [
+        "Lodinia Marshland (Past)"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "Pangu slime",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "dragon scales",
+          "rate": "40.0%"
+        },
+        "special": {
+          "item": "Senryu's Great Fang",
+          "rate": "20.0%"
+        }
+      }
+    },
+    "M1100": {
+      "id": "M1100",
+      "english_name": "Skelps",
+      "jp_name": "スケルプス",
+      "regions": [
+        "Titis Primeval Forest (Past)"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "beautiful flowers",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "clear mucus",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "shining leaves",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M1101": {
+      "id": "M1101",
+      "english_name": "Gorengen",
+      "jp_name": "ゴーリンゲン",
+      "regions": [
+        "Titis Primeval Forest (Past)"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "beautiful flowers",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "foxglove leaves",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M1102": {
+      "id": "M1102",
+      "english_name": "Zaspeony",
+      "jp_name": "ザスピオニー",
+      "regions": [
+        "Titis Primeval Forest (Past)",
+        "Towal Highway (Past)"
+      ],
+      "location_count": 3,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "strong bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "solid shell",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "beast bone",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M1103": {
+      "id": "M1103",
+      "english_name": "Montsolia",
+      "jp_name": "モントズーラ",
+      "regions": [
+        "Towal Highway (Past)",
+        "Vista Ridge (Past)"
+      ],
+      "location_count": 3,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "clear mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "warm wood",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "Glittering mucus",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M1104": {
+      "id": "M1104",
+      "english_name": "Soldiant",
+      "jp_name": "ソルディアント",
+      "regions": [
+        "Lodinia Marshland (Past)",
+        "Valley of Kings (Past)"
+      ],
+      "location_count": 4,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "strong bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "solid shell",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "evil crest shell",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M1105": {
+      "id": "M1105",
+      "english_name": "Toadius",
+      "jp_name": "トーディアス",
+      "regions": [
+        "Lodinia Marshland (Past)"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "clear mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "beast skin",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "Glittering mucus",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M1200": {
+      "id": "M1200",
+      "english_name": "Hyupper",
+      "jp_name": "ヒュッパー",
+      "regions": [
+        "Nameless Coast"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "light bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "strong bones",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "wing quill",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M1201": {
+      "id": "M1201",
+      "english_name": "Agiagila",
+      "jp_name": "アギアギラ",
+      "regions": [
+        "Great River Valley"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "thick skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "wing quill",
+          "rate": "40.0%"
+        },
+        "special": {
+          "item": "Zhan Gangyu",
+          "rate": "40.0%"
+        }
+      }
+    },
+    "M1202": {
+      "id": "M1202",
+      "english_name": "Valkyra",
+      "jp_name": "ヴァルクイラ",
+      "regions": [
+        "Former Sanctuary Crypt - B1",
+        "Lodinia Marshland (Past)"
+      ],
+      "location_count": 4,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "beast bone",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Glittering mucus",
+          "rate": "40.0%"
+        },
+        "special": {
+          "item": "diamond shell",
+          "rate": "20.0%"
+        }
+      }
+    },
+    "M1203": {
+      "id": "M1203",
+      "english_name": "Graduna",
+      "jp_name": "グラドゥーナ",
+      "regions": [
+        "Mont Gendarme (Night)"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "strong bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "beast bone",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "evil crest shell",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M1300": {
+      "id": "M1300",
+      "english_name": "Prahni-Va",
+      "jp_name": "プラニー・ヴァ",
+      "regions": [
+        "The Abyss of Origins"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "coconut palm",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "mango",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "Dragonfruit",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M1301": {
+      "id": "M1301",
+      "english_name": "Voh-Adoh",
+      "jp_name": "ヴォ・アード",
+      "regions": [
+        "Former Sanctuary Crypt - Final Floor",
+        "The Abyss of Origins"
+      ],
+      "location_count": 3,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "ripe coconut",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "ripe mango",
+          "rate": "40.0%"
+        },
+        "special": {
+          "item": "Dragon Tree Treasure",
+          "rate": "20.0%"
+        }
+      }
+    },
+    "M1400": {
+      "id": "M1400",
+      "english_name": "Spamaltu",
+      "jp_name": "スポマルトゥ",
+      "regions": [
+        "East Coast Cave",
+        "Lodinia Marshland",
+        "Lodinia Marshland (Past)",
+        "Mountain Pinnacle Trail",
+        "Nameless Coast",
+        "Nostalgia Cape",
+        "Odd Rock Coast",
+        "Roaring Seashore",
+        "Solitude Island",
+        "Sunrise Beach",
+        "Underground Water Vein",
+        "Waterdrop Cave"
+      ],
+      "location_count": 12,
+      "region_count": 12,
+      "drops": {
+        "common": {
+          "item": "cloudy mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "clear mucus",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M1401": {
+      "id": "M1401",
+      "english_name": "Orseapus",
+      "jp_name": "オルシーピス",
+      "regions": [
+        "East Coast Cave",
+        "Lodinia Marshland",
+        "Lodinia Marshland (Past)",
+        "Mountain Pinnacle Trail",
+        "Nostalgia Cape",
+        "Odd Rock Coast",
+        "Roaring Seashore",
+        "Solitude Island",
+        "Sunrise Beach",
+        "Underground Water Vein",
+        "Waterdrop Cave"
+      ],
+      "location_count": 11,
+      "region_count": 11,
+      "drops": {
+        "common": {
+          "item": "cloudy mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "clear mucus",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "Glory scales",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M1402": {
+      "id": "M1402",
+      "english_name": "Depanglo",
+      "jp_name": "デップアングロ",
+      "regions": [
+        "East Coast Cave",
+        "Lodinia Marshland",
+        "Lodinia Marshland (Past)",
+        "Mountain Pinnacle Trail",
+        "Nostalgia Cape",
+        "Odd Rock Coast",
+        "Roaring Seashore",
+        "Solitude Island",
+        "Sunrise Beach",
+        "Underground Water Vein",
+        "Waterdrop Cave"
+      ],
+      "location_count": 11,
+      "region_count": 11,
+      "drops": {
+        "common": {
+          "item": "clear mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Glory scales",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "bitter elixir",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M1403": {
+      "id": "M1403",
+      "english_name": "Guaranzel",
+      "jp_name": "グワランゼル",
+      "regions": [
+        "East Coast Cave",
+        "Lodinia Marshland",
+        "Lodinia Marshland (Past)",
+        "Mountain Pinnacle Trail",
+        "Nostalgia Cape",
+        "Odd Rock Coast",
+        "Roaring Seashore",
+        "Solitude Island",
+        "Sunrise Beach",
+        "Underground Water Vein",
+        "Waterdrop Cave"
+      ],
+      "location_count": 11,
+      "region_count": 11,
+      "drops": {
+        "common": {
+          "item": "beast bone",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "beast skin",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "tektite ore",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M1404": {
+      "id": "M1404",
+      "english_name": "Oreanapushi",
+      "jp_name": "オレアナプシー",
+      "regions": [
+        "East Coast Cave",
+        "Former Sanctuary Crypt - B5",
+        "Lodinia Marshland",
+        "Lodinia Marshland (Past)",
+        "Mountain Pinnacle Trail",
+        "Nostalgia Cape",
+        "Odd Rock Coast",
+        "Roaring Seashore",
+        "Solitude Island",
+        "Sunrise Beach",
+        "Underground Water Vein",
+        "Waterdrop Cave"
+      ],
+      "location_count": 14,
+      "region_count": 12,
+      "drops": {
+        "common": {
+          "item": "clear mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Glittering mucus",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "Pangu slime",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M1405": {
+      "id": "M1405",
+      "english_name": "Specklamander",
+      "jp_name": "スペクルマンド",
+      "regions": [
+        "East Coast Cave",
+        "Former Sanctuary Crypt - B3",
+        "Lodinia Marshland",
+        "Lodinia Marshland (Past)",
+        "Mountain Pinnacle Trail",
+        "Nostalgia Cape",
+        "Odd Rock Coast",
+        "Roaring Seashore",
+        "Solitude Island",
+        "Sunrise Beach",
+        "Underground Water Vein",
+        "Waterdrop Cave"
+      ],
+      "location_count": 13,
+      "region_count": 12,
+      "drops": {
+        "common": {
+          "item": "beast skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Pangu skin",
+          "rate": "60.0%"
+        },
+        "special": {
+          "item": "Pangu slime",
+          "rate": "40.0%"
+        }
+      }
+    },
+    "M1406": {
+      "id": "M1406",
+      "english_name": "Sidragodi",
+      "jp_name": "シートルゴーディ",
+      "regions": [
+        "East Coast Cave",
+        "Lodinia Marshland",
+        "Lodinia Marshland (Past)",
+        "Mountain Pinnacle Trail",
+        "Nostalgia Cape",
+        "Odd Rock Coast",
+        "Roaring Seashore",
+        "Solitude Island",
+        "Sunrise Beach",
+        "Underground Water Vein",
+        "Waterdrop Cave"
+      ],
+      "location_count": 11,
+      "region_count": 11,
+      "drops": {
+        "common": {
+          "item": "Pangu bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "diamond shell",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "dragonite",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M1407": {
+      "id": "M1407",
+      "english_name": "Blobrovia",
+      "jp_name": "ブロブロヴィア",
+      "regions": [
+        "East Coast Cave",
+        "Lodinia Marshland",
+        "Lodinia Marshland (Past)",
+        "Mountain Pinnacle Trail",
+        "Nostalgia Cape",
+        "Odd Rock Coast",
+        "Roaring Seashore",
+        "Solitude Island",
+        "Sunrise Beach",
+        "Underground Water Vein",
+        "Waterdrop Cave"
+      ],
+      "location_count": 11,
+      "region_count": 11,
+      "drops": {
+        "common": {
+          "item": "Strong acidic hard liquid",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Aura grass",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "elixir of life",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M1408": {
+      "id": "M1408",
+      "english_name": "Zokumethus",
+      "jp_name": "ゾックメタス",
+      "regions": [
+        "East Coast Cave",
+        "Former Sanctuary Crypt - B1",
+        "Former Sanctuary Crypt - B4",
+        "Former Sanctuary Crypt - B5",
+        "Lodinia Marshland",
+        "Lodinia Marshland (Past)",
+        "Mountain Pinnacle Trail",
+        "Nostalgia Cape",
+        "Odd Rock Coast",
+        "Roaring Seashore",
+        "Solitude Island",
+        "Sunrise Beach",
+        "Underground Water Vein",
+        "Waterdrop Cave"
+      ],
+      "location_count": 16,
+      "region_count": 14,
+      "drops": {
+        "common": {
+          "item": "beast bone",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Pangu bones",
+          "rate": "15.0%"
+        },
+        "special": {
+          "item": "dragonite",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M1409": {
+      "id": "M1409",
+      "english_name": "Grengan",
+      "jp_name": "グレインガン",
+      "regions": [
+        "East Coast Cave",
+        "Lodinia Marshland",
+        "Lodinia Marshland (Past)",
+        "Mountain Pinnacle Trail",
+        "Nostalgia Cape",
+        "Odd Rock Coast",
+        "Roaring Seashore",
+        "Solitude Island",
+        "Sunrise Beach",
+        "Underground Water Vein",
+        "Waterdrop Cave"
+      ],
+      "location_count": 11,
+      "region_count": 11,
+      "drops": {
+        "common": {
+          "item": "elixir of power",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Guardian's elixir",
+          "rate": "80.0%"
+        },
+        "special": {
+          "item": "elixir of life",
+          "rate": "80.0%"
+        }
+      }
+    },
+    "M1600": {
+      "id": "M1600",
+      "english_name": "Rama",
+      "jp_name": "ラーマ",
+      "regions": [
+        "Sanctuary Crypt - Chamber of Braziers (Past)",
+        "Sanctuary Crypt - Chamber of Clairvoyance (Past)",
+        "Sanctuary Crypt - Chamber of Frost (Past)"
+      ],
+      "location_count": 5,
+      "region_count": 3,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "M1601": {
+      "id": "M1601",
+      "english_name": "Angattacker",
+      "jp_name": "アンガアタッカ",
+      "regions": [
+        "Sanctuary Crypt - Chamber of Braziers (Past)",
+        "Sanctuary Crypt - Chamber of Clairvoyance (Past)",
+        "Sanctuary Crypt - Chamber of Frost (Past)",
+        "Sanctuary Crypt - Chamber of Magma (Past)",
+        "Sanctuary Crypt - Chamber of Stone (Past)"
+      ],
+      "location_count": 10,
+      "region_count": 5,
+      "drops": {
+        "common": {
+          "item": "strange lump",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Iron ore",
+          "rate": "40.0%"
+        },
+        "special": {
+          "item": "tektite ore",
+          "rate": "20.0%"
+        }
+      }
+    },
+    "M1602": {
+      "id": "M1602",
+      "english_name": "Spitza",
+      "jp_name": "スピーツァ",
+      "regions": [
+        "Sanctuary Crypt - Chamber of Clairvoyance (Past)",
+        "Sanctuary Crypt - Chamber of Frost (Past)",
+        "Sanctuary Crypt - Chamber of Magma (Past)",
+        "Sanctuary Crypt - Chamber of the Final Trial (Past)"
+      ],
+      "location_count": 5,
+      "region_count": 4,
+      "drops": {
+        "common": {
+          "item": "Glittering mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Pangu slime",
+          "rate": "20.0%"
+        },
+        "special": {
+          "item": "glow rock",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M1603": {
+      "id": "M1603",
+      "english_name": "Floria",
+      "jp_name": "フロリア",
+      "regions": [
+        "Sanctuary Crypt - Chamber of Clairvoyance (Past)",
+        "Sanctuary Crypt - Chamber of Frost (Past)",
+        "Sanctuary Crypt - Chamber of Magma (Past)",
+        "Sanctuary Crypt - Chamber of Stone (Past)",
+        "Sanctuary Crypt - Chamber of the Final Trial (Past)"
+      ],
+      "location_count": 8,
+      "region_count": 5,
+      "drops": {
+        "common": {
+          "item": "shining leaves",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Pangu flower",
+          "rate": "20.0%"
+        },
+        "special": {
+          "item": "moonlight grass",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M1604": {
+      "id": "M1604",
+      "english_name": "Tormvega",
+      "jp_name": "トルムヴェガー",
+      "regions": [
+        "Sanctuary Crypt - Chamber of Clairvoyance (Past)",
+        "Sanctuary Crypt - Chamber of Frost (Past)",
+        "Sanctuary Crypt - Chamber of Magma (Past)"
+      ],
+      "location_count": 3,
+      "region_count": 3,
+      "drops": {
+        "common": {
+          "item": "tektite ore",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Rispar",
+          "rate": "20.0%"
+        },
+        "special": {
+          "item": "mental armor",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M1605": {
+      "id": "M1605",
+      "english_name": "Angatraz",
+      "jp_name": "アンガトラズ",
+      "regions": [
+        "Sanctuary Crypt - Chamber of Clairvoyance (Past)",
+        "Sanctuary Crypt - Chamber of Frost (Past)",
+        "Sanctuary Crypt - Chamber of Magma (Past)",
+        "Sanctuary Crypt - Chamber of the Final Trial (Past)"
+      ],
+      "location_count": 6,
+      "region_count": 4,
+      "drops": {
+        "common": {
+          "item": "tektite ore",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Rispar",
+          "rate": "20.0%"
+        },
+        "special": {
+          "item": "diamond shell",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M1610": {
+      "id": "M1610",
+      "english_name": "Gresbalon",
+      "jp_name": "グレスバイラン",
+      "regions": [
+        "Former Sanctuary Crypt - B4",
+        "Sanctuary Crypt - Chamber of Braziers (Past)",
+        "Sanctuary Crypt - Chamber of Clairvoyance (Past)",
+        "Sanctuary Crypt - Chamber of Frost (Past)",
+        "Sanctuary Crypt - Chamber of Magma (Past)",
+        "Sanctuary Crypt - Chamber of Stone (Past)"
+      ],
+      "location_count": 11,
+      "region_count": 6,
+      "drops": {
+        "common": {
+          "item": "thick skin",
+          "rate": "50.0%"
+        },
+        "rare": {
+          "item": "beast skin",
+          "rate": "20.0%"
+        },
+        "special": {
+          "item": "beast bone",
+          "rate": "20.0%"
+        }
+      }
+    },
+    "M1611": {
+      "id": "M1611",
+      "english_name": "Emisdoot",
+      "jp_name": "イミスドゥーテ",
+      "regions": [
+        "Sanctuary Crypt - Chamber of Braziers (Past)",
+        "Sanctuary Crypt - Chamber of Clairvoyance (Past)",
+        "Sanctuary Crypt - Chamber of Frost (Past)",
+        "Sanctuary Crypt - Chamber of Magma (Past)",
+        "Sanctuary Crypt - Chamber of Stone (Past)",
+        "Sanctuary Crypt - Chamber of the Final Trial (Past)"
+      ],
+      "location_count": 9,
+      "region_count": 6,
+      "drops": {
+        "common": {
+          "item": "tektite ore",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Rispar",
+          "rate": "2.0%"
+        },
+        "special": {
+          "item": "mental armor",
+          "rate": "10.0%"
+        }
+      }
+    },
+    "M1612": {
+      "id": "M1612",
+      "english_name": "Spitsa Ire",
+      "jp_name": "スピーツァ・イレ",
+      "regions": [
+        "Sanctuary Crypt - Chamber of Clairvoyance (Past)",
+        "Sanctuary Crypt - Chamber of Frost (Past)",
+        "Sanctuary Crypt - Chamber of Magma (Past)",
+        "Sanctuary Crypt - Chamber of Stone (Past)",
+        "Sanctuary Crypt - Chamber of the Final Trial (Past)"
+      ],
+      "location_count": 6,
+      "region_count": 5,
+      "drops": {
+        "common": {
+          "item": "Glittering mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "moon shadow wing",
+          "rate": "20.0%"
+        },
+        "special": {
+          "item": "Rivera's Immortal Flower",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M1613": {
+      "id": "M1613",
+      "english_name": "Shivalva",
+      "jp_name": "シヴァルヴァ",
+      "regions": [
+        "Sanctuary Crypt - Chamber of Clairvoyance (Past)",
+        "Sanctuary Crypt - Chamber of Frost (Past)",
+        "Sanctuary Crypt - Chamber of Magma (Past)",
+        "Sanctuary Crypt - Chamber of the Final Trial (Past)"
+      ],
+      "location_count": 7,
+      "region_count": 4,
+      "drops": {
+        "common": {
+          "item": "Pangu bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "Star Crystal Armor",
+          "rate": "20.0%"
+        },
+        "special": {
+          "item": "Spiritual bones of another world",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M2100": {
+      "id": "M2100",
+      "english_name": "Staeda",
+      "jp_name": "ステアーダ",
+      "regions": [
+        "Eroded Valley",
+        "Former Sanctuary Crypt - B3"
+      ],
+      "location_count": 7,
+      "region_count": 2,
+      "drops": {
+        "common": {
+          "item": "light bones",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "strange lump",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "clear mucus",
+          "rate": "5.0%"
+        }
+      }
+    },
+    "M2101": {
+      "id": "M2101",
+      "english_name": "Tyrondor",
+      "jp_name": "タイランウェザー",
+      "regions": [
+        "Eroded Valley"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "thick skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "wing quill",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "Zhan Gangyu",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "M2102": {
+      "id": "M2102",
+      "english_name": "Bullfrodon",
+      "jp_name": "ブルフロドン",
+      "regions": [
+        "Eroded Valley",
+        "Nameless Coast",
+        "Schlamm Jungle",
+        "White Sand Cape"
+      ],
+      "location_count": 9,
+      "region_count": 4,
+      "drops": {
+        "common": {
+          "item": "clear mucus",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "stalactite",
+          "rate": "20.0%"
+        },
+        "special": {
+          "item": "Bullfrodon mucus",
+          "rate": "20.0%"
+        }
+      }
+    },
+    "M2103": {
+      "id": "M2103",
+      "english_name": "Zupig",
+      "jp_name": "ピグラ",
+      "regions": [
+        "Eroded Valley"
+      ],
+      "location_count": 4,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": "thin skin",
+          "rate": "80.0%"
+        },
+        "rare": {
+          "item": "thick skin",
+          "rate": "5.0%"
+        },
+        "special": {
+          "item": "wing quill",
+          "rate": "1.0%"
+        }
+      }
+    },
+    "MAT01": {
+      "id": "MAT01",
+      "english_name": null,
+      "jp_name": "Unknown (MAT01)",
+      "regions": [
+        "Nameless Coast"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "MAT02": {
+      "id": "MAT02",
+      "english_name": null,
+      "jp_name": "Unknown (MAT02)",
+      "regions": [
+        "Nameless Coast"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "MAT03": {
+      "id": "MAT03",
+      "english_name": null,
+      "jp_name": "Unknown (MAT03)",
+      "regions": [
+        "Nameless Coast"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "MAT04": {
+      "id": "MAT04",
+      "english_name": null,
+      "jp_name": "Unknown (MAT04)",
+      "regions": [
+        "Nameless Coast"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "MAT05": {
+      "id": "MAT05",
+      "english_name": null,
+      "jp_name": "Unknown (MAT05)",
+      "regions": [
+        "Nameless Coast"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "b000": {
+      "id": "b000",
+      "english_name": null,
+      "jp_name": "Unknown (b000)",
+      "regions": [
+        "Towering Coral Forest (Night)"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "b004": {
+      "id": "b004",
+      "english_name": null,
+      "jp_name": "Unknown (b004)",
+      "regions": [
+        "Baja Tower"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "b009": {
+      "id": "b009",
+      "english_name": null,
+      "jp_name": "Unknown (b009)",
+      "regions": [
+        "The Abyss of Origins"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "b010": {
+      "id": "b010",
+      "english_name": null,
+      "jp_name": "Unknown (b010)",
+      "regions": [
+        "The Abyss of Origins"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "b101": {
+      "id": "b101",
+      "english_name": null,
+      "jp_name": "Unknown (b101)",
+      "regions": [
+        "Eroded Valley"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "b101b": {
+      "id": "b101b",
+      "english_name": null,
+      "jp_name": "Unknown (b101b)",
+      "regions": [
+        "Eroded Valley"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "m0100": {
+      "id": "m0100",
+      "english_name": null,
+      "jp_name": "Unknown (m0100)",
+      "regions": [
+        "The Abyss of Origins"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "m0104": {
+      "id": "m0104",
+      "english_name": null,
+      "jp_name": "Unknown (m0104)",
+      "regions": [
+        "The Abyss of Origins"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "m0106": {
+      "id": "m0106",
+      "english_name": null,
+      "jp_name": "Unknown (m0106)",
+      "regions": [
+        "The Abyss of Origins"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "m0222": {
+      "id": "m0222",
+      "english_name": null,
+      "jp_name": "Unknown (m0222)",
+      "regions": [
+        "The Abyss of Origins"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "m0224": {
+      "id": "m0224",
+      "english_name": null,
+      "jp_name": "Unknown (m0224)",
+      "regions": [
+        "The Abyss of Origins"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "m0302": {
+      "id": "m0302",
+      "english_name": null,
+      "jp_name": "Unknown (m0302)",
+      "regions": [
+        "The Abyss of Origins"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "m0303": {
+      "id": "m0303",
+      "english_name": null,
+      "jp_name": "Unknown (m0303)",
+      "regions": [
+        "The Abyss of Origins"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "m0400": {
+      "id": "m0400",
+      "english_name": null,
+      "jp_name": "Unknown (m0400)",
+      "regions": [
+        "The Abyss of Origins"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "m0504": {
+      "id": "m0504",
+      "english_name": null,
+      "jp_name": "Unknown (m0504)",
+      "regions": [
+        "The Abyss of Origins"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "m0620": {
+      "id": "m0620",
+      "english_name": null,
+      "jp_name": "Unknown (m0620)",
+      "regions": [
+        "Baja Tower"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "m0640": {
+      "id": "m0640",
+      "english_name": null,
+      "jp_name": "Unknown (m0640)",
+      "regions": [
+        "The Abyss of Origins"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "m0663": {
+      "id": "m0663",
+      "english_name": null,
+      "jp_name": "Unknown (m0663)",
+      "regions": [
+        "The Abyss of Origins"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "m0664": {
+      "id": "m0664",
+      "english_name": null,
+      "jp_name": "Unknown (m0664)",
+      "regions": [
+        "Archeozoic Chasm"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "m0841": {
+      "id": "m0841",
+      "english_name": null,
+      "jp_name": "Unknown (m0841)",
+      "regions": [
+        "The Abyss of Origins"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "m0860": {
+      "id": "m0860",
+      "english_name": null,
+      "jp_name": "Unknown (m0860)",
+      "regions": [
+        "The Abyss of Origins"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "m1102": {
+      "id": "m1102",
+      "english_name": null,
+      "jp_name": "Unknown (m1102)",
+      "regions": [
+        "The Abyss of Origins"
+      ],
+      "location_count": 1,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    },
+    "param_define": {
+      "id": "param_define",
+      "english_name": null,
+      "jp_name": "Unknown (param_define)",
+      "regions": [
+        "Eroded Valley"
+      ],
+      "location_count": 2,
+      "region_count": 1,
+      "drops": {
+        "common": {
+          "item": null,
+          "rate": null
+        },
+        "rare": {
+          "item": null,
+          "rate": null
+        },
+        "special": {
+          "item": null,
+          "rate": null
+        }
+      }
+    }
+  }
+}
