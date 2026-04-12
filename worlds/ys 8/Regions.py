@@ -90,8 +90,8 @@ def create_regions(Ys8World):
         "Seiren North Access": Ys8RegionData([], ["Seiren North to MG Boss Arena", "Seiren North to SPWC", "Seiren North to TotGT", "Seiren North to RoE", 
                                                   "Prismatic Mineral Vein to CIA", "Unicalamites to CIA", "Breath Fountain to CIA", "Ancient Tree to CIA",
                                                   "Seiren North to Pangaia Plains Night"]),
-        #WIP
         "Stone Pillar Wind Cave": Ys8RegionData([], ["SPWC to Seiren North", "SPWC to SPWC Upper"]),
+        "Stone Pillar Wind Cave Upper": Ys8RegionData([], ["SPWC Upper to SPWC"]),
         "Temple of the Great Tree": Ys8RegionData([], ["TotGT to Seiren North", "TotGT to TotGT Boss Arena", "TotGT to RoE", "TotGT to Vista Ridge"]),
         "Temple of the Great Tree Boss Arena": Ys8RegionData([], ["TotGT Boss Arena to TotGT", "TotGT Boss Arena to TotGT Garden"]),
         "Temple of the Great Tree Garden": Ys8RegionData([], ["TotGT Garden to TotGT Boss Arena", "TotGT Garden to Octus"]),
@@ -120,6 +120,7 @@ def create_regions(Ys8World):
         "Archeozoic Chasm Submerged Area": Ys8RegionData([], ["AC Submerged Area to AC Front", "AC Submerged Area to AC Boss Arena"]),
         "Archeozoic Chasm Boss Arena": Ys8RegionData([], ["AC Boss Arena to AC Submerged Area"]),
         "Vista Ridge": Ys8RegionData([], ["Vista Ridge to TotGT", "Vista Ridge to Vista Ridge Upper", "Vista Ridge to LM Entrance"]),
+        "Vista Ridge Upper": Ys8RegionData([], ["Vista Ridge Upper to Vista Ridge"]),
         "Lodinia Marshlands Entrance": Ys8RegionData([], ["LM Entrance to Vista Ridge", "LM Entrance to LM South", "LM Entrance to LM Near Submerged Cemetery"]),
         "Lodinia Marshlands South": Ys8RegionData([], ["LM South to LM Entrance"]),
         "Lodinia Marshlands Near Submerged Cemetery": Ys8RegionData([], ["LM Near Submerged Cemetery to LM Entrance", "LM Near Submerged Cemetery to Submerged Cemetery",
@@ -447,7 +448,8 @@ def connect_entrances(Ys8World: Ys8World):
 
     # Vista Ridge Connections
     connect("Vista Ridge to TotGT", "Temple of the Great Tree")
-    connect("Vista Ridge to Vista Ridge Upper", "Vista Ridge")
+    connect("Vista Ridge to Vista Ridge Upper", "Vista Ridge Upper")
+    connect("Vista Ridge Upper to Vista Ridge", "Vista Ridge")
     connect("Vista Ridge to LM Entrance", "Lodinia Marshlands Entrance")
 
     # Lodinia Marshlands Connections
