@@ -1,6 +1,6 @@
 from typing import TYPE_CHECKING
-from BaseClasses import CollectionState
-from worlds.generic.Rules import add_rule, set_rule
+from BaseClasses import CollectionState, ItemClassification
+from worlds.generic.Rules import add_item_rule, add_rule, set_rule
 from math import ceil
 from BaseClasses import Entrance, Location
 from .Locations import Ys8Location, location_table
@@ -19,7 +19,7 @@ _GRIND_STR: dict[int, int] = {
     80: 384, 85: 408, 90: 434, 95: 459,
 }
 
-def set_all_rules(Ys8World: Ys8World):
+def set_all_rules(Ys8World: "Ys8World"):
     set_entrance_rules(Ys8World)
     set_location_rules(Ys8World)
 
@@ -29,8 +29,24 @@ def has_required_crew(state: CollectionState, player: int, crew_count: int) -> b
 def has_required_party(state: CollectionState, player: int, party_count: int) -> bool:
     return state.has_from_list([item for item, data in item_table.items() if data.flags and "Party" in data.flags], player, party_count)
 
+def count_discoveries(state: CollectionState, player: int) -> int:
+    """Count the total number of discoveries (landmarks) the player has collected."""
+    return sum(1 for item, data in item_table.items() if data.category == "Landmark" and state.has(item, player))
+
+def has_discoveries(state: CollectionState, player: int, discovery_count: int) -> bool:
+    """Check if the player has collected at least discovery_count discoveries."""
+    return count_discoveries(state, player) >= discovery_count
+
 def bosses_defeated(state: CollectionState, player: int) -> int:
     return sum(1 for item, data in event_item_table.items() if data.type == "Boss" and state.has(item, player))
+
+def has_jewels(state: CollectionState, player: int, jewel_count: int) -> bool:
+    count = state.count("Prismatic Jewel", player)
+    count += 2 * state.count("Prismatic Jewel x2", player)
+    count += 3 * state.count("Prismatic Jewel x3", player)
+    count += 5 * state.count("Prismatic Jewel x5", player)
+    return count >= jewel_count
+
 
 def material_access(material: str, state: CollectionState, player: int) -> bool:
     """Returns True if the player can reach a viable farming spot for the named material."""
@@ -151,7 +167,6 @@ def material_access(material: str, state: CollectionState, player: int) -> bool:
         }, player)
     return True
 
-# TODO: implement — returns True if the player has access to grinding spots yielding ~threshold EXP
 def grind_level(state: CollectionState, player: int) -> int:
     """Returns the level a player could theoretically reach through grinding,
     based on which grind areas they can access. Each accessible area adds 2 levels,
@@ -200,23 +215,49 @@ def grind_level(state: CollectionState, player: int) -> int:
 
     return 1 + min(gained, 30)
 
-# TODO: implement — returns the highest armlet strength value from found checks
-def armlet_str(state: CollectionState, player: int) -> int:
-    return 0
-
-# TODO: implement — returns the highest accessory strength value from found checks
 def accessory_str(state: CollectionState, player: int) -> int:
-    return 0
+    # Blade Rings — mutually exclusive group, take best found
+    if state.has("Blade Ring III", player):
+        ringStr = 30
+    elif state.has("Blade Ring II", player):
+        ringStr = 20
+    elif state.has("Blade Ring", player):
+        ringStr = 10
+    else:
+        ringStr = 0
 
-# TODO: implement — returns True if a strength-boosting recipe is accessible
-def has_str_recipe(state: CollectionState, player: int) -> bool:
-    return True
+    # Ancient accessories — mutually exclusive group, take best found
+    if state.has_any({"Stone of Anitquity", "Ocean Hogeki"}, player):
+        ancientStr = 40
+    elif state.has("Shrine Maiden Amulet", player) and \
+            state.has_any({"Laxia", "Dana", "Ricotta"}, player):
+        ancientStr = 15
+    else:
+        ancientStr = 0
+
+    # Pyrios accessories — mutually exclusive group, take best found
+    if state.has("Pyrios Stone", player):
+        pyriosStr = 15
+    elif state.has("Pyrios Talisman", player):
+        pyriosStr = 5
+    else:
+        pyriosStr = 0
+
+    # Stackable accessories
+    accStrList = [ringStr, ancientStr, pyriosStr]
+    if state.has("Hope Stone", player):
+        accStrList.append(20)
+    if state.has("Fenrir Talisman", player):
+        accStrList.append(5)
+
+    accStrList.sort(reverse=True)
+    return accStrList[0] + accStrList[1]
 
 def battle_logic(state: CollectionState, player: int, required_str: int, options: Ys8Options) -> bool:
     if not options.battle_logic:
         return True
 
-    scaled = False  # TODO: set True when options.battle_logic == scaled mode
+    scaled = False # Placeholder for potential future scaling option; currently always use the same thresholds regardless of settings
 
     weaponStr = 0
     armorStr = 0
@@ -234,6 +275,9 @@ def battle_logic(state: CollectionState, player: int, required_str: int, options
     player_level = boss_count * 3 + 3 + grind_level(state, player)  # Base level 3, +3 per boss, +grind levels
 
     baseStr = _GRIND_STR[max(5, min((player_level // 5) * 5, 95))]
+
+    # Tune strictness so late-game checks remain progressive but avoid dead-end seeds.
+    required_str = required_str
 
     if scaled:
         if boss_count >= 21:
@@ -312,7 +356,7 @@ def battle_logic(state: CollectionState, player: int, required_str: int, options
 
     # Armor strength
     if state.has("Flame Stone", player, 7) and mat("Underworld Hide") and \
-                        mat("Underworld Bone"):
+            mat("Underworld Bone"):
         armorStr = 25
     elif state.has("Flame Stone", player, 6) and (
             (mat("Underworld Hide") and \
@@ -358,18 +402,18 @@ def battle_logic(state: CollectionState, player: int, required_str: int, options
         armorStr = 6
 
     # Armlet strength — take the higher of shop tiers and found items
-    foundArmStr = armlet_str(state, player)
-    if state.has("Flame Stone", player, 7) and state.has("Euron", player) and \
+    if (state.has("Flame Stone", player, 7) and state.has("Euron", player) and \
             (mat("Beast Hide") and \
-                mat("Beast Bone")):
+                mat("Beast Bone"))) or \
+                    state.has("Battle Armlet", player):
         armStr = 30
-    elif state.has("Flame Stone", player, 6) and state.has("Euron", player) and \
-            mat("Saurian Scale") and mat("Ancient Hide"):
+    elif (state.has("Flame Stone", player, 6) and state.has("Euron", player) and \
+            mat("Saurian Scale") and mat("Ancient Hide")) or \
+                state.has("Warrior Wrist", player):
         armStr = 20
     elif state.has("Flame Stone", player, 4) and state.has("Euron", player) and \
             mat("Dragon Crest Stone") and mat("Dandale Horn"):
         armStr = 10
-    armStr = max(armStr, foundArmStr)
 
     # Accessory strength — shop logic; categories that conflict are kept separate, best-of each added together
     foundAccStr = accessory_str(state, player)
@@ -430,259 +474,266 @@ def battle_logic(state: CollectionState, player: int, required_str: int, options
     accStr = otherAcc[0] + otherAcc[1]
     accStr = max(accStr, foundAccStr)
 
-    total = weaponStr + armorStr + armStr + accStr
-    if required_str >= 350:
+    total = baseStr + weaponStr + armorStr + armStr + accStr
+
+    if state.has_any({"Recipe Book/Great Pumpkin Pie", "Recipe Book/Colorful Meuniere"}, player):
+        total *= 1.2  # Bonus for having at least one str recipe book, to account for food buffs
+
+    if required_str >= 650:
         return (total >= required_str and has_required_party(state, player, 3) and
-                state.has("Flame Stone", player, 6) and
-                has_str_recipe(state, player))
-    elif required_str >= 300:
+                state.has("Flame Stone", player, 6))
+    elif required_str >= 500:
         return (total >= required_str and has_required_party(state, player, 3) and
-                state.has("Flame Stone", player, 5) and
-                has_str_recipe(state, player))
-    elif required_str >= 250:
+                state.has("Flame Stone", player, 5))
+    elif required_str >= 450:
         return (total >= required_str and has_required_party(state, player, 3) and
                 state.has("Flame Stone", player, 3))
-    elif required_str >= 230:
+    elif required_str >= 330:
         return (total >= required_str and has_required_party(state, player, 2) and
                 state.has("Flame Stone", player, 3))
-    elif required_str >= 200:
+    elif required_str >= 250:
         return (total >= required_str and has_required_party(state, player, 2) and
                 state.has("Flame Stone", player, 2))
-    elif required_str >= 150:
+    elif required_str >= 200:
         return (total >= required_str and has_required_party(state, player, 2))
     else:
         return total >= required_str
 
-def map_completion_logic(state: CollectionState, player: int, options: Ys8Options) -> bool:
-    return True
+def map_completion_logic(state: CollectionState, player: int, percent_goal: int) -> bool:
+    reachable = len(state.reachable_regions[player])
+    total = sum(1 for r in state.multiworld.regions if r.player == player)
+    completion_percent = int(100 * reachable / total) if total > 0 else 0
+    return completion_percent >= percent_goal
 
-def set_entrance_rules(Ys8World: Ys8World):
+def set_entrance_rules(Ys8World: "Ys8World"):
     player = Ys8World.player
     options = Ys8World.options
 
     def get_ent(EntranceName: str) -> Entrance:
-        return Ys8World.multiworld.get_entrance(EntranceName, Ys8World.player)
+        return Ys8World.multiworld.get_entrance(EntranceName, player)
 
     # Calm Inlet Area Connections
-    set_rule(get_ent("CIA to NC North of Boulder"), lambda state: state.has("Grip Gloves", Ys8World.player) or has_required_crew(state, Ys8World.player, 6))
-    set_rule(get_ent("CIA to Rainbow Falls"), lambda state: state.has("Rainbow Falls", Ys8World.player))
-    set_rule(get_ent("CIA to Parasequoia"), lambda state: state.has("Parasequoia", Ys8World.player))
-    set_rule(get_ent("CIA to Rainbow Falls"), lambda state: state.has("Rainbow Falls", Ys8World.player))
-    set_rule(get_ent("CIA to Metavolicalis"), lambda state: state.has("Metavolicalis", Ys8World.player))
-    set_rule(get_ent("CIA to IL 1"), lambda state: state.has_any(["T's Memo", "T's Memo A", "T's Memo B", "T's Memo C"], Ys8World.player))
-    set_rule(get_ent("CIA to IL 2"), lambda state: state.has_any_count(["T's Memo", "T's Memo A", "T's Memo B", "T's Memo C"], Ys8World.player, 2))
-    set_rule(get_ent("CIA to IL 3"), lambda state: state.has_any_count(["T's Memo", "T's Memo A", "T's Memo B", "T's Memo C"], Ys8World.player, 3))
-    set_rule(get_ent("CIA to Map Completion"), lambda state: state.has("Euron", Ys8World.player))
-    set_rule(get_ent("CIA to Jewel Trade"), lambda state: state.has("Dina", Ys8World.player))
-    set_rule(get_ent("CIA to Fish Trade"), lambda state: state.has("Fishing Rod", Ys8World.player))
-    set_rule(get_ent("CIA to Discovery Turn In"), lambda state: state.has("Austin", Ys8World.player))
-    set_rule(get_ent("CIA to Airs Cairn"), lambda state: state.has("Airs Cairn", Ys8World.player))
-    set_rule(get_ent("CIA to Chimney Rock"), lambda state: state.has("Chimney Rock", Ys8World.player))
-    set_rule(get_ent("CIA to Milky White Vein"), lambda state: state.has("Milky White Vein", Ys8World.player))
-    set_rule(get_ent("CIA to Indigo Mineral Vein"), lambda state: state.has("Indigo Mineral Vein", Ys8World.player))
-    set_rule(get_ent("CIA to Beached Remains"), lambda state: state.has("Beached Remains", Ys8World.player))
-    set_rule(get_ent("CIA to Beehive"), lambda state: state.has("Beehive", Ys8World.player))
-    set_rule(get_ent("CIA to FoMH"), lambda state: state.has("Field of Medicinal Herbs", Ys8World.player))
-    set_rule(get_ent("CIA to Hidden Pirate Storehouse"), lambda state: state.has("Hidden Pirate Storehouse", Ys8World.player))
-    set_rule(get_ent("CIA to Ship Graveyard"), lambda state: state.has("Ship Graveyard", Ys8World.player))
-    set_rule(get_ent("CIA to Solitude Island"), lambda state: state.has_any(["Ship Blueprint", "Magna Carpa"], Ys8World.player))
-    set_rule(get_ent("CIA to WH"), lambda state: state.has("Grip Gloves", Ys8World.player) and has_required_crew(state, Ys8World.player, 11))
-    set_rule(get_ent("CIA to Zephyr Hill"), lambda state: state.has("Zephyr Hill", Ys8World.player))
-    set_rule(get_ent("CIA to Lapis Mineral Vein Area"), lambda state: state.has("Lapis Mineral Vein", Ys8World.player))
-    set_rule(get_ent("CIA to Prismatic Mineral Vein"), lambda state: state.has("Prismatic Mineral Vein", Ys8World.player))
-    set_rule(get_ent("CIA to Unicalamites"), lambda state: state.has("Unicalamites", Ys8World.player))
-    set_rule(get_ent("CIA to Breath Fountain"), lambda state: state.has("Breath Fountain", Ys8World.player))
-    set_rule(get_ent("CIA to Ancient Tree"), lambda state: state.has("Ancient Tree", Ys8World.player))
-    set_rule(get_ent("CIA to Lapis Mineral Vein Area"), lambda state: state.has("Lapis Mineral Vein", Ys8World.player))
-    set_rule(get_ent("CIA to Soundless Hall"), lambda state: state.has("Soundless Hall", Ys8World.player))
-    set_rule(get_ent("CIA to Sky Garden"), lambda state: state.has("Sky Garden", Ys8World.player))
-    set_rule(get_ent("CIA to Graves of Ancient Heroes"), lambda state: state.has("Graves of Ancient Heroes", Ys8World.player))
-    set_rule(get_ent("CIA to TCF Near Boss"), lambda state: state.has("Glow Stone", Ys8World.player))
+    set_rule(get_ent("CIA to NC North of Boulder"), lambda state: state.has("Grip Gloves", player) or has_required_crew(state, player, 6))
+    set_rule(get_ent("CIA to Rainbow Falls"), lambda state: state.has("Rainbow Falls", player))
+    set_rule(get_ent("CIA to Parasequoia"), lambda state: state.has("Parasequoia", player))
+    set_rule(get_ent("CIA to Rainbow Falls"), lambda state: state.has("Rainbow Falls", player))
+    set_rule(get_ent("CIA to Metavolicalis"), lambda state: state.has("Metavolicalis", player))
+    set_rule(get_ent("CIA to IL 1"), lambda state: state.has_any(["T's Memo", "T's Memo A", "T's Memo B", "T's Memo C"], player))
+    set_rule(get_ent("CIA to IL 2"), lambda state: state.has_from_list(["T's Memo", "T's Memo A", "T's Memo B", "T's Memo C"], player, 2))
+    set_rule(get_ent("CIA to IL 3"), lambda state: state.has_from_list(["T's Memo", "T's Memo A", "T's Memo B", "T's Memo C"], player, 3))
+    set_rule(get_ent("CIA to Map Completion"), lambda state: state.has("Euron", player))
+    set_rule(get_ent("CIA to Jewel Trade"), lambda state: state.has("Dina", player) and has_jewels(state, player, 23))
+    set_rule(get_ent("CIA to Fish Trade"), lambda state: state.has("Fishing Rod", player))
+    set_rule(get_ent("CIA to Discovery Turn In"), lambda state: state.has("Austin", player))
+    set_rule(get_ent("CIA to Airs Cairn"), lambda state: state.has("Airs Cairn", player))
+    set_rule(get_ent("CIA to Chimney Rock"), lambda state: state.has("Chimney Rock", player))
+    set_rule(get_ent("CIA to Milky White Vein"), lambda state: state.has("Milky White Vein", player))
+    set_rule(get_ent("CIA to Indigo Mineral Vein"), lambda state: state.has("Indigo Mineral Vein", player))
+    set_rule(get_ent("CIA to Beached Remains"), lambda state: state.has("Beached Remains", player))
+    set_rule(get_ent("CIA to Beehive"), lambda state: state.has("Beehive", player))
+    set_rule(get_ent("CIA to FoMH"), lambda state: state.has("Field of Medicinal Herbs", player))
+    set_rule(get_ent("CIA to Hidden Pirate Storehouse"), lambda state: state.has("Hidden Pirate Storehouse", player))
+    set_rule(get_ent("CIA to Ship Graveyard"), lambda state: state.has("Ship Graveyard", player))
+    set_rule(get_ent("CIA to Solitude Island"), lambda state: state.has_any(["Ship Blueprint", "Magna Carpa"], player))
+    set_rule(get_ent("CIA to WH"), lambda state: state.has("Grip Gloves", player) and has_required_crew(state, player, 11))
+    set_rule(get_ent("CIA to Zephyr Hill"), lambda state: state.has("Zephyr Hill", player))
+    set_rule(get_ent("CIA to Lapis Mineral Vein Area"), lambda state: state.has("Lapis Mineral Vein", player))
+    set_rule(get_ent("CIA to Prismatic Mineral Vein"), lambda state: state.has("Prismatic Mineral Vein", player))
+    set_rule(get_ent("CIA to Unicalamites"), lambda state: state.has("Unicalamites", player))
+    set_rule(get_ent("CIA to Breath Fountain"), lambda state: state.has("Breath Fountain", player))
+    set_rule(get_ent("CIA to Ancient Tree"), lambda state: state.has("Ancient Tree", player))
+    set_rule(get_ent("CIA to Lapis Mineral Vein Area"), lambda state: state.has("Lapis Mineral Vein", player))
+    set_rule(get_ent("CIA to Soundless Hall"), lambda state: state.has("Soundless Hall", player))
+    set_rule(get_ent("CIA to Sky Garden"), lambda state: state.has("Sky Garden", player))
+    set_rule(get_ent("CIA to Graves of Ancient Heroes"), lambda state: state.has("Graves of Ancient Heroes", player))
+    set_rule(get_ent("CIA to TCF Night"), lambda state: state.has("Glow Stone", player))
 
     # Towering Coral Forest Connections
-    set_rule(get_ent("TCF Mid-Boss Arena to TCF Front"), lambda state: state.has("Serpentus Defeated", Ys8World.player))
-    set_rule(get_ent("TCF Mid-Boss Arena to TCF Corpse"), lambda state: state.has("Serpentus Defeated", Ys8World.player))
-    set_rule(get_ent("TCF Corpse to TCF RF"), lambda state: state.has("Grip Gloves", Ys8World.player)) 
-    set_rule(get_ent("Rainbow Falls to TCF Boss Area"), lambda state: state.has("Grip Gloves", Ys8World.player))
-    set_rule(get_ent("TCF Boss Area to TCF RF"), lambda state: state.has("Grip Gloves", Ys8World.player))
-    set_rule(get_ent("TCF Boss Area to TCF Boss"), lambda state: state.has("Grip Gloves", Ys8World.player))
-    set_rule(get_ent("TCF Boss to TCF Boss Area"), lambda state: state.has("Clareon Defeated", Ys8World.player))
-    set_rule(get_ent("TCF Exit to Meta Area"), lambda state: state.has("Clareon Defeated", Ys8World.player))
+    set_rule(get_ent("TCF Mid-Boss Arena to TCF Front"), lambda state: state.has("Serpentus Defeated", player))
+    set_rule(get_ent("TCF Mid-Boss Arena to TCF Corpse"), lambda state: state.has("Serpentus Defeated", player))
+    set_rule(get_ent("TCF Corpse to TCF RF"), lambda state: state.has("Grip Gloves", player)) 
+    set_rule(get_ent("Rainbow Falls to TCF Boss Area"), lambda state: state.has("Grip Gloves", player))
+    set_rule(get_ent("TCF Boss Area to TCF RF"), lambda state: state.has("Grip Gloves", player))
+    set_rule(get_ent("TCF Boss Area to TCF Boss"), lambda state: state.has("Grip Gloves", player))
+    set_rule(get_ent("TCF Boss to TCF Boss Area"), lambda state: state.has("Clareon Defeated", player))
+    set_rule(get_ent("TCF Exit to Meta Area"), lambda state: state.has("Clareon Defeated", player))
 
     # Metavolicalis Area Connections
-    set_rule(get_ent("Meta Area to Para Area"), lambda state: has_required_crew(state, Ys8World.player, 14))
+    set_rule(get_ent("Meta Area to Para Area"), lambda state: has_required_crew(state, player, 14))
 
     # Nameless Coast North of Boulder Connections
-    set_rule(get_ent("NC North of Boulder to GRV"), lambda state: state.has("Archeopteryx Wings", Ys8World.player) or has_required_crew(state, Ys8World.player, 8))
+    set_rule(get_ent("NC North of Boulder to GRV"), lambda state: state.has("Archeopteryx Wings", player) or has_required_crew(state, player, 8))
 
     # Great River Valley Area Connections
-    set_rule(get_ent("GRV to Base of WF Gendarme"), lambda state: state.has("Float Shoes", Ys8World.player))
-    set_rule(get_ent("GRV to WG Dark Area"), lambda state: state.has("Glow Stone", Ys8World.player))
-    set_rule(get_ent("GRV to LCA"), lambda state: state.has("Dina", Ys8World.player))
-    set_rule(get_ent("GRV to SJ:Bridge"), lambda state: state.has("Dina", Ys8World.player))
-    set_rule(get_ent("GRV to PP"), lambda state: state.has("Maiden Journal", Ys8World.player) and state.has("Grip Gloves", Ys8World.player))
-    set_rule(get_ent("SJ:Bridge to GRV"), lambda state: state.has("Dina", Ys8World.player))
+    set_rule(get_ent("GRV to Base of WF Gendarme"), lambda state: state.has("Float Shoes", player))
+    set_rule(get_ent("GRV to WG Dark Area"), lambda state: state.has("Glow Stone", player))
+    set_rule(get_ent("GRV to LCA"), lambda state: state.has("Dina", player))
+    set_rule(get_ent("GRV to SJ:Bridge"), lambda state: state.has("Dina", player))
+    set_rule(get_ent("GRV to PP"), lambda state: state.has("Maiden Journal", player) and state.has("Grip Gloves", player))
+    set_rule(get_ent("SJ:Bridge to GRV"), lambda state: state.has("Dina", player))
 
     # Base of Western Foot of Gendarme Connections
-    set_rule(get_ent("Base of WF Gendarme to WF Gendarme"), lambda state: has_required_crew(state, Ys8World.player, 11))
+    set_rule(get_ent("Base of WF Gendarme to WF Gendarme"), lambda state: has_required_crew(state, player, 11))
 
     # Western Foot of Gendarme Connections
-    set_rule(get_ent("CIA to Airs Cairn"), lambda state: state.has("Airs Cairn", Ys8World.player))
-    set_rule(get_ent("WF Gendarme to Base of WF Gendarme"), lambda state: has_required_crew(state, Ys8World.player, 11))
+    set_rule(get_ent("CIA to Airs Cairn"), lambda state: state.has("Airs Cairn", player))
+    set_rule(get_ent("WF Gendarme to Base of WF Gendarme"), lambda state: has_required_crew(state, player, 11))
 
     # Waterfall Grotto Connections
-    set_rule(get_ent("Milky White Vein to WG Dark Area"), lambda state: state.has("Glow Stone", Ys8World.player))
-    set_rule(get_ent("WG Dark Area to Milky White Vein"), lambda state: state.has("Glow Stone", Ys8World.player))
-    set_rule(get_ent("WG Dark Area to GRV"), lambda state: state.has("Glow Stone", Ys8World.player))
+    set_rule(get_ent("Milky White Vein to WG Dark Area"), lambda state: state.has("Glow Stone", player))
+    set_rule(get_ent("WG Dark Area to Milky White Vein"), lambda state: state.has("Glow Stone", player))
+    set_rule(get_ent("WG Dark Area to GRV"), lambda state: state.has("Glow Stone", player))
 
     # Longhorn Coast Area Connections
-    set_rule(get_ent("LCA to GRV"), lambda state: state.has("Dina", Ys8World.player))
-    set_rule(get_ent("LCA to Outside ST"), lambda state: state.has("Archeopteryx Wings", Ys8World.player))
-    set_rule(get_ent("LCA to Nostalgia Cape"), lambda state: state.has("Archeopteryx Wings", Ys8World.player))
-    set_rule(get_ent("LCA to Beehive"), lambda state: state.has("Dina", Ys8World.player))
+    set_rule(get_ent("LCA to GRV"), lambda state: state.has("Dina", player))
+    set_rule(get_ent("LCA to Outside ST"), lambda state: state.has("Archeopteryx Wings", player))
+    set_rule(get_ent("LCA to Nostalgia Cape"), lambda state: state.has("Archeopteryx Wings", player))
+    set_rule(get_ent("LCA to Beehive"), lambda state: state.has("Dina", player))
 
     # Eroded Valley Connections
-    set_rule(get_ent("EV Front to EV Dark Area"), lambda state: state.has("Glow Stone", Ys8World.player))
-    set_rule(get_ent("EV Dark Area to EV Front"), lambda state: state.has("Glow Stone", Ys8World.player))
-    set_rule(get_ent("EV Dark Area to EV Indigo Mineral Vein"), lambda state: state.has("Glow Stone", Ys8World.player))
-    set_rule(get_ent("EV Indigo Mineral Vein to EV Dark Area"), lambda state: state.has("Glow Stone", Ys8World.player))
-    set_rule(get_ent("EV Mid-Boss Arena to EV Front"), lambda state: state.has("Lonbrigius Defeated", Ys8World.player))
-    set_rule(get_ent("EV Mid-Boss Arena to EV Webbed Walkway"), lambda state: state.has_all(["Lonbrigius Defeated", "Glow Stone"], Ys8World.player))
-    set_rule(get_ent("EV Webbed Walkway to EV Before Boss"), lambda state: state.has("Glow Stone", Ys8World.player))
-    set_rule(get_ent("EV Before Boss to EV Webbed Walkway"), lambda state: state.has("Glow Stone", Ys8World.player))
-    set_rule(get_ent("EV Before Boss to EV Boss Arena"), lambda state: state.has("Glow Stone", Ys8World.player))
-    set_rule(get_ent("EV Boss Arena to EV Before Boss"), lambda state: state.has_all(["Gargantula Defeated", "Glow Stone"], Ys8World.player))
-    set_rule(get_ent("EV Boss Arena to SB"), lambda state: state.has("Gargantula Defeated", Ys8World.player))
+    set_rule(get_ent("EV Front to EV Dark Area"), lambda state: state.has("Glow Stone", player))
+    set_rule(get_ent("EV Dark Area to EV Front"), lambda state: state.has("Glow Stone", player))
+    set_rule(get_ent("EV Dark Area to EV Indigo Mineral Vein"), lambda state: state.has("Glow Stone", player))
+    set_rule(get_ent("EV Indigo Mineral Vein to EV Dark Area"), lambda state: state.has("Glow Stone", player))
+    set_rule(get_ent("EV Mid-Boss Arena to EV Front"), lambda state: state.has("Lonbrigius Defeated", player))
+    set_rule(get_ent("EV Mid-Boss Arena to EV Webbed Walkway"), lambda state: state.has_all(["Lonbrigius Defeated", "Glow Stone"], player))
+    set_rule(get_ent("EV Webbed Walkway to EV Before Boss"), lambda state: state.has("Glow Stone", player))
+    set_rule(get_ent("EV Before Boss to EV Webbed Walkway"), lambda state: state.has("Glow Stone", player))
+    set_rule(get_ent("EV Before Boss to EV Boss Arena"), lambda state: state.has("Glow Stone", player))
+    set_rule(get_ent("EV Boss Arena to EV Before Boss"), lambda state: state.has_all(["Gargantula Defeated", "Glow Stone"], player))
+    set_rule(get_ent("EV Boss Arena to SB"), lambda state: state.has("Gargantula Defeated", player))
 
     # Schlamm Jungle Connections
-    set_rule(get_ent("SJ Mid-Boss Arena to SJ Front"), lambda state: state.has("Magamandra Defeated", Ys8World.player))
-    set_rule(get_ent("SJ Mid-Boss Arena to SJ Muddy Path"), lambda state: state.has("Magamandra Defeated", Ys8World.player) and 
-             state.has_any(["Archeopteryx Wings", "Float Shoes"], Ys8World.player))
-    set_rule(get_ent("SJ Muddy Path to SJ Before Boss"), lambda state: state.has("Float Shoes", Ys8World.player))
-    set_rule(get_ent("SJ Muddy Path to SJ FoMH"), lambda state: state.has("Dina", Ys8World.player) and state.has("Grip Gloves", Ys8World.player))
-    set_rule(get_ent("SJ FoMH to SJ Muddy Path"), lambda state: state.has("Dina", Ys8World.player))
-    set_rule(get_ent("SJ Before Boss to SJ Muddy Path"), lambda state: state.has("Float Shoes", Ys8World.player))
-    set_rule(get_ent("SJ Boss Arena to SJ Before Boss"), lambda state: state.has_all(["Laspisus Defeated", "Float Shoes"], Ys8World.player))
-    set_rule(get_ent("SJ Boss Arena to ORC"), lambda state: state.has_all(["Laspisus Defeated", "Float Shoes"], Ys8World.player))
+    set_rule(get_ent("SJ Mid-Boss Arena to SJ Front"), lambda state: state.has("Magamandra Defeated", player))
+    set_rule(get_ent("SJ Mid-Boss Arena to SJ Muddy Path"), lambda state: state.has("Magamandra Defeated", player) and 
+             state.has_any(["Archeopteryx Wings", "Float Shoes"], player))
+    set_rule(get_ent("SJ Muddy Path to SJ Before Boss"), lambda state: state.has("Float Shoes", player))
+    set_rule(get_ent("SJ Muddy Path to SJ FoMH"), lambda state: state.has("Dina", player) and state.has("Grip Gloves", player))
+    set_rule(get_ent("SJ FoMH to SJ Muddy Path"), lambda state: state.has("Dina", player))
+    set_rule(get_ent("SJ Before Boss to SJ Muddy Path"), lambda state: state.has("Float Shoes", player))
+    set_rule(get_ent("SJ Boss Arena to SJ Before Boss"), lambda state: state.has_all(["Laspisus Defeated", "Float Shoes"], player))
+    set_rule(get_ent("SJ Boss Arena to ORC"), lambda state: state.has_all(["Laspisus Defeated", "Float Shoes"], player))
     
     # East Coast Cave Connections
-    set_rule(get_ent("ECC BG to ECC AG"), lambda state: state.has("Gilkyra Encounter Defeated", Ys8World.player))
-    set_rule(get_ent("ECC AG to ECC BG"), lambda state: state.has_all(["Gilkyra Encounter Defeated", "Archeopteryx Wings"], Ys8World.player))
-    set_rule(get_ent("ECC AG to PSE"), lambda state: state.has("Logbook 1", Ys8World.player))
+    set_rule(get_ent("ECC BG to ECC AG"), lambda state: state.has("Gilkyra Encounter Defeated", player))
+    set_rule(get_ent("ECC AG to ECC BG"), lambda state: state.has_all(["Gilkyra Encounter Defeated", "Archeopteryx Wings"], player))
+    set_rule(get_ent("ECC AG to PSE"), lambda state: state.has("Logbook 1", player))
 
     # Pirate Ship Eleftheria Connections
-    set_rule(get_ent("PSE to PSE Submerged Hold"), lambda state: state.has("Hermit's Scale", Ys8World.player))
-    set_rule(get_ent("PSE Submerged Hold to PSE"), lambda state: state.has("Hermit's Scale", Ys8World.player))
+    set_rule(get_ent("PSE to PSE Submerged Hold"), lambda state: state.has("Hermit's Scale", player))
+    set_rule(get_ent("PSE Submerged Hold to PSE"), lambda state: state.has("Hermit's Scale", player))
 
     # Primordial Passage Connections
-    set_rule(get_ent("PP to GRV"), lambda state: state.has("Maiden Journal", Ys8World.player))
-    set_rule(get_ent("MG:Bridge to PP"), lambda state: state.has("Maiden Journal", Ys8World.player))
-    set_rule(get_ent("PP to MG Night"), lambda state: state.has("Glow Stone", Ys8World.player))
+    set_rule(get_ent("PP to GRV"), lambda state: state.has("Maiden Journal", player))
+    set_rule(get_ent("MG:Bridge to PP"), lambda state: state.has("Maiden Journal", player))
+    set_rule(get_ent("PP to MG Night"), lambda state: state.has("Glow Stone", player))
 
     # Outside Silent Tower Connections
-    set_rule(get_ent("Outside ST to ST"), lambda state: has_required_crew(state, Ys8World.player, 24))
+    set_rule(get_ent("Outside ST to ST"), lambda state: has_required_crew(state, player, 24))
 
     # Weathervane Hills Connections
-    set_rule(get_ent("WH to Past Insect Nests"), lambda state: state.has("Dina", Ys8World.player))
-    set_rule(get_ent("WH to UMV"), lambda state: state.has("Hermit's Scale", Ys8World.player))
+    set_rule(get_ent("WH to WH Past Insect Nests"), lambda state: state.has("Dina", player))
+    set_rule(get_ent("WH to UMV"), lambda state: state.has("Hermit's Scale", player))
 
     # Underground Water Vein Connections
-    set_rule(get_ent("Lapis Mineral Vein Area to UWV"), lambda state: state.has("Hermit's Scale", Ys8World.player))
-    set_rule(get_ent("UWV to Lapis Mineral Vein Area"), lambda state: state.has("Hermit's Scale", Ys8World.player))
-    set_rule(get_ent("UWV to WH"), lambda state: state.has("Hermit's Scale", Ys8World.player))
+    set_rule(get_ent("Lapis Mineral Vein Area to UWV"), lambda state: state.has("Hermit's Scale", player))
+    set_rule(get_ent("UWV to Lapis Mineral Vein Area"), lambda state: state.has("Hermit's Scale", player))
+    set_rule(get_ent("UWV to WH"), lambda state: state.has("Hermit's Scale", player))
     
     # Mont Gendarme Connections
-    set_rule(get_ent("MG to MG Mid"), lambda state: state.has("Grip Gloves", Ys8World.player))
-    set_rule(get_ent("MG Mid to MG Mid-Boss Arena"), lambda state: state.has("Grip Gloves", Ys8World.player))
-    set_rule(get_ent("MG Mid-Boss Arena to MG Mid"), lambda state: state.has("Avalodragil 2 Defeated", Ys8World.player))
-    set_rule(get_ent("MG Mid-Boss Arena to MG Upper"), lambda state: state.has_all(["Avalodragil 2 Defeated", "Grip Gloves"], Ys8World.player))
-    set_rule(get_ent("MG Upper to MG Boss Arena"), lambda state: state.has("Grip Gloves", Ys8World.player))
-    set_rule(get_ent("MG Boss Arena to MG Upper"), lambda state: state.has("Giasburn Defeated", Ys8World.player))
-    set_rule(get_ent("MG Boss Arena to Seiren North"), lambda state: state.has("Giasburn Defeated", Ys8World.player))
+    set_rule(get_ent("MG Front to MG Mid"), lambda state: state.has("Grip Gloves", player))
+    set_rule(get_ent("MG Mid to MG Mid-Boss Arena"), lambda state: state.has("Grip Gloves", player))
+    set_rule(get_ent("MG Mid-Boss Arena to MG Mid"), lambda state: state.has("Avalodragil 2 Defeated", player))
+    set_rule(get_ent("MG Mid-Boss Arena to MG Upper"), lambda state: state.has_all(["Avalodragil 2 Defeated", "Grip Gloves"], player))
+    set_rule(get_ent("MG Upper to MG Boss Arena"), lambda state: state.has("Grip Gloves", player))
+    set_rule(get_ent("MG Boss Arena to MG Upper"), lambda state: state.has("Giasburn Defeated", player))
+    set_rule(get_ent("MG Boss Arena to Seiren North"), lambda state: state.has("Giasburn Defeated", player))
 
     # Seiren North Connections
-    set_rule(get_ent("Seiren North to SPWC"), lambda state: has_required_crew(state, Ys8World.player, 18))
-    set_rule(get_ent("Seiren North to TotGT"), lambda state: state.has("Dana", Ys8World.player))
-    set_rule(get_ent("Seiren North to RoE"), lambda state: state.has("Blue Seal of Whirling Water", Ys8World.player))
-    set_rule(get_ent("Seiren North to Pangaia Plans Night"), lambda state: state.has("Glow Stone", Ys8World.player))
+    set_rule(get_ent("Seiren North to SPWC"), lambda state: has_required_crew(state, player, 18))
+    set_rule(get_ent("Seiren North to TotGT"), lambda state: state.has("Dana", player))
+    set_rule(get_ent("Seiren North to RoE"), lambda state: state.has("Blue Seal of Whirling Water", player))
+    set_rule(get_ent("Seiren North to Pangaia Plains Night"), lambda state: state.has("Glow Stone", player))
 
     # Stone Pillar Wind Cave Connections
-    set_rule(get_ent("SPWC to SPWC Upper"), lambda state: state.has("Grip Gloves", Ys8World.player))
+    set_rule(get_ent("SPWC to SPWC Upper"), lambda state: state.has("Grip Gloves", player))
 
     # Temple of the Great Tree Connections
-    set_rule(get_ent("TotGT to Seiren North"), lambda state: state.has("Dana", Ys8World.player))
-    set_rule(get_ent("TotGT to RoE"), lambda state: state.has("Green Seal of Roaring Stone", Ys8World.player))
-    set_rule(get_ent("TotGT Boss Arena to TotGT Garden"), lambda state: state.has("Brachion Defeated", Ys8World.player))
-    set_rule(get_ent("TotGT Boss Arena to TotGT"), lambda state: state.has("Brachion Defeated", Ys8World.player))
-    set_rule(get_ent("TotGT Garden to Octus"), lambda state: has_required_crew(state, Ys8World.player, 20)) # placeholder until options are completed
+    set_rule(get_ent("TotGT to Seiren North"), lambda state: state.has("Dana", player))
+    set_rule(get_ent("TotGT to RoE"), lambda state: state.has("Green Seal of Roaring Stone", player))
+    set_rule(get_ent("TotGT Boss Arena to TotGT Garden"), lambda state: state.has("Brachion Defeated", player))
+    set_rule(get_ent("TotGT Boss Arena to TotGT"), lambda state: state.has("Brachion Defeated", player))
+    set_rule(get_ent("TotGT Garden to Octus"), lambda state: has_required_crew(state, player, 20)) # placeholder until options are completed
 
     # Ruins of Eternia Connections
-    set_rule(get_ent("RoE to Seiren North"), lambda state: state.has("Blue Seal of Whirling Water", Ys8World.player))
-    set_rule(get_ent("RoE to TotGT"), lambda state: state.has("Green Seal of Roaring Stone", Ys8World.player))
-    set_rule(get_ent("RoE to AC:Bridge"), lambda state: state.has("Frozen Flower", Ys8World.player))
-    set_rule(get_ent("RoE to TH"), lambda state: state.has("Dana", Ys8World.player))
-    set_rule(get_ent("RoE to FSC First Barrier"), lambda state: state.has_all(["Jade Pendant", "Dina"], Ys8World.player) and battle_logic(state, player, 800, options)) 
-    set_rule(get_ent("RoE to Bolado"), lambda state: state.has("Frozen Flower", Ys8World.player))
-    set_rule(get_ent("Bolado to Bolado Basement"), lambda state: state.has("Glow Stone", Ys8World.player))
-    set_rule(get_ent("AC:Bridge to RoE"), lambda state: state.has("Frozen Flower", Ys8World.player))
+    set_rule(get_ent("RoE to Seiren North"), lambda state: state.has("Blue Seal of Whirling Water", player))
+    set_rule(get_ent("RoE to TotGT"), lambda state: state.has("Green Seal of Roaring Stone", player))
+    set_rule(get_ent("RoE to AC:Bridge"), lambda state: state.has("Frozen Flower", player))
+    set_rule(get_ent("RoE to TH"), lambda state: state.has("Dana", player))
+    if options.former_sanctuary_crypt.value:
+        set_rule(get_ent("RoE to FSC First Barrier"), lambda state: state.has_all(["Jade Pendant", "Dina"], player) and battle_logic(state, player, 800, options))
+    set_rule(get_ent("RoE to Bolado"), lambda state: state.has("Frozen Flower", player))
+    set_rule(get_ent("Bolado to Bolado Basement"), lambda state: state.has("Glow Stone", player))
+    set_rule(get_ent("AC:Bridge to RoE"), lambda state: state.has("Frozen Flower", player))
 
     # Former Sanctuary Connections
-    set_rule(get_ent("FSC First Barrier to RoE"), lambda state: state.has_all(["Jade Pendant", "Dina"], Ys8World.player))
-    set_rule(get_ent("FSC First Barrier to FSC Second Floor"), lambda state: state.has("Essence Key Stone", Ys8World.player))
-    set_rule(get_ent("FSC First Barrier to FSC First Barrier North Brazier Room"), lambda state: state.has_all_counts({"Essence Key Stone": 9}, Ys8World.player))
-    set_rule(get_ent("FSC First Barrier to FSC Second Floor"), lambda state: state.has("Archeopteryx Wings", Ys8World.player))
-    set_rule(get_ent("FSC Second Floor to FSC Second Barrier"), lambda state: state.has_all_counts({"Essence Key Stone": 3}, Ys8World.player))
-    set_rule(get_ent("FSC Second Floor to FSC Second Boss Arena"), lambda state: state.has("Purifying Bell", Ys8World.player))
-    set_rule(get_ent("FSC Second Boss Arena to FSC Third Floor"), lambda state: state.has("Float Shoes", Ys8World.player))
-    set_rule(get_ent("FSC Third Floor Side Rooms to FSC Third Floor"), lambda state: state.has_all_counts({"Essence Key Stone": 9}, Ys8World.player))
-    set_rule(get_ent("FSC Third Barrier to FSC Final Floors"), lambda state: state.has_all_counts({"Essence Key Stone": 6}, Ys8World.player))
-    set_rule(get_ent("FSC Final Floors to FSC Final Floor Side Rooms"), lambda state: state.has_all_counts({"Essence Key Stone": 9}, Ys8World.player))
-    set_rule(get_ent("FSC Final Floors to FSC Boss Room"), lambda state: has_required_crew(state, Ys8World.player, 20)) # placeholder until options are completed                                                                              
+    if options.former_sanctuary_crypt.value:
+        set_rule(get_ent("FSC First Barrier to RoE"), lambda state: state.has_all(["Jade Pendant", "Dina"], player))
+        set_rule(get_ent("FSC First Barrier to FSC Second Floor"), lambda state: state.has("Essence Key Stone", player))
+        set_rule(get_ent("FSC First Barrier to FSC First Barrier North Brazier Room"), lambda state: state.has_all_counts({"Essence Key Stone": 9}, player))
+        add_rule(get_ent("FSC First Barrier to FSC Second Floor"), lambda state: state.has("Archeopteryx Wings", player))
+        set_rule(get_ent("FSC Second Floor to FSC Second Barrier"), lambda state: state.has_all_counts({"Essence Key Stone": 3}, player))
+        set_rule(get_ent("FSC Second Barrier to FSC Second Boss Arena"), lambda state: state.has("Purifying Bell", player))
+        set_rule(get_ent("FSC Second Boss Arena to FSC Third Floor"), lambda state: state.has("Float Shoes", player))
+        set_rule(get_ent("FSC Third Floor Side Rooms to FSC Third Floor"), lambda state: state.has_all_counts({"Essence Key Stone": 9}, player))
+        set_rule(get_ent("FSC Third Barrier to FSC Final Floors"), lambda state: state.has_all_counts({"Essence Key Stone": 6}, player))
+        set_rule(get_ent("FSC Final Floors to FSC Final Floor Side Rooms"), lambda state: state.has_all_counts({"Essence Key Stone": 9}, player))
+        set_rule(get_ent("FSC Final Floors to FSC Boss Room"), lambda state: has_required_crew(state, player, 20)) # placeholder until options are completed
 
     # Towal Highway Connections
-    set_rule(get_ent("TH to RoE"), lambda state: state.has("Dana", Ys8World.player))
-    set_rule(get_ent("TH to Baja"), lambda state: state.has_all(["Grip Gloves", "Golden Seal of Piercing Light"], Ys8World.player))
+    set_rule(get_ent("TH to RoE"), lambda state: state.has("Dana", player))
+    set_rule(get_ent("TH to Baja"), lambda state: state.has_all(["Grip Gloves", "Golden Seal of Piercing Light"], player))
 
     # Baja Tower Connections
-    set_rule(get_ent("Baja Tower Lower Floors to Baja Tower Upper Floors"), lambda state: state.has_all(["Grip Gloves", "Archeopteryx Wings"], Ys8World.player))
-    set_rule(get_ent("Baja Tower Upper Floors to Baja Tower Boss Arena"), lambda state: state.has("Exmetal Defeated", Ys8World.player))
+    set_rule(get_ent("Baja to Baja Upper"), lambda state: state.has_all(["Grip Gloves", "Archeopteryx Wings"], player))
+    set_rule(get_ent("Baja Upper to Baja Boss Arena"), lambda state: state.has("Exmetal Defeated", player))
 
     # Archeozoic Chasm Connections
-    set_rule(get_ent("AC Front to AC Submerged Area"), lambda state: state.has("Hermit's Scale", Ys8World.player))
-    set_rule(get_ent("AC Submerged Area to AC Boss Arena"), lambda state: state.has("Hermit's Scale", Ys8World.player))
+    set_rule(get_ent("AC Front to AC Submerged Area"), lambda state: state.has("Hermit's Scale", player))
+    set_rule(get_ent("AC Submerged Area to AC Boss Arena"), lambda state: state.has("Hermit's Scale", player))
 
     # Vista Ridge Connections
-    set_rule(get_ent("Vista Ridge to Vista Ridge Upper"), lambda state: state.has("Grip Gloves", Ys8World.player) and has_required_crew(state, Ys8World.player, 21))
+    set_rule(get_ent("Vista Ridge to Vista Ridge Upper"), lambda state: state.has("Grip Gloves", player) and has_required_crew(state, player, 21))
 
     # Lodinia Marshland Connections
-    set_rule(get_ent("LM Entrance to LM Near Submerged Cemetery"), lambda state: state.has("Treasure Chest Key", Ys8World.player))
-    set_rule(get_ent("LM Near Submerged Cemetery to LM Entrance"), lambda state: state.has("Treasure Chest Key", Ys8World.player))
-    set_rule(get_ent("LM Entrance to LM South"), lambda state: state.has("Float Shoes", Ys8World.player))
-    set_rule(get_ent("LM Near Submerged Cemetery to Near Sky Garden"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], Ys8World.player))
-    set_rule(get_ent("LM Near Submerged Cemetery to Submerged Cemetery"), lambda state: has_required_crew(state, Ys8World.player, 22) and state.has_all(["Glow Stone", "Hermit's Scale"], Ys8World.player))
-    set_rule(get_ent("LM Near Sky Garden to Sky Garden"), lambda state: state.has_all(["Grip Gloves", "Archeopteryx Wings"], Ys8World.player))
-    set_rule(get_ent("LM Near Sky Garden to VoK Entrance"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], Ys8World.player))
-    set_rule(get_ent("LM Near Sky Garden to LM Near Submerged Cemetery"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], Ys8World.player))
+    set_rule(get_ent("LM Entrance to LM Near Submerged Cemetery"), lambda state: state.has("Treasure Chest Key", player))
+    set_rule(get_ent("LM Near Submerged Cemetery to LM Entrance"), lambda state: state.has("Treasure Chest Key", player))
+    set_rule(get_ent("LM Entrance to LM South"), lambda state: state.has("Float Shoes", player))
+    set_rule(get_ent("LM Near Submerged Cemetery to Near Sky Garden"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
+    set_rule(get_ent("LM Near Submerged Cemetery to Submerged Cemetery"), lambda state: has_required_crew(state, player, 22) and state.has_all(["Glow Stone", "Hermit's Scale"], player))
+    set_rule(get_ent("LM Near Sky Garden to Sky Garden"), lambda state: state.has_all(["Grip Gloves", "Archeopteryx Wings"], player))
+    set_rule(get_ent("LM Near Sky Garden to VoK Entrance"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
+    set_rule(get_ent("LM Near Sky Garden to LM Near Submerged Cemetery"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
     
     # Valley of Kings Connections
-    set_rule(get_ent("VoK Entrance to LM Near Sky Garden"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], Ys8World.player))
-    set_rule(get_ent("VoK Entrance to Graves of Ancient Heroes"), lambda state: state.has_all(["Shrine Maiden Amulet", "Grip Gloves"], Ys8World.player))
-    set_rule(get_ent("VoK Before Door to VoK After Door"), lambda state: state.has("Purifying Bell", Ys8World.player))
-    set_rule(get_ent("VoK After Door to VoK Boss Arena"), lambda state: state.has_all(["Doxa Griel Defeated", "Purifying Bell"], Ys8World.player))
-    set_rule(get_ent("Graves of Ancient Heroes to VoK Entrance"), lambda state: state.has("Shrine Maiden Amulet", Ys8World.player))
+    set_rule(get_ent("VoK Entrance to LM Near Sky Garden"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
+    set_rule(get_ent("VoK Entrance to Graves of Ancient Heroes"), lambda state: state.has_all(["Shrine Maiden Amulet", "Grip Gloves"], player))
+    set_rule(get_ent("VoK Before Door to VoK After Door"), lambda state: state.has("Purifying Bell", player))
+    set_rule(get_ent("VoK After Door to VoK Boss Arena"), lambda state: state.has_all(["Doxa Griel Defeated", "Purifying Bell"], player))
+    set_rule(get_ent("Graves of Ancient Heroes to VoK Entrance"), lambda state: state.has("Shrine Maiden Amulet", player))
 
     # Submerged Cemetery Connections
-    set_rule(get_ent("Submerged Cemetery to LM Near Submerged Cemetery"), lambda state: has_required_crew(state, Ys8World.player, 22))
-    set_rule(get_ent("Submerged Cemetery to Bolado Hidden Room"), lambda state: state.has_all(["Glow Stone", "Hermit's Scale"], Ys8World.player))
-    set_rule(get_ent("Submerged Cemetery to Soundless Hall"), lambda state: state.has_all(["Glow Stone", "Hermit's Scale"], Ys8World.player))
-    set_rule(get_ent("Soundless Hall to Submerged Cemetery"), lambda state: state.has_all(["Glow Stone", "Hermit's Scale"], Ys8World.player))
-    set_rule(get_ent("Bolado Hidden Room to Submerged Cemetery"), lambda state: state.has_all(["Glow Stone", "Hermit's Scale"], Ys8World.player))
+    set_rule(get_ent("Submerged Cemetery to LM Near Submerged Cemetery"), lambda state: has_required_crew(state, player, 22))
+    set_rule(get_ent("Submerged Cemetery to Bolado Hidden Room"), lambda state: state.has_all(["Glow Stone", "Hermit's Scale"], player))
+    set_rule(get_ent("Submerged Cemetery to Soundless Hall"), lambda state: state.has_all(["Glow Stone", "Hermit's Scale"], player))
+    set_rule(get_ent("SH to Submerged Cemetery"), lambda state: state.has_all(["Glow Stone", "Hermit's Scale"], player))
+    set_rule(get_ent("Bolado Hidden Room to Submerged Cemetery"), lambda state: state.has_all(["Glow Stone", "Hermit's Scale"], player))
 
     # Night Connections
-    set_rule(get_ent("TCF Night Front to TCF Night Rear"), lambda state: state.has("Grip Gloves", Ys8World.player))
-    set_rule(get_ent("MG Night Front to MG Night Rear"), lambda state: state.has("Grip Gloves", Ys8World.player))
+    set_rule(get_ent("TCF Night Front to TCF Night Rear"), lambda state: state.has("Grip Gloves", player))
+    set_rule(get_ent("MG Night Front to MG Night Rear"), lambda state: state.has("Grip Gloves", player))
 
-def set_location_rules(Ys8World: Ys8World):
+def set_location_rules(Ys8World: "Ys8World"):
     multiworld = Ys8World.multiworld
     player = Ys8World.player
     options = Ys8World.options
@@ -691,12 +742,13 @@ def set_location_rules(Ys8World: Ys8World):
         return multiworld.get_location(name, player)
 
     # Former Sanctuary Crypt B4 — underwater chests
-    add_rule(loc("Former Sanctuary Crypt - B4 Entrance Chest 2"),
-             lambda state: state.has("Hermit's Scale", player))
-    add_rule(loc("Former Sanctuary Crypt - B4 Frozen Statue Room Chest 1"),
-             lambda state: state.has("Hermit's Scale", player))
-    add_rule(loc("Former Sanctuary Crypt - B4 Frozen Statue Room Chest 4"),
-             lambda state: state.has("Hermit's Scale", player))
+    if options.former_sanctuary_crypt.value:
+        add_rule(loc("Former Sanctuary Crypt - B4 Entrance Chest 2"),
+                 lambda state: state.has("Hermit's Scale", player))
+        add_rule(loc("Former Sanctuary Crypt - B4 Frozen Statue Room Chest 1"),
+                 lambda state: state.has("Hermit's Scale", player))
+        add_rule(loc("Former Sanctuary Crypt - B4 Frozen Statue Room Chest 4"),
+                 lambda state: state.has("Hermit's Scale", player))
 
     # Bolado Monastery — dark entrance chests
     add_rule(loc("Bolado Monastery Entrance Chest 1"),
@@ -773,6 +825,48 @@ def set_location_rules(Ys8World: Ys8World):
     add_rule(loc("Lodinia Marshland Near Submerged Cemetery Chest 2"),
              lambda state: state.has("Float Shoes", player))
 
+    # NPC Checks for Calm Inlet Area
+    # Map Completion - Euron
+    add_rule(loc("Calm Inlet Map Completion Percent 10"),
+             lambda state: map_completion_logic(state, player, 13))
+    add_rule(loc("Calm Inlet Map Completion Percent 20"),
+             lambda state: map_completion_logic(state, player, 23))
+    add_rule(loc("Calm Inlet Map Completion Percent 30"),
+             lambda state: map_completion_logic(state, player, 33))
+    add_rule(loc("Calm Inlet Map Completion Percent 40"),
+             lambda state: map_completion_logic(state, player, 43))
+    add_rule(loc("Calm Inlet Map Completion Percent 50"),
+             lambda state: map_completion_logic(state, player, 53))
+    add_rule(loc("Calm Inlet Map Completion Percent 60"),
+             lambda state: map_completion_logic(state, player, 63))
+    add_rule(loc("Calm Inlet Map Completion Percent 70"),
+             lambda state: map_completion_logic(state, player, 73))
+    add_rule(loc("Calm Inlet Map Completion Percent 80"),
+             lambda state: map_completion_logic(state, player, 83))
+    add_rule(loc("Calm Inlet Map Completion Percent 90"),
+             lambda state: map_completion_logic(state, player, 93))
+    add_rule(loc("Calm Inlet Map Completion Percent 100"),
+             lambda state: True)
+    add_item_rule(loc("Calm Inlet Map Completion Percent 100"),
+                  lambda item: item.classification == ItemClassification.filler)
+
+    # Jewel Trade - Dina
+    add_rule(loc("Calm Inlet Jewel Trade Item 5"),
+             lambda state: state.has_all(["Glow Stone", "Fishing Rod"], player)
+                           and state.can_reach_region("Pangaia Plains (Night)", player))
+    
+    # Fish Trade
+    add_rule(loc("Calm Inlet Fish Trade Fish 20"), lambda state: state.can_reach_region("Nameless Coast North of Boulder", player))
+    add_rule(loc("Calm Inlet Fish Trade Fish 24"), lambda state: state.can_reach_region("Great River Valley Area", player))
+
+    # Shoebill
+    add_rule(loc("Calm Inlet Ricotta and Shoebill Reunite Shoebill Join"),
+             lambda state: state.has("Ricotta", player))
+    
+    # Discoveries - Austin
+    add_rule(loc("Calm Inlet Discovery Rewards Half"), lambda state: has_discoveries(state, player, 12))
+    add_rule(loc("Calm Inlet Discovery Rewards All"), lambda state: has_discoveries(state, player, 24))
+    
     # Calm Inlet — Intercept stages
     add_rule(loc("Calm Inlet Intercept Stage 2"),
              lambda state: (battle_logic(state, player, 45, options) and has_required_party(state, player, 2))
@@ -940,8 +1034,9 @@ def set_location_rules(Ys8World: Ys8World):
              lambda state: state.has("Mephorash Defeated", player))
 
     # Former Sanctuary Crypt — Melaiduma (final boss)
-    add_rule(loc("Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma Skill"),
-             lambda state: state.has("Melaiduma Defeated", player))
+    if options.former_sanctuary_crypt.value:
+        add_rule(loc("Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma Skill"),
+                 lambda state: state.has("Melaiduma Defeated", player))
 
     # Octus Overlook — Psyche-Ura, Psyche-Nestor, Psyche-Minos, Psyche-Hydra
     add_rule(loc("Octus Overlook Path of the Sky Era Psyche-Ura Skill 1"),
@@ -1092,8 +1187,9 @@ def set_location_rules(Ys8World: Ys8World):
              lambda state: battle_logic(state, player, 760, options))
     set_rule(loc("Silent Tower Second Basement Mephorash"),
              lambda state: battle_logic(state, player, 760, options))
-    set_rule(loc("Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma"),
-             lambda state: battle_logic(state, player, 850, options))
+    if options.former_sanctuary_crypt.value:
+        set_rule(loc("Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma"),
+                 lambda state: battle_logic(state, player, 850, options))
 
     # --- Goal (placeholder) ---
     set_rule(loc("Octus Overlook Selection Sphere Goal"),
@@ -1101,7 +1197,7 @@ def set_location_rules(Ys8World: Ys8World):
     
     if options.final_boss_access == 0:
         add_rule(loc("Octus Overlook Selection Sphere Goal"),
-                 lambda state: has_required_crew(state, player, options.goal_count_crew_threshold))
+                 lambda state: has_required_crew(state, player, options.goal_count_crew_mode))
     elif options.final_boss_access == 1:
         add_rule(loc("Octus Overlook Selection Sphere Goal"),
                  lambda state: state.has_all(["Mistiltein", "Ship Blueprint", "Seiren Nautical Chart"], player))
@@ -1111,3 +1207,6 @@ def set_location_rules(Ys8World: Ys8World):
     elif options.final_boss_access == 3:
         add_rule(loc("Octus Overlook Selection Sphere Goal"),
                  lambda state: state.has("Melaiduma Defeated", player))
+
+    multiworld.completion_condition[player] = lambda state: state.has("End the Lacrimosa", player)
+

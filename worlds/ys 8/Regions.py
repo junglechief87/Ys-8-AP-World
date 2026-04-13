@@ -1,6 +1,6 @@
 from typing import Dict, List, NamedTuple, Optional, TYPE_CHECKING
 from BaseClasses import MultiWorld, Region, Entrance
-from .Locations import Ys8Location, location_table
+from .Locations import Ys8Location, location_table, event_location_table
 
 if TYPE_CHECKING:
     from . import Ys8World
@@ -13,6 +13,7 @@ def create_regions(Ys8World):
     multiworld = Ys8World.multiworld
     player     = Ys8World.player
     options    = Ys8World.options
+    former_sanctuary_enabled = options.former_sanctuary_crypt.value
 
     # :Bridge regions are meant to represent connections between two regions that are not normally connected in the base game. 
     # They are used to allow for more flexible world design and to accommodate the randomization of entrances and exits. 
@@ -35,7 +36,7 @@ def create_regions(Ys8World):
         "Calm Inlet: Discovery Turn In": Ys8RegionData([], ["Discovery Turn In to CIA"]),
         "Waterdrop Cave": Ys8RegionData([],["WC to CIA"]),
         "Nameless Coast North of Boulder": Ys8RegionData([], ["NC North of Boulder to NC South of Boulder", "TCF Front", "NC North of Boulder to GRV"]),
-        "Towering Coral Forest Front": Ys8RegionData([], ["TCF Exit to NC", "TCF Front to TCF Mid-Boss Area"]),
+        "Towering Coral Forest Front": Ys8RegionData([], ["TCF Exit to NC", "TCF Front to TCF Mid-Boss Arena"]),
         "Towering Coral Forest Mid-Boss Arena": Ys8RegionData([], ["TCF Mid-Boss Arena to TCF Front", "TCF Mid-Boss Arena to TCF Corpse"]),
         "Towering Coral Forest Corpse": Ys8RegionData([], ["TCF Corpse to TCF Mid-Boss Area", "TCF Corpse to TCF RF"]),
         "Towering Coral Forest Rainbow Falls": Ys8RegionData([], ["Rainbow Falls to CIA", "Rainbow Falls to TCF Front", "Rainbow Falls to TCF Boss Area", 
@@ -45,7 +46,7 @@ def create_regions(Ys8World):
         "Metavolicalis Area": Ys8RegionData([], ["TCF Back", "Meta Area to Para Area", "Metavolicalis to CIA"]),
         "Parasequoia Area": Ys8RegionData([], ["Para Area to Meta Area","Parasequoia to CIA"]),
         "Great River Valley Area": Ys8RegionData([], ["GRV to NC North of Boulder", "GRV to Base of WF Gendarme", "Chimney Rock to CIA", "GRV to WG Dark Area",
-                                                      "GRV to LCA", "GRV to EV Front", "GRV to SJ Front", "GRV to PP"]),
+                                                      "GRV to LCA", "GRV to EV Front", "GRV to SJ:Bridge", "GRV to PP"]),
         "Base of Western Foot of Gendarme": Ys8RegionData([], ["Base of WF Gendarme to GRV", "Base of WF Gendarme to WF Gendarme"]),
         "Western Foot of Gendarme": Ys8RegionData([], ["WF Gendarme to Base of WF Gendarme", "Airs Cairn to CIA"]),
         "Milky White Vein": Ys8RegionData([], ["Milky White Vein to CIA", "Milky White Vein to WG Dark Area"]),
@@ -112,7 +113,7 @@ def create_regions(Ys8World):
         "Former Sanctuary Crypt Final Floor Side Rooms": Ys8RegionData([], ["FSC Final Floor Side Rooms to FSC Final Floors"]),
         "Former Sanctuary Crypt Boss Room": Ys8RegionData([], ["FSC Boss Room to FSC Final Floors"]),
         "Towal Highway": Ys8RegionData([], ["TH to RoE", "TH to Baja"]),
-        "Baja Tower Lower Floors": Ys8RegionData([], ["Baja to TH", "Baja to Baja Tower Upper Floors"]),
+        "Baja Tower Lower Floors": Ys8RegionData([], ["Baja to TH", "Baja to Baja Upper"]),
         "Baja Tower Upper Floors": Ys8RegionData([], ["Baja Upper to Baja Boss Arena"]),
         "Baja Tower Boss Arena": Ys8RegionData([], ["Baja Boss to Baja Upper"]),
         "Archeozoic Chasm Bridge": Ys8RegionData([], ["AC:Bridge to RoE", "AC:Bridge to AC Front"]),
@@ -143,13 +144,20 @@ def create_regions(Ys8World):
     }
 
     for location in location_table:
+        if not former_sanctuary_enabled and location.startswith("Former Sanctuary Crypt"):
+            continue
         print(location)
         regions[location_table[location].category].locations.append(location)
-    
+
+    for location in event_location_table:
+        if not former_sanctuary_enabled and location.startswith("Former Sanctuary Crypt"):
+            continue
+        regions[event_location_table[location].category].locations.append(location)
+
     for name, data in regions.items():
         multiworld.regions.append(create_region(multiworld, player, name, data))
 
-def connect_entrances(Ys8World: Ys8World):
+def connect_entrances(Ys8World: "Ys8World"):
     multiworld = Ys8World.multiworld
     player     = Ys8World.player
     options    = Ys8World.options
@@ -190,7 +198,11 @@ def connect_entrances(Ys8World: Ys8World):
     connect("CIA to Sky Garden", "Sky Garden")
     connect("CIA to Graves of Ancient Heroes", "Graves of Ancient Heroes")
     connect("CIA to TCF Night", "Towering Coral Forest (Night) Front Half")
+    connect("CIA to Indigo Mineral Vein", "Eroded Valley Indigo Mineral Vein")
     
+    # Solitude Island Connections
+    connect("Solitude Island to CIA", "Calm Inlet Area")
+
     # Calm Inlet NPC Connections
     connect("Jewel Trade to CIA", "Calm Inlet Area")
     connect("Fish Trade to CIA", "Calm Inlet Area")
@@ -291,7 +303,7 @@ def connect_entrances(Ys8World: Ys8World):
     connect("Beached Remains to CIA", "Calm Inlet Area")
 
     # Schlamm Jungle Connections
-    connect("SJ Front to GRV", "Great River Valley Area")
+    connect("SJ Front to SJ:Bridge", "Schlamm Jungle Bridge")
     connect("SJ Front to SJ Mid-Boss Arena", "Schlamm Jungle Mid-Boss Arena")
     connect("SJ Mid-Boss Arena to SJ Front", "Schlamm Jungle Front")
     connect("SJ Mid-Boss Arena to SJ Muddy Path", "Schlamm Jungle Muddy Path")
@@ -375,7 +387,8 @@ def connect_entrances(Ys8World: Ys8World):
 
     # Stone Pillar Wind Cave Connections
     connect("SPWC to Seiren North", "Seiren North Access")
-    connect("SPWC to SPWC Upper", "Stone Pillar Wind Cave")
+    connect("SPWC to SPWC Upper", "Stone Pillar Wind Cave Upper")
+    connect("SPWC Upper to SPWC", "Stone Pillar Wind Cave")
 
     # Temple of the Great Tree Connections
     connect("TotGT to Seiren North", "Seiren North Access")
@@ -414,7 +427,7 @@ def connect_entrances(Ys8World: Ys8World):
     connect("FSC Second Floor to FSC First Barrier", "Former Sanctuary Crypt First Barrier")
     connect("FSC Second Floor to FSC Second Barrier", "Former Sanctuary Crypt Second Barrier")
     connect("FSC Second Barrier to FSC Second Floor", "Former Sanctuary Crypt Second Floor")
-    connect("FSC Second Barrier to FSC Boss Arena", "Former Sanctuary Crypt Second Boss Arena")
+    connect("FSC Second Barrier to FSC Second Boss Arena", "Former Sanctuary Crypt Second Boss Arena")
     connect("FSC Second Boss Arena to FSC Second Barrier", "Former Sanctuary Crypt Second Barrier")
     connect("FSC Second Boss Arena to FSC Third Floor", "Former Sanctuary Crypt Third Floor")
     connect("FSC Third Floor to FSC Second Boss Arena", "Former Sanctuary Crypt Second Boss Arena")
@@ -435,7 +448,7 @@ def connect_entrances(Ys8World: Ys8World):
 
     # Baja Tower Connections
     connect("Baja to TH", "Towal Highway")
-    connect("Baja to Baja Tower Upper Floors", "Baja Tower Upper Floors")
+    connect("Baja to Baja Upper", "Baja Tower Upper Floors")
     connect("Baja Upper to Baja Boss Arena", "Baja Tower Boss Arena")
     connect("Baja Boss to Baja Upper", "Baja Tower Upper Floors")
 
@@ -462,9 +475,9 @@ def connect_entrances(Ys8World: Ys8World):
     connect("LM Near Submerged Cemetery to Submerged Cemetery", "Submerged Cemetery")
     connect("Sky Garden to LM Near Sky Garden", "Lodinia Marshlands Near Sky Garden")
     connect("Sky Garden to CIA", "Calm Inlet Area")
-    connect("Near Sky Garden to LM Near Submerged Cemetery", "Lodinia Marshlands Near Submerged Cemetery")
-    connect("Near Sky Garden to Sky Garden", "Sky Garden")
-    connect("Near Sky Garden to VoK Entrance", "Valley of Kings Entrance")
+    connect("LM Near Sky Garden to LM Near Submerged Cemetery", "Lodinia Marshlands Near Submerged Cemetery")
+    connect("LM Near Sky Garden to Sky Garden", "Sky Garden")
+    connect("LM Near Sky Garden to VoK Entrance", "Valley of Kings Entrance")
 
     # Submerged Cemetery Connections
     connect("Submerged Cemetery to LM Near Submerged Cemetery", "Lodinia Marshlands Near Submerged Cemetery")
@@ -472,6 +485,7 @@ def connect_entrances(Ys8World: Ys8World):
     connect("Submerged Cemetery to Soundless Hall", "Soundless Hall")
     connect("SH to Submerged Cemetery", "Submerged Cemetery")
     connect("SH to CIA", "Calm Inlet Area")
+    connect("Bolado Hidden Room to Submerged Cemetery", "Submerged Cemetery")
 
     # Valley of Kings Connections
     connect("VoK Entrance to LM Near Sky Garden", "Lodinia Marshlands Near Sky Garden")

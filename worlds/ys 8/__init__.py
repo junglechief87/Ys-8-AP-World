@@ -4,7 +4,7 @@ Archipelago init file for The Ys 8
 import dataclasses
 from logging import error, warning
 from typing import Any, Dict, List, Optional, cast
-from BaseClasses import CollectionState, Entrance, Location, LocationProgressType, Region, Tutorial
+from BaseClasses import CollectionState, Entrance, ItemClassification, Location, Region, Tutorial
 from Options import OptionError, PerGameCommonOptions, Toggle
 from worlds.AutoWorld import WebWorld, World
 from worlds.LauncherComponents import Component, components, Type, launch
@@ -61,29 +61,50 @@ class Ys8World(World):
         self.place_predetermined_items()
 
         # Determine Starting Character and add to precollected items
-        party = [item_name for item_name in item_table.keys() if "Party" in item_table[item_name].flags]
+        party = [item_name for item_name in item_table.keys() if item_table[item_name].flags and "Party" in item_table[item_name].flags]
         starting_character = self.random.choice(party)
         item = self.create_item(starting_character)
-        self.multiworld.push_precollected(item, self.multiworld, self.player)
+        self.multiworld.push_precollected(item)
 
-        LocationsToFill = len(self.multiworld.get_unfilled_locations(self.player))
-        ItemPool = []
+        locations_to_fill = len(self.multiworld.get_unfilled_locations(self.player))
+        item_pool: List[Ys8Item] = []
+        filler_pool: List[Ys8Item] = []
+
+        # Always include all configured non-filler items so required progression cannot be dropped by pool size.
         for name, data in item_table.items():
-            ItemPool.append(self.create_item(name) )
-            if len(ItemPool) >= LocationsToFill:
-                break
+            for _ in range(data.pool_quantity):
+                item = self.create_item(name)
+                if item.classification == ItemClassification.filler:
+                    filler_pool.append(item)
+                else:
+                    item_pool.append(item)
 
-        while LocationsToFill >= len(ItemPool):
-            ItemPool.append(self.create_item(self.get_filler_item_name()))
+        if len(item_pool) > locations_to_fill:
+            raise OptionError(
+                f"Non-filler item pool ({len(item_pool)}) exceeds available locations ({locations_to_fill})."
+            )
 
-        self.multiworld.itempool += ItemPool
+        # Use configured filler entries first, randomized without replacement,
+        # then weighted filler draws for any remaining slots.
+        remaining_slots = locations_to_fill - len(item_pool)
+        self.random.shuffle(filler_pool)
+        item_pool.extend(filler_pool[:remaining_slots])
+
+        while len(item_pool) < locations_to_fill:
+            item_pool.append(self.create_item(self.get_filler_item_name()))
+
+        self.multiworld.itempool += item_pool
         print(self.multiworld.itempool)
 
     def place_predetermined_items(self):
         # Place event items that are required for progression or victory
         for item_name in event_item_table.keys():
+            location_name = event_item_table[item_name].category
+            if (not self.options.former_sanctuary_crypt.value
+                    and location_name.startswith("Former Sanctuary Crypt")):
+                continue
             item = self.create_event(item_name)
-            location = self.multiworld.get_location(event_item_table[item_name].category, self.player)
+            location = self.multiworld.get_location(location_name, self.player)
             location.place_locked_item(item)
 
     def get_filler_item_name(self) -> str:
@@ -100,7 +121,18 @@ class Ys8World(World):
 
     def create_item(self, name: str) -> Ys8Item:
         data = item_table[name]
-        return Ys8Item(name, data.classification, data.code, self.player)
+        classification = data.classification
+        if name == "Jade Pendant":
+            classification = (ItemClassification.progression
+                              if self.options.former_sanctuary_crypt.value
+                              else ItemClassification.useful)
+        if name == "Essence Key Stone":
+            classification = (ItemClassification.progression
+                              if self.options.former_sanctuary_crypt.value
+                              else ItemClassification.filler)
+        if self.options.battle_logic and data.battle_logic:
+            classification = ItemClassification.progression
+        return Ys8Item(name, classification, data.code, self.player)
     
     def create_event(self, name: str) -> Ys8Item:
         data = event_item_table[name]

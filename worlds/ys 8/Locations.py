@@ -61,9 +61,7 @@ location_table: Dict[str, Ys8LocationData] = {
     "Baja Tower Boss Arena Carveros Skill 2": Ys8LocationData("Baja Tower Boss Arena", 555, "event"),
     "Baja Tower Mid-Boss Arena Exmetal Skill 1": Ys8LocationData("Baja Tower Lower Floors", 556, "event"),
     "Baja Tower Mid-Boss Arena Exmetal Skill 2": Ys8LocationData("Baja Tower Lower Floors", 557, "event"),
-    "Baja Tower Boss Arena Carveros": Ys8LocationData("Baja Tower Boss Arena", 597, "event"),
-    "Baja Tower Mid-Boss Arena Exmetal": Ys8LocationData("Baja Tower Lower Floors", 598, "event"),
-    "Baja Tower Boss Arena Psyches": Ys8LocationData("Baja Tower Boss Arena", 625, "event"),
+    #"Baja Tower Boss Arena Psyches": Ys8LocationData("Baja Tower Boss Arena", 625, "event"),
     # Base of Western Foot of Gendarme
     "Great River Valley Cliffs Chest 1": Ys8LocationData("Base of Western Foot of Gendarme", 27, "chest"),
     "Great River Valley Falls Chest 1": Ys8LocationData("Base of Western Foot of Gendarme", 93, "chest"),
@@ -137,8 +135,6 @@ location_table: Dict[str, Ys8LocationData] = {
     "Calm Inlet Calm Inlet (Castaway Village Area) Silvia Skill 1": Ys8LocationData("Calm Inlet Area", 542, "event"),
     "Calm Inlet Calm Inlet (Castaway Village Area) Silvia Skill 2": Ys8LocationData("Calm Inlet Area", 543, "event"),
     "Nameless Coast First Avalodragil Arena Avalodragil Skill": Ys8LocationData("Calm Inlet Area", 578, "event"),
-    "Calm Inlet Calm Inlet (Castaway Village Area) Silvia": Ys8LocationData("Calm Inlet Area", 591, "event"),
-    "Nameless Coast First Avalodragil Arena Avalodragil": Ys8LocationData("Calm Inlet Area", 609, "event"),
     "Calm Inlet Discovery Rewards Half": Ys8LocationData("Calm Inlet Area", 478, "event"),
     "Calm Inlet Discovery Rewards All": Ys8LocationData("Calm Inlet Area", 479, "event"),
     "White Sand Cape Cobalt Crag Landmark": Ys8LocationData("Calm Inlet Area", 638, "event"),
@@ -484,8 +480,7 @@ location_table: Dict[str, Ys8LocationData] = {
     "Silent Tower Second Basement Chest 3": Ys8LocationData("Silent Tower", 267, "chest"),
     "Silent Tower Second Basement Chest 4": Ys8LocationData("Silent Tower", 268, "chest"),
     "Silent Tower Second Basement Mephorash Skill": Ys8LocationData("Silent Tower", 532, "event"),
-    "Silent Tower Second Basement Mephorash": Ys8LocationData("Silent Tower", 586, "event"),
-    "Silent Tower Second Basement Psyches": Ys8LocationData("Silent Tower", 617, "event"),
+    #"Silent Tower Second Basement Psyches": Ys8LocationData("Silent Tower", 617, "event"),
     # Solitude Island
     "Solitude Island Cave Chest": Ys8LocationData("Solitude Island", 50, "chest"),
     "Solitude Island Magna Carpa Second Carlan Join": Ys8LocationData("Solitude Island", 441, "event"),
@@ -506,9 +501,9 @@ location_table: Dict[str, Ys8LocationData] = {
     "Temple of the Great Tree Great Tree Garden Dana Join": Ys8LocationData("Temple of the Great Tree Garden", 422, "event"),
     "Temple of the Great Tree Great Tree Garden Dana Join Event Flame Stone": Ys8LocationData("Temple of the Great Tree Garden", 433, "event"),
     "Temple of the Great Tree Dana's Room Blue Score Location": Ys8LocationData("Temple of the Great Tree", 439, "event"),
-    "Temple of the Great Tree Temple Boss Arena Brachion Skill 1": Ys8LocationData("Temple of the Great Tree Temple Boss Arena", 558, "event"),
-    "Temple of the Great Tree Temple Boss Arena Brachion Skill 2": Ys8LocationData("Temple of the Great Tree Temple Boss Arena", 559, "event"),
-    #"Temple of the Great Tree Temple Boss Arena Psyches": Ys8LocationData("Temple of the Great Tree Temple Boss Arena", 626, "event"),
+    "Temple of the Great Tree Temple Boss Arena Brachion Skill 1": Ys8LocationData("Temple of the Great Tree Boss Arena", 558, "event"),
+    "Temple of the Great Tree Temple Boss Arena Brachion Skill 2": Ys8LocationData("Temple of the Great Tree Boss Arena", 559, "event"),
+    #"Temple of the Great Tree Temple Boss Arena Psyches": Ys8LocationData("Temple of the Great Tree Boss Arena", 626, "event"),
     # The Primordial Passage
     "The Primordial Passage Dana's Tree Chest 1": Ys8LocationData("Primordial Passage", 118, "chest"),
     "The Primordial Passage Dana's Tree Chest 2": Ys8LocationData("Primordial Passage", 119, "chest"),
@@ -620,7 +615,6 @@ location_table: Dict[str, Ys8LocationData] = {
     "Waterdrop Cave Coastal Outlook Captain Barbaros Join": Ys8LocationData("Waterdrop Cave", 402, "event"),
     "Waterdrop Cave Before Boss Arena Corpse": Ys8LocationData("Waterdrop Cave", 493, "event"),
     "Waterdrop Cave Boss Arena Byfteriza Skill": Ys8LocationData("Waterdrop Cave", 579, "event"),
-    "Waterdrop Cave Boss Arena Byfteriza": Ys8LocationData("Waterdrop Cave", 610, "event"),
     # Weathervane Hills
     "Weathervane Hills South of Nameless Coast Rockslide Chest 1": Ys8LocationData("Weathervane Hills", 111, "chest"),
     "Weathervane Hills South of Nameless Coast Rockslide Chest 2": Ys8LocationData("Weathervane Hills", 112, "chest"),
@@ -672,7 +666,7 @@ event_location_table: Dict[str, Ys8LocationData] = {
     "Mont Gendarme Boss Arena Master Kong Laxia": Ys8LocationData("Mont Gendarme Boss Arena", 10029, None),
     "Pangaia Plains Ancient Tree Master Kong Hummel": Ys8LocationData("Seiren North Access", 10030, None),
     "Vista Ridge Vista Ridge Lower Master Kong Adol": Ys8LocationData("Vista Ridge", 10031, None),
-    "Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma": Ys8LocationData("Former Sanctuary Crypt", 10032, None),
+    "Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma": Ys8LocationData("Former Sanctuary Crypt Boss Room", 10032, None),
     "East Coast Cave East Coast Cave Gilkyra Encounter": Ys8LocationData("East Coast Cave Before Gilkyra", 10033, None),
     "Valley of Kings Entrance Force Garmr Encounter": Ys8LocationData("Valley of Kings Entrance", 10034, None),
     # Grind area access events
@@ -731,7 +725,7 @@ event_location_table: Dict[str, Ys8LocationData] = {
     "Beast Bone Farming - East Coast Cave": Ys8LocationData("East Coast Cave Before Gilkyra", 10075, None),
     "Beast Bone Farming - Vista Ridge": Ys8LocationData("Vista Ridge", 10076, None),
     # Dandale Horn — M0605 Dandale in Lodinia Marshland (Past) 10%; LM Near Sky Garden is closest present-day proxy
-    "Dandale Horn Farming - Lodinia Marshlands": Ys8LocationData("Lodinia Marshlands Near Sky Garden", 10077, None),
+    "Dandale Horn Farming - Lodinia Marshlands": Ys8LocationData("Lodinia Marshlands Entrance", 10077, None),
     # Beautiful Flower — Nameless Coast item points; always accessible
     "Beautiful Flower Farming - Nameless Coast": Ys8LocationData("Calm Inlet Area", 10078, None),
     # Stalactite — Nameless Coast item points; always accessible
