@@ -688,5 +688,5 @@ locID,mapID,locRegion,locName,mapCheckID,event,itemID,itemName,quantity,progress
 0687,mp6321,Baja Tower,Entrance,Exit to Towal Highway,1,-1,Towal Highway - Camp,1,1,0,0,0,0,--------,0,0,0,1
 0688,mp6204,The Ruins of Eternia,Palace Ruins,Archeozoic Chasm Entrance,1,-1,Archeozoic Chasm Dungeon,1,1,0,0,0,0,--------,0,0,1,0
 0689,mp6361,Archeozoic Chasm,Entrance,Exit to The Ruins of Eternia,1,-1,The Ruins of Eternia - Palace Ruins,1,1,0,0,0,0,--------,0,0,0,1
-0690,mp6108,Lodinia Marshland,Valley of Kings - Camp,Valley of Kings Entrance,1,-1,Valley of Kings Dungeon,1,1,0,0,0,0,--------,0,0,1,0
+0690,mp6108,Lodinia Marshland,Valley of Kings - Camp,Lodinia Marshlands Back,1,-1,Valley of Kings Dungeon,1,1,0,0,0,0,--------,0,0,1,0
 0691,mp6341,Valley of Kings,Entrance,Exit to Valley of Kings - Camp,1,-1,Valley of Kings - Camp,1,1,0,0,0,0,--------,0,0,0,1

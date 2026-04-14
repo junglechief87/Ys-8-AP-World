@@ -200,12 +200,12 @@ location_table: Dict[str, Ys8LocationData] = {
     "Laxia Starting Skill Skill 1 Dagger Fling": Ys8LocationData("Calm Inlet Area", 522, "event"),
     "Laxia Starting Skill Skill 2 Wake Up!": Ys8LocationData("Calm Inlet Area", 523, "event"),
     # Lodinia Marshland
-    "Lodinia Marshland Entrance from Vista Ridge Chest 1": Ys8LocationData("Lodinia Marshlands Entrance", 173, "chest"),
-    "Lodinia Marshland Entrance from Vista Ridge Chest 2": Ys8LocationData("Lodinia Marshlands Entrance", 174, "chest"),
-    "Lodinia Marshland Entrance from Vista Ridge Chest 3": Ys8LocationData("Lodinia Marshlands Entrance", 175, "chest"),
+    "Lodinia Marshland Entrance from Vista Ridge Chest 1": Ys8LocationData("Lodinia Marshlands Front", 173, "chest"),
+    "Lodinia Marshland Entrance from Vista Ridge Chest 2": Ys8LocationData("Lodinia Marshlands Front", 174, "chest"),
+    "Lodinia Marshland Entrance from Vista Ridge Chest 3": Ys8LocationData("Lodinia Marshlands Front", 175, "chest"),
     "Lodinia Marshland Near Submerged Cemetery Chest 1": Ys8LocationData("Lodinia Marshlands Near Submerged Cemetery", 176, "chest"),
     "Lodinia Marshland Near Submerged Cemetery Chest 2": Ys8LocationData("Lodinia Marshlands Near Submerged Cemetery", 177, "chest"),
-    "Lodinia Marshland Valley of Kings - Camp Chest": Ys8LocationData("Valley of Kings Entrance", 178, "chest"),
+    "Lodinia Marshland Valley of Kings - Camp Chest": Ys8LocationData("Lodinia Marshlands Back", 178, "chest"),
     #"Lodinia Marshland Valley of Kings - Camp (Dawn) Chest": Ys8LocationData("Lodinia Marshlands Near Sky Garden", 179, "chest"),
     "Lodinia Marshland Muddy Lake Chest 1": Ys8LocationData("Lodinia Marshlands South", 185, "chest"),
     "Lodinia Marshland Muddy Lake Chest 2": Ys8LocationData("Lodinia Marshlands South", 186, "chest"),
@@ -459,12 +459,12 @@ location_table: Dict[str, Ys8LocationData] = {
     "Towering Coral Forest After Mid-Boss Chest 3": Ys8LocationData("Towering Coral Forest Rainbow Falls", 75, "chest"),
     "Towering Coral Forest After Mid-Boss Chest 4": Ys8LocationData("Towering Coral Forest Rainbow Falls", 76, "chest"),
     "Towering Coral Forest Rainbow Falls Chest 1": Ys8LocationData("Towering Coral Forest Rainbow Falls", 79, "chest"),
-    "Towering Coral Forest Rainbow Falls Chest 2": Ys8LocationData("Towering Coral Forest Boss Area", 80, "chest"),
-    "Towering Coral Forest Rainbow Falls Chest 3": Ys8LocationData("Towering Coral Forest Boss Area", 81, "chest"),
-    "Towering Coral Forest Rainbow Falls Chest 4": Ys8LocationData("Towering Coral Forest Boss Area", 82, "chest"),
-    "Towering Coral Forest Rainbow Falls Chest 5": Ys8LocationData("Towering Coral Forest Boss Area", 83, "chest"),
+    "Towering Coral Forest Rainbow Falls Chest 2": Ys8LocationData("Towering Coral Forest Before Boss", 80, "chest"),
+    "Towering Coral Forest Rainbow Falls Chest 3": Ys8LocationData("Towering Coral Forest Before Boss", 81, "chest"),
+    "Towering Coral Forest Rainbow Falls Chest 4": Ys8LocationData("Towering Coral Forest Before Boss", 82, "chest"),
+    "Towering Coral Forest Rainbow Falls Chest 5": Ys8LocationData("Towering Coral Forest Before Boss", 83, "chest"),
     "Towering Coral Forest Midpoint Chest": Ys8LocationData("Towering Coral Forest Front", 87, "chest"),
-    "Towering Coral Forest End Chest": Ys8LocationData("Towering Coral Forest Boss Area", 89, "chest"),
+    "Towering Coral Forest End Chest": Ys8LocationData("Towering Coral Forest Before Boss", 89, "chest"),
     "Towering Coral Forest Midpoint Sir Carlan Join": Ys8LocationData("Towering Coral Forest Front", 407, "event"),
     "Towering Coral Forest Midpoint Kiergaard Join": Ys8LocationData("Towering Coral Forest Front", 408, "event"),
     "Towering Coral Forest After Mid-Boss Corpse": Ys8LocationData("Towering Coral Forest Corpse", 430, "event"),
@@ -495,12 +495,12 @@ location_table: Dict[str, Ys8LocationData] = {
     "Underground Water Vein Submerged Area Pikkard": Ys8LocationData("Lapis Mineral Vein Area", 442, "event"),
     "Underground Water Vein Submerged Area Driftage": Ys8LocationData("Underground Water Vein", 517, "event"),
     # Valley of Kings
-    "Valley of Kings Entrance Chest 1": Ys8LocationData("Valley of Kings Before Door", 231, "chest"),
-    "Valley of Kings Entrance Chest 2": Ys8LocationData("Valley of Kings Before Door", 232, "chest"),
-    "Valley of Kings Entrance Chest 3": Ys8LocationData("Valley of Kings Before Door", 233, "chest"),
-    "Valley of Kings Entrance Chest 4": Ys8LocationData("Valley of Kings Before Door", 234, "chest"),
-    "Valley of Kings Entrance Chest 5": Ys8LocationData("Valley of Kings Before Door", 235, "chest"),
-    "Valley of Kings Entrance Chest 6": Ys8LocationData("Valley of Kings Before Door", 236, "chest"),
+    "Lodinia Marshlands Back Chest 1": Ys8LocationData("Valley of Kings Before Door", 231, "chest"),
+    "Lodinia Marshlands Back Chest 2": Ys8LocationData("Valley of Kings Before Door", 232, "chest"),
+    "Lodinia Marshlands Back Chest 3": Ys8LocationData("Valley of Kings Before Door", 233, "chest"),
+    "Lodinia Marshlands Back Chest 4": Ys8LocationData("Valley of Kings Before Door", 234, "chest"),
+    "Lodinia Marshlands Back Chest 5": Ys8LocationData("Valley of Kings Before Door", 235, "chest"),
+    "Lodinia Marshlands Back Chest 6": Ys8LocationData("Valley of Kings Before Door", 236, "chest"),
     "Valley of Kings Northern Lower Level Chest 1": Ys8LocationData("Valley of Kings Before Door", 237, "chest"),
     "Valley of Kings Northern Lower Level Chest 2": Ys8LocationData("Valley of Kings Before Door", 238, "chest"),
     "Valley of Kings Mid-Boss Arena Chest": Ys8LocationData("Valley of Kings Before Door", 239, "chest"),
@@ -673,7 +673,7 @@ event_location_table: Dict[str, Ys8LocationData] = {
     "Pangaia Plains Ancient Tree Master Kong Hummel": Ys8LocationData("Seiren North Access", 10030, None),
     "Vista Ridge Vista Ridge Lower Master Kong Adol": Ys8LocationData("Vista Ridge", 10031, None),
     "East Coast Cave East Coast Cave Gilkyra Encounter": Ys8LocationData("East Coast Cave Before Gilkyra", 10032, None),
-    "Valley of Kings Entrance Force Garmr Encounter": Ys8LocationData("Valley of Kings Entrance", 10033, None),
+    "Lodinia Marshlands Back Force Garmr Encounter": Ys8LocationData("Lodinia Marshlands Back", 10033, None),
     # Grind area access events
     "Towering Coral Forest Front Grind Access": Ys8LocationData("Towering Coral Forest Front", 10034, None),
     "Eroded Valley Front Grind Access": Ys8LocationData("Eroded Valley Front", 10035, None),
@@ -686,13 +686,13 @@ event_location_table: Dict[str, Ys8LocationData] = {
     "Baja Tower Lower Floors Grind Access": Ys8LocationData("Baja Tower Lower Floors", 10042, None),
     "Nostalgia Cape Area Grind Access": Ys8LocationData("Nostalgia Cape Area", 10043, None),
     "Archeozoic Chasm Front Grind Access": Ys8LocationData("Archeozoic Chasm Front", 10044, None),
-    "Lodinia Marshlands Entrance Grind Access": Ys8LocationData("Lodinia Marshlands Entrance", 10045, None),
+    "Lodinia Marshlands Front Grind Access": Ys8LocationData("Lodinia Marshlands Front", 10045, None),
     "Bolado Monastery Grind Access": Ys8LocationData("Bolado Monastery", 10046, None),
-    "Valley of Kings Entrance Grind Access": Ys8LocationData("Valley of Kings Entrance", 10047, None),
+    "Lodinia Marshlands Back Grind Access": Ys8LocationData("Lodinia Marshlands Back", 10047, None),
     "Silent Tower Grind Access": Ys8LocationData("Silent Tower", 10048, None),
     "Octus Overlook Grind Access": Ys8LocationData("Octus Overlook", 10049, None),
     # Rear-entrance grind access events (for areas reachable from both ends)
-    "Towering Coral Forest Boss Area Grind Access": Ys8LocationData("Towering Coral Forest Boss Area", 10050, None),
+    "Towering Coral Forest Before Boss Grind Access": Ys8LocationData("Towering Coral Forest Before Boss", 10050, None),
     "Eroded Valley Before Boss Grind Access": Ys8LocationData("Eroded Valley Before Boss", 10051, None),
     "Schlamm Jungle Before Boss Grind Access": Ys8LocationData("Schlamm Jungle Before Boss", 10052, None),
     "Mont Gendarme Upper Grind Access": Ys8LocationData("Mont Gendarme Upper", 10053, None),
@@ -707,9 +707,9 @@ event_location_table: Dict[str, Ys8LocationData] = {
     "Tektite Ore Farming - Towal Highway": Ys8LocationData("Towal Highway", 10059, None),
     # Essence Stone — enemy drops: Baja Tower M0623 Masquard 15%, Valley of Kings M0642 80%
     "Essence Stone Farming - Baja Tower": Ys8LocationData("Baja Tower Lower Floors", 10060, None),
-    "Essence Stone Farming - Valley of Kings": Ys8LocationData("Valley of Kings Entrance", 10061, None),
+    "Essence Stone Farming - Valley of Kings": Ys8LocationData("Lodinia Marshlands Back", 10061, None),
     # Dragon Crest Stone — enemy drops: Valley of Kings M0642 10%, Silent Tower M0942 15%
-    "Dragon Crest Stone Farming - Valley of Kings": Ys8LocationData("Valley of Kings Entrance", 10062, None),
+    "Dragon Crest Stone Farming - Valley of Kings": Ys8LocationData("Lodinia Marshlands Back", 10062, None),
     "Dragon Crest Stone Farming - Silent Tower": Ys8LocationData("Silent Tower", 10063, None),
     # Ancient Bone — enemy drops: TotGT M0680 Ratnilarda 80%, AC M0663 Dornicle 80%
     "Ancient Bone Farming - Temple of the Great Tree": Ys8LocationData("Temple of the Great Tree", 10064, None),
@@ -730,7 +730,7 @@ event_location_table: Dict[str, Ys8LocationData] = {
     "Beast Bone Farming - East Coast Cave": Ys8LocationData("East Coast Cave Before Gilkyra", 10074, None),
     "Beast Bone Farming - Vista Ridge": Ys8LocationData("Vista Ridge", 10075, None),
     # Dandale Horn — M0605 Dandale in Lodinia Marshland (Past) 10%; LM Near Sky Garden is closest present-day proxy
-    "Dandale Horn Farming - Lodinia Marshlands": Ys8LocationData("Lodinia Marshlands Entrance", 10076, None),
+    "Dandale Horn Farming - Lodinia Marshlands": Ys8LocationData("Lodinia Marshlands Front", 10076, None),
     # Beautiful Flower — Nameless Coast item points; always accessible
     "Beautiful Flower Farming - Nameless Coast": Ys8LocationData("Calm Inlet Area", 10077, None),
     # Stalactite — Nameless Coast item points; always accessible
@@ -754,9 +754,9 @@ event_location_table: Dict[str, Ys8LocationData] = {
     "Lustrous Scale Farming - Nostalgia Cape": Ys8LocationData("Nostalgia Cape Area", 10088, None),
     # Accursed Shell — M0303 Warsadessa Western Foot of Gendarme 60% special
     "Accursed Shell Farming - Western Foot of Gendarme": Ys8LocationData("Western Foot of Gendarme", 10089, None),
-    # Thunder Claw — M1010 Gigantyrannus Great River Valley 60%; M0641 Fabnir Valley of Kings Entrance 15%
+    # Thunder Claw — M1010 Gigantyrannus Great River Valley 60%; M0641 Fabnir Lodinia Marshlands Back 15%
     "Thunder Claw Farming - Great River Valley": Ys8LocationData("Great River Valley Area", 10090, None),
-    "Thunder Claw Farming - Valley of Kings": Ys8LocationData("Valley of Kings Entrance", 10091, None),
+    "Thunder Claw Farming - Valley of Kings": Ys8LocationData("Lodinia Marshlands Back", 10091, None),
     # Ancient Lumber — M0680 Ratnilarda Temple of the Great Tree 10%; M0831 Squeed Octus Overlook 5%
     "Ancient Lumber Farming - Temple of the Great Tree": Ys8LocationData("Temple of the Great Tree", 10092, None),
     "Ancient Lumber Farming - Octus Overlook": Ys8LocationData("Octus Overlook", 10093, None),

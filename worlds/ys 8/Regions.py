@@ -18,7 +18,7 @@ def create_regions(Ys8World):
     options    = Ys8World.options
 
     regions: Dict[str, Ys8RegionData] = {
-        "Calm Inlet Area": Ys8RegionData([],["CIA to WC", "CIA to NC North of Boulder", "CIA to Rainbow Falls", "CIA to Parasequoia", 
+        "Calm Inlet Area": Ys8RegionData([],["CIA to WC Entrance", "CIA to NC North of Boulder", "CIA to Rainbow Falls", "CIA to Parasequoia", 
                                              "CIA to Metavolicalis", "CIA to IL 1", "CIA to IL 2", "CIA to IL 3", "CIA to Map Completion", 
                                              "CIA to Jewel Trade", "CIA to Fish Trade", "CIA to Discovery Turn In", "CIA to Airs Cairn", 
                                              "CIA to Chimney Rock", "CIA to Milky White Vein", "CIA to Indigo Mineral Vein", "CIA to Beached Remains",
@@ -33,34 +33,34 @@ def create_regions(Ys8World):
         "Calm Inlet: Jewel Trade": Ys8RegionData([], ["Jewel Trade to CIA"]),
         "Calm Inlet: Fish Trade": Ys8RegionData([], ["Fish Trade to CIA"]),
         "Calm Inlet: Discovery Turn In": Ys8RegionData([], ["Discovery Turn In to CIA"]),
-        "Waterdrop Cave": Ys8RegionData([],["WC to CIA"]),
-        "Nameless Coast North of Boulder": Ys8RegionData([], ["NC North of Boulder to NC South of Boulder", "TCF Front", "NC North of Boulder to GRV"]),
-        "Towering Coral Forest Front": Ys8RegionData([], ["TCF Exit to NC", "TCF Front to TCF Mid-Boss Arena"]),
+        "Waterdrop Cave": Ys8RegionData([],["WC to WC Entrance"]),
+        "Nameless Coast North of Boulder": Ys8RegionData([], ["NC North of Boulder to NC South of Boulder", "NC North of Boulder to TCF Entrance", "NC North of Boulder to GRV"]),
+        "Towering Coral Forest Front": Ys8RegionData([], ["TCF Front to TCF NC Entrance", "TCF Front to TCF Mid-Boss Arena"]),
         "Towering Coral Forest Mid-Boss Arena": Ys8RegionData([], ["TCF Mid-Boss Arena to TCF Front", "TCF Mid-Boss Arena to TCF Corpse"]),
         "Towering Coral Forest Corpse": Ys8RegionData([], ["TCF Corpse to TCF Mid-Boss Area", "TCF Corpse to TCF RF"]),
-        "Towering Coral Forest Rainbow Falls": Ys8RegionData([], ["Rainbow Falls to CIA", "Rainbow Falls to TCF Front", "Rainbow Falls to TCF Boss Area", 
+        "Towering Coral Forest Rainbow Falls": Ys8RegionData([], ["Rainbow Falls to CIA", "Rainbow Falls to TCF Front", "Rainbow Falls to TCF Before Boss", 
                                                                   "Rainbow Falls to TCF Corpse"]),
-        "Towering Coral Forest Boss Area": Ys8RegionData([], ["TCF Boss Area to TCF Front", "TCF Boss Area to TCF RF", "TCF Boss Area to TCF Boss"]),
-        "Towering Coral Forest Boss Arena": Ys8RegionData([], ["TCF Exit to Meta Area", "TCF Boss to TCF Boss Area"]),
-        "Metavolicalis Area": Ys8RegionData([], ["TCF Back", "Meta Area to Para Area", "Metavolicalis to CIA"]),
+        "Towering Coral Forest Before Boss": Ys8RegionData([], ["TCF Before Boss to TCF Front", "TCF Before Boss to TCF RF", "TCF Before Boss to TCF Boss"]),
+        "Towering Coral Forest Boss Arena": Ys8RegionData([], ["TCF Boss to TCF Meta Entrance", "TCF Boss to TCF Before Boss"]),
+        "Metavolicalis Area": Ys8RegionData([], ["Meta Area to TCF Meta Entrance", "Meta Area to Para Area", "Metavolicalis to CIA"]),
         "Parasequoia Area": Ys8RegionData([], ["Para Area to Meta Area","Parasequoia to CIA"]),
         "Great River Valley Area": Ys8RegionData([], ["GRV to NC North of Boulder", "GRV to Base of WF Gendarme", "Chimney Rock to CIA", "GRV to WG Dark Area",
-                                                      "GRV to LCA", "GRV to EV Front", "GRV to SJ Front", "GRV to PP"]),
+                                                      "GRV to LCA", "GRV to EV Entrance", "GRV to SJ Entrance", "GRV to PP"]),
         "Base of Western Foot of Gendarme": Ys8RegionData([], ["Base of WF Gendarme to GRV", "Base of WF Gendarme to WF Gendarme"]),
         "Western Foot of Gendarme": Ys8RegionData([], ["WF Gendarme to Base of WF Gendarme", "Airs Cairn to CIA"]),
         "Milky White Vein": Ys8RegionData([], ["Milky White Vein to CIA", "Milky White Vein to WG Dark Area"]),
         "Waterfall Grotto Dark Area": Ys8RegionData([], ["WG Dark Area to Milky White Vein", "WG Dark Area to GRV"]),
         "Longhorn Coast Area": Ys8RegionData([], ["LCA to GRV", "LCA to Outside ST", "LCA to Nostalgia Cape", "LCA to Beehive"]),
         "Beehive": Ys8RegionData([], ["Beehive to LCA", "Beehive to CIA"]),
-        "Eroded Valley Front": Ys8RegionData([], ["EV Front to GRV", "EV Front to EV Dark Area", "EV Front to EV Mid-Boss Arena"]),
+        "Eroded Valley Front": Ys8RegionData([], ["EV Front to EV Entrance", "EV Front to EV Dark Area", "EV Front to EV Mid-Boss Arena"]),
         "Eroded Valley Dark Area": Ys8RegionData([], ["EV Dark Area to EV Front", "EV Dark Area to EV Indigo Mineral Vein"]),
         "Eroded Valley Indigo Mineral Vein": Ys8RegionData([], ["EV Indigo Mineral Vein to EV Dark Area", "Indigo Mineral Vein to CIA"]),
         "Eroded Valley Mid-Boss Arena": Ys8RegionData([], ["EV Mid-Boss Arena to EV Front", "EV Mid-Boss Arena to EV Webbed Walkway"]),
         "Eroded Valley Webbed Walkway": Ys8RegionData([], ["EV Webbed Walkway to EV Front", "EV Webbed Walkway to EV Before Boss", "EV Webbed Walkway to EV Mid-Boss Arena"]),
         "Eroded Valley Before Boss": Ys8RegionData([], ["EV Before Boss to EV Webbed Walkway", "EV Before Boss to EV Boss Arena"]),
-        "Eroded Valley Boss Arena": Ys8RegionData([], ["EV Boss Arena to EV Before Boss", "EV Boss Arena to SB"]),
-        "Sunrise Beach": Ys8RegionData([], ["SB to EV Boss Arena", "Beached Remains to CIA"]),
-        "Schlamm Jungle Front": Ys8RegionData([], ["SJ Front to GRV", "SJ Front to SJ Mid-Boss Arena"]),
+        "Eroded Valley Boss Arena": Ys8RegionData([], ["EV Boss Arena to EV Before Boss", "Entrance EV Boss to SB"]),
+        "Sunrise Beach": Ys8RegionData([], ["Entrance SB to EV Boss", "Beached Remains to CIA"]),
+        "Schlamm Jungle Front": Ys8RegionData([], ["SJ Front to SJ Entrance", "SJ Front to SJ Mid-Boss Arena"]),
         "Schlamm Jungle Mid-Boss Arena": Ys8RegionData([], ["SJ Mid-Boss Arena to SJ Front", "SJ Mid-Boss Arena to SJ Muddy Path"]),
         "Schlamm Jungle Muddy Path": Ys8RegionData([], ["SJ Muddy Path to SJ Mid-Boss Arena", "SJ Muddy Path to SJ Before Boss", "SJ Muddy Path to SJ FoMH"]),
         "Schlamm Jungle Field of Medicinal Herbs": Ys8RegionData([], ["SJ FoMH to SJ Muddy Path", "SJ FoMH to CIA"]),
@@ -68,9 +68,9 @@ def create_regions(Ys8World):
         "Schlamm Jungle Boss Arena": Ys8RegionData([], ["SJ Boss Arena to SJ Before Boss", "SJ Boss Arena to ORC"]),
         "Odd Rock Coast": Ys8RegionData([], ["ORC to SJ Boss Arena"]),
         "Nostalgia Cape Area": Ys8RegionData([], ["Nostalgia Cape to LCA", "Nostalgia Cape to ECC", "Ship Graveyard to CIA"]),
-        "East Coast Cave Before Gilkyra": Ys8RegionData([], ["ECC to Nostalgia Cape", "ECC BG to ECC AG", "Hidden Pirate Storehouse to CIA"]),
-        "East Coast Cave After Gilkyra": Ys8RegionData([], ["ECC AG to ECC BG", "ECC AG to PSE"]),
-        "Pirate Ship Eleftheria": Ys8RegionData([], ["PSE to ECC AG", "PSE to PSE Submerged Hold"]),
+        "East Coast Cave Before Gilkyra": Ys8RegionData([], ["ECC to Nostalgia Cape", "ECC Before Gilkyra to ECC After Gilkyra", "Hidden Pirate Storehouse to CIA"]),
+        "East Coast Cave After Gilkyra": Ys8RegionData([], ["ECC After Gilkyra to ECC Before Gilkyra", "ECC After Gilkyra to PSE"]),
+        "Pirate Ship Eleftheria": Ys8RegionData([], ["PSE to ECC After Gilkyra", "PSE to PSE Submerged Hold"]),
         "Pirate Ship Eleftheria Submerged Hold": Ys8RegionData([], ["PSE Submerged Hold to PSE"]),
         "Primordial Passage": Ys8RegionData([], ["PP to GRV", "PP to MG Front", "PP to MG Night"]),
         "Outside Silent Tower": Ys8RegionData([], ["Outside ST to LCA", "Outside ST to ST"]),
@@ -95,11 +95,11 @@ def create_regions(Ys8World):
         "Temple of the Great Tree Garden": Ys8RegionData([], ["TotGT Garden to TotGT Boss Arena", "TotGT Garden to Octus"]),
         "Octus Overlook": Ys8RegionData([], ["Octus to TotGT Garden", "Octus to Selection Sphere"]),
         "Selection Sphere": Ys8RegionData([], ["Selection Sphere to Octus"]),
-        "Ruins of Eternia": Ys8RegionData([], ["RoE to Seiren North", "RoE to TotGT", "RoE to AC Front", "RoE to TH", "RoE to FSC Entrance", "RoE to Bolado"]),
+        "Ruins of Eternia": Ys8RegionData([], ["RoE to Seiren North", "RoE to TotGT", "RoE to AC Front", "RoE to TH", "RoE to FSC Front", "RoE to Bolado"]),
         "Bolado Monastery": Ys8RegionData([], ["Bolado to RoE", "Bolado to Bolado Basement"]),
         "Bolado Monastery Basement": Ys8RegionData([], ["Bolado Basement to Bolado"]),
-        "Former Sanctuary Crypt Entrance": Ys8RegionData([], ["FSC Entrance to FSC First Barrier", "FSC Entrance to RoE"]),
-        "Former Sanctuary Crypt First Barrier": Ys8RegionData([], ["FSC First Barrier to FSC Entrance", "FSC First Barrier to FSC Second Floor", "FSC First Barrier to FSC First Barrier North Brazier Room"]),
+        "Former Sanctuary Crypt Front": Ys8RegionData([], ["FSC Front to FSC First Barrier", "FSC Front to RoE"]),
+        "Former Sanctuary Crypt First Barrier": Ys8RegionData([], ["FSC First Barrier to FSC Front", "FSC First Barrier to FSC Second Floor", "FSC First Barrier to FSC First Barrier North Brazier Room"]),
         "Former Sanctuary Crypt First Barrier North Brazier Room": Ys8RegionData([], ["FSC First Barrier North Brazier Room to FSC First Barrier"]),
         "Former Sanctuary Crypt Second Floor": Ys8RegionData([], ["FSC Second Floor to FSC First Barrier", "FSC Second Floor to FSC Second Barrier"]),
         "Former Sanctuary Crypt Second Barrier": Ys8RegionData([], ["FSC Second Barrier to FSC Second Floor", "FSC Second Barrier to FSC Second Boss Arena"]),
@@ -117,18 +117,18 @@ def create_regions(Ys8World):
         "Archeozoic Chasm Front": Ys8RegionData([], ["AC Front to RoE", "AC Front to AC Submerged Area"]),
         "Archeozoic Chasm Submerged Area": Ys8RegionData([], ["AC Submerged Area to AC Front", "AC Submerged Area to AC Boss Arena"]),
         "Archeozoic Chasm Boss Arena": Ys8RegionData([], ["AC Boss Arena to AC Submerged Area"]),
-        "Vista Ridge": Ys8RegionData([], ["Vista Ridge to TotGT", "Vista Ridge to Vista Ridge Upper", "Vista Ridge to LM Entrance"]),
+        "Vista Ridge": Ys8RegionData([], ["Vista Ridge to TotGT", "Vista Ridge to Vista Ridge Upper", "Vista Ridge to LM Front"]),
         "Vista Ridge Upper": Ys8RegionData([], ["Vista Ridge Upper to Vista Ridge"]),
-        "Lodinia Marshlands Entrance": Ys8RegionData([], ["LM Entrance to Vista Ridge", "LM Entrance to LM South", "LM Entrance to LM Near Submerged Cemetery"]),
-        "Lodinia Marshlands South": Ys8RegionData([], ["LM South to LM Entrance"]),
-        "Lodinia Marshlands Near Submerged Cemetery": Ys8RegionData([], ["LM Near Submerged Cemetery to LM Entrance", "LM Near Submerged Cemetery to Submerged Cemetery",
+        "Lodinia Marshlands Front": Ys8RegionData([], ["LM Front to Vista Ridge", "LM Front to LM South", "LM Front to LM Near Submerged Cemetery"]),
+        "Lodinia Marshlands South": Ys8RegionData([], ["LM South to LM Front"]),
+        "Lodinia Marshlands Near Submerged Cemetery": Ys8RegionData([], ["LM Near Submerged Cemetery to LM Front", "LM Near Submerged Cemetery to Submerged Cemetery",
                                                                          "LM Near Submerged Cemetery to Near Sky Garden"]),
-        "Lodinia Marshlands Near Sky Garden": Ys8RegionData([], ["LM Near Sky Garden to LM Near Submerged Cemetery", "LM Near Sky Garden to Sky Garden", "LM Near Sky Garden to VoK Entrance"]),
-        "Valley of Kings Entrance": Ys8RegionData([], ["VoK Entrance to LM Near Sky Garden", "VoK Entrance to VoK Before Door", "VoK Entrance to Graves of Ancient Heroes"]),
-        "Valley of Kings Before Door": Ys8RegionData([], ["VoK Before Door to VoK Entrance", "VoK Before Door to VoK After Door"]),
+        "Lodinia Marshlands Near Sky Garden": Ys8RegionData([], ["LM Near Sky Garden to LM Near Submerged Cemetery", "LM Near Sky Garden to Sky Garden", "LM Near Sky Garden to LM Back"]),
+        "Lodinia Marshlands Back": Ys8RegionData([], ["LM Back to LM Near Sky Garden", "LM Back to VoK Before Door", "LM Back to Graves of Ancient Heroes"]),
+        "Valley of Kings Before Door": Ys8RegionData([], ["VoK Before Door to LM Back", "VoK Before Door to VoK After Door"]),
         "Valley of Kings After Door": Ys8RegionData([], ["VoK After Door to VoK Before Door", "VoK After Door to VoK Boss Arena"]),
         "Valley of Kings Boss Arena": Ys8RegionData([], ["VoK Boss Arena to VoK After Door"]),
-        "Graves of Ancient Heroes": Ys8RegionData([], ["Graves of Ancient Heroes to VoK Entrance", "Graves of Ancient Heroes to CIA"]),
+        "Graves of Ancient Heroes": Ys8RegionData([], ["Graves of Ancient Heroes to LM Back", "Graves of Ancient Heroes to CIA"]),
         "Sky Garden": Ys8RegionData([], ["Sky Garden to LM Near Sky Garden", "Sky Garden to CIA"]),
         "Submerged Cemetery": Ys8RegionData([], ["Submerged Cemetery to LM Near Submerged Cemetery", "Submerged Cemetery to Bolado Hidden Room", "Submerged Cemetery to Soundless Hall"]),
         "Soundless Hall": Ys8RegionData([], ["SH to Submerged Cemetery", "SH to CIA"]),
@@ -138,6 +138,21 @@ def create_regions(Ys8World):
         "Mont Gendarme (Night) Front Half": Ys8RegionData([], ["MG Night Front to PP", "MG Night Front to MG Night Rear"]),
         "Mont Gendarme (Night) Rear Half": Ys8RegionData([], ["MG Night Rear to MG Night Front"]),
         "Pangaia Plains (Night)": Ys8RegionData([], ["Pangaia Plains Night to Seiren North"]),
+        "Entrance: Waterdrop Cave to Calm Inlet Area": Ys8RegionData([], ["WC Entrance to CIA", "WC Entrance to WC"]),
+        "Entrance: Towering Coral Forest to Nameless Coast North of Boulder": Ys8RegionData([], ["TCF Entrance to NC North", "TCF NC Entrance to TCF"]),
+        "Entrance: Towering Coral Forest Boss Arena to Metavolicalis Area": Ys8RegionData([], ["TCF Meta Entrance to Meta", "TCF Meta Entrance to TCF Boss"]),
+        "Entrance: Eroded Valley Front to Great River Valley Area": Ys8RegionData([], ["Entrance EV Front to GRV", "Entrance GRV to EV Front"]),
+        "Entrance: Eroded Valley Boss Arena to Sunrise Beach": Ys8RegionData([], ["Entrance EV Boss to SB", "Entrance SB to EV Boss"]),
+        "Entrance: Schlamm Jungle Front to Great River Valley Area": Ys8RegionData([], ["Entrance SJ Front to GRV", "Entrance GRV to SJ Front"]),
+        "Entrance: Schlamm Jungle Boss Arena to Odd Rock Coast": Ys8RegionData([], ["Entrance SJ Boss to ORC", "Entrance ORC to SJ Boss"]),
+        "Entrance: Silent Tower to Outside Silent Tower": Ys8RegionData([], ["Entrance ST to Outside ST", "Entrance Outside ST to ST"]),
+        "Entrance: Mont Gendarme Front to Primordial Passage": Ys8RegionData([], ["Entrance MG Front to PP", "Entrance PP to MG Front"]),
+        "Entrance: Mont Gendarme Boss Arena to Seiren North Access": Ys8RegionData([], ["Entrance MG Boss to Seiren North", "Entrance Seiren North to MG Boss"]),
+        "Entrance: Octus Overlook to Temple of the Great Tree Garden": Ys8RegionData([], ["Entrance Octus to TotGT Garden", "Entrance TotGT Garden to Octus"]),
+        "Entrance: Former Sanctuary Crypt Front to Ruins of Eternia": Ys8RegionData([], ["Entrance FSC Front to RoE", "Entrance RoE to FSC Front"]),
+        "Entrance: Baja Tower Lower Floors to Towal Highway": Ys8RegionData([], ["Entrance Baja to TH", "Entrance TH to Baja"]),
+        "Entrance: Archeozoic Chasm Front to Ruins of Eternia": Ys8RegionData([], ["Entrance AC Front to RoE", "Entrance RoE to AC Front"]),
+        "Entrance: Lodinia Marshlands Back to Valley of Kings Before Door": Ys8RegionData([], ["Entrance LM Back to VoK Before Door", "Entrance VoK Before Door to LM Back"]),
     }
 
     for location in location_table:
@@ -170,7 +185,7 @@ def connect_entrances(Ys8World: "Ys8World"):
         multiworld.get_entrance(entrance_name, player).connect(multiworld.get_region(region_name, player))
     
     # Calm Inlet Area Connections
-    connect("CIA to WC", "Waterdrop Cave")
+    connect("CIA to WC Entrance", "Entrance: Waterdrop Cave to Calm Inlet Area")
     connect("CIA to NC North of Boulder", "Nameless Coast North of Boulder")
     connect("CIA to Rainbow Falls", "Towering Coral Forest Rainbow Falls")
     connect("CIA to Parasequoia", "Parasequoia Area")
@@ -217,32 +232,38 @@ def connect_entrances(Ys8World: "Ys8World"):
     connect("IL 3 to CIA", "Calm Inlet Area")
     
     # Waterdrop Cave Connections
-    connect("WC to CIA", "Calm Inlet Area")
+    connect("WC to WC Entrance", "Entrance: Waterdrop Cave to Calm Inlet Area")
+    connect("WC Entrance to CIA", "Calm Inlet Area")
+    connect("WC Entrance to WC", "Waterdrop Cave")
     
     # Nameless Coast North of Boulder Connections
     connect("NC North of Boulder to NC South of Boulder", "Calm Inlet Area")
-    connect("TCF Front", "Towering Coral Forest Front")
+    connect("NC North of Boulder to TCF Entrance", "Entrance: Towering Coral Forest to Nameless Coast North of Boulder")
     connect("NC North of Boulder to GRV", "Great River Valley Area")
     
     # Towering Coral Forest Connections
-    connect("TCF Exit to NC", "Nameless Coast North of Boulder")
+    connect("TCF Entrance to NC North of Boulder", "Nameless Coast North of Boulder")
+    connect("TCF Front to TCF NC Entrance", "Entrance: Towering Coral Forest to Nameless Coast North of Boulder")
+    connect("TCF NC Entrance to TCF Front", "Towering Coral Forest Front")
     connect("TCF Front to TCF Mid-Boss Arena", "Towering Coral Forest Mid-Boss Arena")
     connect("TCF Mid-Boss Arena to TCF Front", "Towering Coral Forest Front")
     connect("TCF Mid-Boss Arena to TCF Corpse", "Towering Coral Forest Corpse")
-    connect("TCF Corpse to TCF Mid-Boss Area", "Towering Coral Forest Mid-Boss Arena")
+    connect("TCF Corpse to TCF Mid-Boss Arena", "Towering Coral Forest Mid-Boss Arena")
     connect("TCF Corpse to TCF RF", "Towering Coral Forest Rainbow Falls")
     connect("Rainbow Falls to TCF Corpse", "Towering Coral Forest Corpse")
-    connect("Rainbow Falls to TCF Boss Area", "Towering Coral Forest Boss Area")
+    connect("Rainbow Falls to TCF Before Boss", "Towering Coral Forest Before Boss")
     connect("Rainbow Falls to CIA", "Calm Inlet Area")
     connect("Rainbow Falls to TCF Front", "Towering Coral Forest Front")
-    connect("TCF Boss Area to TCF Front", "Towering Coral Forest Front")
-    connect("TCF Boss Area to TCF RF", "Towering Coral Forest Rainbow Falls")
-    connect("TCF Boss Area to TCF Boss", "Towering Coral Forest Boss Arena")
-    connect("TCF Boss to TCF Boss Area", "Towering Coral Forest Boss Area")
-    connect("TCF Exit to Meta Area", "Metavolicalis Area")
+    connect("TCF Before Boss to TCF Front", "Towering Coral Forest Front")
+    connect("TCF Before Boss to TCF RF", "Towering Coral Forest Rainbow Falls")
+    connect("TCF Before Boss to TCF Boss", "Towering Coral Forest Boss Arena")
+    connect("TCF Boss to TCF Before Boss", "Towering Coral Forest Before Boss")
+    connect("TCF Boss to TCF Meta Entrance", "Entrance: Towering Coral Forest Boss Arena to Metavolicalis Area")
+    connect("TCF Meta Entrance to Meta", "Metavolicalis Area")
+    connect("TCF Meta Entrance to TCF Boss", "Towering Coral Forest Boss Arena")
     
     # Metavolicalis Connections
-    connect("TCF Back", "Towering Coral Forest Boss Area")
+    connect("Meta Area to TCF Meta Entrance", "Entrance: Towering Coral Forest Boss Arena to Metavolicalis Area")
     connect("Meta Area to Para Area", "Parasequoia Area")
     connect("Metavolicalis to CIA", "Calm Inlet Area")
     
@@ -256,9 +277,9 @@ def connect_entrances(Ys8World: "Ys8World"):
     connect("Chimney Rock to CIA", "Calm Inlet Area")
     connect("GRV to WG Dark Area", "Waterfall Grotto Dark Area")
     connect("GRV to LCA", "Longhorn Coast Area")
-    connect("GRV to EV Front", "Eroded Valley Front")
-    connect("GRV to SJ Front", "Schlamm Jungle Front")
-    connect("SJ Front to GRV", "Great River Valley Area")
+    connect("GRV to EV Entrance", "Entrance: Eroded Valley Front to Great River Valley Area")
+    connect("GRV to SJ Entrance", "Entrance: Schlamm Jungle Front to Great River Valley Area")
+    connect("SJ Front to SJ Entrance", "Entrance: Schlamm Jungle Front to Great River Valley Area")
     connect("GRV to PP", "Primordial Passage")
     
     # Base of Western Foot of Gendarme Connections
@@ -284,7 +305,9 @@ def connect_entrances(Ys8World: "Ys8World"):
     connect("Beehive to CIA", "Calm Inlet Area")
 
     # Eroded Valley Connections
-    connect("EV Front to GRV", "Great River Valley Area")
+    connect("EV Front to EV Entrance", "Entrance: Eroded Valley Front to Great River Valley Area")
+    connect("Entrance EV Front to GRV", "Great River Valley Area")
+    connect("Entrance GRV to EV Front", "Eroded Valley Front")
     connect("EV Front to EV Dark Area", "Eroded Valley Dark Area")
     connect("EV Front to EV Mid-Boss Arena", "Eroded Valley Mid-Boss Arena")
     connect("EV Dark Area to EV Front", "Eroded Valley Front")
@@ -299,14 +322,18 @@ def connect_entrances(Ys8World: "Ys8World"):
     connect("EV Before Boss to EV Webbed Walkway", "Eroded Valley Webbed Walkway")
     connect("EV Before Boss to EV Boss Arena", "Eroded Valley Boss Arena")
     connect("EV Boss Arena to EV Before Boss", "Eroded Valley Before Boss")
-    connect("EV Boss Arena to SB", "Sunrise Beach")
+    connect("Entrance EV Boss to SB", "Entrance: Eroded Valley Boss Arena to Sunrise Beach")
+    connect("Entrance EV Boss to SB", "Sunrise Beach")
+    connect("Entrance SB to EV Boss", "Eroded Valley Boss Arena")
 
     # Sunrise Beach Connections
-    connect("SB to EV Boss Arena", "Eroded Valley Boss Arena")
+    connect("Entrance SB to EV Boss", "Eroded Valley Boss Arena")
     connect("Beached Remains to CIA", "Calm Inlet Area")
 
     # Schlamm Jungle Connections
-    connect("SJ Front to GRV", "Great River Valley Area")
+    connect("SJ Front to SJ Entrance", "Entrance: Schlamm Jungle Front to Great River Valley Area")
+    connect("Entrance SJ Front to GRV", "Great River Valley Area")
+    connect("Entrance GRV to SJ Front", "Schlamm Jungle Front")
     connect("SJ Front to SJ Mid-Boss Arena", "Schlamm Jungle Mid-Boss Arena")
     connect("SJ Mid-Boss Arena to SJ Front", "Schlamm Jungle Front")
     connect("SJ Mid-Boss Arena to SJ Muddy Path", "Schlamm Jungle Muddy Path")
@@ -318,10 +345,12 @@ def connect_entrances(Ys8World: "Ys8World"):
     connect("SJ Before Boss to SJ Muddy Path", "Schlamm Jungle Muddy Path")
     connect("SJ Before Boss to SJ Boss Arena", "Schlamm Jungle Boss Arena")
     connect("SJ Boss Arena to SJ Before Boss", "Schlamm Jungle Before Boss")
-    connect("SJ Boss Arena to ORC", "Odd Rock Coast")
+    connect("SJ Boss Arena to ORC", "Entrance: Schlamm Jungle Boss Arena to Odd Rock Coast")
+    connect("Entrance SJ Boss to ORC", "Odd Rock Coast")
+    connect("Entrance ORC to SJ Boss", "Schlamm Jungle Boss Arena")
 
     # Odd Rock Coast Connections
-    connect("ORC to SJ Boss Arena", "Schlamm Jungle Boss Arena")
+    connect("ORC to SJ Boss Arena", "Entrance: Schlamm Jungle Boss Arena to Odd Rock Coast")
 
     # Nostalgia Cape Connections
     connect("Nostalgia Cape to LCA", "Longhorn Coast Area")
@@ -330,25 +359,27 @@ def connect_entrances(Ys8World: "Ys8World"):
 
     # East Coast Cave Connections
     connect("ECC to Nostalgia Cape", "Nostalgia Cape Area")
-    connect("ECC BG to ECC AG", "East Coast Cave After Gilkyra")
-    connect("ECC AG to ECC BG", "East Coast Cave Before Gilkyra")
-    connect("ECC AG to PSE", "Pirate Ship Eleftheria")
+    connect("ECC Before Gilkyra to ECC After Gilkyra", "East Coast Cave After Gilkyra")
+    connect("ECC After Gilkyra to ECC Before Gilkyra", "East Coast Cave Before Gilkyra")
+    connect("ECC After Gilkyra to PSE", "Pirate Ship Eleftheria")
     connect("Hidden Pirate Storehouse to CIA", "Calm Inlet Area")
 
     # Pirate Ship Eleftheria Connections
-    connect("PSE to ECC AG", "East Coast Cave After Gilkyra")
+    connect("PSE to ECC After Gilkyra", "East Coast Cave After Gilkyra")
     connect("PSE to PSE Submerged Hold", "Pirate Ship Eleftheria Submerged Hold")
     connect("PSE Submerged Hold to PSE", "Pirate Ship Eleftheria")
 
     # Primordial Passage Connections
     connect("PP to GRV", "Great River Valley Area")
-    connect("PP to MG Front", "Mont Gendarme Front")
+    connect("PP to MG Front", "Entrance: Mont Gendarme Front to Primordial Passage")
     connect("PP to MG Night", "Mont Gendarme (Night) Front Half")
 
     # Silent Tower Connections
     connect("Outside ST to LCA", "Longhorn Coast Area")
-    connect("Outside ST to ST", "Silent Tower")
-    connect("ST to Outside ST", "Outside Silent Tower")
+    connect("Outside ST to ST", "Entrance: Silent Tower to Outside Silent Tower")
+    connect("ST to Outside ST", "Entrance: Silent Tower to Outside Silent Tower")
+    connect("Entrance ST to Outside ST", "Outside Silent Tower")
+    connect("Entrance Outside ST to ST", "Silent Tower")
 
     # Weathervane Hills Connections
     connect("WH to CIA", "Calm Inlet Area")
@@ -364,7 +395,9 @@ def connect_entrances(Ys8World: "Ys8World"):
     connect("Lapis Mineral Vein Area to CIA", "Calm Inlet Area")
 
     # Mont Gendarme Connections
-    connect("MG Front to PP", "Primordial Passage")
+    connect("MG Front to PP", "Entrance: Mont Gendarme Front to Primordial Passage")
+    connect("Entrance MG Front to PP", "Primordial Passage")
+    connect("Entrance PP to MG Front", "Mont Gendarme Front")
     connect("MG Front to MG Mid", "Mont Gendarme Middle")
     connect("MG Mid to MG Front", "Mont Gendarme Front")
     connect("MG Mid to MG Mid-Boss Arena", "Mont Gendarme Mid-Boss Arena")
@@ -373,10 +406,12 @@ def connect_entrances(Ys8World: "Ys8World"):
     connect("MG Upper to MG Mid-Boss Arena", "Mont Gendarme Mid-Boss Arena")
     connect("MG Upper to MG Boss Arena", "Mont Gendarme Boss Arena")
     connect("MG Boss Arena to MG Upper", "Mont Gendarme Upper")
-    connect("MG Boss Arena to Seiren North", "Seiren North Access")
+    connect("MG Boss Arena to Seiren North", "Entrance: Mont Gendarme Boss Arena to Seiren North Access")
+    connect("Entrance MG Boss to Seiren North", "Seiren North Access")
+    connect("Entrance Seiren North to MG Boss", "Mont Gendarme Boss Arena")
 
     # Seiren North Connections
-    connect("Seiren North to MG Boss Arena", "Mont Gendarme Boss Arena")
+    connect("Seiren North to MG Boss Arena", "Entrance: Mont Gendarme Boss Arena to Seiren North Access")
     connect("Seiren North to SPWC", "Stone Pillar Wind Cave")
     connect("Seiren North to TotGT", "Temple of the Great Tree")
     connect("Seiren North to RoE", "Ruins of Eternia")
@@ -399,10 +434,12 @@ def connect_entrances(Ys8World: "Ys8World"):
     connect("TotGT Boss Arena to TotGT", "Temple of the Great Tree")
     connect("TotGT Boss Arena to TotGT Garden", "Temple of the Great Tree Garden")
     connect("TotGT Garden to TotGT Boss Arena", "Temple of the Great Tree Boss Arena")
-    connect("TotGT Garden to Octus", "Octus Overlook")
+    connect("TotGT Garden to Octus", "Entrance: Octus Overlook to Temple of the Great Tree Garden")
 
     # Octus Overlook Connections
-    connect("Octus to TotGT Garden", "Temple of the Great Tree Garden")
+    connect("Octus to TotGT Garden", "Entrance: Octus Overlook to Temple of the Great Tree Garden")
+    connect("Entrance Octus to TotGT Garden", "Temple of the Great Tree Garden")
+    connect("Entrance TotGT Garden to Octus", "Octus Overlook")
     connect("Octus to Selection Sphere", "Selection Sphere")
     connect("Selection Sphere to Octus", "Octus Overlook")
 
@@ -410,17 +447,19 @@ def connect_entrances(Ys8World: "Ys8World"):
     connect("RoE to Seiren North", "Seiren North Access")
     connect("RoE to TotGT", "Temple of the Great Tree")
     connect("RoE to TH", "Towal Highway")
-    connect("RoE to FSC", "Former Sanctuary Crypt Entrance")
+    connect("RoE to FSC", "Entrance: Former Sanctuary Crypt Front to Ruins of Eternia")
     connect("RoE to Bolado", "Bolado Monastery")
     connect("Bolado to RoE", "Ruins of Eternia")
     connect("Bolado to Bolado Basement", "Bolado Monastery Basement")
     connect("Bolado Basement to Bolado", "Bolado Monastery")
-    connect("RoE to AC Front", "Archeozoic Chasm Front")
+    connect("RoE to AC Front", "Entrance: Archeozoic Chasm Front to Ruins of Eternia")
 
     # Former Sanctuary Crypt Connections
-    connect("FSC Entrance to RoE", "Ruins of Eternia")
-    connect("FSC Entrance to FSC First Barrier", "Former Sanctuary Crypt First Barrier")
-    connect("FSC First Barrier to FSC Entrance", "Former Sanctuary Crypt Entrance")
+    connect("FSC Front to RoE", "Entrance: Former Sanctuary Crypt Front to Ruins of Eternia")
+    connect("Entrance FSC Front to RoE", "Ruins of Eternia")
+    connect("Entrance RoE to FSC Front", "Former Sanctuary Crypt Front")
+    connect("FSC Front to FSC First Barrier", "Former Sanctuary Crypt First Barrier")
+    connect("FSC First Barrier to FSC Front", "Former Sanctuary Crypt Front")
     connect("FSC First Barrier to FSC Second Floor", "Former Sanctuary Crypt Second Floor")
     connect("FSC First Barrier to FSC First Barrier North Brazier Room", "Former Sanctuary Crypt First Barrier North Brazier Room")
     connect("FSC First Barrier North Brazier Room to FSC First Barrier", "Former Sanctuary Crypt First Barrier")
@@ -444,16 +483,20 @@ def connect_entrances(Ys8World: "Ys8World"):
 
     # Towal Highway Connections
     connect("TH to RoE", "Ruins of Eternia")
-    connect("TH to Baja", "Baja Tower Lower Floors")
+    connect("TH to Baja", "Entrance: Baja Tower Lower Floors to Towal Highway")
 
     # Baja Tower Connections
-    connect("Baja to TH", "Towal Highway")
+    connect("Baja to TH", "Entrance: Baja Tower Lower Floors to Towal Highway")
+    connect("Entrance Baja to TH", "Towal Highway")
+    connect("Entrance TH to Baja", "Baja Tower Lower Floors")
     connect("Baja to Baja Upper", "Baja Tower Upper Floors")
     connect("Baja Upper to Baja Boss Arena", "Baja Tower Boss Arena")
     connect("Baja Boss to Baja Upper", "Baja Tower Upper Floors")
 
     # Archeozoic Chasm Connections
-    connect("AC Front to RoE", "Ruins of Eternia")
+    connect("AC Front to RoE", "RoE")
+    connect("Entrance AC Front to RoE", "Entrance: Archeozoic Chasm Front to Ruins of Eternia")
+    connect("Entrance RoE to AC Front", "Archeozoic Chasm Front")
     connect("AC Front to AC Submerged Area", "Archeozoic Chasm Submerged Area")
     connect("AC Submerged Area to AC Front", "Archeozoic Chasm Front")
     connect("AC Submerged Area to AC Boss Arena", "Archeozoic Chasm Boss Arena")
@@ -463,21 +506,21 @@ def connect_entrances(Ys8World: "Ys8World"):
     connect("Vista Ridge to TotGT", "Temple of the Great Tree")
     connect("Vista Ridge to Vista Ridge Upper", "Vista Ridge Upper")
     connect("Vista Ridge Upper to Vista Ridge", "Vista Ridge")
-    connect("Vista Ridge to LM Entrance", "Lodinia Marshlands Entrance")
+    connect("Vista Ridge to LM Front", "Lodinia Marshlands Front")
 
     # Lodinia Marshlands Connections
-    connect("LM Entrance to Vista Ridge", "Vista Ridge")
-    connect("LM Entrance to LM South", "Lodinia Marshlands South")
-    connect("LM Entrance to LM Near Submerged Cemetery", "Lodinia Marshlands Near Submerged Cemetery")
-    connect("LM South to LM Entrance", "Lodinia Marshlands Entrance")
-    connect("LM Near Submerged Cemetery to LM Entrance", "Lodinia Marshlands Entrance")
+    connect("LM Front to Vista Ridge", "Vista Ridge")
+    connect("LM Front to LM South", "Lodinia Marshlands South")
+    connect("LM Front to LM Near Submerged Cemetery", "Lodinia Marshlands Near Submerged Cemetery")
+    connect("LM South to LM Front", "Lodinia Marshlands Front")
+    connect("LM Near Submerged Cemetery to LM Front", "Lodinia Marshlands Front")
     connect("LM Near Submerged Cemetery to Near Sky Garden", "Lodinia Marshlands Near Sky Garden")
     connect("LM Near Submerged Cemetery to Submerged Cemetery", "Submerged Cemetery")
     connect("Sky Garden to LM Near Sky Garden", "Lodinia Marshlands Near Sky Garden")
     connect("Sky Garden to CIA", "Calm Inlet Area")
     connect("LM Near Sky Garden to LM Near Submerged Cemetery", "Lodinia Marshlands Near Submerged Cemetery")
     connect("LM Near Sky Garden to Sky Garden", "Sky Garden")
-    connect("LM Near Sky Garden to VoK Entrance", "Valley of Kings Entrance")
+    connect("LM Near Sky Garden to LM Back", "Lodinia Marshlands Back")
 
     # Submerged Cemetery Connections
     connect("Submerged Cemetery to LM Near Submerged Cemetery", "Lodinia Marshlands Near Submerged Cemetery")
@@ -488,15 +531,17 @@ def connect_entrances(Ys8World: "Ys8World"):
     connect("Bolado Hidden Room to Submerged Cemetery", "Submerged Cemetery")
 
     # Valley of Kings Connections
-    connect("VoK Entrance to LM Near Sky Garden", "Lodinia Marshlands Near Sky Garden")
-    connect("VoK Entrance to VoK Before Door", "Valley of Kings Before Door")
-    connect("VoK Entrance to Graves of Ancient Heroes", "Graves of Ancient Heroes")
-    connect("VoK Before Door to VoK Entrance", "Valley of Kings Entrance")
+    connect("LM Back to LM Near Sky Garden", "Lodinia Marshlands Near Sky Garden")
+    connect("LM Back to VoK Before Door", "Entrance: Lodinia Marshlands Back to Valley of Kings Before Door")
+    connect("LM Back to Graves of Ancient Heroes", "Graves of Ancient Heroes")
+    connect("VoK Before Door to LM Back", "Entrance: Lodinia Marshlands Back to Valley of Kings Before Door")
+    connect("Entrance LM Back to VoK Before Door", "Valley of Kings Before Door")
+    connect("Entrance VoK Before Door to LM Back", "Lodinia Marshlands Back")
     connect("VoK Before Door to VoK After Door", "Valley of Kings After Door")
     connect("VoK After Door to VoK Before Door", "Valley of Kings Before Door")
     connect("VoK After Door to VoK Boss Arena", "Valley of Kings Boss Arena")
     connect("VoK Boss Arena to VoK After Door", "Valley of Kings After Door")
-    connect("Graves of Ancient Heroes to VoK Entrance", "Valley of Kings Entrance")
+    connect("Graves of Ancient Heroes to LM Back", "Lodinia Marshlands Back")
     connect("Graves of Ancient Heroes to CIA", "Calm Inlet Area")
 
     # Towering Coral Forest (Night) Connections

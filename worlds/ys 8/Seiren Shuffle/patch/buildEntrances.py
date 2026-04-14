@@ -278,13 +278,13 @@ def buildEntrances():
 			}}""".format(getEntrance('Valley of Kings', 'Exit to Valley of Kings - Camp')[0], getEntrance('Valley of Kings', 'Exit to Valley of Kings - Camp')[1])
 	
 	entranceScript = entranceScript + """
-			if(FLAG[SF_LASTENTRY_NO] == 0 && WORK[WK_MAPNAMENO] == MN_D_MP6341) //entrance from Lodinia Marshland - Valley of Kings Entrance
+			if(FLAG[SF_LASTENTRY_NO] == 0 && WORK[WK_MAPNAMENO] == MN_D_MP6341) //entrance from Lodinia Marshland - Lodinia Marshlands Back
 			{{
 				SetFlag(SF_LASTENTRY_NO, -2)
 				CallFunc("rng:warpmask")
 				LoadArg("{0}")
 				EventCue("{1}",1)	
-			}}""".format(getEntrance('Lodinia Marshland', 'Valley of Kings Entrance')[0], getEntrance('Lodinia Marshland', 'Valley of Kings Entrance')[1])
+			}}""".format(getEntrance('Lodinia Marshland', 'Lodinia Marshlands Back')[0], getEntrance('Lodinia Marshland', 'Lodinia Marshlands Back')[1])
     
 	entranceScript = entranceScript + """
 		}

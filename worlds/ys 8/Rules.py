@@ -154,7 +154,7 @@ def material_access(material: str, state: CollectionState, player: int) -> bool:
         # M0303 Warsadessa Western Foot of Gendarme 60% special
         return state.has("Material: Accursed Shell (Western Foot of Gendarme)", player)
     if material == "Thunder Claw":
-        # M1010 Gigantyrannus Great River Valley 60%; M0641 Fabnir Valley of Kings Entrance 15%
+        # M1010 Gigantyrannus Great River Valley 60%; M0641 Fabnir Lodinia Marshlands Back 15%
         return state.has_any({
             "Material: Thunder Claw (Great River Valley)",
             "Material: Thunder Claw (Valley of Kings)",
@@ -552,10 +552,10 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     set_rule(get_ent("TCF Mid-Boss Arena to TCF Front"), lambda state: state.has("Serpentus Defeated", player))
     set_rule(get_ent("TCF Mid-Boss Arena to TCF Corpse"), lambda state: state.has("Serpentus Defeated", player))
     set_rule(get_ent("TCF Corpse to TCF RF"), lambda state: state.has("Grip Gloves", player)) 
-    set_rule(get_ent("Rainbow Falls to TCF Boss Area"), lambda state: state.has("Grip Gloves", player))
-    set_rule(get_ent("TCF Boss Area to TCF RF"), lambda state: state.has("Grip Gloves", player))
-    set_rule(get_ent("TCF Boss Area to TCF Boss"), lambda state: state.has("Grip Gloves", player))
-    set_rule(get_ent("TCF Boss to TCF Boss Area"), lambda state: state.has("Clareon Defeated", player))
+    set_rule(get_ent("Rainbow Falls to TCF Before Boss"), lambda state: state.has("Grip Gloves", player))
+    set_rule(get_ent("TCF Before Boss to TCF RF"), lambda state: state.has("Grip Gloves", player))
+    set_rule(get_ent("TCF Before Boss to TCF Boss"), lambda state: state.has("Grip Gloves", player))
+    set_rule(get_ent("TCF Boss to TCF Before Boss"), lambda state: state.has("Clareon Defeated", player))
     set_rule(get_ent("TCF Exit to Meta Area"), lambda state: state.has("Clareon Defeated", player))
 
     # Metavolicalis Area Connections
@@ -615,9 +615,9 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     set_rule(get_ent("SJ Boss Arena to ORC"), lambda state: state.has_all(["Laspisus Defeated", "Float Shoes"], player))
     
     # East Coast Cave Connections
-    set_rule(get_ent("ECC BG to ECC AG"), lambda state: state.has("Gilkyra Encounter Defeated", player))
-    set_rule(get_ent("ECC AG to ECC BG"), lambda state: state.has_all(["Gilkyra Encounter Defeated", "Archeopteryx Wings"], player))
-    set_rule(get_ent("ECC AG to PSE"), lambda state: state.has("Logbook 1", player))
+    set_rule(get_ent("ECC Before Gilkyra to ECC After Gilkyra"), lambda state: state.has("Gilkyra Encounter Defeated", player))
+    set_rule(get_ent("ECC After Gilkyra to ECC Before Gilkyra"), lambda state: state.has_all(["Gilkyra Encounter Defeated", "Archeopteryx Wings"], player))
+    set_rule(get_ent("ECC After Gilkyra to PSE"), lambda state: state.has("Logbook 1", player))
 
     # Pirate Ship Eleftheria Connections
     set_rule(get_ent("PSE to PSE Submerged Hold"), lambda state: state.has("Hermit's Scale", player))
@@ -677,15 +677,15 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     set_rule(get_ent("RoE to AC Front"), lambda state: state.has("Frozen Flower", player))
     set_rule(get_ent("RoE to TH"), lambda state: state.has("Dana", player))
     if options.former_sanctuary_crypt.value:
-        set_rule(get_ent("RoE to FSC Entrance"), lambda state: state.has("Jade Pendant", player))
-        set_rule(get_ent("FSC Entrance to RoE"), lambda state: state.has("Jade Pendant", player))
+        set_rule(get_ent("RoE to FSC Front"), lambda state: state.has("Jade Pendant", player))
+        set_rule(get_ent("FSC Front to RoE"), lambda state: state.has("Jade Pendant", player))
     set_rule(get_ent("RoE to Bolado"), lambda state: state.has("Frozen Flower", player))
     set_rule(get_ent("Bolado to Bolado Basement"), lambda state: state.has("Glow Stone", player))
     set_rule(get_ent("AC Front to RoE"), lambda state: state.has("Frozen Flower", player))
 
     # Former Sanctuary Connections
     if options.former_sanctuary_crypt.value:
-        set_rule(get_ent("FSC Entrance to FSC First Barrier"), lambda state: state.has("Dina", player) and battle_logic(state, player, 800, options))
+        set_rule(get_ent("FSC Front to FSC First Barrier"), lambda state: state.has("Dina", player) and battle_logic(state, player, 800, options))
         set_rule(get_ent("FSC First Barrier to FSC Second Floor"), lambda state: state.has("Essence Key Stone", player))
         set_rule(get_ent("FSC First Barrier to FSC First Barrier North Brazier Room"), lambda state: state.has_all_counts({"Essence Key Stone": 9}, player))
         add_rule(get_ent("FSC First Barrier to FSC Second Floor"), lambda state: state.has("Archeopteryx Wings", player))
@@ -712,21 +712,21 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     set_rule(get_ent("Vista Ridge to Vista Ridge Upper"), lambda state: state.has("Grip Gloves", player) and has_required_crew(state, player, 21))
 
     # Lodinia Marshland Connections
-    set_rule(get_ent("LM Entrance to LM Near Submerged Cemetery"), lambda state: state.has("Treasure Chest Key", player))
-    set_rule(get_ent("LM Near Submerged Cemetery to LM Entrance"), lambda state: state.has("Treasure Chest Key", player))
-    set_rule(get_ent("LM Entrance to LM South"), lambda state: state.has("Float Shoes", player))
+    set_rule(get_ent("LM Front to LM Near Submerged Cemetery"), lambda state: state.has("Treasure Chest Key", player))
+    set_rule(get_ent("LM Near Submerged Cemetery to LM Front"), lambda state: state.has("Treasure Chest Key", player))
+    set_rule(get_ent("LM Front to LM South"), lambda state: state.has("Float Shoes", player))
     set_rule(get_ent("LM Near Submerged Cemetery to Near Sky Garden"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
     set_rule(get_ent("LM Near Submerged Cemetery to Submerged Cemetery"), lambda state: has_required_crew(state, player, 22) and state.has_all(["Glow Stone", "Hermit's Scale"], player))
     set_rule(get_ent("LM Near Sky Garden to Sky Garden"), lambda state: state.has_all(["Grip Gloves", "Archeopteryx Wings"], player))
-    set_rule(get_ent("LM Near Sky Garden to VoK Entrance"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
+    set_rule(get_ent("LM Near Sky Garden to LM Back"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
     set_rule(get_ent("LM Near Sky Garden to LM Near Submerged Cemetery"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
     
     # Valley of Kings Connections
-    set_rule(get_ent("VoK Entrance to LM Near Sky Garden"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
-    set_rule(get_ent("VoK Entrance to Graves of Ancient Heroes"), lambda state: state.has_all(["Shrine Maiden Amulet", "Grip Gloves"], player))
+    set_rule(get_ent("LM Back to LM Near Sky Garden"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
+    set_rule(get_ent("LM Back to Graves of Ancient Heroes"), lambda state: state.has_all(["Shrine Maiden Amulet", "Grip Gloves"], player))
     set_rule(get_ent("VoK Before Door to VoK After Door"), lambda state: state.has("Purifying Bell", player))
     set_rule(get_ent("VoK After Door to VoK Boss Arena"), lambda state: state.has_all(["Doxa Griel Defeated", "Purifying Bell"], player))
-    set_rule(get_ent("Graves of Ancient Heroes to VoK Entrance"), lambda state: state.has("Shrine Maiden Amulet", player))
+    set_rule(get_ent("Graves of Ancient Heroes to LM Back"), lambda state: state.has("Shrine Maiden Amulet", player))
 
     # Submerged Cemetery Connections
     set_rule(get_ent("Submerged Cemetery to LM Near Submerged Cemetery"), lambda state: has_required_crew(state, player, 22))
@@ -1171,7 +1171,7 @@ def set_location_rules(Ys8World: "Ys8World"):
              lambda state: battle_logic(state, player, 440, options))
 
     # --- 270 ---
-    set_rule(loc("Valley of Kings Entrance Force Garmr Encounter"),
+    set_rule(loc("Lodinia Marshlands Back Force Garmr Encounter"),
              lambda state: battle_logic(state, player, 450, options))
     set_rule(loc("Valley of Kings Mid-Boss Arena Doxa Griel"),
              lambda state: battle_logic(state, player, 450, options))
