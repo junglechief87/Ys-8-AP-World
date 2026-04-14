@@ -13,11 +13,11 @@ class Ys8ItemData(NamedTuple):
     type: str
     classification: ItemClassification = ItemClassification.filler
     weight: int = 1
-    flags: Optional[list[bytes]] = None
+    is_party_member: bool = False
     battle_logic: bool = False
     quantity: int = 1
     pool_quantity: int = 1
-
+    landmark_default_location: Optional[str] = None
 
 def get_items_by_category(category: str) -> Dict[str, Ys8ItemData]:
     return {name: data for name, data in item_table.items() if data.category == category}
@@ -326,34 +326,34 @@ item_table: Dict[str, Ys8ItemData] = {
     "Snowflake Soap": Ys8ItemData("Consumable", code = 81900, classification = ItemClassification.filler, type = "Item", pool_quantity = 1),
     "Big Seed": Ys8ItemData("Consumable", code = 82700, classification = ItemClassification.filler, type = "Item", pool_quantity = 1),
     "Old Stethoscope": Ys8ItemData("Consumable", code = 82900, classification = ItemClassification.filler, type = "Item", pool_quantity = 1),
-    "Laxia": Ys8ItemData("Crew", code = 90100, classification = ItemClassification.progression, type = "SetFlag", flags = ["Party"], pool_quantity = 1),
+    "Laxia": Ys8ItemData("Crew", code = 90100, classification = ItemClassification.progression, type = "SetFlag", is_party_member = True, pool_quantity = 1),
     "Captain Barbaros": Ys8ItemData("Crew", code = 90200, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
     "Little Paro": Ys8ItemData("Crew", code = 90300, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
-    "Sahad": Ys8ItemData("Crew", code = 90400, classification = ItemClassification.progression, type = "SetFlag", flags = ["Party"], pool_quantity = 1),
+    "Sahad": Ys8ItemData("Crew", code = 90400, classification = ItemClassification.progression, type = "SetFlag", is_party_member = True, pool_quantity = 1),
     "Dogi": Ys8ItemData("Crew", code = 90500, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
     "Alison": Ys8ItemData("Crew", code = 90600, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
     "Sir Carlan": Ys8ItemData("Crew", code = 90700, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
     "Kiergaard": Ys8ItemData("Crew", code = 90800, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
     "Sister Nia": Ys8ItemData("Crew", code = 90900, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
-    "Hummel": Ys8ItemData("Crew", code = 91000, classification = ItemClassification.progression, type = "SetFlag", flags = ["Party"], pool_quantity = 1),
+    "Hummel": Ys8ItemData("Crew", code = 91000, classification = ItemClassification.progression, type = "SetFlag", is_party_member = True, pool_quantity = 1),
     "Dina": Ys8ItemData("Crew", code = 91100, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
     "Reja": Ys8ItemData("Crew", code = 91200, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
     "Euron": Ys8ItemData("Crew", code = 91300, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
     "Licht": Ys8ItemData("Crew", code = 91400, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
     "Quina": Ys8ItemData("Crew", code = 91500, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
-    "Ricotta": Ys8ItemData("Crew", code = 91600, classification = ItemClassification.progression, type = "SetFlag", flags = ["Party"], pool_quantity = 1),
+    "Ricotta": Ys8ItemData("Crew", code = 91600, classification = ItemClassification.progression, type = "SetFlag", is_party_member = True, pool_quantity = 1),
     "Austin": Ys8ItemData("Crew", code = 91700, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
     "Miralda": Ys8ItemData("Crew", code = 91800, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
     "Thanatos": Ys8ItemData("Crew", code = 91900, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
     "Silvia": Ys8ItemData("Crew", code = 92000, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
-    "Dana": Ys8ItemData("Crew", code = 92100, classification = ItemClassification.progression, type = "SetFlag", flags = ["Party"], pool_quantity = 1),
+    "Dana": Ys8ItemData("Crew", code = 92100, classification = ItemClassification.progression, type = "SetFlag", is_party_member = True, pool_quantity = 1),
     "Katthew": Ys8ItemData("Crew", code = 92200, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
     "Ed": Ys8ItemData("Crew", code = 92300, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
     "Franz": Ys8ItemData("Crew", code = 92400, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
     "Shoebill": Ys8ItemData("Crew", code = 92500, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
     "Griselda": Ys8ItemData("Crew", code = 92600, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
     "Master Kong": Ys8ItemData("Crew", code = 92700, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
-    "Adol": Ys8ItemData("Crew", code = 92800, classification = ItemClassification.progression, type = "SetFlag", flags = ["Party"], pool_quantity = 1),
+    "Adol": Ys8ItemData("Crew", code = 92800, classification = ItemClassification.progression, type = "SetFlag", is_party_member = True, pool_quantity = 1),
     "SKILL_ADOL_SP_C1": Ys8ItemData("Skill", code = 92900, classification = ItemClassification.useful, type = "SetFlag", pool_quantity = 1),
     "SKILL_ADOL_SP_C2": Ys8ItemData("Skill", code = 93000, classification = ItemClassification.useful, type = "SetFlag", pool_quantity = 1),
     "SKILL_LAXIA_SP_C1": Ys8ItemData("Skill", code = 93100, classification = ItemClassification.useful, type = "SetFlag", pool_quantity = 1),
@@ -420,6 +420,9 @@ item_table: Dict[str, Ys8ItemData] = {
     "SKILL_LAXIA_SP_A1": Ys8ItemData("Skill", code = 99200, classification = ItemClassification.useful, type = "SetFlag", pool_quantity = 1),
     "SKILL_HUMMEL_SP_B5": Ys8ItemData("Skill", code = 99300, classification = ItemClassification.useful, type = "SetFlag", pool_quantity = 1),
     "SKILL_ADOL_SP_A3": Ys8ItemData("Skill", code = 99400, classification = ItemClassification.useful, type = "SetFlag", pool_quantity = 1),
+}
+
+landmark_item_table: Dict[str, Ys8ItemData] = {
     "Birdsong Rock": Ys8ItemData("Landmark", code = 99500, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
     "Cobalt Crag": Ys8ItemData("Landmark", code = 99600, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
     "Rainbow Falls": Ys8ItemData("Landmark", code = 99700, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
@@ -549,6 +552,20 @@ event_item_table: Dict[str, Ys8ItemData] = {
     "Material: Underworld Hide (Octus Overlook)": Ys8ItemData("Underworld Hide Farming - Octus Overlook", code = None, classification = ItemClassification.progression, type = "Material", pool_quantity = 1),
 }
 
+psyche_item_table: Dict[str, Ys8ItemData] = {
+    "Psyches of the Sky Era": Ys8ItemData("Psyches", code = None, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
+    "Psyches of the Insectoid Era": Ys8ItemData("Psyches", code = None, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
+    "Psyches of the Ocean Era": Ys8ItemData("Psyches", code = None, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
+    "Psyches of the Frozen Era": Ys8ItemData("Psyches", code = None, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1)
+}
+
+psyche_access_item_table: Dict[str, Ys8ItemData] = {
+    "Psyches of the Sky Era Access": Ys8ItemData("Psyches Access", code = None, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
+    "Psyches of the Insectoid Era Access": Ys8ItemData("Psyches Access", code = None, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
+    "Psyches of the Ocean Era Access": Ys8ItemData("Psyches Access", code = None, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1),
+    "Psyches of the Frozen Era Access": Ys8ItemData("Psyches Access", code = None, classification = ItemClassification.progression, type = "SetFlag", pool_quantity = 1)
+}
+
 #Make item categories
 item_name_groups: Dict[str, Set[str]] = {}
 for item in item_table.keys():
@@ -556,3 +573,7 @@ for item in item_table.keys():
     if category not in item_name_groups.keys():
         item_name_groups[category] = set()
     item_name_groups[category].add(item)
+
+def extend_item_tables_with_landmarks():
+    """Merge landmark items into the main item table."""
+    item_table.update(landmark_item_table)

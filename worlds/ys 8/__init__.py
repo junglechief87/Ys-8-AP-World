@@ -9,8 +9,8 @@ from Options import OptionError, PerGameCommonOptions, Toggle
 from worlds.AutoWorld import WebWorld, World
 from worlds.LauncherComponents import Component, components, Type, launch
 from .Options import Ys8Options, Ys8_option_groups, Ys8_option_presets
-from .Locations import Ys8Location, location_table, location_name_groups
-from .Items import Ys8Item, Ys8ItemData, get_items_by_category, item_table, item_name_groups, event_item_table
+from .Locations import Ys8Location, location_table, location_name_groups, chosen_psyche_fight_list, chosen_psyche_location_list
+from .Items import Ys8Item, Ys8ItemData, get_items_by_category, item_table, item_name_groups, psyche_item_table, psyche_access_item_table, event_item_table
 from .Rules import set_all_rules
 from .Regions import create_regions, connect_entrances
 
@@ -49,7 +49,22 @@ class Ys8World(World):
     fillers.update(get_items_by_category("Consumable"))
 
     def generate_early(self):
-        pass
+        from .Locations import extend_location_tables_with_fsc, extend_psyche_location_table_with_fsc_off, extend_location_tables_with_landmarks
+        from .Items import extend_item_tables_with_landmarks
+        
+        # Force Former Sanctuary Crypt on if Untouchable final boss access is selected
+        if self.options.final_boss_access.value == 3:  # option_untouchable
+            self.options.former_sanctuary_crypt.value = True
+        
+        if self.options.former_sanctuary_crypt.value:
+            extend_location_tables_with_fsc()
+        else:
+            extend_psyche_location_table_with_fsc_off()
+        
+        # Add landmark locations and items if Discovery Sanity is enabled
+        if self.options.discovery_sanity.value:
+            extend_item_tables_with_landmarks()
+            extend_location_tables_with_landmarks()
 
     def create_regions(self):
         create_regions(self)
@@ -61,10 +76,19 @@ class Ys8World(World):
         self.place_predetermined_items()
 
         # Determine Starting Character and add to precollected items
-        party = [item_name for item_name in item_table.keys() if item_table[item_name].flags and "Party" in item_table[item_name].flags]
+        party = [item_name for item_name in item_table.keys() if item_table[item_name].is_party_member]
         starting_character = self.random.choice(party)
         item = self.create_item(starting_character)
         self.multiworld.push_precollected(item)
+
+        if self.options.final_boss_access == 2:  # Psyche Fight Shuffle
+            for i, (access_item_name, psyche_item_name) in enumerate(zip(psyche_access_item_table.keys(), psyche_item_table.keys())):
+                access_item = self.create_item(access_item_name)
+                psyche_item = self.create_item(psyche_item_name)
+                access_location = self.multiworld.get_location(chosen_psyche_location_list[i], self.player)
+                psyche_location = self.multiworld.get_location(chosen_psyche_fight_list[i], self.player)
+                access_location.place_locked_item(access_item)
+                psyche_location.place_locked_item(psyche_item)
 
         locations_to_fill = len(self.multiworld.get_unfilled_locations(self.player))
         item_pool: List[Ys8Item] = []
@@ -100,9 +124,6 @@ class Ys8World(World):
         # Place event items that are required for progression or victory
         for item_name in event_item_table.keys():
             location_name = event_item_table[item_name].category
-            if (not self.options.former_sanctuary_crypt.value
-                    and location_name.startswith("Former Sanctuary Crypt")):
-                continue
             item = self.create_event(item_name)
             location = self.multiworld.get_location(location_name, self.player)
             location.place_locked_item(item)

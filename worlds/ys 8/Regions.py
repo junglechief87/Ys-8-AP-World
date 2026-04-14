@@ -1,6 +1,9 @@
 from typing import Dict, List, NamedTuple, Optional, TYPE_CHECKING
 from BaseClasses import MultiWorld, Region, Entrance
-from .Locations import Ys8Location, location_table, event_location_table
+from .Locations import (Ys8Location, location_table, event_location_table, psyche_location_table, psyche_fight_names, 
+                        chosen_psyche_fight_list, chosen_psyche_location_list)
+from . import Locations
+import Locations
 
 if TYPE_CHECKING:
     from . import Ys8World
@@ -13,11 +16,7 @@ def create_regions(Ys8World):
     multiworld = Ys8World.multiworld
     player     = Ys8World.player
     options    = Ys8World.options
-    former_sanctuary_enabled = options.former_sanctuary_crypt.value
 
-    # :Bridge regions are meant to represent connections between two regions that are not normally connected in the base game. 
-    # They are used to allow for more flexible world design and to accommodate the randomization of entrances and exits. 
-    # They should not contain any locations and are used to keep from putting logic on entrances that could move between regions.
     regions: Dict[str, Ys8RegionData] = {
         "Calm Inlet Area": Ys8RegionData([],["CIA to WC", "CIA to NC North of Boulder", "CIA to Rainbow Falls", "CIA to Parasequoia", 
                                              "CIA to Metavolicalis", "CIA to IL 1", "CIA to IL 2", "CIA to IL 3", "CIA to Map Completion", 
@@ -46,7 +45,7 @@ def create_regions(Ys8World):
         "Metavolicalis Area": Ys8RegionData([], ["TCF Back", "Meta Area to Para Area", "Metavolicalis to CIA"]),
         "Parasequoia Area": Ys8RegionData([], ["Para Area to Meta Area","Parasequoia to CIA"]),
         "Great River Valley Area": Ys8RegionData([], ["GRV to NC North of Boulder", "GRV to Base of WF Gendarme", "Chimney Rock to CIA", "GRV to WG Dark Area",
-                                                      "GRV to LCA", "GRV to EV Front", "GRV to SJ:Bridge", "GRV to PP"]),
+                                                      "GRV to LCA", "GRV to EV Front", "GRV to SJ Front", "GRV to PP"]),
         "Base of Western Foot of Gendarme": Ys8RegionData([], ["Base of WF Gendarme to GRV", "Base of WF Gendarme to WF Gendarme"]),
         "Western Foot of Gendarme": Ys8RegionData([], ["WF Gendarme to Base of WF Gendarme", "Airs Cairn to CIA"]),
         "Milky White Vein": Ys8RegionData([], ["Milky White Vein to CIA", "Milky White Vein to WG Dark Area"]),
@@ -61,8 +60,7 @@ def create_regions(Ys8World):
         "Eroded Valley Before Boss": Ys8RegionData([], ["EV Before Boss to EV Webbed Walkway", "EV Before Boss to EV Boss Arena"]),
         "Eroded Valley Boss Arena": Ys8RegionData([], ["EV Boss Arena to EV Before Boss", "EV Boss Arena to SB"]),
         "Sunrise Beach": Ys8RegionData([], ["SB to EV Boss Arena", "Beached Remains to CIA"]),
-        "Schlamm Jungle Bridge": Ys8RegionData([], ["SJ:Bridge to GRV", "SJ:Bridge to SJ Front"]),
-        "Schlamm Jungle Front": Ys8RegionData([], ["SJ Front to SJ:Bridge", "SJ Front to SJ Mid-Boss Arena"]),
+        "Schlamm Jungle Front": Ys8RegionData([], ["SJ Front to GRV", "SJ Front to SJ Mid-Boss Arena"]),
         "Schlamm Jungle Mid-Boss Arena": Ys8RegionData([], ["SJ Mid-Boss Arena to SJ Front", "SJ Mid-Boss Arena to SJ Muddy Path"]),
         "Schlamm Jungle Muddy Path": Ys8RegionData([], ["SJ Muddy Path to SJ Mid-Boss Arena", "SJ Muddy Path to SJ Before Boss", "SJ Muddy Path to SJ FoMH"]),
         "Schlamm Jungle Field of Medicinal Herbs": Ys8RegionData([], ["SJ FoMH to SJ Muddy Path", "SJ FoMH to CIA"]),
@@ -74,8 +72,7 @@ def create_regions(Ys8World):
         "East Coast Cave After Gilkyra": Ys8RegionData([], ["ECC AG to ECC BG", "ECC AG to PSE"]),
         "Pirate Ship Eleftheria": Ys8RegionData([], ["PSE to ECC AG", "PSE to PSE Submerged Hold"]),
         "Pirate Ship Eleftheria Submerged Hold": Ys8RegionData([], ["PSE Submerged Hold to PSE"]),
-        "Primordial Passage": Ys8RegionData([], ["PP to GRV", "PP to MG:Bridge", "PP to MG Night"]),
-        "Mont Gendarme Bridge": Ys8RegionData([], ["MG:Bridge to PP", "MG:Bridge to MG Front"]),
+        "Primordial Passage": Ys8RegionData([], ["PP to GRV", "PP to MG Front", "PP to MG Night"]),
         "Outside Silent Tower": Ys8RegionData([], ["Outside ST to LCA", "Outside ST to ST"]),
         "Silent Tower": Ys8RegionData([], ["ST to Outside ST"]),
         "Solitude Island": Ys8RegionData([], ["Solitude Island to CIA"]),
@@ -83,7 +80,7 @@ def create_regions(Ys8World):
         "WH Past Insect Nests": Ys8RegionData([], ["WH Past Insect Nests to WH"]),
         "Underground Water Vein": Ys8RegionData([], ["UWV to WH", "UWV to Lapis Mineral Vein Area"]),
         "Lapis Mineral Vein Area": Ys8RegionData([], ["Lapis Mineral Vein Area to UWV", "Lapis Mineral Vein Area to CIA"]),
-        "Mont Gendarme Front": Ys8RegionData([], ["MG Front to MG:Bridge", "MG Front to MG Mid"]),
+        "Mont Gendarme Front": Ys8RegionData([], ["MG Front to MG Front", "MG Front to MG Mid"]),
         "Mont Gendarme Middle": Ys8RegionData([], ["MG Mid to MG Front", "MG Mid to MG Mid-Boss Arena"]),
         "Mont Gendarme Mid-Boss Arena": Ys8RegionData([], ["MG Mid-Boss Arena to MG Mid", "MG Mid-Boss Arena to MG Upper"]),
         "Mont Gendarme Upper": Ys8RegionData([], ["MG Upper to MG Mid-Boss Arena", "MG Upper to MG Boss Arena"]),
@@ -98,10 +95,11 @@ def create_regions(Ys8World):
         "Temple of the Great Tree Garden": Ys8RegionData([], ["TotGT Garden to TotGT Boss Arena", "TotGT Garden to Octus"]),
         "Octus Overlook": Ys8RegionData([], ["Octus to TotGT Garden", "Octus to Selection Sphere"]),
         "Selection Sphere": Ys8RegionData([], ["Selection Sphere to Octus"]),
-        "Ruins of Eternia": Ys8RegionData([], ["RoE to Seiren North", "RoE to TotGT", "RoE to AC:Bridge", "RoE to TH", "RoE to FSC First Barrier", "RoE to Bolado"]),
+        "Ruins of Eternia": Ys8RegionData([], ["RoE to Seiren North", "RoE to TotGT", "RoE to AC Front", "RoE to TH", "RoE to FSC Entrance", "RoE to Bolado"]),
         "Bolado Monastery": Ys8RegionData([], ["Bolado to RoE", "Bolado to Bolado Basement"]),
         "Bolado Monastery Basement": Ys8RegionData([], ["Bolado Basement to Bolado"]),
-        "Former Sanctuary Crypt First Barrier": Ys8RegionData([], ["FSC First Barrier to RoE", "FSC First Barrier to FSC Second Floor", "FSC First Barrier to FSC First Barrier North Brazier Room"]),
+        "Former Sanctuary Crypt Entrance": Ys8RegionData([], ["FSC Entrance to FSC First Barrier", "FSC Entrance to RoE"]),
+        "Former Sanctuary Crypt First Barrier": Ys8RegionData([], ["FSC First Barrier to FSC Entrance", "FSC First Barrier to FSC Second Floor", "FSC First Barrier to FSC First Barrier North Brazier Room"]),
         "Former Sanctuary Crypt First Barrier North Brazier Room": Ys8RegionData([], ["FSC First Barrier North Brazier Room to FSC First Barrier"]),
         "Former Sanctuary Crypt Second Floor": Ys8RegionData([], ["FSC Second Floor to FSC First Barrier", "FSC Second Floor to FSC Second Barrier"]),
         "Former Sanctuary Crypt Second Barrier": Ys8RegionData([], ["FSC Second Barrier to FSC Second Floor", "FSC Second Barrier to FSC Second Boss Arena"]),
@@ -116,8 +114,7 @@ def create_regions(Ys8World):
         "Baja Tower Lower Floors": Ys8RegionData([], ["Baja to TH", "Baja to Baja Upper"]),
         "Baja Tower Upper Floors": Ys8RegionData([], ["Baja Upper to Baja Boss Arena"]),
         "Baja Tower Boss Arena": Ys8RegionData([], ["Baja Boss to Baja Upper"]),
-        "Archeozoic Chasm Bridge": Ys8RegionData([], ["AC:Bridge to RoE", "AC:Bridge to AC Front"]),
-        "Archeozoic Chasm Front": Ys8RegionData([], ["AC Front to AC:Bridge", "AC Front to AC Submerged Area"]),
+        "Archeozoic Chasm Front": Ys8RegionData([], ["AC Front to RoE", "AC Front to AC Submerged Area"]),
         "Archeozoic Chasm Submerged Area": Ys8RegionData([], ["AC Submerged Area to AC Front", "AC Submerged Area to AC Boss Arena"]),
         "Archeozoic Chasm Boss Arena": Ys8RegionData([], ["AC Boss Arena to AC Submerged Area"]),
         "Vista Ridge": Ys8RegionData([], ["Vista Ridge to TotGT", "Vista Ridge to Vista Ridge Upper", "Vista Ridge to LM Entrance"]),
@@ -144,15 +141,22 @@ def create_regions(Ys8World):
     }
 
     for location in location_table:
-        if not former_sanctuary_enabled and location.startswith("Former Sanctuary Crypt"):
-            continue
-        print(location)
         regions[location_table[location].category].locations.append(location)
 
     for location in event_location_table:
-        if not former_sanctuary_enabled and location.startswith("Former Sanctuary Crypt"):
-            continue
         regions[event_location_table[location].category].locations.append(location)
+
+    if options.final_boss_access == 2:  # Psyche Fight Shuffle
+        psyche_num = 4
+        fight_samples = multiworld.random.sample(list(psyche_fight_names.items()), psyche_num)
+        location_samples = multiworld.random.sample(list(psyche_location_table.items()), psyche_num)
+        
+        chosen_psyche_fight_list[:] = [name for name, _ in fight_samples]
+        chosen_psyche_location_list[:] = [name for name, _ in location_samples]
+        
+        for (fight_name, fight_data), (location_name, location_data) in zip(fight_samples, location_samples):
+            regions[fight_data.category].locations.append(fight_name)
+            regions[location_data.category].locations.append(location_name)
 
     for name, data in regions.items():
         multiworld.regions.append(create_region(multiworld, player, name, data))
@@ -253,9 +257,8 @@ def connect_entrances(Ys8World: "Ys8World"):
     connect("GRV to WG Dark Area", "Waterfall Grotto Dark Area")
     connect("GRV to LCA", "Longhorn Coast Area")
     connect("GRV to EV Front", "Eroded Valley Front")
-    connect("GRV to SJ:Bridge", "Schlamm Jungle Bridge")
-    connect("SJ:Bridge to GRV", "Great River Valley Area")
-    connect("SJ:Bridge to SJ Front", "Schlamm Jungle Front")
+    connect("GRV to SJ Front", "Schlamm Jungle Front")
+    connect("SJ Front to GRV", "Great River Valley Area")
     connect("GRV to PP", "Primordial Passage")
     
     # Base of Western Foot of Gendarme Connections
@@ -303,7 +306,7 @@ def connect_entrances(Ys8World: "Ys8World"):
     connect("Beached Remains to CIA", "Calm Inlet Area")
 
     # Schlamm Jungle Connections
-    connect("SJ Front to SJ:Bridge", "Schlamm Jungle Bridge")
+    connect("SJ Front to GRV", "Great River Valley Area")
     connect("SJ Front to SJ Mid-Boss Arena", "Schlamm Jungle Mid-Boss Arena")
     connect("SJ Mid-Boss Arena to SJ Front", "Schlamm Jungle Front")
     connect("SJ Mid-Boss Arena to SJ Muddy Path", "Schlamm Jungle Muddy Path")
@@ -339,9 +342,7 @@ def connect_entrances(Ys8World: "Ys8World"):
 
     # Primordial Passage Connections
     connect("PP to GRV", "Great River Valley Area")
-    connect("PP to MG:Bridge", "Mont Gendarme Bridge")
-    connect("MG:Bridge to PP", "Primordial Passage")
-    connect("MG:Bridge to MG Front", "Mont Gendarme Front")
+    connect("PP to MG Front", "Mont Gendarme Front")
     connect("PP to MG Night", "Mont Gendarme (Night) Front Half")
 
     # Silent Tower Connections
@@ -363,7 +364,7 @@ def connect_entrances(Ys8World: "Ys8World"):
     connect("Lapis Mineral Vein Area to CIA", "Calm Inlet Area")
 
     # Mont Gendarme Connections
-    connect("MG Front to MG:Bridge", "Mont Gendarme Bridge")
+    connect("MG Front to PP", "Primordial Passage")
     connect("MG Front to MG Mid", "Mont Gendarme Middle")
     connect("MG Mid to MG Front", "Mont Gendarme Front")
     connect("MG Mid to MG Mid-Boss Arena", "Mont Gendarme Mid-Boss Arena")
@@ -408,19 +409,18 @@ def connect_entrances(Ys8World: "Ys8World"):
     # Ruins of Eternia Connections
     connect("RoE to Seiren North", "Seiren North Access")
     connect("RoE to TotGT", "Temple of the Great Tree")
-    connect("RoE to AC:Bridge", "Archeozoic Chasm Bridge")
     connect("RoE to TH", "Towal Highway")
-    connect("RoE to FSC First Barrier", "Former Sanctuary Crypt First Barrier")
+    connect("RoE to FSC", "Former Sanctuary Crypt Entrance")
     connect("RoE to Bolado", "Bolado Monastery")
     connect("Bolado to RoE", "Ruins of Eternia")
     connect("Bolado to Bolado Basement", "Bolado Monastery Basement")
     connect("Bolado Basement to Bolado", "Bolado Monastery")
-    connect("AC:Bridge to RoE", "Ruins of Eternia")
-    connect("AC:Bridge to AC Front", "Archeozoic Chasm Front")
-    connect("RoE to AC:Bridge", "Archeozoic Chasm Bridge")
+    connect("RoE to AC Front", "Archeozoic Chasm Front")
 
     # Former Sanctuary Crypt Connections
-    connect("FSC First Barrier to RoE", "Ruins of Eternia")
+    connect("FSC Entrance to RoE", "Ruins of Eternia")
+    connect("FSC Entrance to FSC First Barrier", "Former Sanctuary Crypt First Barrier")
+    connect("FSC First Barrier to FSC Entrance", "Former Sanctuary Crypt Entrance")
     connect("FSC First Barrier to FSC Second Floor", "Former Sanctuary Crypt Second Floor")
     connect("FSC First Barrier to FSC First Barrier North Brazier Room", "Former Sanctuary Crypt First Barrier North Brazier Room")
     connect("FSC First Barrier North Brazier Room to FSC First Barrier", "Former Sanctuary Crypt First Barrier")
@@ -453,7 +453,7 @@ def connect_entrances(Ys8World: "Ys8World"):
     connect("Baja Boss to Baja Upper", "Baja Tower Upper Floors")
 
     # Archeozoic Chasm Connections
-    connect("AC Front to AC:Bridge", "Archeozoic Chasm Bridge")
+    connect("AC Front to RoE", "Ruins of Eternia")
     connect("AC Front to AC Submerged Area", "Archeozoic Chasm Submerged Area")
     connect("AC Submerged Area to AC Front", "Archeozoic Chasm Front")
     connect("AC Submerged Area to AC Boss Arena", "Archeozoic Chasm Boss Arena")

@@ -3,8 +3,8 @@ from BaseClasses import CollectionState, ItemClassification
 from worlds.generic.Rules import add_item_rule, add_rule, set_rule
 from math import ceil
 from BaseClasses import Entrance, Location
-from .Locations import Ys8Location, location_table
-from .Items import Ys8Item, item_table, event_item_table
+from .Locations import Ys8Location, location_table, chosen_psyche_fight_list, chosen_psyche_location_list
+from .Items import Ys8Item, item_table, event_item_table, psyche_access_item_table
 from .Options import Ys8Options
 
 if TYPE_CHECKING:
@@ -27,7 +27,7 @@ def has_required_crew(state: CollectionState, player: int, crew_count: int) -> b
     return state.has_from_list([item for item, data in item_table.items() if data.category == "Crew"], player, crew_count)
 
 def has_required_party(state: CollectionState, player: int, party_count: int) -> bool:
-    return state.has_from_list([item for item, data in item_table.items() if data.flags and "Party" in data.flags], player, party_count)
+    return state.has_from_list([item for item, data in item_table.items() if data.is_party_member], player, party_count)
 
 def count_discoveries(state: CollectionState, player: int) -> int:
     """Count the total number of discoveries (landmarks) the player has collected."""
@@ -568,9 +568,9 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     set_rule(get_ent("GRV to Base of WF Gendarme"), lambda state: state.has("Float Shoes", player))
     set_rule(get_ent("GRV to WG Dark Area"), lambda state: state.has("Glow Stone", player))
     set_rule(get_ent("GRV to LCA"), lambda state: state.has("Dina", player))
-    set_rule(get_ent("GRV to SJ:Bridge"), lambda state: state.has("Dina", player))
+    set_rule(get_ent("GRV to SJ Front"), lambda state: state.has("Dina", player))
     set_rule(get_ent("GRV to PP"), lambda state: state.has("Maiden Journal", player) and state.has("Grip Gloves", player))
-    set_rule(get_ent("SJ:Bridge to GRV"), lambda state: state.has("Dina", player))
+    set_rule(get_ent("SJ Front to GRV"), lambda state: state.has("Dina", player))
 
     # Base of Western Foot of Gendarme Connections
     set_rule(get_ent("Base of WF Gendarme to WF Gendarme"), lambda state: has_required_crew(state, player, 11))
@@ -625,11 +625,13 @@ def set_entrance_rules(Ys8World: "Ys8World"):
 
     # Primordial Passage Connections
     set_rule(get_ent("PP to GRV"), lambda state: state.has("Maiden Journal", player))
-    set_rule(get_ent("MG:Bridge to PP"), lambda state: state.has("Maiden Journal", player))
+    set_rule(get_ent("MG Front to PP"), lambda state: state.has("Maiden Journal", player))
     set_rule(get_ent("PP to MG Night"), lambda state: state.has("Glow Stone", player))
 
     # Outside Silent Tower Connections
     set_rule(get_ent("Outside ST to ST"), lambda state: has_required_crew(state, player, 24))
+    set_rule(get_ent("ST to Outside ST"), lambda state: has_required_crew(state, player, 24))
+    set_rule(get_ent("Outside ST to LCA"), lambda state: state.has("Archeopteryx Wings", player))
 
     # Weathervane Hills Connections
     set_rule(get_ent("WH to WH Past Insect Nests"), lambda state: state.has("Dina", player))
@@ -663,22 +665,27 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     set_rule(get_ent("TotGT to RoE"), lambda state: state.has("Green Seal of Roaring Stone", player))
     set_rule(get_ent("TotGT Boss Arena to TotGT Garden"), lambda state: state.has("Brachion Defeated", player))
     set_rule(get_ent("TotGT Boss Arena to TotGT"), lambda state: state.has("Brachion Defeated", player))
-    set_rule(get_ent("TotGT Garden to Octus"), lambda state: has_required_crew(state, player, 20)) # placeholder until options are completed
+    if options.final_boss_access == 0:
+        set_rule(get_ent("TotGT Garden to Octus"), lambda state: 
+                 state.has_from_list(["Psyches of the Sky Era", "Psyches of the Insectoid Era", "Psyches of the Ocean Era", "Psyches of the Frozen Era"], options.goal_count_crew_mode))
+    if options.final_boss_access == 2:
+        set_rule(get_ent("TotGT Garden to Octus"), lambda state: has_required_crew(state, player, options.goal_count_psyches_mode))
 
     # Ruins of Eternia Connections
     set_rule(get_ent("RoE to Seiren North"), lambda state: state.has("Blue Seal of Whirling Water", player))
     set_rule(get_ent("RoE to TotGT"), lambda state: state.has("Green Seal of Roaring Stone", player))
-    set_rule(get_ent("RoE to AC:Bridge"), lambda state: state.has("Frozen Flower", player))
+    set_rule(get_ent("RoE to AC Front"), lambda state: state.has("Frozen Flower", player))
     set_rule(get_ent("RoE to TH"), lambda state: state.has("Dana", player))
     if options.former_sanctuary_crypt.value:
-        set_rule(get_ent("RoE to FSC First Barrier"), lambda state: state.has_all(["Jade Pendant", "Dina"], player) and battle_logic(state, player, 800, options))
+        set_rule(get_ent("RoE to FSC Entrance"), lambda state: state.has("Jade Pendant", player))
+        set_rule(get_ent("FSC Entrance to RoE"), lambda state: state.has("Jade Pendant", player))
     set_rule(get_ent("RoE to Bolado"), lambda state: state.has("Frozen Flower", player))
     set_rule(get_ent("Bolado to Bolado Basement"), lambda state: state.has("Glow Stone", player))
-    set_rule(get_ent("AC:Bridge to RoE"), lambda state: state.has("Frozen Flower", player))
+    set_rule(get_ent("AC Front to RoE"), lambda state: state.has("Frozen Flower", player))
 
     # Former Sanctuary Connections
     if options.former_sanctuary_crypt.value:
-        set_rule(get_ent("FSC First Barrier to RoE"), lambda state: state.has_all(["Jade Pendant", "Dina"], player))
+        set_rule(get_ent("FSC Entrance to FSC First Barrier"), lambda state: state.has("Dina", player) and battle_logic(state, player, 800, options))
         set_rule(get_ent("FSC First Barrier to FSC Second Floor"), lambda state: state.has("Essence Key Stone", player))
         set_rule(get_ent("FSC First Barrier to FSC First Barrier North Brazier Room"), lambda state: state.has_all_counts({"Essence Key Stone": 9}, player))
         add_rule(get_ent("FSC First Barrier to FSC Second Floor"), lambda state: state.has("Archeopteryx Wings", player))
@@ -688,7 +695,6 @@ def set_entrance_rules(Ys8World: "Ys8World"):
         set_rule(get_ent("FSC Third Floor Side Rooms to FSC Third Floor"), lambda state: state.has_all_counts({"Essence Key Stone": 9}, player))
         set_rule(get_ent("FSC Third Barrier to FSC Final Floors"), lambda state: state.has_all_counts({"Essence Key Stone": 6}, player))
         set_rule(get_ent("FSC Final Floors to FSC Final Floor Side Rooms"), lambda state: state.has_all_counts({"Essence Key Stone": 9}, player))
-        set_rule(get_ent("FSC Final Floors to FSC Boss Room"), lambda state: has_required_crew(state, player, 20)) # placeholder until options are completed
 
     # Towal Highway Connections
     set_rule(get_ent("TH to RoE"), lambda state: state.has("Dana", player))
@@ -1037,6 +1043,8 @@ def set_location_rules(Ys8World: "Ys8World"):
     if options.former_sanctuary_crypt.value:
         add_rule(loc("Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma Skill"),
                  lambda state: state.has("Melaiduma Defeated", player))
+        add_rule(loc("Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma Medals"),
+                 lambda state: state.has("Melaiduma Defeated", player))
 
     # Octus Overlook — Psyche-Ura, Psyche-Nestor, Psyche-Minos, Psyche-Hydra
     add_rule(loc("Octus Overlook Path of the Sky Era Psyche-Ura Skill 1"),
@@ -1197,13 +1205,31 @@ def set_location_rules(Ys8World: "Ys8World"):
     
     if options.final_boss_access == 0:
         add_rule(loc("Octus Overlook Selection Sphere Goal"),
-                 lambda state: has_required_crew(state, player, options.goal_count_crew_mode))
+                 lambda state: has_required_crew(state, player, options.goal_count_crew_final_boss))
     elif options.final_boss_access == 1:
         add_rule(loc("Octus Overlook Selection Sphere Goal"),
                  lambda state: state.has_all(["Mistiltein", "Ship Blueprint", "Seiren Nautical Chart"], player))
     elif options.final_boss_access == 2:
         add_rule(loc("Octus Overlook Selection Sphere Goal"),
-                 lambda state: state.has_all(["Psyche-Ura Defeated", "Psyche-Nestor Defeated", "Psyche-Minos Defeated", "Psyche-Hydra Defeated"], player))
+                 lambda state: state.has_from_list(["Psyches of the Sky Era", "Psyches of the Insectoid Era", "Psyches of the Ocean Era", "Psyches of the Frozen Era"], 
+                                                   player, options.goal_count_psyches_final_boss))
+        region_boss_mapping = {
+            "Silent Tower": "Mephorash Defeated",
+            "Former Sanctuary Crypt": "Melaiduma Defeated",
+            "Valley of Kings Boss Arena": "Basileus Defeated",
+            "Archeozoic Chasm Boss Arena": "Oceanus Defeated",
+            "Baja Tower Boss Arena": "Carveros Defeated",
+            "Pirate Ship Eleftheria Deck": "Pirate Revenant Defeated",
+            "Mont Gendarme Boss Arena": "Giasburn Defeated",
+            "Temple of the Great Tree Temple Boss Arena": "Brachion Defeated",
+            "Schlamm Jungle Boss Arena": "Laspisus Defeated",
+            "Eroded Valley Boss Arena": "Gargantula Defeated",
+            "Towering Coral Forest Boss Arena": "Clareon Defeated"
+        }
+        for i, (psyche_location, psyche_fight) in enumerate(zip(chosen_psyche_location_list, chosen_psyche_fight_list)):
+            add_rule(loc(psyche_location), lambda state: state.has(region_boss_mapping[psyche_location], player))
+            add_rule(loc(psyche_fight), lambda state: state.has(psyche_access_item_table[i], player) and battle_logic(state, player, 760, options))
+
     elif options.final_boss_access == 3:
         add_rule(loc("Octus Overlook Selection Sphere Goal"),
                  lambda state: state.has("Melaiduma Defeated", player))

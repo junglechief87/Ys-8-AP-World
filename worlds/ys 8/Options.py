@@ -50,6 +50,27 @@ class GoalCountPsychesMode(Range):
     default = 2
 
 
+class GoalCountCrewFinalBoss(Range):
+    """
+    For Find Crew mode: Sets the number of castaways required to access the final boss.
+    """
+    display_name = "Goal Count to Access Final Boss (Find Crew)"
+    range_start = 1
+    range_end = 28
+    default = 20
+
+
+class GoalCountPsychesFinalBoss(Range):
+    """
+    For Release the Psyches mode: Sets the number of Wardens of Evolution required to defeat
+    to access the final boss.
+    """
+    display_name = "Goal Count to Access Final Boss (Release the Psyches)"
+    range_start = 1
+    range_end = 6
+    default = 4
+
+
 # Shuffle Modifiers
 class DiscoverySanity(Toggle):
     """
@@ -391,6 +412,8 @@ class Ys8Options(PerGameCommonOptions):
     final_boss_access: FinalBossAccess
     goal_count_crew_mode: GoalCountCrewMode
     goal_count_psyches_mode: GoalCountPsychesMode
+    goal_count_crew_final_boss: GoalCountCrewFinalBoss
+    goal_count_psyches_final_boss: GoalCountPsychesFinalBoss
     
     # Shuffle Modifiers
     discovery_sanity: DiscoverySanity
@@ -436,6 +459,8 @@ Ys8_option_groups = [
         FinalBossAccess,
         GoalCountCrewMode,
         GoalCountPsychesMode,
+        GoalCountCrewFinalBoss,
+        GoalCountPsychesFinalBoss,
     ]),
     OptionGroup("Shuffle Modifiers", [
         DiscoverySanity,
@@ -483,6 +508,8 @@ Ys8_option_presets: Dict[str, Dict[str, Any]] = {
         "final_boss_access": FinalBossAccess.option_find_crew,
         "goal_count_crew_mode": 16,
         "goal_count_psyches_mode": 2,
+        "goal_count_crew_final_boss": 20,
+        "goal_count_psyches_final_boss": 3,
         "discovery_sanity": False,
         "dungeon_entrance_shuffle": False,
         "jewel_trade_items": JewelTradeItems.option_up_to_10_jewels,
