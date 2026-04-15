@@ -200,20 +200,26 @@ location_table: Dict[str, Ys8LocationData] = {
     "Laxia Starting Skill Skill 1 Dagger Fling": Ys8LocationData("Calm Inlet Area", 522, "event"),
     "Laxia Starting Skill Skill 2 Wake Up!": Ys8LocationData("Calm Inlet Area", 523, "event"),
     # Lodinia Marshland
-    "Lodinia Marshland Entrance from Vista Ridge Chest 1": Ys8LocationData("Lodinia Marshlands Front", 173, "chest"),
-    "Lodinia Marshland Entrance from Vista Ridge Chest 2": Ys8LocationData("Lodinia Marshlands Front", 174, "chest"),
-    "Lodinia Marshland Entrance from Vista Ridge Chest 3": Ys8LocationData("Lodinia Marshlands Front", 175, "chest"),
-    "Lodinia Marshland Near Submerged Cemetery Chest 1": Ys8LocationData("Lodinia Marshlands Near Submerged Cemetery", 176, "chest"),
-    "Lodinia Marshland Near Submerged Cemetery Chest 2": Ys8LocationData("Lodinia Marshlands Near Submerged Cemetery", 177, "chest"),
-    "Lodinia Marshland Valley of Kings - Camp Chest": Ys8LocationData("Lodinia Marshlands Back", 178, "chest"),
-    #"Lodinia Marshland Valley of Kings - Camp (Dawn) Chest": Ys8LocationData("Lodinia Marshlands Near Sky Garden", 179, "chest"),
-    "Lodinia Marshland Muddy Lake Chest 1": Ys8LocationData("Lodinia Marshlands South", 185, "chest"),
-    "Lodinia Marshland Muddy Lake Chest 2": Ys8LocationData("Lodinia Marshlands South", 186, "chest"),
-    "Lodinia Marshland Muddy Lake Chest 3": Ys8LocationData("Lodinia Marshlands South", 187, "chest"),
-    "Lodinia Marshland Exit to Valley of Kings Chest 1": Ys8LocationData("Lodinia Marshlands Near Sky Garden", 188, "chest"),
-    "Lodinia Marshland Exit to Valley of Kings Chest 2": Ys8LocationData("Lodinia Marshlands Near Sky Garden", 189, "chest"),
-    "Lodinia Marshland Exit to Valley of Kings Chest 3": Ys8LocationData("Lodinia Marshlands Near Sky Garden", 190, "chest"),
-    "Lodinia Marshland Exit to Valley of Kings Fermented Sap": Ys8LocationData("Sky Garden", 445, "event"),
+    "Lodinia Marshlands Entrance from Vista Ridge Chest 1": Ys8LocationData("Lodinia Marshlands Front", 173, "chest"),
+    "Lodinia Marshlands Entrance from Vista Ridge Chest 2": Ys8LocationData("Lodinia Marshlands Front", 174, "chest"),
+    "Lodinia Marshlands Entrance from Vista Ridge Chest 3": Ys8LocationData("Lodinia Marshlands Front", 175, "chest"),
+    "Lodinia Marshlands Near Submerged Cemetery Chest 1": Ys8LocationData("Lodinia Marshlands Near Submerged Cemetery", 176, "chest"),
+    "Lodinia Marshlands Near Submerged Cemetery Chest 2": Ys8LocationData("Lodinia Marshlands Near Submerged Cemetery", 177, "chest"),
+    "Lodinia Marshlands Valley of Kings - Camp Chest": Ys8LocationData("Lodinia Marshlands Back", 178, "chest"),
+    #"Lodinia Marshlands Valley of Kings - Camp (Dawn) Chest": Ys8LocationData("Lodinia Marshlands Near Sky Garden", 179, "chest"),
+    "Lodinia Marshlands Muddy Lake Chest 1": Ys8LocationData("Lodinia Marshlands South", 185, "chest"),
+    "Lodinia Marshlands Muddy Lake Chest 2": Ys8LocationData("Lodinia Marshlands South", 186, "chest"),
+    "Lodinia Marshlands Muddy Lake Chest 3": Ys8LocationData("Lodinia Marshlands South", 187, "chest"),
+    "Lodinia Marshlands Exit to Valley of Kings Chest 1": Ys8LocationData("Lodinia Marshlands Near Sky Garden", 188, "chest"),
+    "Lodinia Marshlands Exit to Valley of Kings Chest 2": Ys8LocationData("Lodinia Marshlands Near Sky Garden", 189, "chest"),
+    "Lodinia Marshlands Exit to Valley of Kings Chest 3": Ys8LocationData("Lodinia Marshlands Near Sky Garden", 190, "chest"),
+    "Lodinia Marshlands Exit to Valley of Kings Fermented Sap": Ys8LocationData("Sky Garden", 445, "event"),
+    "Lodinia Marshlands Back Chest 1": Ys8LocationData("Lodinia Marshlands Back", 231, "chest"),
+    "Lodinia Marshlands Back Chest 2": Ys8LocationData("Lodinia Marshlands Back", 232, "chest"),
+    "Lodinia Marshlands Back Chest 3": Ys8LocationData("Lodinia Marshlands Back", 233, "chest"),
+    "Lodinia Marshlands Back Chest 4": Ys8LocationData("Lodinia Marshlands Back", 234, "chest"),
+    "Lodinia Marshlands Back Chest 5": Ys8LocationData("Lodinia Marshlands Back", 235, "chest"),
+    "Lodinia Marshlands Back Chest 6": Ys8LocationData("Lodinia Marshlands Back", 236, "chest"),
     # Lombardia
     "Lombardia Opening Cutscene Adol Join": Ys8LocationData("Calm Inlet Area", 429, "event"),
     # Longhorn Coast Area
@@ -496,12 +502,6 @@ location_table: Dict[str, Ys8LocationData] = {
     "Underground Water Vein Submerged Area Pikkard": Ys8LocationData("Lapis Mineral Vein Area", 442, "event"),
     "Underground Water Vein Submerged Area Driftage": Ys8LocationData("Underground Water Vein", 517, "event"),
     # Valley of Kings
-    "Lodinia Marshlands Back Chest 1": Ys8LocationData("Valley of Kings Before Door", 231, "chest"),
-    "Lodinia Marshlands Back Chest 2": Ys8LocationData("Valley of Kings Before Door", 232, "chest"),
-    "Lodinia Marshlands Back Chest 3": Ys8LocationData("Valley of Kings Before Door", 233, "chest"),
-    "Lodinia Marshlands Back Chest 4": Ys8LocationData("Valley of Kings Before Door", 234, "chest"),
-    "Lodinia Marshlands Back Chest 5": Ys8LocationData("Valley of Kings Before Door", 235, "chest"),
-    "Lodinia Marshlands Back Chest 6": Ys8LocationData("Valley of Kings Before Door", 236, "chest"),
     "Valley of Kings Northern Lower Level Chest 1": Ys8LocationData("Valley of Kings Before Door", 237, "chest"),
     "Valley of Kings Northern Lower Level Chest 2": Ys8LocationData("Valley of Kings Before Door", 238, "chest"),
     "Valley of Kings Mid-Boss Arena Chest": Ys8LocationData("Valley of Kings Before Door", 239, "chest"),
@@ -541,10 +541,10 @@ location_table: Dict[str, Ys8LocationData] = {
     "Weathervane Hills South of Nameless Coast Rockslide Chest 2": Ys8LocationData("Weathervane Hills", 112, "chest"),
     "Weathervane Hills Zephyr Hill Chest": Ys8LocationData("Weathervane Hills", 113, "chest"),
     "Headwater Falls Headwater Falls Chest 1": Ys8LocationData("Weathervane Hills", 384, "chest"),
-    "Headwater Falls Headwater Falls Chest 2": Ys8LocationData("WH Past Insect Nests", 385, "chest"),
-    "Headwater Falls Headwater Falls Chest 3": Ys8LocationData("WH Past Insect Nests", 386, "chest"),
-    "Headwater Falls Headwater Falls Chest 4": Ys8LocationData("WH Past Insect Nests", 387, "chest"),
-    "Headwater Falls Headwater Falls Chest 5": Ys8LocationData("WH Past Insect Nests", 388, "chest"),
+    "Headwater Falls Headwater Falls Chest 2": Ys8LocationData("Weathervane Hills Past Insect Nests", 385, "chest"),
+    "Headwater Falls Headwater Falls Chest 3": Ys8LocationData("Weathervane Hills Past Insect Nests", 386, "chest"),
+    "Headwater Falls Headwater Falls Chest 4": Ys8LocationData("Weathervane Hills Past Insect Nests", 387, "chest"),
+    "Headwater Falls Headwater Falls Chest 5": Ys8LocationData("Weathervane Hills Past Insect Nests", 388, "chest"),
     # Western Foot of Gendarme
     "Western Foot of Gendarme Moutain Base Chest": Ys8LocationData("Western Foot of Gendarme", 116, "chest"),
     "Western Foot of Gendarme Near Cavern of the Ancient King Chest": Ys8LocationData("Western Foot of Gendarme", 117, "chest"),
@@ -559,7 +559,7 @@ landmark_location_table: Dict[str, Ys8LocationData] = {
     "Eternal Hill Eternal Hill Landmark": Ys8LocationData("Graves of Ancient Heroes", 659, "landmark"),
     "Great River Valley Chimney Rock Landmark": Ys8LocationData("Great River Valley Area", 642, "landmark"),
     "Waterfall Grotto Waterfall Grotto Landmark": Ys8LocationData("Milky White Vein", 660, "landmark"),
-    "Lodinia Marshland Exit to Valley of Kings Landmark": Ys8LocationData("Sky Garden", 657, "landmark"),
+    "Lodinia Marshlands Exit to Valley of Kings Landmark": Ys8LocationData("Sky Garden", 657, "landmark"),
     "Longhorn Coast Reja Shore Landmark": Ys8LocationData("Beehive", 649, "landmark"),
     "Roaring Seashore Metavolicalis Landmark": Ys8LocationData("Metavolicalis Area", 640, "landmark"),
     "Mountain Pinnacle Trail Second Cave Landmark": Ys8LocationData("Seiren North Access", 653, "landmark"),
@@ -619,14 +619,14 @@ fsc_location_table: Dict[str, Ys8LocationData] = {
     "Former Sanctuary Crypt - B4 Frozen Statue Room Chest 4": Ys8LocationData("Former Sanctuary Crypt Final Floors", 340, "chest"),
     "Former Sanctuary Crypt - B4 Boss Arena Chest": Ys8LocationData("Former Sanctuary Crypt Final Floors", 344, "chest"),
     # Former Sanctuary Crypt - B5
-    "Former Sanctuary Crypt - B5 Entrance Chest 1": Ys8LocationData("Former Sanctuary Crypt Final Floor Side Rooms", 346, "chest"),
-    "Former Sanctuary Crypt - B5 Entrance Chest 2": Ys8LocationData("Former Sanctuary Crypt Final Floor Side Rooms", 347, "chest"),
-    "Former Sanctuary Crypt - B5 Entrance Chest 3": Ys8LocationData("Former Sanctuary Crypt Final Floor Side Rooms", 348, "chest"),
+    "Former Sanctuary Crypt - B5 Entrance Chest 1": Ys8LocationData("Former Sanctuary Crypt Final Floors Side Rooms", 346, "chest"),
+    "Former Sanctuary Crypt - B5 Entrance Chest 2": Ys8LocationData("Former Sanctuary Crypt Final Floors Side Rooms", 347, "chest"),
+    "Former Sanctuary Crypt - B5 Entrance Chest 3": Ys8LocationData("Former Sanctuary Crypt Final Floors Side Rooms", 348, "chest"),
     "Former Sanctuary Crypt - B5 Eastern Hall Chest": Ys8LocationData("Former Sanctuary Crypt Final Floors", 351, "chest"),
     "Former Sanctuary Crypt - B5 Western Hall Chest 1": Ys8LocationData("Former Sanctuary Crypt Final Floors", 357, "chest"),
     "Former Sanctuary Crypt - B5 Western Hall Chest 2": Ys8LocationData("Former Sanctuary Crypt Final Floors", 358, "chest"),
     "Former Sanctuary Crypt - B5 Western Hall Chest 3": Ys8LocationData("Former Sanctuary Crypt Final Floors", 359, "chest"),
-    "Former Sanctuary Crypt - B5 Western Hall Chest 4": Ys8LocationData("Former Sanctuary Crypt Final Floor Side Rooms", 360, "chest"),
+    "Former Sanctuary Crypt - B5 Western Hall Chest 4": Ys8LocationData("Former Sanctuary Crypt Final Floors Side Rooms", 360, "chest"),
     "Former Sanctuary Crypt - B5 Large Stairwell Chest 1": Ys8LocationData("Former Sanctuary Crypt Final Floors", 364, "chest"),
     "Former Sanctuary Crypt - B5 Large Stairwell Chest 2": Ys8LocationData("Former Sanctuary Crypt Final Floors", 365, "chest"),
     "Former Sanctuary Crypt - B5 Boss Arena Chest": Ys8LocationData("Former Sanctuary Crypt Final Floors", 366, "chest"),
@@ -730,7 +730,7 @@ event_location_table: Dict[str, Ys8LocationData] = {
     # Beast Bone — enemy drops: East Coast Cave M0700 Gibo 80%, Vista Ridge M0504 Gilaaf 80%
     "Beast Bone Farming - East Coast Cave": Ys8LocationData("East Coast Cave Before Gilkyra", 10074, None),
     "Beast Bone Farming - Vista Ridge": Ys8LocationData("Vista Ridge", 10075, None),
-    # Dandale Horn — M0605 Dandale in Lodinia Marshland (Past) 10%; LM Near Sky Garden is closest present-day proxy
+    # Dandale Horn — M0605 Dandale in Lodinia Marshlands (Past) 10%; LM Near Sky Garden is closest present-day proxy
     "Dandale Horn Farming - Lodinia Marshlands": Ys8LocationData("Lodinia Marshlands Front", 10076, None),
     # Beautiful Flower — Nameless Coast item points; always accessible
     "Beautiful Flower Farming - Nameless Coast": Ys8LocationData("Calm Inlet Area", 10077, None),
@@ -898,3 +898,7 @@ def extend_psyche_location_table_with_silent_tower():
 def extend_location_tables_with_landmarks():
     """Merge landmark locations into the main location table."""
     location_table.update(landmark_location_table)
+
+def extend_event_location_table_with_landmarks_off():
+    """When Discovery Sanity is off, expose landmark locations as event locations."""
+    event_location_table.update(landmark_location_table)

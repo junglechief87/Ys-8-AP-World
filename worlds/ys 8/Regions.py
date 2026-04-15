@@ -2,16 +2,14 @@ from typing import Dict, List, NamedTuple, Optional, TYPE_CHECKING
 from BaseClasses import MultiWorld, Region, Entrance
 from .Locations import (Ys8Location, location_table, event_location_table, psyche_location_table, psyche_fight_names, 
                         chosen_psyche_fight_list, chosen_psyche_location_list)
-from . import Locations
 from .Entrance_Shuffle import dungeon_entrance_shuffle
-import Locations
 
 if TYPE_CHECKING:
     from . import Ys8World
 
 class Ys8RegionData(NamedTuple):
     locations: List[str]
-    region_exits: Optional[List[Dict[str, str]]]
+    region_exits: Optional[Dict[str, str]]
 
 regions: Dict[str, Ys8RegionData] = {}
 region_connections: Dict[str, list] = {}
@@ -158,11 +156,14 @@ def create_regions(Ys8World):
     }
 
     # Shuffle entrances if enabled
-    if options.entrance_shuffle:
+    if options.dungeon_entrance_shuffle.value:
         dungeon_entrance_shuffle(Ys8World, region_connections)
 
+    if options.north_side_open.value:
+        region_connections["Calm Inlet Area"].append("Seiren North Access")
+
     for region in region_connections:
-        connections = [{region_exit: region + " to " + region_exit} for region_exit in region_connections[region]]
+        connections = {region_exit: region + " to " + region_exit for region_exit in region_connections[region]}
         regions[region] = Ys8RegionData([], connections)
     
     for location in location_table:
@@ -193,9 +194,9 @@ def connect_entrances(Ys8World: "Ys8World"):
     def connect(entrance_name: str, region_name: str):
         multiworld.get_entrance(entrance_name, player).connect(multiworld.get_region(region_name, player))
     
-    for region, exits in region_connections.items():
-        for region_exit in exits:
-            connect(region + " to " + region_exit, region_exit)
+    for region in regions:
+        for target, exit in regions[region].region_exits.items():
+            connect(exit, target)
 
 def create_region(multiworld: MultiWorld, player: int, name: str, data: Ys8RegionData):
     region = Region(name, player, multiworld)
@@ -206,9 +207,8 @@ def create_region(multiworld: MultiWorld, player: int, name: str, data: Ys8Regio
             region.locations.append(location)
 
     if data.region_exits:
-        for exit_dict in data.region_exits:
-            for connector_name in exit_dict.values():
-                entrance = Entrance(player, connector_name, region)
-                region.exits.append(entrance)
+        for exit_name, connector_name in data.region_exits.items():
+            entrance = Entrance(player, connector_name, region)
+            region.exits.append(entrance)
 
     return region

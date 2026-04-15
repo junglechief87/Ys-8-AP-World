@@ -7,10 +7,11 @@ from typing import Any, Dict, List, Optional, cast
 from BaseClasses import CollectionState, Entrance, ItemClassification, Location, Region, Tutorial
 from Options import OptionError, PerGameCommonOptions, Toggle
 from worlds.AutoWorld import WebWorld, World
+from worlds.generic.Rules import add_item_rule
 from worlds.LauncherComponents import Component, components, Type, launch
 from .Options import Ys8Options, Ys8_option_groups, Ys8_option_presets
 from .Locations import Ys8Location, location_table, location_name_groups, chosen_psyche_fight_list, chosen_psyche_location_list
-from .Items import Ys8Item, Ys8ItemData, get_item_pool_quantity, get_items_by_category, item_table, item_name_groups, psyche_item_table, psyche_access_item_table, event_item_table
+from .Items import Ys8Item, Ys8ItemData, get_item_pool_quantity, get_items_by_category, scale_exp_item, item_table, item_name_groups, psyche_item_table, psyche_access_item_table, event_item_table, landmark_item_table
 from .Rules import set_all_rules
 from .Regions import create_regions, connect_entrances
 
@@ -49,15 +50,20 @@ class Ys8World(World):
     fillers.update(get_items_by_category("Consumable"))
 
     def generate_early(self):
-        from .Locations import extend_location_tables_with_fsc, extend_psyche_location_table_with_fsc_off, extend_location_tables_with_landmarks, extend_psyche_location_table_with_silent_tower
-        from .Items import extend_item_tables_with_landmarks
+        from .Locations import extend_location_tables_with_fsc, extend_psyche_location_table_with_fsc_off, extend_location_tables_with_landmarks,\
+                                extend_psyche_location_table_with_silent_tower, extend_event_location_table_with_landmarks_off
+        from .Items import extend_item_tables_with_landmarks, extend_event_item_table_with_fsc, extend_event_item_table_with_landmarks_off
         
         # Force Former Sanctuary Crypt on if Untouchable final boss access is selected
         if self.options.final_boss_access.value == 3:  # option_untouchable
             self.options.former_sanctuary_crypt.value = True
         
+        if self.options.essence_key_sanity.value:
+            self.options.former_sanctuary_crypt.value = True
+
         # Adjust location tables based on options
         if self.options.former_sanctuary_crypt.value:
+            extend_event_item_table_with_fsc()
             extend_location_tables_with_fsc()
         else:
             extend_psyche_location_table_with_fsc_off()
@@ -69,6 +75,10 @@ class Ys8World(World):
         if self.options.discovery_sanity.value:
             extend_item_tables_with_landmarks()
             extend_location_tables_with_landmarks()
+        else:
+            # Keep landmark logic online by forcing landmark items to their default landmark locations
+            extend_event_item_table_with_landmarks_off()
+            extend_event_location_table_with_landmarks_off()
 
     def create_regions(self):
         create_regions(self)
@@ -79,16 +89,29 @@ class Ys8World(World):
     def create_items(self):
         self.place_predetermined_items()
 
+        if self.options.former_sanctuary_crypt.value and not self.options.essence_key_sanity.value:
+            for location in self.multiworld.get_unfilled_locations(self.player):
+                in_fsc = location.parent_region and location.parent_region.name.startswith("Former Sanctuary Crypt")
+                if not in_fsc:
+                    add_item_rule(location, lambda item: item.name != "Essence Key Stone")
+
         # Determine Starting Character and add to precollected items
         party = [item_name for item_name in item_table.keys() if item_table[item_name].is_party_member]
-        starting_character = self.random.choice(party)
+        party_weights = [self.options.starting_character_weights.value.get(item_name, 0) for item_name in party]
+        if not any(weight > 0 for weight in party_weights):
+            starting_character = self.random.choice(party) # Force even distribution if all weights are zero
+        else:
+            starting_character = self.random.choices(party, weights=party_weights, k=1)[0]
         item = self.create_item(starting_character)
         self.multiworld.push_precollected(item)
 
         if self.options.final_boss_access == 2:  # Psyche Fight Shuffle
+            event_item_table.update(psyche_access_item_table)
+            event_item_table.update(psyche_item_table)
+            
             for i, (access_item_name, psyche_item_name) in enumerate(zip(psyche_access_item_table.keys(), psyche_item_table.keys())):
-                access_item = self.create_item(access_item_name)
-                psyche_item = self.create_item(psyche_item_name)
+                access_item = self.create_event(access_item_name)
+                psyche_item = self.create_event(psyche_item_name)
                 access_location = self.multiworld.get_location(chosen_psyche_location_list[i], self.player)
                 psyche_location = self.multiworld.get_location(chosen_psyche_fight_list[i], self.player)
                 access_location.place_locked_item(access_item)
@@ -100,6 +123,12 @@ class Ys8World(World):
 
         # Always include all configured non-filler items so required progression cannot be dropped by pool size.
         for name, data in item_table.items():
+            if name == "Essence Key Stone" and not self.options.former_sanctuary_crypt.value:
+                continue
+            if name == "Jade Pendant" and not self.options.former_sanctuary_crypt.value:
+                continue
+            if self.options.scale_exp_items.value and name in ["Bitter Remedy", "Bitter Remedy x2", "Bitter Remedy x3", "Hermit's Elixir", "Hermit's Elixir x3"]:
+                name = scale_exp_item(name, data, self.options)
             for _ in range(get_item_pool_quantity(name, data, self.options)):
                 item = self.create_item(name)
                 if item.classification == ItemClassification.filler:
@@ -127,7 +156,11 @@ class Ys8World(World):
     def place_predetermined_items(self):
         # Place event items that are required for progression or victory
         for item_name in event_item_table.keys():
-            location_name = event_item_table[item_name].category
+            if event_item_table[item_name].category == "Landmark":
+                location_name = event_item_table[item_name].default_loc
+            else:
+                location_name = event_item_table[item_name].category
+
             item = self.create_event(item_name)
             location = self.multiworld.get_location(location_name, self.player)
             location.place_locked_item(item)

@@ -323,9 +323,8 @@ class InfinityMode(Toggle):
 
 class ScaleExpItems(Toggle):
     """
-    Scales experience reward items (Hermit's Elixir and Bitter Remedy) with the
-    Experience Multiplier setting. For example, with a 3.0x multiplier, a Hermit's
-    Elixir check becomes 3 Bitter Remedy.
+    Scales experience reward items (Hermit's Elixir and Bitter Remedy) to attempt
+    to make them less rewarding due to experience multiplier options and to smooth out pacing.
     """
     display_name = "Scale Exp Items"
     default = False
@@ -347,7 +346,7 @@ class FinalBoss(Choice):
 class TheosStartPhase(Choice):
     """
     Sets which phase the Theos fight will start in.
-    1: Normal mode
+    1: Tentacle phase
     2: Circular platform with crystals
     3: Head form
     """
@@ -388,7 +387,7 @@ class OriginStartPhase(Choice):
 class EssenceKeySanity(Toggle):
     """
     If Former Sanctuary Crypt is on, Essence Key Stones can be placed anywhere
-    in the game instead of just within the dungeon itself.
+    in the game instead of just within the dungeon itself. If set to on, forces Former Sanctuary Crypt on.
     """
     display_name = "Essence Key Sanity"
     default = False
@@ -505,7 +504,7 @@ Ys8_option_groups = [
 ]
 
 Ys8_option_presets: Dict[str, Dict[str, Any]] = {
-    "Defaults": {
+    "Default Find Crew": {
         "final_boss_access": FinalBossAccess.option_find_crew,
         "goal_count_crew_mode": 16,
         "goal_count_psyches_mode": 2,
@@ -534,6 +533,42 @@ Ys8_option_presets: Dict[str, Dict[str, Any]] = {
         "north_side_open": False,
         "infinity_mode": False,
         "scale_exp_items": False,
+        "final_boss": FinalBoss.option_theos,
+        "theos_start_phase": TheosStartPhase.option_first,
+        "origin_care_package": OriginCarePackage.option_none,
+        "origin_start_phase": OriginStartPhase.option_second,
+        "essence_key_sanity": False,
+        "starting_character_weights": {"Adol": 1, "Laxia": 1, "Sahad": 1, "Hummel": 1, "Ricotta": 1, "Dana": 1},
+    },
+    "Default Release Psyches": {
+        "final_boss_access": FinalBossAccess.option_release_the_psyches,
+        "goal_count_crew_mode": 16,
+        "goal_count_psyches_mode": 2,
+        "goal_count_crew_final_boss": 20,
+        "goal_count_psyches_final_boss": 3,
+        "discovery_sanity": False,
+        "dungeon_entrance_shuffle": False,
+        "jewel_trade_items": JewelTradeItems.option_up_to_10_jewels,
+        "fish_trades": FishTrades.option_6,
+        "food_trades": FoodTrades.option_6,
+        "map_completion": MapCompletion.option_60_percent,
+        "discoveries": Discoveries.option_all,
+        "dogi_intercept_rewards": True,
+        "master_kong_rewards": False,
+        "silvia_progression": True,
+        "mephorash_progression": True,
+        "former_sanctuary_crypt": False,
+        "experience_multiplier": 3,
+        "additional_intercept_rewards": False,
+        "battle_logic": True,
+        "scaled_encounters": True,
+        "progressive_super_weapons": True,
+        "octus_paths_opened": True,
+        "extra_flame_stones": 3,
+        "recipes_with_ingredients": True,
+        "north_side_open": False,
+        "infinity_mode": False,
+        "scale_exp_items": True,
         "final_boss": FinalBoss.option_theos,
         "theos_start_phase": TheosStartPhase.option_first,
         "origin_care_package": OriginCarePackage.option_none,
