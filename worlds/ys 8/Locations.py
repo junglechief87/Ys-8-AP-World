@@ -260,6 +260,7 @@ location_table: Dict[str, Ys8LocationData] = {
     "Mont Gendarme Boss Arena Giasburn Skill 2": Ys8LocationData("Mont Gendarme Boss Arena", 561, "event"),
     "Mont Gendarme Mid-Boss Arena Avalodragil 2 Skill 1": Ys8LocationData("Mont Gendarme Mid-Boss Arena", 562, "event"),
     "Mont Gendarme Mid-Boss Arena Avalodragil 2 Skill 2": Ys8LocationData("Mont Gendarme Mid-Boss Arena", 563, "event"),
+    "Mont Gendarme Mid-Boss Arena Master Kong Skill Laxia": Ys8LocationData("Mont Gendarme Mid-Boss Arena", 583, "event"),
     #"Mont Gendarme Boss Arena Psyches": Ys8LocationData("Mont Gendarme", 627, "event"),
     # Mont Gendarme (Night)
     "Mont Gendarme (Night) Entrance Chest": Ys8LocationData("Mont Gendarme (Night) Front Half", 146, "chest"),
@@ -291,12 +292,12 @@ location_table: Dict[str, Ys8LocationData] = {
     "Mountain Pinnacle Trail First Cave Chest": Ys8LocationData("Seiren North Access", 377, "chest"),
     "Pangaia Plains Northern Plains Silvia Join": Ys8LocationData("Seiren North Access", 421, "event"),
     "Pangaia Plains Ancient Tree Master Kong Skill Hummel": Ys8LocationData("Seiren North Access", 584, "event"),
-    # Nameless Coast North of Boulder
-    "Nameless Coast Cliffs South - Treebridge Chest 3": Ys8LocationData("Nameless Coast North of Boulder", 25, "chest"),
-    "Nameless Coast Shoreline North of Boulder Chest 1": Ys8LocationData("Nameless Coast North of Boulder", 34, "chest"),
-    "Nameless Coast Shoreline North of Boulder Chest 2": Ys8LocationData("Nameless Coast North of Boulder", 35, "chest"),
-    "Nameless Coast Forested Area (Gravel Spot) Chest 1": Ys8LocationData("Nameless Coast North of Boulder", 91, "chest"),
-    "Nameless Coast Forested Area (Gravel Spot) Chest 2": Ys8LocationData("Nameless Coast North of Boulder", 92, "chest"),
+    # Nameless Coast North
+    "Nameless Coast Cliffs South - Treebridge Chest 3": Ys8LocationData("Nameless Coast North", 25, "chest"),
+    "Nameless Coast Shoreline North of Boulder Chest 1": Ys8LocationData("Nameless Coast North", 34, "chest"),
+    "Nameless Coast Shoreline North of Boulder Chest 2": Ys8LocationData("Nameless Coast North", 35, "chest"),
+    "Nameless Coast Forested Area (Gravel Spot) Chest 1": Ys8LocationData("Nameless Coast North", 91, "chest"),
+    "Nameless Coast Forested Area (Gravel Spot) Chest 2": Ys8LocationData("Nameless Coast North", 92, "chest"),
     # Nostalgia Cape
     "Nostalgia Cape Nostalgia Cape Chest": Ys8LocationData("Nostalgia Cape Area", 41, "chest"),
     "Nostalgia Cape Nostalgia Cape Ed Join": Ys8LocationData("Nostalgia Cape Area", 424, "event"),
@@ -565,7 +566,7 @@ landmark_location_table: Dict[str, Ys8LocationData] = {
     "Titis Primeval Forest Near Primordial Den Landmark": Ys8LocationData("Seiren North Access", 654, "landmark"),
     "Pangaia Plains Northern Plains Landmark": Ys8LocationData("Seiren North Access", 655, "landmark"),
     "Pangaia Plains Ancient Tree Landmark": Ys8LocationData("Seiren North Access", 656, "landmark"),
-    "Nameless Coast Shoreline North of Boulder Landmark": Ys8LocationData("Nameless Coast North of Boulder", 637, "landmark"),
+    "Nameless Coast Shoreline North of Boulder Landmark": Ys8LocationData("Nameless Coast North", 637, "landmark"),
     "Nostalgia Cape Nostalgia Cape Landmark": Ys8LocationData("Nostalgia Cape Area", 650, "landmark"),
     "Roaring Seashore Parasequoia Landmark": Ys8LocationData("Parasequoia Area", 641, "landmark"),
     "Schlamm Jungle Muddy Passage Landmark": Ys8LocationData("Schlamm Jungle Field of Medicinal Herbs", 645, "landmark"),
@@ -771,7 +772,6 @@ fsc_event_location_table: Dict[str, Ys8LocationData] = {
 }
 
 psyche_location_table: Dict[str, Ys8LocationData] = {
-    "Silent Tower Second Basement Mephorash Psyches": Ys8LocationData("Silent Tower", 10098, None),
     "Valley of Kings Boss Arena Basileus Psyches": Ys8LocationData("Valley of Kings Boss Arena", 10099, None),
     "Archeozoic Chasm Boss Arena Oceanus Psyches": Ys8LocationData("Archeozoic Chasm Boss Arena", 10100, None),
     "Pirate Ship Eleftheria Deck Pirate Revenant Psyches": Ys8LocationData("Pirate Ship Eleftheria", 10101, None),
@@ -783,12 +783,15 @@ psyche_location_table: Dict[str, Ys8LocationData] = {
     "Towering Coral Forest Boss Arena Clareon Psyches": Ys8LocationData("Towering Coral Forest Boss Arena", 10107, None)
 }
 
+silent_tower_psyche_location_table: Dict[str, Ys8LocationData] = {
+    "Silent Tower Second Basement Mephorash Psyches": Ys8LocationData("Silent Tower", 10098, None),
+}
+
 fsc_psyche_location_table: Dict[str, Ys8LocationData] = {
     "Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma Psyches": Ys8LocationData("Former Sanctuary Crypt Boss Room", 10097, None),
 }
 
 psyche_fight_names: Dict[str, Ys8LocationData] = {
-    "Melaiduma Psyches": Ys8LocationData("Calm Inlet Area", 10108, None),
     "Le-Erythos Psyches": Ys8LocationData("Calm Inlet Area", 10109, None),
     "Psyche-Ura Psyches": Ys8LocationData("Calm Inlet Area", 10110, None),
     "Psyche-Nestor Psyches": Ys8LocationData("Calm Inlet Area", 10111, None),
@@ -888,6 +891,10 @@ def extend_psyche_location_table_with_fsc_off():
     """Merge Melaiduma into psyche fights when fsc is off."""
     psyche_fight_names.update(fsc_psyche_fight_names)
 
+def extend_psyche_location_table_with_silent_tower():
+    """Merge Silent Tower Psyche locations into the main psyche location table."""
+    psyche_location_table.update(silent_tower_psyche_location_table)
+    
 def extend_location_tables_with_landmarks():
     """Merge landmark locations into the main location table."""
     location_table.update(landmark_location_table)

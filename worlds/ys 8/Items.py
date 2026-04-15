@@ -22,6 +22,11 @@ class Ys8ItemData(NamedTuple):
 def get_items_by_category(category: str) -> Dict[str, Ys8ItemData]:
     return {name: data for name, data in item_table.items() if data.category == category}
 
+def get_item_pool_quantity(item_name: str, data: Ys8ItemData, options: Ys8Options) -> int:
+    if item_name == "Flame Stone":
+        return data.pool_quantity + options.extra_flame_stones
+    return data.pool_quantity
+
 item_table: Dict[str, Ys8ItemData] = {
     "Mistilteinn": Ys8ItemData("Weapon", code = 900, classification = ItemClassification.useful, type = "Item", battle_logic = True, pool_quantity = 1),
     "Spirit Ring Celesdia": Ys8ItemData("Weapon", code = 1300, classification = ItemClassification.useful, type = "Item", battle_logic = True, pool_quantity = 1),
@@ -220,17 +225,17 @@ item_table: Dict[str, Ys8ItemData] = {
     "Crown of Creation": Ys8ItemData("Accessory", code = 54700, classification = ItemClassification.useful, type = "Item", pool_quantity = 2),
     "Stone of Anitquity": Ys8ItemData("Accessory", code = 54800, classification = ItemClassification.useful, type = "Item", battle_logic = True, pool_quantity = 2),
     "Garment of Many Tongues": Ys8ItemData("Accessory", code = 54900, classification = ItemClassification.useful, type = "Item", pool_quantity = 3),
-    "Recipe Book/Mushroom Omelet": Ys8ItemData("Consumable", code = 56900, classification = ItemClassification.progression, type = "Item", pool_quantity = 1),
-    "Recipe Book/Hearty Ratatouille": Ys8ItemData("Consumable", code = 57000, classification = ItemClassification.progression, type = "Item", pool_quantity = 1),
-    "Recipe Book/Colorful Meuniere": Ys8ItemData("Consumable", code = 57100, classification = ItemClassification.progression, type = "Item", pool_quantity = 1),
-    "Recipe Book/Seafood Quiche": Ys8ItemData("Consumable", code = 57200, classification = ItemClassification.progression, type = "Item", pool_quantity = 1),
-    "Recipe Book/Cabbage Rolls": Ys8ItemData("Consumable", code = 57300, classification = ItemClassification.progression, type = "Item", pool_quantity = 1),
-    "Recipe Book/Meat-Wrapped Mushrooms": Ys8ItemData("Consumable", code = 57400, classification = ItemClassification.progression, type = "Item", pool_quantity = 1),
-    "Recipe Book/Fish Fry": Ys8ItemData("Consumable", code = 57500, classification = ItemClassification.progression, type = "Item", pool_quantity = 1),
-    "Recipe Book/Pirate's Platter": Ys8ItemData("Consumable", code = 57600, classification = ItemClassification.progression, type = "Item", pool_quantity = 1),
-    "Recipe Book/Luxury Coleslaw": Ys8ItemData("Consumable", code = 57700, classification = ItemClassification.progression, type = "Item", pool_quantity = 1),
-    "Recipe Book/Heartfelt Bolognese": Ys8ItemData("Consumable", code = 57800, classification = ItemClassification.progression, type = "Item", pool_quantity = 1),
-    "Recipe Book/Great Pumpkin Pie": Ys8ItemData("Consumable", code = 57900, classification = ItemClassification.progression, type = "Item", pool_quantity = 1),
+    "Recipe Book/Mushroom Omelet": Ys8ItemData("Recipe Book", code = 56900, classification = ItemClassification.progression, type = "Item", pool_quantity = 1),
+    "Recipe Book/Hearty Ratatouille": Ys8ItemData("Recipe Book", code = 57000, classification = ItemClassification.progression, type = "Item", pool_quantity = 1),
+    "Recipe Book/Colorful Meuniere": Ys8ItemData("Recipe Book", code = 57100, classification = ItemClassification.progression, type = "Item", pool_quantity = 1),
+    "Recipe Book/Seafood Quiche": Ys8ItemData("Recipe Book", code = 57200, classification = ItemClassification.progression, type = "Item", pool_quantity = 1),
+    "Recipe Book/Cabbage Rolls": Ys8ItemData("Recipe Book", code = 57300, classification = ItemClassification.progression, type = "Item", pool_quantity = 1),
+    "Recipe Book/Meat-Wrapped Mushrooms": Ys8ItemData("Recipe Book", code = 57400, classification = ItemClassification.progression, type = "Item", pool_quantity = 1),
+    "Recipe Book/Fish Fry": Ys8ItemData("Recipe Book", code = 57500, classification = ItemClassification.progression, type = "Item", pool_quantity = 1),
+    "Recipe Book/Pirate's Platter": Ys8ItemData("Recipe Book", code = 57600, classification = ItemClassification.progression, type = "Item", pool_quantity = 1),
+    "Recipe Book/Luxury Coleslaw": Ys8ItemData("Recipe Book", code = 57700, classification = ItemClassification.progression, type = "Item", pool_quantity = 1),
+    "Recipe Book/Heartfelt Bolognese": Ys8ItemData("Recipe Book", code = 57800, classification = ItemClassification.progression, type = "Item", pool_quantity = 1),
+    "Recipe Book/Great Pumpkin Pie": Ys8ItemData("Recipe Book", code = 57900, classification = ItemClassification.progression, type = "Item", pool_quantity = 1),
     "Spiral Manual": Ys8ItemData("Consumable", code = 58300, classification = ItemClassification.useful, type = "Item", pool_quantity = 1),
     "Fairy Manual": Ys8ItemData("Consumable", code = 58400, classification = ItemClassification.useful, type = "Item", pool_quantity = 1),
     "Wild Manual": Ys8ItemData("Consumable", code = 58500, classification = ItemClassification.useful, type = "Item", pool_quantity = 1),
@@ -307,7 +312,7 @@ item_table: Dict[str, Ys8ItemData] = {
     "Logbook 4": Ys8ItemData("Consumable", code = 77300, classification = ItemClassification.filler, type = "Item", pool_quantity = 1),
     "Logbook 5": Ys8ItemData("Consumable", code = 77400, classification = ItemClassification.filler, type = "Item", pool_quantity = 1),
     "Monolith Fragment": Ys8ItemData("Consumable", code = 77700, classification = ItemClassification.filler, type = "Item", pool_quantity = 1),
-    "Flame Stone": Ys8ItemData("Consumable", code = 77800, classification = ItemClassification.progression, type = "Item", pool_quantity = 8),
+    "Flame Stone": Ys8ItemData("Consumable", code = 77800, classification = ItemClassification.progression, type = "Item", pool_quantity = 7),
     "Ship Blueprint": Ys8ItemData("Consumable", code = 77900, classification = ItemClassification.progression, type = "Item", pool_quantity = 1),
     "Sweet Pepper Seeds": Ys8ItemData("Consumable", code = 78000, classification = ItemClassification.filler, type = "Item", pool_quantity = 1),
     "Shiny Corn Seeds": Ys8ItemData("Consumable", code = 78300, classification = ItemClassification.filler, type = "Item", pool_quantity = 1),

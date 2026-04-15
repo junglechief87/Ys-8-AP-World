@@ -93,7 +93,7 @@ class DungeonEntranceShuffle(Toggle):
 # Progression Placement Modifiers
 class JewelTradeItems(Choice):
     """
-    Sets which Prismatic Jewel trades at Dina's shop become progression items.
+    Sets which Prismatic Jewel trades at Dina's shop can become progression items.
     Dina must join the village to access these trades.
     There are 10 total trades distributed across different jewel costs.
     """
@@ -435,6 +435,7 @@ class Ys8Options(PerGameCommonOptions):
     experience_multiplier: ExperienceMultiplier
     additional_intercept_rewards: AdditionalInterceptRewards
     battle_logic: BattleLogic
+    scaled_encounters: ScaledEncounters
     progressive_super_weapons: ProgressiveSuperWeapons
     octus_paths_opened: OctusPathsOpened
     extra_flame_stones: ExtraFlameStones
