@@ -51,12 +51,13 @@ _BATTLE_REQ: dict[str, int] = {
     "MASTER_KONG_ADOL": 550,
     "OCEANUS": 600,
     "BASILEUS": 650,
+    "OCTUS": 600,
     "PSYCHE_HYDRA": 700,
     "PSYCHE_MINOS": 720,
     "PSYCHE_NESTOR": 740,
     "PSYCHE_URA": 760,
     "MEPHORASH": 760,
-    "GOAL_PLACEHOLDER": 760,
+    "FINAL_BOSS": 760,
     "PSYCHE_FIGHT_GENERIC": 760,
     "FSC_FIRST_BARRIER": 800,
     "MELAIDUMA": 850,
@@ -729,10 +730,11 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     set_rule(get_ent(get_entrance_connector("Temple of the Great Tree Boss Arena", "Temple of the Great Tree Garden")), lambda state: state.has("Brachion Defeated", player))
     if options.final_boss_access == 0:
         set_rule(get_ent(get_entrance_connector("Temple of the Great Tree Garden", "Entrance: Octus Overlook")), lambda state: 
-                 has_required_crew(state, player, options.goal_count_crew_mode))
+                 has_required_crew(state, player, options.goal_count_crew_mode) and battle_logic(state, player, _BATTLE_REQ["OCTUS"], options))
     if options.final_boss_access == 2:
         set_rule(get_ent(get_entrance_connector("Temple of the Great Tree Garden", "Entrance: Octus Overlook")), lambda state:
-                 state.has_from_list(["Psyches of the Sky Era", "Psyches of the Insectoid Era", "Psyches of the Ocean Era", "Psyches of the Frozen Era"], player, options.goal_count_psyches_mode))
+                 state.has_from_list(["Psyches of the Sky Era", "Psyches of the Insectoid Era", "Psyches of the Ocean Era", "Psyches of the Frozen Era"],\
+                                      player, options.goal_count_psyches_mode) and battle_logic(state, player, _BATTLE_REQ["OCTUS"], options))
 
     # Ruins of Eternia Connections
     set_rule(get_ent(get_entrance_connector("Ruins of Eternia", "Seiren North Access")), lambda state: state.has("Blue Seal of Whirling Water", player))
@@ -902,9 +904,8 @@ def set_location_rules(Ys8World: "Ys8World"):
              lambda state: state.has_any(["Archeopteryx Wings", "Float Shoes"], player))
     add_rule(loc("Lodinia Marshlands Near Submerged Cemetery Chest 2"),
              lambda state: state.has("Float Shoes", player))
-
+        
     # NPC Checks for Calm Inlet Area
-
     # Jewel Trade - Dina
     if options.jewel_trade_items >= 25:
         add_rule(loc("Calm Inlet Jewel Trade Item 5"),
@@ -1108,7 +1109,7 @@ def set_location_rules(Ys8World: "Ys8World"):
             lambda item: item.classification == ItemClassification.filler)
     
     # =====================================================================
-    # BOSS SKILL CHECKS
+    # BOSS SKILL CHECKS AND CHESTS BLOCKED BY BOSS CHECKS
     # =====================================================================
 
     # Calm Inlet — Silvia (early boss)
@@ -1274,6 +1275,26 @@ def set_location_rules(Ys8World: "Ys8World"):
     add_rule(loc("Octus Overlook Path of the Ocean Era Psyche-Hydra Skill 2"),
              lambda state: state.has("Psyche-Hydra Defeated", player))
 
+    if not options.octus_paths_opened.value:
+        add_rule(loc("Octus Overlook Path of the Frozen Era Chest 1"),
+                lambda state: state.has("Psyche-Hydra Defeated", player))
+        add_rule(loc("Octus Overlook Path of the Frozen Era Chest 2"),
+                lambda state: state.has("Psyche-Hydra Defeated", player))
+        add_rule(loc("Octus Overlook Path of the Frozen Era Chest 3"),
+                lambda state: state.has("Psyche-Hydra Defeated", player))
+        add_rule(loc("Octus Overlook Path of the Insectoid Era Chest 1"),
+                lambda state: state.has("Psyche-Minos Defeated", player))
+        add_rule(loc("Octus Overlook Path of the Insectoid Era Chest 2"),
+                lambda state: state.has("Psyche-Minos Defeated", player))
+        add_rule(loc("Octus Overlook Path of the Insectoid Era Chest 3"),
+                lambda state: state.has("Psyche-Minos Defeated", player))
+        add_rule(loc("Octus Overlook Path of the Sky Era Chest 1"),
+                lambda state: state.has("Psyche-Nestor Defeated", player))
+        add_rule(loc("Octus Overlook Path of the Sky Era Chest 2"),
+                lambda state: state.has("Psyche-Nestor Defeated", player))
+        add_rule(loc("Octus Overlook Path of the Sky Era Chest 3"),
+                lambda state: state.has("Psyche-Nestor Defeated", player))
+
     # =====================================================================
     # MASTER KONG SKILL CHECKS
     # =====================================================================
@@ -1414,7 +1435,7 @@ def set_location_rules(Ys8World: "Ys8World"):
 
     # --- Goal (placeholder) ---
     set_rule(loc("Octus Overlook Selection Sphere Goal"),
-             lambda state: battle_logic(state, player, _BATTLE_REQ["GOAL_PLACEHOLDER"], options))
+             lambda state: battle_logic(state, player, _BATTLE_REQ["FINAL_BOSS"], options))
     
     if options.final_boss_access == 0:
         add_rule(loc("Octus Overlook Selection Sphere Goal"),

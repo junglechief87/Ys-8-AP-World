@@ -127,9 +127,9 @@ class Ys8World(World):
 
         # Always include all configured non-filler items so required progression cannot be dropped by pool size.
         for name, data in item_table.items():
-            if name == "Essence Key Stone" and not self.options.former_sanctuary_crypt.value:
+            if name in ["Essence Key Stone", "Jade Pendant"] and not self.options.former_sanctuary_crypt.value:
                 continue
-            if name == "Jade Pendant" and not self.options.former_sanctuary_crypt.value:
+            if name == starting_character:
                 continue
             # Skip items that are being replaced by scaling (they're created via the scaling of their source items)
             if self.options.scale_exp_items.value and name in ["Bitter Remedy x2", "Bitter Remedy x3", "Sweet Remedy x3", "Sweet Remedy x5"]:
