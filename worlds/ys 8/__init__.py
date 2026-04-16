@@ -1,17 +1,15 @@
 """
 Archipelago init file for The Ys 8
 """
-import dataclasses
 from logging import error, warning
-from typing import Any, Dict, List, Optional, cast
-from BaseClasses import CollectionState, Entrance, ItemClassification, Location, Region, Tutorial
-from Options import OptionError, PerGameCommonOptions, Toggle
+from typing import Any, Dict, List
+from BaseClasses import ItemClassification, Tutorial
+from Options import OptionError
 from worlds.AutoWorld import WebWorld, World
 from worlds.generic.Rules import add_item_rule
-from worlds.LauncherComponents import Component, components, Type, launch
 from .Options import Ys8Options, Ys8_option_groups, Ys8_option_presets
-from .Locations import Ys8Location, location_table, location_name_groups, chosen_psyche_fight_list, chosen_psyche_location_list
-from .Items import Ys8Item, Ys8ItemData, get_item_pool_quantity, get_items_by_category, scale_exp_item, item_table, item_name_groups, psyche_item_table, psyche_access_item_table, event_item_table, landmark_item_table
+from .Locations import location_table, location_name_groups, chosen_psyche_fight_list, chosen_psyche_location_list
+from .Items import Ys8Item, get_item_pool_quantity, get_items_by_category, scale_exp_item, item_table, item_name_groups, psyche_item_table, psyche_access_item_table, event_item_table, landmark_item_table
 from .Rules import set_all_rules
 from .Regions import create_regions, connect_entrances
 
@@ -52,7 +50,8 @@ class Ys8World(World):
     def generate_early(self):
         from .Locations import extend_location_tables_with_fsc, extend_psyche_location_table_with_fsc_off, extend_location_tables_with_landmarks,\
                                 extend_psyche_location_table_with_silent_tower, extend_event_location_table_with_landmarks_off
-        from .Items import extend_item_tables_with_landmarks, extend_event_item_table_with_fsc, extend_event_item_table_with_landmarks_off
+        from .Items import extend_item_tables_with_landmarks, extend_event_item_table_with_fsc, extend_event_item_table_with_landmarks_off,\
+                            extend_item_tables_with_progressive_super_weapons, extend_item_tables_with_super_weapons
         
         # Force Former Sanctuary Crypt on if Untouchable final boss access is selected
         if self.options.final_boss_access.value == 3:  # option_untouchable
@@ -79,6 +78,11 @@ class Ys8World(World):
             # Keep landmark logic online by forcing landmark items to their default landmark locations
             extend_event_item_table_with_landmarks_off()
             extend_event_location_table_with_landmarks_off()
+
+        if self.options.progressive_super_weapons.value:
+            extend_item_tables_with_progressive_super_weapons()
+        else:
+            extend_item_tables_with_super_weapons()
 
     def create_regions(self):
         create_regions(self)
@@ -108,7 +112,7 @@ class Ys8World(World):
         if self.options.final_boss_access == 2:  # Psyche Fight Shuffle
             event_item_table.update(psyche_access_item_table)
             event_item_table.update(psyche_item_table)
-            
+
             for i, (access_item_name, psyche_item_name) in enumerate(zip(psyche_access_item_table.keys(), psyche_item_table.keys())):
                 access_item = self.create_event(access_item_name)
                 psyche_item = self.create_event(psyche_item_name)
@@ -126,6 +130,9 @@ class Ys8World(World):
             if name == "Essence Key Stone" and not self.options.former_sanctuary_crypt.value:
                 continue
             if name == "Jade Pendant" and not self.options.former_sanctuary_crypt.value:
+                continue
+            # Skip items that are being replaced by scaling (they're created via the scaling of their source items)
+            if self.options.scale_exp_items.value and name in ["Bitter Remedy x2", "Bitter Remedy x3", "Sweet Remedy x3", "Sweet Remedy x5"]:
                 continue
             if self.options.scale_exp_items.value and name in ["Bitter Remedy", "Bitter Remedy x2", "Bitter Remedy x3", "Hermit's Elixir", "Hermit's Elixir x3"]:
                 name = scale_exp_item(name, data, self.options)

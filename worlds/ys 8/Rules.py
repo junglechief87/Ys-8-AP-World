@@ -1,10 +1,9 @@
 from typing import TYPE_CHECKING
 from BaseClasses import CollectionState, ItemClassification
 from worlds.generic.Rules import add_item_rule, add_rule, set_rule
-from math import ceil
-from BaseClasses import Entrance, Location
-from .Locations import Ys8Location, location_table, chosen_psyche_fight_list, chosen_psyche_location_list
-from .Items import Ys8Item, item_table, landmark_item_table, event_item_table, psyche_access_item_table
+from BaseClasses import Entrance
+from .Locations import chosen_psyche_fight_list, chosen_psyche_location_list
+from .Items import item_table, landmark_item_table, event_item_table, psyche_access_item_table
 from .Options import Ys8Options
 from .Regions import regions
 
@@ -149,7 +148,6 @@ def has_jewels(state: CollectionState, player: int, jewel_count: int) -> bool:
     count += 3 * state.count("Prismatic Jewel x3", player)
     count += 5 * state.count("Prismatic Jewel x5", player)
     return count >= jewel_count
-
 
 def material_access(material: str, state: CollectionState, player: int) -> bool:
     """Returns True if the player can reach a viable farming spot for the named material."""
@@ -386,11 +384,16 @@ def battle_logic(state: CollectionState, player: int, required_str: int, options
         required_str = get_scaled_required_str(boss_count, options)
 
     # Weapon strength — based on rounded averages of accessible weapons at their base levels
-    super_weapons = (state.has("Mistilteinn", player) and state.has("Adol", player)) or \
-                    (state.has("Spirit Ring Celesdia", player) and state.has("Dana", player))
-    if options.progressive_super_weapons and state.has("Flame Stone", player, 7) and super_weapons:
+    if options.progressive_super_weapons.value:
+        super_weapons = (state.has("Broken Mistilteinn", player) and state.has("Adol", player)) or \
+                        (state.has("Broken Spirit Ring", player) and state.has("Dana", player))
+    else:
+        super_weapons = (state.has("Mistilteinn", player) and state.has("Adol", player)) or \
+                        (state.has("Spirit Ring Celesdia", player) and state.has("Dana", player))
+    
+    if options.progressive_super_weapons.value and state.has("Flame Stone", player, 7) and super_weapons:
         weaponStr = 290
-    elif not options.progressive_super_weapons and super_weapons:
+    elif not options.progressive_super_weapons.value and super_weapons:
         weaponStr = 290
     elif state.has("Flame Stone", player, 7) and mat("Dragon Crest Stone"):
         weaponStr = 270
