@@ -603,23 +603,3 @@ for item in item_table.keys():
         item_name_groups[category] = set()
     item_name_groups[category].add(item)
 
-def extend_item_tables_with_landmarks():
-    """Merge landmark items into the main item table."""
-    item_table.update(landmark_item_table)
-
-def extend_event_item_table_with_landmarks_off():
-    """When Discovery Sanity is off, force landmarks as locked event items at default locations."""
-    event_item_table.update(landmark_item_table)
-
-def extend_event_item_table_with_fsc():
-    """Merge Former Sanctuary Crypt event items into the main event item table."""
-    event_item_table.update(fsc_event_item_table)
-
-def extend_item_tables_with_super_weapons():
-    """Merge super weapon items into the main item table."""
-    item_table.update(super_weapons_item_table)
-
-def extend_item_tables_with_progressive_super_weapons():
-    """Merge progressive super weapon items into the main item table."""
-    item_table.update(progressive_super_weapon_item_table)
-

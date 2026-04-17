@@ -875,30 +875,3 @@ for location in location_table.keys():
     if category not in location_name_groups.keys():
         location_name_groups[category] = set()
     location_name_groups[category].add(location)
-
-# Psyche Fight Shuffle chosen lists - populated in Regions.py
-chosen_psyche_fight_list: List[str] = []
-chosen_psyche_location_list: List[str] = []
-
-
-def extend_location_tables_with_fsc():
-    """Merge Former Sanctuary Crypt locations into the main location tables."""
-    location_table.update(fsc_location_table)
-    event_location_table.update(fsc_event_location_table)
-    psyche_location_table.update(fsc_psyche_location_table)
-
-def extend_psyche_location_table_with_fsc_off():
-    """Merge Melaiduma into psyche fights when fsc is off."""
-    psyche_fight_names.update(fsc_psyche_fight_names)
-
-def extend_psyche_location_table_with_silent_tower():
-    """Merge Silent Tower Psyche locations into the main psyche location table."""
-    psyche_location_table.update(silent_tower_psyche_location_table)
-    
-def extend_location_tables_with_landmarks():
-    """Merge landmark locations into the main location table."""
-    location_table.update(landmark_location_table)
-
-def extend_event_location_table_with_landmarks_off():
-    """When Discovery Sanity is off, expose landmark locations as event locations."""
-    event_location_table.update(landmark_location_table)

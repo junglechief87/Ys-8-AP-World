@@ -1,74 +1,74 @@
 from typing import TYPE_CHECKING, Dict
+from .Options import Ys8Options
 
 if TYPE_CHECKING:
     from . import Ys8World
 
-def dungeon_entrance_shuffle(Ys8World, region_connections: Dict[str, list]):
-    multiworld = Ys8World.multiworld
+def build_paired_connections(Ys8World):
+    paired_connections = {dungeon: field for field, dungeon in Ys8World.dungeon_connections.items()}
+    Ys8World.dungeon_connections.update(paired_connections)
 
-    dungeon_entrances: Dict[str, str] = {
-        "Entrance: Waterdrop Cave": "Calm Inlet Area",
-        "Entrance: Towering Coral Forest Front": "Nameless Coast North",
-        "Entrance: Towering Coral Forest Boss Arena": "Metavolicalis Area",
-        "Entrance: Eroded Valley Front": "Eroded Valley Front",
-        "Entrance: Eroded Valley Boss Arena": "Sunrise Beach",
-        "Entrance: Schlamm Jungle Front": "Schlamm Jungle Front",
-        "Entrance: Schlamm Jungle Boss Arena": "Odd Rock Coast",
-        "Entrance: Silent Tower": "Silent Tower",
-        "Entrance: Mont Gendarme Front": "Mont Gendarme Front",
-        "Entrance: Mont Gendarme Boss Arena": "Seiren North Access",
-        "Entrance: Octus Overlook": "Octus Overlook",
-        "Entrance: Former Sanctuary Crypt": "Former Sanctuary Crypt Front",
-        "Entrance: Baja Tower": "Baja Tower Lower Floors",
-        "Entrance: Archeozoic Chasm": "Archeozoic Chasm Front",
-        "Entrance: Valley of Kings": "Valley of Kings Before Door",
-    }
+def dungeon_entrance_shuffle(Ys8World):
+    options = Ys8World.options
+
+    dungeon_connections = Ys8World.dungeon_connections
     
-    dungeon_entrance_pairs: Dict[str, str] = {
-        "Calm Inlet Area": "Entrance: Waterdrop Cave",
-        "Nameless Coast North": "Entrance: Towering Coral Forest Front",
-        "Metavolicalis Area": "Entrance: Towering Coral Forest Boss Arena",
-        "Eroded Valley Front": "Entrance: Eroded Valley Front",
-        "Sunrise Beach": "Entrance: Eroded Valley Boss Arena",
-        "Schlamm Jungle Front": "Entrance: Schlamm Jungle Front",
-        "Odd Rock Coast": "Entrance: Schlamm Jungle Boss Arena",
-        "Nostalgia Cape Area": "East Coast Cave Before Gilkyra",
-        "Silent Tower": "Entrance: Silent Tower",
-        "Mont Gendarme Front": "Entrance: Mont Gendarme Front",
-        "Seiren North Access": "Entrance: Mont Gendarme Boss Arena",
-        "Octus Overlook": "Entrance: Octus Overlook",
-        "Former Sanctuary Crypt Front": "Entrance: Former Sanctuary Crypt",
-        "Baja Tower Lower Floors": "Entrance: Baja Tower",
-        "Archeozoic Chasm Front": "Entrance: Archeozoic Chasm",
-        "Valley of Kings Before Door": "Entrance: Valley of Kings"
-    }
+    two_way_connector_dungeon_entrances: Dict[str, str] = {
+        "Towering Coral Forest Front":"Towering Coral Forest Boss Arena", "Towering Coral Forest Boss Arena":"Towering Coral Forest Front", 
+        "Eroded Valley Front":"Eroded Valley Boss Arena", "Eroded Valley Boss Arena":"Eroded Valley Front", 
+        "Schlamm Jungle Front":"Schlamm Jungle Boss Arena", "Schlamm Jungle Boss Arena":"Schlamm Jungle Front",
+        "Mont Gendarme Front":"Mont Gendarme Boss Arena", "Mont Gendarme Boss Arena":"Mont Gendarme Front"}
+    
+    # Potentially growing list of locations based on settings
+    isolated_regions = ["Odd Rock Coast"]
+    if not options.discovery_sanity.value:
+        isolated_regions.extend(["Sunrise Beach", "Metavolicalis Area"])
 
     # Shuffle the target regions for each entrance
-    entrance_list = list(dungeon_entrances.keys())
-    region_list = list(dungeon_entrances.values())
-    multiworld.random.shuffle(region_list)
+    field_list = list(dungeon_connections.keys())
+    dungeon_list = list(dungeon_connections.values())
+    Ys8World.multiworld.random.shuffle(dungeon_list)
     
-    original_entrances = dungeon_entrances.copy()
-    shuffled_entrances = dict(zip(entrance_list, region_list))
-    
-    # Update region_connections with the shuffled entrances
-    for entrance, old_region in original_entrances.items():
-        new_region = shuffled_entrances[entrance]
-        
-        # Remove entrance from old region's connections
-        if entrance in region_connections[old_region]:
-            region_connections[old_region].remove(entrance)
-        
-        # Add entrance to new region's connections
-        if entrance not in region_connections[new_region]:
-            region_connections[new_region].append(entrance)
-        
-        # Update the dungeon_entrances mapping
-        dungeon_entrances[entrance] = new_region
-        
-        # Update the reverse mapping (region to entrance)
-        if old_region in dungeon_entrance_pairs and dungeon_entrance_pairs[old_region] == entrance:
-            del dungeon_entrance_pairs[old_region]
-        dungeon_entrance_pairs[new_region] = entrance
-    
+    original_connections = dungeon_connections.copy()
+    new_dungeon_connections = {}
+    placed_fields = set()
 
+    while len(placed_fields) < len(field_list):
+        for field in field_list:
+            if field in placed_fields:
+                continue
+            
+            placed = False
+            for dungeon in dungeon_list:
+                if dungeon in new_dungeon_connections.values():
+                    continue
+                
+                if field in isolated_regions and dungeon not in two_way_connector_dungeon_entrances.keys():
+                    continue
+                if field in isolated_regions and dungeon in two_way_connector_dungeon_entrances.keys():
+                    # Get the paired dungeon entrance and find which field it's assigned to
+                    paired_dungeon_entrance = two_way_connector_dungeon_entrances[dungeon]
+                    paired_field = None
+                    for f, d in new_dungeon_connections.items():
+                        if d == paired_dungeon_entrance:
+                            paired_field = f
+                            break
+                    
+                    # If paired field is also in isolated regions, we can't assign this dungeon to the current field
+                    if paired_field in isolated_regions:
+                        continue
+                
+                new_dungeon_connections[field] = dungeon
+                placed_fields.add(field)
+                placed = True
+                break
+            
+            if not placed:
+                # Failed to place this field, restart everything
+                new_dungeon_connections = {}
+                dungeon_list = list(dungeon_connections.values())
+                Ys8World.multiworld.random.shuffle(dungeon_list)
+                placed_fields = set()
+                break
+    
+    Ys8World.dungeon_connections = new_dungeon_connections
