@@ -1,74 +1,79 @@
-from typing import TYPE_CHECKING, Dict
+from typing import TYPE_CHECKING, NamedTuple
 from .Options import Ys8Options
 
 if TYPE_CHECKING:
     from . import Ys8World
 
-def build_paired_connections(Ys8World):
-    paired_connections = {dungeon: field for field, dungeon in Ys8World.dungeon_connections.items()}
-    Ys8World.dungeon_connections.update(paired_connections)
-
 def dungeon_entrance_shuffle(Ys8World):
-    options = Ys8World.options
+    multiworld = Ys8World.multiworld
+    player     = Ys8World.player
+    options    = Ys8World.options
+    
 
-    dungeon_connections = Ys8World.dungeon_connections
+    discovery_shuffle_dependent_exits: list = ["Meta TCF Entrance", "SB EV Entrance"]
+    single_connector_exits: list = ["ORC SJ Entrance"]
+    multi_connector_exits: list = ["WC Entrance", "NCN TCF Entrance", "GRV EVF Entrance", "GRVSC SJ Entrance", "PP MG Entrance",
+                                   "SNA MGAB Entrance", "TGTG OO Entrance", "AC Entrance", "FSC Entrance", "BTLF Entrance", "LMB VOKBD Entrance",
+                                   "ST Entrance", "NCA ECCBG Entrance"]
+    multi_connector_regions: list = ["Towering Coral Forest Front", "Towering Coral Forest After Boss", "Eroded Valley Front",
+                                    "Eroded Valley After Boss", "Schlamm Jungle Front", "Schlamm Jungle After Boss", "Mont Gendarme Front",
+                                    "Mont Gendarme After Boss"]
+    single_connector_regions: list = ["Waterdrop Cave", "East Coast Cave Before Gilkyra", "Silent Tower", "Octus Overlook","Former Sanctuary Crypt Front",
+                                      "Baja Tower Lower Floors", "Archeozoic Chasm Front", "Valley of Kings Before Door"]
+    entrance_pairs: list[dict[str, str]] = {"Towering Coral Forest Front": "TCF NCN Exit", "Towering Coral Forest After Boss": "TCFAB Meta Exit", "Eroded Valley Front": "EVF GRV Exit", 
+                                             "Eroded Valley After Boss": "EVAB SB Exit", "Schlamm Jungle Front": "SJF GRVSC Exit", "Schlamm Jungle After Boss": "SJAB ORC Exit", 
+                                             "Mont Gendarme Front": "MGF PPGE Exit", "Mont Gendarme After Boss": "MGPB SNA Exit", "Waterdrop Cave": "WC Exit", 
+                                             "East Coast Cave Before Gilkyra": "ECCBG NCA Exit", "Silent Tower": "STE OST Exit", "Octus Overlook": "OO TGT Exit", 
+                                             "Former Sanctuary Crypt Front": "FSCF ROEHP Exit", "Baja Tower Lower Floors": "BTLF THBTE Exit", "Archeozoic Chasm Front": "ACF BTAC Exit", 
+                                             "Valley of Kings Before Door": "VOKBD LMB Exit"}
+    region_pairs: list[dict[str, str]] = {"Meta TCF Entrance": "Metavolicalis Area", "SB EV Entrance": "Sunrise Beach", "ORC SJ Entrance": "Odd Rock Coast", 
+                                          "WC Entrance": "Calm Inlet Area", "NCN TCF Entrance": "Nameless Coast North", "GRV EVF Entrance": "Great River Valley Area",
+                                          "GRVSC SJ Entrance": "Great River Valley South Camp", "PP MG Entrance": "Primordial Passage Gendarme Entrance", 
+                                          "SNA MGAB Entrance": "Seiren North Access", "TGTG OO Entrance": "Temple of the Great Tree Garden", "AC Entrance": "Bridge to Archeozoic Chasm", 
+                                          "FSC Entrance": "Ruins of Eternia Hidden Passage", "BTLF Entrance": "Towal Highway Baja Tower Entrance", 
+                                          "LMB VOKBD Entrance": "Lodinia Marshlands Back", "ST Entrance": "Silent Tower Entrance", "NCA ECCBG Entrance": "Nostalgia Cape Area"}
+    merged_regions: list = []
+    shuffled_connectors: dict[str, str] = {}
+    Ys8World.entrance_spoiler = []
+    Ys8World.dungeon_connections = {}
     
-    two_way_connector_dungeon_entrances: Dict[str, str] = {
-        "Towering Coral Forest Front":"Towering Coral Forest Boss Arena", "Towering Coral Forest Boss Arena":"Towering Coral Forest Front", 
-        "Eroded Valley Front":"Eroded Valley Boss Arena", "Eroded Valley Boss Arena":"Eroded Valley Front", 
-        "Schlamm Jungle Front":"Schlamm Jungle Boss Arena", "Schlamm Jungle Boss Arena":"Schlamm Jungle Front",
-        "Mont Gendarme Front":"Mont Gendarme Boss Arena", "Mont Gendarme Boss Arena":"Mont Gendarme Front"}
-    
-    # Potentially growing list of locations based on settings
-    isolated_regions = ["Odd Rock Coast"]
+    # Manually set the connections for entrances that are not shuffled
+    if not options.former_sanctuary_crypt.value:
+        shuffled_connectors["FSC Entrance"] = "Former Sanctuary Crypt Front"
+        shuffled_connectors[entrance_pairs["Former Sanctuary Crypt Front"]] = region_pairs["FSC Entrance"]
+
+    # Set the connections for entrances that are shuffled but have dependencies
     if not options.discovery_sanity.value:
-        isolated_regions.extend(["Sunrise Beach", "Metavolicalis Area"])
+        single_connector_exits.extend(discovery_shuffle_dependent_exits)
+    elif options.discovery_sanity.value:
+        multi_connector_exits.extend(discovery_shuffle_dependent_exits)
 
-    # Shuffle the target regions for each entrance
-    field_list = list(dungeon_connections.keys())
-    dungeon_list = list(dungeon_connections.values())
-    Ys8World.multiworld.random.shuffle(dungeon_list)
+    # Guarantee our single connector exits are shuffled into multi connector regions first, preventing isolation 
+    Ys8World.multiworld.random.shuffle(multi_connector_regions)
+    for region_exit in single_connector_exits:
+        if region_exit in shuffled_connectors.keys():
+            continue
+        shuffled_connectors[region_exit] = multi_connector_regions.pop()
+        Ys8World.entrance_spoiler.append((region_exit + "=>" +shuffled_connectors[region_exit]))
     
-    original_connections = dungeon_connections.copy()
-    new_dungeon_connections = {}
-    placed_fields = set()
+    # Merge the remaining multi connectors because it doesn't matter anymore and do the rest of the shuffling
+    merged_regions.extend(single_connector_regions)
+    merged_regions.extend(multi_connector_regions)
+    Ys8World.multiworld.random.shuffle(merged_regions)
+    for region_exit in multi_connector_exits:
+        if region_exit in shuffled_connectors.keys():
+            continue
+        shuffled_connectors[region_exit] = merged_regions.pop()
+        Ys8World.entrance_spoiler.append((region_exit + "=>" +shuffled_connectors[region_exit]))
 
-    while len(placed_fields) < len(field_list):
-        for field in field_list:
-            if field in placed_fields:
-                continue
-            
-            placed = False
-            for dungeon in dungeon_list:
-                if dungeon in new_dungeon_connections.values():
-                    continue
-                
-                if field in isolated_regions and dungeon not in two_way_connector_dungeon_entrances.keys():
-                    continue
-                if field in isolated_regions and dungeon in two_way_connector_dungeon_entrances.keys():
-                    # Get the paired dungeon entrance and find which field it's assigned to
-                    paired_dungeon_entrance = two_way_connector_dungeon_entrances[dungeon]
-                    paired_field = None
-                    for f, d in new_dungeon_connections.items():
-                        if d == paired_dungeon_entrance:
-                            paired_field = f
-                            break
-                    
-                    # If paired field is also in isolated regions, we can't assign this dungeon to the current field
-                    if paired_field in isolated_regions:
-                        continue
-                
-                new_dungeon_connections[field] = dungeon
-                placed_fields.add(field)
-                placed = True
-                break
-            
-            if not placed:
-                # Failed to place this field, restart everything
-                new_dungeon_connections = {}
-                dungeon_list = list(dungeon_connections.values())
-                Ys8World.multiworld.random.shuffle(dungeon_list)
-                placed_fields = set()
-                break
+    Ys8World.dungeon_connections = shuffled_connectors.copy()
+
+    # Get connector pairs to make sure our connections are correct in both directions
+    for region_exit, region in shuffled_connectors.items():
+        Ys8World.dungeon_connections[entrance_pairs[region]] = region_pairs[region_exit]
+
     
-    Ys8World.dungeon_connections = new_dungeon_connections
+        Ys8World.entrance_spoiler.append(entrance_pairs[region] + "=>" + region_pairs[region_exit])
+
+    for line in Ys8World.entrance_spoiler:
+        print(line)

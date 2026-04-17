@@ -605,7 +605,6 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     set_rule(get_ent("SH Link"), lambda state: state.has("Soundless Hall", player))
     set_rule(get_ent("SG Link"), lambda state: state.has("Sky Garden", player))
     set_rule(get_ent("GOAH Link"), lambda state: state.has("Graves of Ancient Heroes", player))
-    set_rule(get_ent("TCFNFH Link"), lambda state: state.has("Glow Stone", player))
     if not options.north_side_open.value:
         set_rule(get_ent("SNA Link"), lambda state: state.has_any(["Prismatic Mineral Vein", "Unicalamites", "Breath Fountain", "Ancient Tree"], player))
 
@@ -624,6 +623,7 @@ def set_entrance_rules(Ys8World: "Ys8World"):
 
     # Nameless Coast North Connections
     set_rule(get_ent("NCN GRV Link"), lambda state: state.has("Archeopteryx Wings", player) or has_required_crew(Ys8World, state, 8))
+    set_rule(get_ent("TCFNFH Link"), lambda state: state.has("Glow Stone", player))
 
     # Great River Valley Area Connections
     set_rule(get_ent("GRV BWFG Link"), lambda state: state.has("Float Shoes", player))
@@ -666,7 +666,7 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     set_rule(get_ent("EV Post-Boss Link"), lambda state: state.has("Gargantula Defeated", player))
 
     # Schlamm Jungle Connections
-    set_rule(get_ent("SJ MB Entrance"), lambda state: state.has("Magamandra Defeated", player))
+    set_rule(get_ent("SJMB SJF Exit"), lambda state: state.has("Magamandra Defeated", player))
     set_rule(get_ent("SJMB MP Link"), lambda state: state.has("Magamandra Defeated", player) and 
              state.has_any(["Archeopteryx Wings", "Float Shoes"], player))
     set_rule(get_ent("SJMP BB Link"), lambda state: state.has("Float Shoes", player))
@@ -696,7 +696,7 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     # Outside Silent Tower Connections
     set_rule(get_ent("OST LCA Exit"), lambda state: state.has("Archeopteryx Wings", player))
     set_rule(get_ent("OST STE Link"), lambda state: has_required_crew(Ys8World, state, 24))
-    set_rule(get_ent("STE OST Exit"), lambda state: has_required_crew(Ys8World, state, 24))
+    set_rule(get_ent("STE OST Link"), lambda state: has_required_crew(Ys8World, state, 24))
 
     # Weathervane Hills Connections
     set_rule(get_ent("WH WHPIN Link"), lambda state: state.has("Dina", player))
@@ -709,7 +709,7 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     
     # Mont Gendarme Connections
     set_rule(get_ent("MGF MGM Link"), lambda state: state.has("Grip Gloves", player))
-    set_rule(get_ent("MGM MG MB Entrance"), lambda state: state.has("Grip Gloves", player))
+    set_rule(get_ent("MGM MB Link"), lambda state: state.has("Grip Gloves", player))
     set_rule(get_ent("MGMB MGM Exit"), lambda state: state.has("Avalodragil 2 Defeated", player))
     set_rule(get_ent("MGMB MGU Link"), lambda state: state.has_all(["Avalodragil 2 Defeated", "Grip Gloves"], player))
     set_rule(get_ent("MG Boss Entrance"), lambda state: state.has("Grip Gloves", player))
@@ -720,7 +720,7 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     set_rule(get_ent("SNA SPWC Link"), lambda state: has_required_crew(Ys8World, state, 18))
     set_rule(get_ent("SNA TGT Link"), lambda state: state.has("Dana", player))
     set_rule(get_ent("SNA ROE Link"), lambda state: state.has("Blue Seal of Whirling Water", player))
-    set_rule(get_ent("SNA PPHN Link"), lambda state: state.has("Glow Stone", player))
+    set_rule(get_ent("SNA PPN Link"), lambda state: state.has("Glow Stone", player))
 
     # Stone Pillar Wind Cave Connections
     set_rule(get_ent("SPWC SPWCU Link"), lambda state: state.has("Grip Gloves", player))
@@ -778,11 +778,11 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     set_rule(get_ent("LMF LMS Link"), lambda state: state.has("Float Shoes", player))
     set_rule(get_ent("LMNSC LMNSG Link"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
     set_rule(get_ent("SC Entrance"), lambda state: has_required_crew(Ys8World, state, 22) and state.has_all(["Glow Stone", "Hermit's Scale"], player))
-    set_rule(get_ent("SG Link"), lambda state: state.has_all(["Grip Gloves", "Archeopteryx Wings"], player))
+    set_rule(get_ent("LMNSG SG Link"), lambda state: state.has_all(["Grip Gloves", "Archeopteryx Wings"], player))
     set_rule(get_ent("LMNSG LMB Link"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
     set_rule(get_ent("LMNSG LMNSC Exit"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
     set_rule(get_ent("LMB LMNSG Exit"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
-    set_rule(get_ent("GOAH Link"), lambda state: state.has_all(["Shrine Maiden Amulet", "Grip Gloves"], player))
+    set_rule(get_ent("LMB GOAH Link"), lambda state: state.has_all(["Shrine Maiden Amulet", "Grip Gloves"], player))
     set_rule(get_ent("GOAH LMB Exit"), lambda state: state.has("Shrine Maiden Amulet", player))
 
     # Valley of Kings Connections
@@ -792,7 +792,7 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     # Submerged Cemetery Connections
     set_rule(get_ent("SC LMNSC Exit"), lambda state: has_required_crew(Ys8World, state, 22))
     set_rule(get_ent("BMHR Link"), lambda state: state.has_all(["Glow Stone", "Hermit's Scale"], player))
-    set_rule(get_ent("SH Link"), lambda state: state.has_all(["Glow Stone", "Hermit's Scale"], player))
+    set_rule(get_ent("SC SH Link"), lambda state: state.has_all(["Glow Stone", "Hermit's Scale"], player))
     set_rule(get_ent("SH SC Exit"), lambda state: state.has_all(["Glow Stone", "Hermit's Scale"], player))
     set_rule(get_ent("BMHR SC Exit"), lambda state: state.has_all(["Glow Stone", "Hermit's Scale"], player))
 
@@ -804,10 +804,10 @@ def set_entrance_rules(Ys8World: "Ys8World"):
 
     
     if options.final_boss_access == 0:
-        set_rule(get_ent("TGT Garden Link"), lambda state: 
+        set_rule(get_ent("TGTG OO Entrance"), lambda state: 
                  has_required_crew(Ys8World, state, options.goal_count_crew_mode) and battle_logic(Ys8World, state, _BATTLE_REQ["OCTUS"]))
     if options.final_boss_access == 2:
-        set_rule(get_ent("TGT Garden Link"), lambda state:
+        set_rule(get_ent("TGTG OO Entrance"), lambda state:
                  state.has_from_list(["Psyches of the Sky Era", "Psyches of the Insectoid Era", "Psyches of the Ocean Era", "Psyches of the Frozen Era"],\
                                       player, options.goal_count_psyches_mode) and battle_logic(Ys8World, state, _BATTLE_REQ["OCTUS"]))
     

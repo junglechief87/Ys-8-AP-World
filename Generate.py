@@ -646,6 +646,23 @@ def roll_alttp_settings(ret: argparse.Namespace, weights):
                         ret.sprite_pool += [key] * int(value)
 
 
+def print_item_placement(multiworld):
+    """Print item placement details to CLI by region"""
+    print("\n" + "="*100)
+    print("ITEM PLACEMENT BY REGION")
+    print("="*100)
+    
+    for region in sorted(multiworld.regions, key=lambda r: r.name):
+        locations = region.locations
+        if locations:
+            print(f"\n{region.name}:")
+            for loc in sorted(locations, key=lambda l: l.name):
+                item = loc.item.name if loc.item else "EMPTY"
+                print(f"  {loc.name}: {item}")
+    
+    print("\n" + "="*100 + "\n")
+
+
 if __name__ == '__main__':
     import atexit
     confirmation = atexit.register(input, "Press enter to close.")

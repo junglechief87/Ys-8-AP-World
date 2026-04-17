@@ -200,6 +200,10 @@ def main(args, seed=None, baked_server_options: dict[str, object] | None = None)
     elif multiworld.algorithm == 'balanced':
         distribute_items_restrictive(multiworld, get_settings().generator.panic_method)
 
+    # Print item placement right after filling completes
+    from Generate import print_item_placement
+    print_item_placement(multiworld)
+
     AutoWorld.call_all(multiworld, 'post_fill')
 
     if multiworld.players > 1 and not args.skip_prog_balancing:

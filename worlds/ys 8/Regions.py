@@ -1,7 +1,8 @@
 from typing import Dict, List, NamedTuple, Optional, TYPE_CHECKING
 from BaseClasses import MultiWorld, Region, Entrance
 from .Locations import (Ys8Location)
-from .Entrance_Shuffle import dungeon_entrance_shuffle, build_paired_connections
+from .Entrance_Shuffle import dungeon_entrance_shuffle
+from entrance_rando import disconnect_entrance_for_randomization
 
 if TYPE_CHECKING:
     from . import Ys8World
@@ -22,7 +23,7 @@ def create_regions(Ys8World):
         "Calm Inlet Area": ["WC Entrance", "NCN Link", "TCFRF Link", "Para Link", "Meta Link", "CIA IL1 Link", "CIA IL2 Link", "CIA IL3 Link", 
                             "CIA MC Link", "CIA JT Link", "CIA FT Link", "CIA DTI Link", "WFG Link", "GRV Link", "MWV Link", "EVIMV Link", 
                             "SB Link", "SJFMH Link", "BH Link", "ECCBG Link", "NCA Link", "WH Link", "SI Link", "LMVA Link",
-                            "SNA Link", "SH Link", "SG Link", "GOAH Link", "TCFNFH Link"],
+                            "SNA Link", "SH Link", "SG Link", "GOAH Link"],
         "Calm Inlet: Intercept List 1": [],
         "Calm Inlet: Intercept List 2": [],
         "Calm Inlet: Intercept List 3": [],
@@ -31,18 +32,18 @@ def create_regions(Ys8World):
         "Calm Inlet: Fish Trade": [],
         "Calm Inlet: Discovery Turn In": [],
         "Waterdrop Cave": ["WC Exit"],
-        "Nameless Coast North": ["NCN CIA Exit", "NCN GRV Link", "NCN TCF Link"],
+        "Nameless Coast North": ["NCN CIA Exit", "NCN GRV Link", "NCN TCF Entrance", "TCFNFH Link"],
         "Towering Coral Forest Front": ["TCF MB Entrance", "TCF NCN Exit"],
         "Towering Coral Forest Mid-Boss Arena": ["TCFMB Exit", "TCFMB Corpse Link"],
         "Towering Coral Forest Corpse": ["TCFC MB Exit", "TCFC RF Link"],
         "Towering Coral Forest Rainbow Falls": ["TCFRF TCF Exit", "TCFRF BB Link", "TCFRF Corpse Exit"],
         "Towering Coral Forest Before Boss": ["TCFBB TCF Exit", "TCFBB RF Exit", "TCF Boss Entrance"],
         "Towering Coral Forest Boss Arena": ["TCF Boss Exit", "TCF Post-Boss Link"],
-        "Towering Coral Forest After Boss": ["TCFAB Boss Exit", "TCFAB Meta Link"],
-        "Metavolicalis Area": ["Meta Para Link", "Meta TCF Exit"],
+        "Towering Coral Forest After Boss": ["TCFAB Boss Exit", "TCFAB Meta Exit"],
+        "Metavolicalis Area": ["Meta Para Link", "Meta TCF Entrance"],
         "Parasequoia Area": ["Para Meta Exit"],
-        "Great River Valley Area": ["GRV NCN Exit", "GRV BWFG Link", "GRV WGDA Link", "GRV LCA Link", "GRV PP Link", "GRV SC Link", "GRV EVF Link"],
-        "Great River Valley South Camp": ["GRV SC Exit", "SJ Entrance"],
+        "Great River Valley Area": ["GRV NCN Exit", "GRV BWFG Link", "GRV WGDA Link", "GRV LCA Link", "GRV PP Link", "GRV SC Link", "GRV EVF Entrance"],
+        "Great River Valley South Camp": ["GRV SC Exit", "GRVSC SJ Entrance"],
         "Base of Western Foot of Gendarme": ["BWFG GRV Exit", "WFG Entrance"],
         "Western Foot of Gendarme": ["WFG Exit"],
         "Milky White Vein": ["MWV WGDA Link"],
@@ -56,44 +57,44 @@ def create_regions(Ys8World):
         "Eroded Valley Webbed Walkway": ["EVWW EVF Exit", "EVWW BB Link", "EVWW MB Exit"],
         "Eroded Valley Before Boss": ["EVBB WW Exit", "EV Boss Entrance"],
         "Eroded Valley Boss Arena": ["EV Boss Exit", "EV Post-Boss Link"],
-        "Eroded Valley After Boss": ["EVAB Boss Exit", "EVAB SB Link"],
-        "Sunrise Beach": ["SB EV Exit"],
-        "Schlamm Jungle Front": ["SJ MB Entrance", "SJF GRV Exit"],
+        "Eroded Valley After Boss": ["EVAB Boss Exit", "EVAB SB Exit"],
+        "Sunrise Beach": ["SB EV Entrance"],
+        "Schlamm Jungle Front": ["SJ MB Entrance", "SJF GRVSC Exit"],
         "Schlamm Jungle Mid-Boss Arena": ["SJMB SJF Exit", "SJMB MP Link"],
         "Schlamm Jungle Muddy Path": ["SJMP MB Exit", "SJMP BB Link", "SJMP FMH Link"],
         "Schlamm Jungle Field of Medicinal Herbs": ["SJFMH MP Exit"],
         "Schlamm Jungle Before Boss": ["SJBB MP Exit", "SJ Boss Entrance"],
         "Schlamm Jungle Boss Arena": ["SJ Boss Exit", "SJ Post-Boss Link"],
-        "Schlamm Jungle After Boss": ["SJAB Boss Exit", "SJAB ORC Link"],
-        "Odd Rock Coast": ["ORC SJ Exit"],
-        "Nostalgia Cape Area": ["NCA LCA Exit"],
-        "East Coast Cave Before Gilkyra": ["ECCBG ECCAG Link"],
+        "Schlamm Jungle After Boss": ["SJAB Boss Exit", "SJAB ORC Exit"],
+        "Odd Rock Coast": ["ORC SJ Entrance"],
+        "Nostalgia Cape Area": ["NCA LCA Exit", "NCA ECCBG Entrance"],
+        "East Coast Cave Before Gilkyra": ["ECCBG ECCAG Link", "ECCBG NCA Exit"],
         "East Coast Cave After Gilkyra": ["ECCAG ECCBG Exit", "PSE Entrance"],
         "Pirate Ship Eleftheria": ["PSE ECC Exit", "PSE SH Entrance"],
         "Pirate Ship Eleftheria Submerged Hold": ["PSESH PSE Exit"],
         "Primordial Passage": ["PP GRV Exit", "PP MGNFH Link", "PP PPGE Link"],
-        "Primordial Passage Gendarme Entrance": ["PPGE PP Exit", "MG Entrance"],
+        "Primordial Passage Gendarme Entrance": ["PPGE PP Exit", "PP MG Entrance"],
         "Outside Silent Tower": ["OST LCA Exit", "OST STE Link"],
-        "Silent Tower Entrance": ["STE OST Exit", "ST Entrance"],
-        "Silent Tower": ["STE OST Link"],
+        "Silent Tower Entrance": ["STE OST Link", "ST Entrance"],
+        "Silent Tower": ["STE OST Exit"],
         "Solitude Island": [],
         "Weathervane Hills": ["WH WHPIN Link", "WH UWV Link"],
         "Weathervane Hills Past Insect Nests": ["WHPIN WH Exit"],
         "Underground Water Vein": ["UWV WH Exit", "UWV LMVA Link"],
         "Lapis Mineral Vein Area": ["LMVA UWV Exit"],
         "Mont Gendarme Front": ["MGF PPGE Exit", "MGF MGM Link"],
-        "Mont Gendarme Middle": ["MGM MGF Exit", "MG MB Entrance"],
+        "Mont Gendarme Middle": ["MGM MGF Exit", "MGM MB Link"],
         "Mont Gendarme Mid-Boss Arena": ["MGMB MGM Exit", "MGMB MGU Link"],
         "Mont Gendarme Upper": ["MGU MB Exit", "MG Boss Entrance"],
         "Mont Gendarme Boss Arena": ["MG Boss Exit", "MG Post-Boss Link"],
-        "Mont Gendarme Post Boss": ["MGPB Boss Exit", "MGPB SNA Link"],
-        "Seiren North Access": ["SNA SPWC Link", "SNA TGT Link", "SNA ROE Link", "SNA PPHN Link"],
+        "Mont Gendarme After Boss": ["MGPB Boss Exit", "MGPB SNA Exit"],
+        "Seiren North Access": ["SNA SPWC Link", "SNA TGT Link", "SNA ROE Link", "SNA PPN Link", "SNA MGAB Entrance"],
         "Stone Pillar Wind Cave": ["SPWC SNA Exit", "SPWC SPWCU Link"],
         "Stone Pillar Wind Cave Upper": ["SPWCU SPWC Exit"],
         "Temple of the Great Tree": ["TGT SNA Exit", "TGT Boss Entrance", "TGT ROE Link", "TGT VR Link"],
         "Temple of the Great Tree Boss Arena": ["TGT Boss Exit", "TGT Garden Link"],
-        "Temple of the Great Tree Garden": ["TGTG TGT Exit"],
-        "Octus Overlook": ["OO SS Link"],
+        "Temple of the Great Tree Garden": ["TGTG TGT Exit", "TGTG OO Entrance"],
+        "Octus Overlook": ["OO SS Link", "OO TGT Exit"],
         "Selection Sphere": ["SS OO Exit"],
         "Ruins of Eternia": ["ROE SNA Exit", "ROE TGT Exit", "ROE TH Link", "ROE BM Link", "ROE ROEHP Link", "ROE BTAC Link"],
         "Bridge to Archeozoic Chasm": ["BTAC ROE Exit", "AC Entrance"],
@@ -117,7 +118,7 @@ def create_regions(Ys8World):
         "Baja Tower Lower Floors": ["BTLF THBTE Exit", "BTLF BTUF Link"],
         "Baja Tower Upper Floors": ["BTUF BTLF Exit", "BTBA Entrance"],
         "Baja Tower Boss Arena": ["BTBA BTUF Exit"],
-        "Archeozoic Chasm Front": ["ACF ACSA Link"],
+        "Archeozoic Chasm Front": ["ACF BTAC Exit", "ACF ACSA Link"],
         "Archeozoic Chasm Submerged Area": ["ACSA ACF Exit", "AC Boss Entrance"],
         "Archeozoic Chasm Boss Arena": ["ACBA ACSA Exit"],
         "Vista Ridge": ["VR TGT Exit", "VR VRU Link", "VR LMF Link"],
@@ -125,14 +126,14 @@ def create_regions(Ys8World):
         "Lodinia Marshlands Front": ["LMF VR Exit", "LMF LMS Link", "LMF LMNSC Link"],
         "Lodinia Marshlands South": ["LMS LMF Exit"],
         "Lodinia Marshlands Near Submerged Cemetery": ["LMNSC LMF Exit", "SC Entrance", "LMNSC LMNSG Link"],
-        "Lodinia Marshlands Near Sky Garden": ["LMNSG LMNSC Exit", "SG Link", "LMNSG LMB Link"],
-        "Lodinia Marshlands Back": ["LMB LMNSG Exit", "GOAH Link", "LMB VOKBD Link"],
-        "Valley of Kings Before Door": ["VOKBD VOKAD Link"],
+        "Lodinia Marshlands Near Sky Garden": ["LMNSG LMNSC Exit", "LMNSG SG Link", "LMNSG LMB Link"],
+        "Lodinia Marshlands Back": ["LMB LMNSG Exit", "LMB GOAH Link", "LMB VOKBD Entrance"],
+        "Valley of Kings Before Door": ["VOKBD VOKAD Link", "VOKBD LMB Exit"],
         "Valley of Kings After Door": ["VOKAD VOKBD Exit", "VOK Boss Entrance"],
         "Valley of Kings Boss Arena": ["VOKBA VOKAD Exit"],
         "Graves of Ancient Heroes": ["GOAH LMB Exit"],
         "Sky Garden": ["SG LMNSG Exit"],
-        "Submerged Cemetery": ["SC LMNSC Exit", "BMHR Link", "SH Link"],
+        "Submerged Cemetery": ["SC LMNSC Exit", "BMHR Link", "SC SH Link"],
         "Soundless Hall": ["SH SC Exit"],
         "Bolado Monastery Hidden Room": ["BMHR SC Exit"],
         "Towering Coral Forest (Night) Front Half": ["TCFNFH TCFNRH Link"],
@@ -142,16 +143,7 @@ def create_regions(Ys8World):
         "Pangaia Plains (Night)": ["PPHN SNA Exit"],
     }
 
-  
-    # Shuffle entrances if enabled
-    if options.dungeon_entrance_shuffle.value:
-        dungeon_entrance_shuffle(Ys8World)
-    
-    build_paired_connections(Ys8World)
-
-    for region, target in Ys8World.dungeon_connections.items():
-        region_connections[region].append(target)
-
+ 
     for region in region_connections.keys():
         connections = region_connections[region]
         regions[region] = Ys8RegionData([], connections)
@@ -180,6 +172,7 @@ def create_regions(Ys8World):
 def connect_entrances(Ys8World: "Ys8World"):
     multiworld = Ys8World.multiworld
     player     = Ys8World.player
+    options    = Ys8World.options
     
     def connect(entrance_name: str, region_name: str):
         multiworld.get_entrance(entrance_name, player).connect(multiworld.get_region(region_name, player))
@@ -221,7 +214,7 @@ def connect_entrances(Ys8World: "Ys8World"):
     # Nameless Coast North
     connect("NCN CIA Exit", "Calm Inlet Area")
     connect("NCN GRV Link", "Great River Valley Area")
-    connect("NCN TCF Link", "Towering Coral Forest Front")
+    connect("NCN TCF Entrance", "Towering Coral Forest Front")
     
     # Towering Coral Forest Front
     connect("TCF MB Entrance", "Towering Coral Forest Mid-Boss Arena")
@@ -251,11 +244,11 @@ def connect_entrances(Ys8World: "Ys8World"):
     
     # Towering Coral Forest After Boss
     connect("TCFAB Boss Exit", "Towering Coral Forest Boss Arena")
-    connect("TCFAB Meta Link", "Metavolicalis Area")
+    connect("TCFAB Meta Exit", "Metavolicalis Area")
     
     # Metavolicalis Area
     connect("Meta Para Link", "Parasequoia Area")
-    connect("Meta TCF Exit", "Towering Coral Forest After Boss")
+    connect("Meta TCF Entrance", "Towering Coral Forest After Boss")
     
     # Parasequoia Area
     connect("Para Meta Exit", "Metavolicalis Area")
@@ -267,11 +260,11 @@ def connect_entrances(Ys8World: "Ys8World"):
     connect("GRV LCA Link", "Longhorn Coast Area")
     connect("GRV PP Link", "Primordial Passage")
     connect("GRV SC Link", "Great River Valley South Camp")
-    connect("GRV EVF Link", "Eroded Valley Front")
+    connect("GRV EVF Entrance", "Eroded Valley Front")
     
     # Great River Valley South Camp
     connect("GRV SC Exit", "Great River Valley Area")
-    connect("SJ Entrance", "Schlamm Jungle Front")
+    connect("GRVSC SJ Entrance", "Schlamm Jungle Front")
 
     # Base of Western Foot of Gendarme
     connect("BWFG GRV Exit", "Great River Valley Area")
@@ -327,14 +320,14 @@ def connect_entrances(Ys8World: "Ys8World"):
     
     # Eroded Valley After Boss
     connect("EVAB Boss Exit", "Eroded Valley Boss Arena")
-    connect("EVAB SB Link", "Sunrise Beach")
+    connect("EVAB SB Exit", "Sunrise Beach")
     
     # Sunrise Beach
-    connect("SB EV Exit", "Eroded Valley After Boss")
+    connect("SB EV Entrance", "Eroded Valley After Boss")
     
     # Schlamm Jungle Front
     connect("SJ MB Entrance", "Schlamm Jungle Mid-Boss Arena")
-    connect("SJF GRV Exit", "Great River Valley South Camp")
+    connect("SJF GRVSC Exit", "Great River Valley South Camp")
     
     # Schlamm Jungle Mid-Boss Arena
     connect("SJMB SJF Exit", "Schlamm Jungle Front")
@@ -358,15 +351,17 @@ def connect_entrances(Ys8World: "Ys8World"):
     
     # Schlamm Jungle After Boss
     connect("SJAB Boss Exit", "Schlamm Jungle Boss Arena")
-    connect("SJAB ORC Link", "Odd Rock Coast")
+    connect("SJAB ORC Exit", "Odd Rock Coast")
     
     # Odd Rock Coast
-    connect("ORC SJ Exit", "Schlamm Jungle After Boss")
+    connect("ORC SJ Entrance", "Schlamm Jungle After Boss")
     
     # Nostalgia Cape Area
     connect("NCA LCA Exit", "Longhorn Coast Area")
+    connect("NCA ECCBG Entrance", "East Coast Cave Before Gilkyra")
     
     # East Coast Cave Before Gilkyra
+    connect("ECCBG NCA Exit", "Nostalgia Cape Area")
     connect("ECCBG ECCAG Link", "East Coast Cave After Gilkyra")
     
     # East Coast Cave After Gilkyra
@@ -387,18 +382,18 @@ def connect_entrances(Ys8World: "Ys8World"):
     
     # Primordial Passage Gendarme Entrance
     connect("PPGE PP Exit", "Primordial Passage")
-    connect("MG Entrance", "Mont Gendarme Front")
+    connect("PP MG Entrance", "Mont Gendarme Front")
     
     # Outside Silent Tower
     connect("OST LCA Exit", "Longhorn Coast Area")
     connect("OST STE Link", "Silent Tower Entrance")
     
     # Silent Tower Entrance
-    connect("STE OST Exit", "Outside Silent Tower")
+    connect("STE OST Link", "Outside Silent Tower")
     connect("ST Entrance", "Silent Tower")
 
     # Silent Tower
-    connect("ST OST Link", "Outside Silent Tower")
+    connect("STE OST Exit", "Silent Tower Entrance")
     
     # Weathervane Hills
     connect("WH WHPIN Link", "Weathervane Hills Past Insect Nests")
@@ -420,7 +415,7 @@ def connect_entrances(Ys8World: "Ys8World"):
     
     # Mont Gendarme Middle
     connect("MGM MGF Exit", "Mont Gendarme Front")
-    connect("MG MB Entrance", "Mont Gendarme Mid-Boss Arena")
+    connect("MGM MB Link", "Mont Gendarme Mid-Boss Arena")
     
     # Mont Gendarme Mid-Boss Arena
     connect("MGMB MGM Exit", "Mont Gendarme Middle")
@@ -432,17 +427,18 @@ def connect_entrances(Ys8World: "Ys8World"):
     
     # Mont Gendarme Boss Arena
     connect("MG Boss Exit", "Mont Gendarme Upper")
-    connect("MG Post-Boss Link", "Mont Gendarme Post Boss")
+    connect("MG Post-Boss Link", "Mont Gendarme After Boss")
     
     # Mont Gendarme Post Boss
     connect("MGPB Boss Exit", "Mont Gendarme Boss Arena")
-    connect("MGPB SNA Link", "Seiren North Access")
+    connect("MGPB SNA Exit", "Seiren North Access")
     
     # Seiren North Access
+    connect("SNA MGAB Entrance", "Mont Gendarme After Boss")
     connect("SNA SPWC Link", "Stone Pillar Wind Cave")
     connect("SNA TGT Link", "Temple of the Great Tree")
     connect("SNA ROE Link", "Ruins of Eternia")
-    connect("SNA PPHN Link", "Pangaia Plains (Night)")
+    connect("SNA PPN Link", "Pangaia Plains (Night)")
     
     # Stone Pillar Wind Cave
     connect("SPWC SNA Exit", "Seiren North Access")
@@ -463,8 +459,10 @@ def connect_entrances(Ys8World: "Ys8World"):
     
     # Temple of the Great Tree Garden
     connect("TGTG TGT Exit", "Temple of the Great Tree Boss Arena")
-    
+    connect("TGTG OO Entrance", "Octus Overlook")
+
     # Octus Overlook
+    connect("OO TGT Exit", "Temple of the Great Tree Garden")
     connect("OO SS Link", "Selection Sphere")
     
     # Selection Sphere
@@ -560,6 +558,7 @@ def connect_entrances(Ys8World: "Ys8World"):
     connect("BTBA BTUF Exit", "Baja Tower Upper Floors")
     
     # Archeozoic Chasm Front
+    connect("ACF BTAC Exit", "Bridge to Archeozoic Chasm")
     connect("ACF ACSA Link", "Archeozoic Chasm Submerged Area")
     
     # Archeozoic Chasm Submerged Area
@@ -592,15 +591,16 @@ def connect_entrances(Ys8World: "Ys8World"):
     
     # Lodinia Marshlands Near Sky Garden
     connect("LMNSG LMNSC Exit", "Lodinia Marshlands Near Submerged Cemetery")
-    connect("SG Link", "Sky Garden")
+    connect("LMNSG SG Link", "Sky Garden")
     connect("LMNSG LMB Link", "Lodinia Marshlands Back")
     
     # Lodinia Marshlands Back
     connect("LMB LMNSG Exit", "Lodinia Marshlands Near Sky Garden")
-    connect("GOAH Link", "Graves of Ancient Heroes")
-    connect("LMB VOKBD Link", "Valley of Kings Before Door")
+    connect("LMB GOAH Link", "Graves of Ancient Heroes")
+    connect("LMB VOKBD Entrance", "Valley of Kings Before Door")
     
     # Valley of Kings Before Door
+    connect("VOKBD LMB Exit", "Lodinia Marshlands Back")
     connect("VOKBD VOKAD Link", "Valley of Kings After Door")
     
     # Valley of Kings After Door
@@ -619,7 +619,7 @@ def connect_entrances(Ys8World: "Ys8World"):
     # Submerged Cemetery
     connect("SC LMNSC Exit", "Lodinia Marshlands Near Submerged Cemetery")
     connect("BMHR Link", "Bolado Monastery Hidden Room")
-    connect("SH Link", "Soundless Hall")
+    connect("SC SH Link", "Soundless Hall")
     
     # Soundless Hall
     connect("SH SC Exit", "Submerged Cemetery")
@@ -643,6 +643,18 @@ def connect_entrances(Ys8World: "Ys8World"):
     # Pangaia Plains (Night)
     connect("PPHN SNA Exit", "Seiren North Access")
 
+    # Shuffle entrances if enabled
+    if options.dungeon_entrance_shuffle.value:
+        dungeon_entrance_shuffle(Ys8World)
+
+        # Update the world's dungeon connections with the shuffled entrances
+        for entrance_name, region_name in Ys8World.dungeon_connections.items():
+            entrance = multiworld.get_entrance(entrance_name, player)
+            child_region = entrance.connected_region
+            child_region.entrances.remove(entrance)
+            entrance.connected_region = None
+            connect(entrance_name, region_name)
+
 def create_region(ys8world: "Ys8World", multiworld: MultiWorld, player: int, name: str, data: Ys8RegionData):
     region = Region(name, player, multiworld)
     if data.locations:
@@ -652,7 +664,7 @@ def create_region(ys8world: "Ys8World", multiworld: MultiWorld, player: int, nam
             region.locations.append(location)
 
     if data.region_exits:
-        for exit_name, connector_name in data.region_exits.items():
+        for connector_name in data.region_exits:
             entrance = Entrance(player, connector_name, region)
             region.exits.append(entrance)
 
