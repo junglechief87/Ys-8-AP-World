@@ -221,7 +221,7 @@ location_table: Dict[str, Ys8LocationData] = {
     "Lodinia Marshlands Back Chest 5": Ys8LocationData("Lodinia Marshlands Back", 235, "chest"),
     "Lodinia Marshlands Back Chest 6": Ys8LocationData("Lodinia Marshlands Back", 236, "chest"),
     # Lombardia
-    "Lombardia Opening Cutscene Adol Join": Ys8LocationData("Calm Inlet Area", 429, "event"),
+    # Lombardia Opening Cutscene Adol Join": Ys8LocationData("Calm Inlet Area", 429, "event"),
     # Longhorn Coast Area
     "Beast Hills Collapsed Cliff Chest 1": Ys8LocationData("Longhorn Coast Area", 30, "chest"),
     "Beast Hills Collapsed Cliff Chest 2": Ys8LocationData("Longhorn Coast Area", 31, "chest"),

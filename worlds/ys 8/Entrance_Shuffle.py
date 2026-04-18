@@ -111,9 +111,3 @@ def dungeon_entrance_shuffle(Ys8World):
     # Get connector pairs to make sure our connections are correct in both directions
     for region_exit, region in shuffled_connectors.items():
         Ys8World.dungeon_connections[entrance_pairs[region]] = region_pairs[region_exit]
-
-    
-        Ys8World.entrance_spoiler.append(entrance_pairs[region] + "=>" + region_pairs[region_exit])
-
-    for line in Ys8World.entrance_spoiler:
-        print(line)

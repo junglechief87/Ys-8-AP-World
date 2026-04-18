@@ -1073,30 +1073,30 @@ def set_location_rules(Ys8World: "Ys8World"):
     # =====================================================================
     # STARTING SKILL RULES
     # =====================================================================
-    add_item_rule(loc("Adol Starting Skill Skill 1 Sonic Slide"),
-        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Adol Skill"})
-    add_item_rule(loc("Adol Starting Skill Skill 2 Arc Shot"),
-        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Adol Skill"})
-    add_item_rule(loc("Laxia Starting Skill Skill 1 Dagger Fling"),
-        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Laxia Skill"})
-    add_item_rule(loc("Laxia Starting Skill Skill 2 Wake Up!"),
-        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Laxia Skill"})
-    add_item_rule(loc("Sahad Starting Skill Skill 1 High Wave"),
-        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Sahad Skill"})
-    add_item_rule(loc("Sahad Starting Skill Skill 2 Grand Anchor"),
-        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Sahad Skill"})
-    add_item_rule(loc("Hummel Starting Skill Skill 1 Burst Shot"),
-        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Hummel Skill"})
-    add_item_rule(loc("Hummel Starting Skill Skill 2 Venomous Bullet"),
-        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Hummel Skill"})
-    add_item_rule(loc("Ricotta Starting Skill Skill 1 Wild Spin"),
-        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Ricotta Skill"})
-    add_item_rule(loc("Ricotta Starting Skill Skill 2 Handmade Trap"),
-        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Ricotta Skill"})
-    add_item_rule(loc("Dana Starting Skill Skill 1 Twin Edge"),
-        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Dana Skill"})
-    add_item_rule(loc("Dana Starting Skill Skill 2 Sonic Rise"),
-        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Dana Skill"})
+    add_rule(loc("Adol Starting Skill Skill 1 Sonic Slide"),
+        lambda state: state.has("Adol", player))
+    add_rule(loc("Adol Starting Skill Skill 2 Arc Shot"),
+        lambda state: state.has("Adol", player))
+    add_rule(loc("Laxia Starting Skill Skill 1 Dagger Fling"),
+        lambda state: state.has("Laxia", player))
+    add_rule(loc("Laxia Starting Skill Skill 2 Wake Up!"),
+        lambda state: state.has("Laxia", player))
+    add_rule(loc("Sahad Starting Skill Skill 1 High Wave"),
+        lambda state: state.has("Sahad", player))
+    add_rule(loc("Sahad Starting Skill Skill 2 Grand Anchor"),
+        lambda state: state.has("Sahad", player))
+    add_rule(loc("Hummel Starting Skill Skill 1 Burst Shot"),
+        lambda state: state.has("Hummel", player))
+    add_rule(loc("Hummel Starting Skill Skill 2 Venomous Bullet"),
+        lambda state: state.has("Hummel", player))
+    add_rule(loc("Ricotta Starting Skill Skill 1 Wild Spin"),
+        lambda state: state.has("Ricotta", player))
+    add_rule(loc("Ricotta Starting Skill Skill 2 Handmade Trap"),
+        lambda state: state.has("Ricotta", player))
+    add_rule(loc("Dana Starting Skill Skill 1 Twin Edge"),
+        lambda state: state.has("Dana", player))
+    add_rule(loc("Dana Starting Skill Skill 2 Sonic Rise"),
+        lambda state: state.has("Dana", player))
 
     # =====================================================================
     # BOSS SKILL CHECKS AND CHESTS BLOCKED BY BOSS CHECKS

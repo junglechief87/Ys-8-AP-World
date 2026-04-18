@@ -2,7 +2,7 @@
 Archipelago init file for The Ys 8
 """
 from logging import error, warning
-from typing import Any, Dict, List
+from typing import Any, Dict, List, TextIO
 from BaseClasses import ItemClassification, Tutorial
 from Options import OptionError
 from worlds.AutoWorld import WebWorld, World
@@ -55,6 +55,14 @@ class Ys8World(World):
         self.boss_spoiler = []
         self.dungeon_connections = {}
         self.entrance_spoiler = []
+        self.starting_character = None
+        self.adol_starting_skills = []
+        self.sahad_starting_skills = []
+        self.laxia_starting_skills = []
+        self.ricotta_starting_skills = []
+        self.hummel_starting_skills = []
+        self.dana_starting_skills = []
+        self.starting_skills = []
     
     def generate_early(self):
         # Force Former Sanctuary Crypt on if Untouchable final boss access is selected or esscence key sanity
@@ -89,11 +97,46 @@ class Ys8World(World):
         party = [item_name for item_name in item_table.keys() if item_table[item_name].is_party_member]
         party_weights = [self.options.starting_character_weights.value.get(item_name, 0) for item_name in party]
         if not any(weight > 0 for weight in party_weights):
-            starting_character = self.random.choice(party) # Force even distribution if all weights are zero
+            self.starting_character = self.random.choice(party) # Force even distribution if all weights are zero
         else:
-            starting_character = self.random.choices(party, weights=party_weights, k=1)[0]
-        item = self.create_item(starting_character)
+            self.starting_character = self.random.choices(party, weights=party_weights, k=1)[0]
+        item = self.create_item(self.starting_character)
         self.multiworld.push_precollected(item)
+
+        self.adol_starting_skills = self.multiworld.random.sample([item for item in get_items_by_category("Adol Skill").keys()], 2)
+        self.sahad_starting_skills = self.multiworld.random.sample([item for item in get_items_by_category("Sahad Skill").keys()], 2)
+        self.laxia_starting_skills = self.multiworld.random.sample([item for item in get_items_by_category("Laxia Skill").keys()], 2)
+        self.ricotta_starting_skills = self.multiworld.random.sample([item for item in get_items_by_category("Ricotta Skill").keys()], 2)
+        self.hummel_starting_skills = self.multiworld.random.sample([item for item in get_items_by_category("Hummel Skill").keys()], 2)
+        self.dana_starting_skills = self.multiworld.random.sample([item for item in get_items_by_category("Dana Skill").keys()], 2)
+
+        self.starting_skills = (self.adol_starting_skills + self.sahad_starting_skills + self.laxia_starting_skills + 
+                                self.ricotta_starting_skills + self.hummel_starting_skills + self.dana_starting_skills)
+        
+        location = self.get_location("Adol Starting Skill Skill 1 Sonic Slide")
+        location.place_locked_item(self.create_item(self.adol_starting_skills[0]))
+        location = self.get_location("Adol Starting Skill Skill 2 Arc Shot")
+        location.place_locked_item(self.create_item(self.adol_starting_skills[1]))
+        location = self.get_location("Sahad Starting Skill Skill 1 High Wave")
+        location.place_locked_item(self.create_item(self.sahad_starting_skills[0]))
+        location = self.get_location("Sahad Starting Skill Skill 2 Grand Anchor")
+        location.place_locked_item(self.create_item(self.sahad_starting_skills[1]))
+        location = self.get_location("Laxia Starting Skill Skill 1 Dagger Fling")
+        location.place_locked_item(self.create_item(self.laxia_starting_skills[0]))
+        location = self.get_location("Laxia Starting Skill Skill 2 Wake Up!")
+        location.place_locked_item(self.create_item(self.laxia_starting_skills[1]))
+        location = self.get_location("Ricotta Starting Skill Skill 1 Wild Spin")
+        location.place_locked_item(self.create_item(self.ricotta_starting_skills[0]))
+        location = self.get_location("Ricotta Starting Skill Skill 2 Handmade Trap")
+        location.place_locked_item(self.create_item(self.ricotta_starting_skills[1]))
+        location = self.get_location("Hummel Starting Skill Skill 1 Burst Shot")
+        location.place_locked_item(self.create_item(self.hummel_starting_skills[0]))
+        location = self.get_location("Hummel Starting Skill Skill 2 Venomous Bullet")
+        location.place_locked_item(self.create_item(self.hummel_starting_skills[1]))
+        location = self.get_location("Dana Starting Skill Skill 1 Twin Edge")
+        location.place_locked_item(self.create_item(self.dana_starting_skills[0]))
+        location = self.get_location("Dana Starting Skill Skill 2 Sonic Rise")
+        location.place_locked_item(self.create_item(self.dana_starting_skills[1]))
 
         locations_to_fill = len(self.multiworld.get_unfilled_locations(self.player))
         item_pool: List[Ys8Item] = []
@@ -104,13 +147,15 @@ class Ys8World(World):
         for name, data in item_table.items():
             if name in ["Essence Key Stone", "Jade Pendant"] and not self.options.former_sanctuary_crypt.value:
                 continue
-            if name == starting_character:
+            if name == self.starting_character:
                 continue
             if not self.options.discovery_sanity.value and data.category and data.category == "Landmark":
                 continue
             if self.options.progressive_super_weapons.value and data.category and data.category == "Progressive Super Weapon":
                 continue
             if not self.options.progressive_super_weapons.value and data.category and data.category == "Progressive Super Weapon":
+                continue
+            if name in self.starting_skills:
                 continue
             for _ in range(get_item_pool_quantity(name, data, self.options)):
                 item = self.create_item(name)
@@ -188,6 +233,22 @@ class Ys8World(World):
     def set_rules(self):
         set_all_rules(self)
     
+    def write_spoiler(self, spoiler_handle: TextIO) -> None:
+        player_name = self.multiworld.get_player_name(self.player)
+        spoiler_handle.write(f"\n\nYs 8 Dungeon Entrance Randomization for {player_name}:\n")
+        
+        for entrance in self.entrance_spoiler:
+            spoiler_handle.write(f"\t{entrance}\n")
+        
+        spoiler_handle.write(f"\n\nYs 8 Starting Character and Skills for {player_name}:\n")
+        spoiler_handle.write(f"\tStarting Character: {self.starting_character}\n")
+        spoiler_handle.write(f"\tAdol Starting Skills: {', '.join(self.adol_starting_skills)}\n")
+        spoiler_handle.write(f"\tSahad Starting Skills: {', '.join(self.sahad_starting_skills)}\n")
+        spoiler_handle.write(f"\tLaxia Starting Skills: {', '.join(self.laxia_starting_skills)}\n")
+        spoiler_handle.write(f"\tRicotta Starting Skills: {', '.join(self.ricotta_starting_skills)}\n")
+        spoiler_handle.write(f"\tHummel Starting Skills: {', '.join(self.hummel_starting_skills)}\n")
+        spoiler_handle.write(f"\tDana Starting Skills: {', '.join(self.dana_starting_skills)}\n")
+
     def generate_output(self, output_directory: str):
         generate_json(self, output_directory)
     

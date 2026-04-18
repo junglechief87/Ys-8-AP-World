@@ -4,6 +4,8 @@ from typing import TYPE_CHECKING, Dict, List, Optional, cast
 import Utils
 import zipfile
 import json
+
+from settings import get_settings
 from .Locations import Ys8Location, location_table, event_location_table
 from .Items import item_table, event_item_table
 from worlds.Files import APPlayerContainer
@@ -42,6 +44,14 @@ def generate_json(world, output_directory):
 
     files = {
         "item_location_map.json": json.dumps(item_location_map),
+        "starting_character_and_skills.json": json.dumps({
+            "starting_character": world.starting_character,
+            "adol_starting_skills": world.adol_starting_skills,
+            "sahad_starting_skills": world.sahad_starting_skills,
+            "laxia_starting_skills": world.laxia_starting_skills,
+            "ricotta_starting_skills": world.ricotta_starting_skills,
+            "hummel_starting_skills": world.hummel_starting_skills,}),
+        "dungeon_entrance_randomization.json": json.dumps(world.dungeon_connections),
         "settings.json": json.dumps(settings),
     }
 
