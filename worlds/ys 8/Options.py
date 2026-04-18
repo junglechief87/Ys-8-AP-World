@@ -253,13 +253,6 @@ class BattleLogic(Toggle):
     display_name = "Battle Logic"
     default = True
 
-class ScaledEncounters(Toggle):
-    """
-    Scales the levels of forced encounters and bosses based on when they appear in the seed.
-    """
-    display_name = "Scaled Encounters"
-    default = False
-
 class ProgressiveSuperWeapons(Toggle):
     """
     Both the Mistilteinn and Spirit Ring are in the pools.
@@ -434,7 +427,6 @@ class Ys8Options(PerGameCommonOptions):
     experience_multiplier: ExperienceMultiplier
     additional_intercept_rewards: AdditionalInterceptRewards
     battle_logic: BattleLogic
-    scaled_encounters: ScaledEncounters
     progressive_super_weapons: ProgressiveSuperWeapons
     octus_paths_opened: OctusPathsOpened
     extra_flame_stones: ExtraFlameStones
@@ -482,7 +474,6 @@ Ys8_option_groups = [
         ExperienceMultiplier,
         AdditionalInterceptRewards,
         BattleLogic,
-        ScaledEncounters,
         ProgressiveSuperWeapons,
         OctusPathsOpened,
         ExtraFlameStones,
@@ -525,7 +516,6 @@ Ys8_option_presets: Dict[str, Dict[str, Any]] = {
         "experience_multiplier": 3,
         "additional_intercept_rewards": False,
         "battle_logic": True,
-        "scaled_encounters": False,
         "progressive_super_weapons": True,
         "octus_paths_opened": True,
         "extra_flame_stones": 3,
@@ -561,7 +551,6 @@ Ys8_option_presets: Dict[str, Dict[str, Any]] = {
         "experience_multiplier": 3,
         "additional_intercept_rewards": False,
         "battle_logic": True,
-        "scaled_encounters": True,
         "progressive_super_weapons": True,
         "octus_paths_opened": True,
         "extra_flame_stones": 3,

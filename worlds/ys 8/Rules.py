@@ -5,6 +5,7 @@ from BaseClasses import Entrance
 from .Items import item_table, event_item_table
 from .Options import Ys8Options
 from .Regions import regions
+from .Boss_Level_Randomization import boss_stats
 
 if TYPE_CHECKING:
     from . import Ys8World
@@ -20,101 +21,58 @@ _GRIND_STR: dict[int, int] = {
 
 # Centralized battle requirement values used by battle_logic call sites.
 _BATTLE_REQ: dict[str, int] = {
-    "BYFTERIZA": 10,
-    "AVALODRAGIL": 45,
-    "SERPENTUS": 70,
-    "CLAREON": 80,
-    "INTERCEPT_STAGE3_ALT": 130,
-    "LONBRIGIUS": 180,
-    "GARGANTULA": 200,
-    "MAGAMANDRA": 220,
-    "INTERCEPT_STAGE5_ALT": 240,
-    "LASPISUS": 250,
-    "GILKYRA": 320,
-    "AVALODRAGIL_2": 320,
-    "KIERGAARD_WEISSMAN": 320,
-    "GIASBURN": 350,
-    "MASTER_KONG_RICOTTA": 360,
-    "MASTER_KONG_SAHAD": 400,
-    "BRACHION": 400,
-    "COELACANTOS": 400,
-    "EXMETAL": 420,
-    "MASTER_KONG_DANA": 430,
-    "MASTER_KONG_LAXIA": 440,
-    "SILVIA": 440,
-    "MASTER_KONG_HUMMEL": 450,
-    "FORCE_GARMR": 450,
-    "DOXA_GRIEL": 450,
-    "PIRATE_REVENANT": 450,
-    "CARVEROS": 500,
-    "MASTER_KONG_ADOL": 550,
-    "OCEANUS": 600,
-    "BASILEUS": 650,
-    "OCTUS": 600,
-    "PSYCHE_HYDRA": 700,
-    "PSYCHE_MINOS": 720,
-    "PSYCHE_NESTOR": 740,
-    "PSYCHE_URA": 760,
-    "MEPHORASH": 760,
-    "FINAL_BOSS": 760,
-    "PSYCHE_FIGHT_GENERIC": 760,
-    "FSC_FIRST_BARRIER": 800,
-    "MELAIDUMA": 850,
+    "BYFTERIZA": boss_stats["Byfteriza"].str_threshold,
+    "AVALODRAGIL": boss_stats["Avalodragil"].str_threshold,
+    "SERPENTUS": boss_stats["Serpentus"].str_threshold,
+    "CLAREON": boss_stats["Clareon"].str_threshold,
+    "INTERCEPT_STAGE3_ALT": 150,
+    "LONBRIGIUS": boss_stats["Lonbrigius"].str_threshold,
+    "GARGANTULA": boss_stats["Gargantula"].str_threshold,
+    "MAGAMANDRA": boss_stats["Magamandra"].str_threshold,
+    "INTERCEPT_STAGE5_ALT": 260,
+    "LASPISUS": boss_stats["Laspisus"].str_threshold,
+    "GILKYRA": boss_stats["Gilkyra"].str_threshold,
+    "AVALODRAGIL_2": boss_stats["Avalodragil 2"].str_threshold,
+    "KIERGAARD_WEISSMAN": boss_stats["Kiergaard Weissman"].str_threshold,
+    "GIASBURN": boss_stats["Giasburn"].str_threshold,
+    "MASTER_KONG_RICOTTA": 400,
+    "MASTER_KONG_SAHAD": 450,
+    "BRACHION": boss_stats["Brachion"].str_threshold,
+    "COELACANTOS": boss_stats["Coelacantos"].str_threshold,
+    "EXMETAL": boss_stats["Exmetal"].str_threshold,
+    "MASTER_KONG_DANA": 500,
+    "MASTER_KONG_LAXIA": 500,
+    "SILVIA": boss_stats["Silvia"].str_threshold,
+    "MASTER_KONG_HUMMEL": 520,
+    "FORCE_GARMR": boss_stats["Force Garmr"].str_threshold,
+    "DOXA_GRIEL": boss_stats["Doxa Griel"].str_threshold,
+    "PIRATE_REVENANT": boss_stats["Pirate Revenant"].str_threshold,
+    "CARVEROS": boss_stats["Carveros"].str_threshold,
+    "MASTER_KONG_ADOL": 600,
+    "OCEANUS": boss_stats["Oceanus"].str_threshold,
+    "BASILEUS": boss_stats["Basileus"].str_threshold,
+    "OCTUS": boss_stats["Octus"].str_threshold,
+    "PSYCHE_HYDRA": boss_stats["Psyche Hydra"].str_threshold,
+    "PSYCHE_MINOS": boss_stats["Psyche Minos"].str_threshold,
+    "PSYCHE_NESTOR": boss_stats["Psyche Nestor"].str_threshold,
+    "PSYCHE_URA": boss_stats["Psyche Ura"].str_threshold,
+    "MEPHORASH": boss_stats["Mephorash"].str_threshold,
+    "FINAL_BOSS": boss_stats["Final Boss"].str_threshold,
+    "PSYCHE_FIGHT_GENERIC": boss_stats["Psyche Ura"].str_threshold,
+    "FSC_FIRST_BARRIER": boss_stats["FSC First Barrier"].str_threshold,
+    "MELAIDUMA": boss_stats["Melaiduma"].str_threshold,
 }
-
-# Ordered from the combat progression used in the boss and encounter section below.
-# `boss_count` advances only on `type == "Boss"` events, so encounters are excluded.
-_SCALED_BOSS_ORDER: tuple[str, ...] = (
-    "BYFTERIZA",
-    "AVALODRAGIL",
-    "SERPENTUS",
-    "CLAREON",
-    "LONBRIGIUS",
-    "GARGANTULA",
-    "MAGAMANDRA",
-    "LASPISUS",
-    "AVALODRAGIL_2",
-    "KIERGAARD_WEISSMAN",
-    "GIASBURN",
-    "MASTER_KONG_RICOTTA",
-    "MASTER_KONG_SAHAD",
-    "BRACHION",
-    "COELACANTOS",
-    "EXMETAL",
-    "MASTER_KONG_DANA",
-    "MASTER_KONG_LAXIA",
-    "SILVIA",
-    "MASTER_KONG_HUMMEL",
-    "DOXA_GRIEL",
-    "PIRATE_REVENANT",
-    "CARVEROS",
-    "MASTER_KONG_ADOL",
-    "OCEANUS",
-    "BASILEUS",
-    "PSYCHE_HYDRA",
-    "PSYCHE_MINOS",
-    "PSYCHE_NESTOR",
-    "PSYCHE_URA",
-    "MEPHORASH",
-)
-
-_SCALED_BOSS_THRESHOLDS: tuple[int, ...] = tuple(_BATTLE_REQ[name] for name in _SCALED_BOSS_ORDER)
 
 # (required_str_threshold, party_members_required, flame_stones_required_or_none)
 _BATTLE_LOGIC_GATES: tuple[tuple[int, int, int | None], ...] = (
+    (700, 3, 7),
     (650, 3, 6),
     (500, 3, 5),
     (450, 3, 3),
-    (330, 2, 3),
+    (350, 2, 3),
     (250, 2, 2),
     (200, 2, None),
 )
-
-def get_scaled_required_str(boss_count: int, options: Ys8Options) -> int:
-    thresholds = _SCALED_BOSS_THRESHOLDS
-    if options.former_sanctuary_crypt.value:
-        thresholds += (_BATTLE_REQ["MELAIDUMA"],)
-    return thresholds[min(max(boss_count, 0), len(thresholds) - 1)]
 
 def set_all_rules(Ys8World: "Ys8World"):
     set_entrance_rules(Ys8World)
@@ -359,10 +317,8 @@ def accessory_str(Ys8World: "Ys8World", state: CollectionState) -> int:
 def battle_logic(Ys8World: "Ys8World", state: CollectionState, required_str: int) -> bool:
     options = Ys8World.options
     player = Ys8World.player
-    if not options.battle_logic:
+    if not options.battle_logic.value:
         return True
-
-    scaled = options.scaled_encounters.value
 
     weaponStr = 0
     armorStr = 0
@@ -380,12 +336,6 @@ def battle_logic(Ys8World: "Ys8World", state: CollectionState, required_str: int
     player_level = boss_count * 3 + 3 + grind_level(Ys8World, state)  # Base level 3, +3 per boss, +grind levels
 
     baseStr = _GRIND_STR[max(5, min((player_level // 5) * 5, 95))]
-
-    # Tune strictness so late-game checks remain progressive but avoid dead-end seeds.
-    required_str = required_str
-
-    if scaled:
-        required_str = get_scaled_required_str(boss_count, options)
 
     # Weapon strength — based on rounded averages of accessible weapons at their base levels
     if options.progressive_super_weapons.value:
@@ -555,14 +505,17 @@ def battle_logic(Ys8World: "Ys8World", state: CollectionState, required_str: int
 
     total = baseStr + weaponStr + armorStr + armStr + accStr
 
-    if state.has_any({"Recipe Book/Great Pumpkin Pie", "Recipe Book/Colorful Meuniere"}, player):
-        total *= 1.2  # Bonus for having at least one str recipe book, to account for food buffs
+    if state.has("Recipe Book/Great Pumpkin Pie", player):
+        total *= 1.5  # Bonus for having at least one vit recipe book, to account for food buffs
+    elif state.has("Recipe Book/Colorful Meuniere", player):
+        total *= 1.2 
 
     for threshold, party_required, flame_required in _BATTLE_LOGIC_GATES:
         if required_str >= threshold:
             if total < required_str or not has_required_party(Ys8World, state, party_required):
                 return False
             return flame_required is None or state.has("Flame Stone", player, flame_required)
+    
     return total >= required_str
 
 def map_completion_logic(state: CollectionState, player: int, percent_goal: int) -> bool:
@@ -893,8 +846,10 @@ def set_location_rules(Ys8World: "Ys8World"):
     add_rule(loc("Schlamm Jungle Muddy Passage Chest 2"),
              lambda state: state.has("Archeopteryx Wings", player) or
                  state.has_all(["Float Shoes", "Grip Gloves"], player))
-    # Schlamm Jungle Muddy Passage Chest 1 is in Field of Medicinal Herbs region —
-    # fully gated by CIA to FoMH (Field of Medicinal Herbs item) or SJ Muddy Path to SJ FoMH (Dina + Grip)
+
+    # Great River Valley — large shoreline behind boulder
+    add_rule(loc("Great River Valley Large Shoreline Chest 2"),
+             lambda state: has_required_crew(Ys8World, state, 10))
 
     # Nostalgia Cape — Ed Join requires crew
     add_rule(loc("Nostalgia Cape Nostalgia Cape Ed Join"),
@@ -1399,13 +1354,13 @@ def set_location_rules(Ys8World: "Ys8World"):
     set_rule(loc("Schlamm Jungle Boss Arena Laspisus"),
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["LASPISUS"]) and state.has("Float Shoes", player))
 
-    # --- 250 ---
+    # --- ---
     set_rule(loc("Eroded Valley Dark Passage Chest"),
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["LASPISUS"]))
     set_rule(loc("East Coast Cave East Coast Cave Gilkyra Encounter"),
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["GILKYRA"]))
 
-    # --- 320 ---
+    # --- ---
     set_rule(loc("Mont Gendarme Mid-Boss Arena Avalodragil 2"),
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["AVALODRAGIL_2"]))
     set_rule(loc("Odd Rock Coast Odd Rock Coast Kiergaard Weissman"),
@@ -1415,7 +1370,7 @@ def set_location_rules(Ys8World: "Ys8World"):
     add_rule(loc("Sunrise Beach Sunrise Beach Master Kong Sahad"),
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["MASTER_KONG_SAHAD"]) and state.has_all(["Sahad","Master Kong Ricotta Defeated"], player))
 
-    # --- 420 ---
+    # --- ---
     set_rule(loc("Baja Tower Mid-Boss Arena Exmetal"),
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["EXMETAL"]))
     set_rule(loc("Mont Gendarme Boss Arena Giasburn"),
@@ -1423,7 +1378,7 @@ def set_location_rules(Ys8World: "Ys8World"):
     add_rule(loc("Odd Rock Coast Odd Rock Coast Master Kong Dana"),
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["MASTER_KONG_DANA"]) and state.has_all(["Dana","Master Kong Sahad Defeated"], player))
 
-    # --- 440 ---
+    # --- ---
     set_rule(loc("Temple of the Great Tree Temple Boss Arena Brachion"),
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["BRACHION"]))
     add_rule(loc("Mont Gendarme Boss Arena Master Kong Laxia"),
@@ -1433,13 +1388,13 @@ def set_location_rules(Ys8World: "Ys8World"):
     add_rule(loc("Vista Ridge Vista Ridge Lower Master Kong Adol"),
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["MASTER_KONG_ADOL"]) and state.has_all(["Adol","Master Kong Hummel Defeated"], player))
 
-    # --- 400 ---
+    # --- ---
     set_rule(loc("Archeozoic Chasm Mid-Boss Arena Coelacantos"),
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["COELACANTOS"]))
     set_rule(loc("Calm Inlet Calm Inlet (Castaway Village Area) Silvia"),
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["SILVIA"]) and state.has("Silvia", player))
 
-    # --- 450 ---
+    # --- ---
     set_rule(loc("Valley of Kings Before Door Force Garmr Encounter"),
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["FORCE_GARMR"]) and state.has("Purifying Bell", player))
     set_rule(loc("Valley of Kings Mid-Boss Arena Doxa Griel"),
@@ -1447,7 +1402,7 @@ def set_location_rules(Ys8World: "Ys8World"):
     set_rule(loc("Pirate Ship Eleftheria Deck Pirate Revenant"),
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["PIRATE_REVENANT"]))
 
-    # --- 500 ---
+    # --- ---
     set_rule(loc("Baja Tower Boss Arena Carveros"),
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["CARVEROS"]))
     set_rule(loc("Archeozoic Chasm Boss Arena Oceanus"),
@@ -1476,8 +1431,12 @@ def set_location_rules(Ys8World: "Ys8World"):
         add_rule(loc("Octus Overlook Selection Sphere Goal"),
                  lambda state: has_required_crew(Ys8World, state, options.goal_count_crew_final_boss))
     elif options.final_boss_access == 1:
-        add_rule(loc("Octus Overlook Selection Sphere Goal"),
-                 lambda state: state.has_all(["Mistiltein", "Ship Blueprint", "Seiren Nautical Chart"], player))
+        if options.progressive_super_weapons.value:
+            add_rule(loc("Octus Overlook Selection Sphere Goal"),
+                 lambda state: state.has_all(["Broken Mistilteinn", "Ship Blueprint", "Seiren Nautical Chart"], player))
+        else:
+            add_rule(loc("Octus Overlook Selection Sphere Goal"),
+                    lambda state: state.has_all(["Mistilteinn", "Ship Blueprint", "Seiren Nautical Chart"], player))
     elif options.final_boss_access == 2:
         add_rule(loc("Octus Overlook Selection Sphere Goal"),
                  lambda state: state.has_from_list(["Psyches of the Sky Era", "Psyches of the Insectoid Era", "Psyches of the Ocean Era", "Psyches of the Frozen Era"], 

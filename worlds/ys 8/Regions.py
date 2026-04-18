@@ -1,7 +1,6 @@
 from typing import Dict, List, NamedTuple, Optional, TYPE_CHECKING
 from BaseClasses import MultiWorld, Region, Entrance
 from .Locations import (Ys8Location)
-from .Entrance_Shuffle import dungeon_entrance_shuffle
 from .Locations import (psyche_fight_names, psyche_location_table, fsc_psyche_fight_names, fsc_psyche_location_table, 
                         silent_tower_psyche_location_table, location_table, event_location_table)
 
@@ -657,7 +656,6 @@ def connect_entrances(Ys8World: "Ys8World"):
 
     # Shuffle entrances if enabled
     if options.dungeon_entrance_shuffle.value:
-        dungeon_entrance_shuffle(Ys8World)
 
         # Update the world's dungeon connections with the shuffled entrances
         for entrance_name, region_name in Ys8World.dungeon_connections.items():

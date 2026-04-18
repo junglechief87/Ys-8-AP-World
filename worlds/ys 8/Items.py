@@ -315,7 +315,7 @@ item_table: Dict[str, Ys8ItemData] = {
     "Shiny Corn Seeds": Ys8ItemData("Consumable", 78300, "Item"),
     "Queen Tomato Seeds": Ys8ItemData("Consumable", 78400, "Item"),
     "King Pumpkin seeds": Ys8ItemData("Consumable", 78500, "Item"),
-    "Seiren Nautical Chart": Ys8ItemData("Consumable", 79500, "Item"),
+    "Seiren Nautical Chart": Ys8ItemData("Consumable", 79500, "Item", ItemClassification.progression),
     "Treasure Chest Key": Ys8ItemData("Consumable", 79600, "Item", ItemClassification.progression),
     "Romun Badge": Ys8ItemData("Consumable", 80100, "Item"),
     "Rainbow Pigment": Ys8ItemData("Consumable", 80300, "Item"),

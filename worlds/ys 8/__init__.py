@@ -13,6 +13,7 @@ from .Items import Ys8Item, get_item_pool_quantity, get_items_by_category, item_
 from .Rules import set_all_rules
 from .Regions import create_regions, connect_entrances
 from .Generate_Json import generate_json
+from .Entrance_Shuffle import dungeon_entrance_shuffle
 
 class Ys8Web(WebWorld):
     theme = "jungle"
@@ -51,16 +52,17 @@ class Ys8World(World):
         super(Ys8World, self).__init__(multiworld, player)
         self.chosen_psyche_fight_list = None
         self.chosen_psyche_location_list = None
+        self.boss_spoiler = []
         self.dungeon_connections = {}
         self.entrance_spoiler = []
     
     def generate_early(self):
-        # Force Former Sanctuary Crypt on if Untouchable final boss access is selected
-        if self.options.final_boss_access.value == 3:  # option_untouchable
+        # Force Former Sanctuary Crypt on if Untouchable final boss access is selected or esscence key sanity
+        if self.options.final_boss_access.value == 3 or self.options.essence_key_sanity.value:
             self.options.former_sanctuary_crypt.value = True
-        
-        if self.options.essence_key_sanity.value:
-            self.options.former_sanctuary_crypt.value = True
+
+        if self.options.dungeon_entrance_shuffle.value:
+            dungeon_entrance_shuffle(self)
 
     def create_regions(self):
         create_regions(self)
@@ -167,7 +169,7 @@ class Ys8World(World):
         slot_options = ["final_boss_access", "goal_count_crew_mode", "goal_count_psyches_mode", "goal_count_crew_final_boss", "goal_count_psyches_final_boss",
                         "discovery_sanity", "dungeon_entrance_shuffle", "jewel_trade_items", "fish_trades", "food_trades", "map_completion", "discoveries", 
                         "dogi_intercept_rewards", "master_kong_rewards", "silvia_progression", "mephorash_progression", "former_sanctuary_crypt", "experience_multiplier", 
-                        "additional_intercept_rewards", "battle_logic", "scaled_encounters", "progressive_super_weapons", "octus_paths_opened", "extra_flame_stones", 
+                        "additional_intercept_rewards", "battle_logic", "progressive_super_weapons", "octus_paths_opened", "extra_flame_stones", 
                         "recipes_with_ingredients", "north_side_open", "infinity_mode", "scale_exp_items", "final_boss", "theos_start_phase", "origin_care_package", "origin_start_phase",
                         "essence_key_sanity", "starting_character_weights"]
 
