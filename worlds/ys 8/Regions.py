@@ -2,7 +2,8 @@ from typing import Dict, List, NamedTuple, Optional, TYPE_CHECKING
 from BaseClasses import MultiWorld, Region, Entrance
 from .Locations import (Ys8Location)
 from .Entrance_Shuffle import dungeon_entrance_shuffle
-from entrance_rando import disconnect_entrance_for_randomization
+from .Locations import (psyche_fight_names, psyche_location_table, fsc_psyche_fight_names, fsc_psyche_location_table, 
+                        silent_tower_psyche_location_table, location_table, event_location_table)
 
 if TYPE_CHECKING:
     from . import Ys8World
@@ -143,31 +144,42 @@ def create_regions(Ys8World):
         "Pangaia Plains (Night)": ["PPHN SNA Exit"],
     }
 
- 
     for region in region_connections.keys():
         connections = region_connections[region]
         regions[region] = Ys8RegionData([], connections)
-    
-    for location in Ys8World.location_table:
-        regions[Ys8World.location_table[location].category].locations.append(location)
 
-    for location in Ys8World.event_location_table:
-        regions[Ys8World.event_location_table[location].category].locations.append(location)
-
-    if options.final_boss_access == 2:  # Psyche Fight Shuffle
+    if options.final_boss_access == 2:  # Psyche Fight Shuffle, we do this here because it add locations to the regions
         psyche_num = 4
-        fight_samples = multiworld.random.sample(list(Ys8World.psyche_fight_names.items()), psyche_num)
-        location_samples = multiworld.random.sample(list(Ys8World.psyche_location_table.items()), psyche_num)
+        if options.former_sanctuary_crypt.value:
+            psyche_location_table.update(fsc_psyche_location_table)
+        else:
+            psyche_fight_names.update(fsc_psyche_fight_names)
+
+        if options.mephorash_progression.value:
+            psyche_location_table.update(silent_tower_psyche_location_table)
+
+        fight_samples = multiworld.random.sample(list(psyche_fight_names.items()), psyche_num)
+        location_samples = multiworld.random.sample(list(psyche_location_table.items()), psyche_num)
         
-        Ys8World.chosen_psyche_fight_list[:] = [name for name, _ in fight_samples]
-        Ys8World.chosen_psyche_location_list[:] = [name for name, _ in location_samples]
+        Ys8World.chosen_psyche_fight_list = dict(fight_samples)
+        Ys8World.chosen_psyche_location_list = dict(location_samples)
         
         for (fight_name, fight_data), (location_name, location_data) in zip(fight_samples, location_samples):
             regions[fight_data.category].locations.append(fight_name)
             regions[location_data.category].locations.append(location_name)
+    
+    for location in location_table:
+        if not options.former_sanctuary_crypt.value and location.startswith("Former Sanctuary Crypt"):
+            continue
+        regions[location_table[location].category].locations.append(location)
+
+    for location in event_location_table:
+        if not options.former_sanctuary_crypt.value and location.startswith("Former Sanctuary Crypt"):
+            continue
+        regions[event_location_table[location].category].locations.append(location)
 
     for name, data in regions.items():
-        multiworld.regions.append(create_region(Ys8World, multiworld, player, name, data))
+        multiworld.regions.append(create_region(multiworld, player, name, data))
 
 def connect_entrances(Ys8World: "Ys8World"):
     multiworld = Ys8World.multiworld
@@ -655,11 +667,11 @@ def connect_entrances(Ys8World: "Ys8World"):
             entrance.connected_region = None
             connect(entrance_name, region_name)
 
-def create_region(ys8world: "Ys8World", multiworld: MultiWorld, player: int, name: str, data: Ys8RegionData):
+def create_region(multiworld: MultiWorld, player: int, name: str, data: Ys8RegionData):
     region = Region(name, player, multiworld)
     if data.locations:
         for loc_name in data.locations:
-            loc_data = ys8world.location_table.get(loc_name)
+            loc_data = location_table.get(loc_name)
             location = Ys8Location(player, loc_name, loc_data.code if loc_data else None, region)
             region.locations.append(location)
 

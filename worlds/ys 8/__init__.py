@@ -9,7 +9,7 @@ from worlds.AutoWorld import WebWorld, World
 from worlds.generic.Rules import add_item_rule
 from .Options import Ys8Options, Ys8_option_groups, Ys8_option_presets
 from .Locations import location_table, location_name_groups
-from .Items import Ys8Item, get_item_pool_quantity, get_items_by_category, scale_exp_item, item_table, item_name_groups, psyche_item_table, psyche_access_item_table, event_item_table
+from .Items import Ys8Item, get_item_pool_quantity, get_items_by_category, item_table, item_name_groups, event_item_table
 from .Rules import set_all_rules
 from .Regions import create_regions, connect_entrances
 from .Generate_Json import generate_json
@@ -47,59 +47,20 @@ class Ys8World(World):
     fillers = {}
     fillers.update(get_items_by_category("Consumable"))
 
+    def __init__(self, multiworld, player):
+        super(Ys8World, self).__init__(multiworld, player)
+        self.chosen_psyche_fight_list = None
+        self.chosen_psyche_location_list = None
+        self.dungeon_connections = {}
+        self.entrance_spoiler = []
+    
     def generate_early(self):
-        from .Locations import (location_table, event_location_table, psyche_location_table, psyche_fight_names,
-                                fsc_location_table, fsc_event_location_table, fsc_psyche_location_table, fsc_psyche_fight_names,
-                                silent_tower_psyche_location_table, landmark_location_table)
-        from .Items import (item_table, event_item_table,
-                            landmark_item_table, fsc_event_item_table,
-                            super_weapons_item_table, progressive_super_weapon_item_table)
-        
-        # Create instance copies of all tables to avoid state pollution across multiple world generations
-        # Each world gets fresh copies of these base tables
-        self.item_table = dict(item_table)
-        self.event_item_table = dict(event_item_table)
-        self.location_table = dict(location_table)
-        self.event_location_table = dict(event_location_table)
-        self.psyche_location_table = dict(psyche_location_table)
-        self.psyche_fight_names = dict(psyche_fight_names)
-        
-        # Initialize psyche selection lists as instance attributes (for deterministic generation)
-        self.chosen_psyche_fight_list: List[str] = []
-        self.chosen_psyche_location_list: List[str] = []
-        
         # Force Former Sanctuary Crypt on if Untouchable final boss access is selected
         if self.options.final_boss_access.value == 3:  # option_untouchable
             self.options.former_sanctuary_crypt.value = True
         
         if self.options.essence_key_sanity.value:
             self.options.former_sanctuary_crypt.value = True
-
-        # Adjust location tables based on options using instance copies
-        if self.options.former_sanctuary_crypt.value:
-            self.event_item_table.update(fsc_event_item_table)
-            self.location_table.update(fsc_location_table)
-            self.event_location_table.update(fsc_event_location_table)
-            self.psyche_location_table.update(fsc_psyche_location_table)
-        else:
-            self.psyche_fight_names.update(fsc_psyche_fight_names)
-        
-        if self.options.mephorash_progression.value:
-            self.psyche_location_table.update(silent_tower_psyche_location_table)
-
-        # Add landmark locations and items if Discovery Sanity is enabled
-        if self.options.discovery_sanity.value:
-            self.item_table.update(landmark_item_table)
-            self.location_table.update(landmark_location_table)
-        else:
-            # Keep landmark logic online by forcing landmark items to their default landmark locations
-            self.event_item_table.update(landmark_item_table)
-            self.event_location_table.update(landmark_location_table)
-
-        if self.options.progressive_super_weapons.value:
-            self.item_table.update(progressive_super_weapon_item_table)
-        else:
-            self.item_table.update(super_weapons_item_table)
 
     def create_regions(self):
         create_regions(self)
@@ -108,7 +69,7 @@ class Ys8World(World):
         connect_entrances(self)
 
     def create_items(self):
-        self.place_predetermined_items()
+        self.place_predetermined_items() # event item handling
 
         if self.options.former_sanctuary_crypt.value and not self.options.essence_key_sanity.value:
             for location in self.multiworld.get_unfilled_locations(self.player):
@@ -116,8 +77,14 @@ class Ys8World(World):
                 if not in_fsc:
                     add_item_rule(location, lambda item: item.name != "Essence Key Stone")
 
+        if not self.options.discovery_sanity.value:
+            for name in get_items_by_category("Landmark"):
+                item = self.create_item(name)
+                location = self.multiworld.get_location(item_table[name].default_loc, self.player)
+                location.place_locked_item(item)
+                
         # Determine Starting Character and add to precollected items
-        party = [item_name for item_name in self.item_table.keys() if self.item_table[item_name].is_party_member]
+        party = [item_name for item_name in item_table.keys() if item_table[item_name].is_party_member]
         party_weights = [self.options.starting_character_weights.value.get(item_name, 0) for item_name in party]
         if not any(weight > 0 for weight in party_weights):
             starting_character = self.random.choice(party) # Force even distribution if all weights are zero
@@ -137,13 +104,15 @@ class Ys8World(World):
                 continue
             if name == starting_character:
                 continue
-            # Skip items that are being replaced by scaling (they're created via the scaling of their source items)
-            if self.options.scale_exp_items.value and name in ["Bitter Remedy x2", "Bitter Remedy x3", "Sweet Remedy x3", "Sweet Remedy x5"]:
+            if not self.options.discovery_sanity.value and data.category and data.category == "Landmark":
                 continue
-            if self.options.scale_exp_items.value and name in ["Bitter Remedy", "Bitter Remedy x2", "Bitter Remedy x3", "Hermit's Elixir", "Hermit's Elixir x3"]:
-                name = scale_exp_item(name, data, self.options)
+            if self.options.progressive_super_weapons.value and data.category and data.category == "Progressive Super Weapon":
+                continue
+            if not self.options.progressive_super_weapons.value and data.category and data.category == "Progressive Super Weapon":
+                continue
             for _ in range(get_item_pool_quantity(name, data, self.options)):
                 item = self.create_item(name)
+
                 if item.classification == ItemClassification.filler:
                     filler_pool.append(item)
                 else:
@@ -168,24 +137,24 @@ class Ys8World(World):
 
     def place_predetermined_items(self):
         # Place event items that are required for progression or victory
-        for item_name in self.event_item_table.keys():
-            if self.event_item_table[item_name].category == "Landmark":
-                location_name = self.event_item_table[item_name].default_loc
-            else:
-                location_name = self.event_item_table[item_name].category
-
-            item = self.create_event(item_name)
+        for name, data in event_item_table.items():
+            if name == "Melaiduma Defeated" and not self.options.former_sanctuary_crypt.value:
+                continue
+            if data.category in ["Psyches", "Psyches Access"]:
+                continue
+            location_name = data.category  # Using category field to store associated location for event items
+            item = self.create_event(name)
             location = self.multiworld.get_location(location_name, self.player)
             location.place_locked_item(item)
         
         if self.options.final_boss_access == 2:  # Psyche Fight Shuffle
-            self.event_item_table.update(psyche_access_item_table)
-            self.event_item_table.update(psyche_item_table)
+            psyche_access_item_table = {name: data for name, data in event_item_table.items() if data.category == "Psyches Access"}
+            psyche_item_table = {name: data for name, data in event_item_table.items() if data.category == "Psyches"}
             for i, (access_item_name, psyche_item_name) in enumerate(zip(psyche_access_item_table.keys(), psyche_item_table.keys())):
                 access_item = self.create_event(access_item_name)
                 psyche_item = self.create_event(psyche_item_name)
-                access_location = self.multiworld.get_location(self.chosen_psyche_location_list[i], self.player)
-                psyche_location = self.multiworld.get_location(self.chosen_psyche_fight_list[i], self.player)
+                access_location = self.multiworld.get_location(list(self.chosen_psyche_location_list.keys())[i], self.player)
+                psyche_location = self.multiworld.get_location(list(self.chosen_psyche_fight_list.keys())[i], self.player)
                 access_location.place_locked_item(access_item)
                 psyche_location.place_locked_item(psyche_item)
 
@@ -207,22 +176,11 @@ class Ys8World(World):
         return slot_data
 
     def create_item(self, name: str) -> Ys8Item:
-        data = self.item_table[name]
-        classification = data.classification
-        if name == "Jade Pendant":
-            classification = (ItemClassification.progression
-                              if self.options.former_sanctuary_crypt.value
-                              else ItemClassification.useful)
-        if name == "Essence Key Stone":
-            classification = (ItemClassification.progression
-                              if self.options.former_sanctuary_crypt.value
-                              else ItemClassification.filler)
-        if self.options.battle_logic and data.battle_logic:
-            classification = ItemClassification.progression
-        return Ys8Item(name, classification, data.code, self.player)
+        data = item_table[name]
+        return Ys8Item(name, data.classification, data.code, self.player)
     
     def create_event(self, name: str) -> Ys8Item:
-        data = self.event_item_table[name]
+        data = event_item_table[name]
         return Ys8Item(name, data.classification, data.code, self.player)
     
     def set_rules(self):

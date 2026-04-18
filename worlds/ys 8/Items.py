@@ -14,7 +14,6 @@ class Ys8ItemData(NamedTuple):
     classification: ItemClassification = ItemClassification.filler
     weight: int = 1
     is_party_member: bool = False
-    battle_logic: bool = False
     quantity: int = 1
     pool_quantity: int = 1
     default_loc: Optional[str] = None
@@ -27,35 +26,22 @@ def get_item_pool_quantity(item_name: str, data: Ys8ItemData, options: Ys8Option
         return data.pool_quantity + options.extra_flame_stones
     return data.pool_quantity
 
-def scale_exp_item(item_name: str, data: Ys8ItemData, options: Ys8Options) -> str:
-    if item_name.startswith("Hermit's Elixir"):
-        if item_name == "Hermit's Elixir x3":
-            return "Bitter Remedy x3"
-        return "Bitter Remedy x2"
-    elif item_name.startswith("Bitter Remedy"):
-        if item_name == "Bitter Remedy x3":
-            return "Sweet Remedy x5"
-        if item_name == "Bitter Remedy x2":
-                return "Sweet Remedy x3"
-        return "Bitter Remedy"
-    return item_name
-
 item_table: Dict[str, Ys8ItemData] = {
     "Bone Necklace": Ys8ItemData("Accessory", 15100, "Item", ItemClassification.useful),
     "Bone Necklace II": Ys8ItemData("Accessory", 15200, "Item", ItemClassification.useful),
     "Bone Necklace III": Ys8ItemData("Accessory", 15300, "Item", ItemClassification.useful),
-    "Blade Ring": Ys8ItemData("Accessory", 15500, "Item", ItemClassification.useful, battle_logic = True),
-    "Blade Ring II": Ys8ItemData("Accessory", 15600, "Item", ItemClassification.useful, battle_logic = True),
-    "Blade Ring III": Ys8ItemData("Accessory", 15700, "Item", ItemClassification.useful, battle_logic = True),
+    "Blade Ring": Ys8ItemData("Accessory", 15500, "Item", ItemClassification.progression),
+    "Blade Ring II": Ys8ItemData("Accessory", 15600, "Item", ItemClassification.progression),
+    "Blade Ring III": Ys8ItemData("Accessory", 15700, "Item", ItemClassification.progression),
     "Shield Earring": Ys8ItemData("Accessory", 15900, "Item", ItemClassification.useful),
     "Shield earring II": Ys8ItemData("Accessory", 16000, "Item", ItemClassification.useful),
     "Shield Earrings III": Ys8ItemData("Accessory", 16100, "Item", ItemClassification.useful),
     "Snake Amulet": Ys8ItemData("Accessory", 16300, "Item", ItemClassification.useful),
     "Lightning Amulet": Ys8ItemData("Accessory", 16500, "Item", ItemClassification.useful),
     "Crow Amulet": Ys8ItemData("Accessory", 16700, "Item", ItemClassification.useful),
-    "Fenrir Talisman": Ys8ItemData("Accessory", 16900, "Item", ItemClassification.useful, battle_logic = True),
-    "Pyrios Talisman": Ys8ItemData("Accessory", 17100, "Item", ItemClassification.useful, battle_logic = True),
-    "Pyrios Stone": Ys8ItemData("Accessory", 17200, "Item", ItemClassification.useful, battle_logic = True),
+    "Fenrir Talisman": Ys8ItemData("Accessory", 16900, "Item", ItemClassification.progression),
+    "Pyrios Talisman": Ys8ItemData("Accessory", 17100, "Item", ItemClassification.progression),
+    "Pyrios Stone": Ys8ItemData("Accessory", 17200, "Item", ItemClassification.progression),
     "Nature Talisman": Ys8ItemData("Accessory", 17500, "Item", ItemClassification.useful, pool_quantity = 2),
     "Warrior's Mark": Ys8ItemData("Accessory", 17600, "Item", ItemClassification.useful),
     "Warrior's Seal II": Ys8ItemData("Accessory", 17700, "Item", ItemClassification.useful),
@@ -77,7 +63,7 @@ item_table: Dict[str, Ys8ItemData] = {
     "Hawk Wing": Ys8ItemData("Accessory", 20100, "Item", ItemClassification.useful),
     "Feather Boots": Ys8ItemData("Accessory", 20200, "Item", ItemClassification.useful),
     "Jade Pendant": Ys8ItemData("Accessory", 20600, "Item", ItemClassification.progression),
-    "Ocean Hogeki": Ys8ItemData("Accessory", 20900, "Item", ItemClassification.useful, battle_logic = True),
+    "Ocean Hogeki": Ys8ItemData("Accessory", 20900, "Item", ItemClassification.progression),
     "Earth Orb": Ys8ItemData("Accessory", 21000, "Item", ItemClassification.useful),
     "Sky Crown": Ys8ItemData("Accessory", 21100, "Item", ItemClassification.useful),
     "Saint's Ring": Ys8ItemData("Accessory", 21200, "Item", ItemClassification.useful),
@@ -98,7 +84,7 @@ item_table: Dict[str, Ys8ItemData] = {
     "Tektite Shield": Ys8ItemData("Accessory", 26800, "Item", ItemClassification.useful),
     "Bolt Bracelet": Ys8ItemData("Accessory", 26900, "Item", ItemClassification.useful),
     "Heavy Gauntlet": Ys8ItemData("Accessory", 27000, "Item", ItemClassification.useful),
-    "Warrior Wrist": Ys8ItemData("Accessory", 27100, "Item", ItemClassification.useful, battle_logic = True),
+    "Warrior Wrist": Ys8ItemData("Accessory", 27100, "Item", ItemClassification.progression),
     "Crimson Bracelet": Ys8ItemData("Accessory", 27200, "Item", ItemClassification.useful),
     "Black Bracelet": Ys8ItemData("Accessory", 27300, "Item", ItemClassification.useful),
     "Blue Bracelet": Ys8ItemData("Accessory", 27500, "Item", ItemClassification.useful),
@@ -135,7 +121,7 @@ item_table: Dict[str, Ys8ItemData] = {
     "Accursed Shell x3": Ys8ItemData("Consumable", 42200, "Item", quantity = 3),
     "Lustrous Scale x3": Ys8ItemData("Consumable", 42300, "Item", quantity = 3),
     "Salamandine Hide x3": Ys8ItemData("Consumable", 42400, "Item", quantity = 3),
-    "Large Pearl": Ys8ItemData("Consumable", 43600, "Item", battle_logic = True, pool_quantity = 5),
+    "Large Pearl": Ys8ItemData("Consumable", 43600, "Item", ItemClassification.progression, pool_quantity = 5),
     "Large Pearl x3": Ys8ItemData("Consumable", 43601, "Item", quantity = 3),
     "Glow Rock": Ys8ItemData("Consumable", 43700, "Item", pool_quantity = 2),
     "Glow Rock x3": Ys8ItemData("Consumable", 43701, "Item", quantity = 3),
@@ -228,13 +214,13 @@ item_table: Dict[str, Ys8ItemData] = {
     "Ripe Mango x3": Ys8ItemData("Consumable", 53702, "Item", quantity = 3),
     "Dragon Tree Treasure": Ys8ItemData("Consumable", 53800, "Item", pool_quantity = 12),
     "Dragon Tree Treasure x3": Ys8ItemData("Consumable", 53801, "Item", quantity = 3),
-    "Hope Stone": Ys8ItemData("Accessory", 54200, "Item", ItemClassification.useful, battle_logic = True, pool_quantity = 2),
+    "Hope Stone": Ys8ItemData("Accessory", 54200, "Item", ItemClassification.progression, pool_quantity = 2),
     "Luminous Ring": Ys8ItemData("Accessory", 54300, "Item", ItemClassification.useful),
     "Devil Fang": Ys8ItemData("Accessory", 54400, "Item", ItemClassification.useful),
     "Wings of Heavenly Light": Ys8ItemData("Accessory", 54500, "Item", ItemClassification.useful),
     "Wheel of Eternity": Ys8ItemData("Accessory", 54600, "Item", ItemClassification.useful, pool_quantity = 2),
     "Crown of Creation": Ys8ItemData("Accessory", 54700, "Item", ItemClassification.useful, pool_quantity = 2),
-    "Stone of Anitquity": Ys8ItemData("Accessory", 54800, "Item", ItemClassification.useful, battle_logic = True, pool_quantity = 2),
+    "Stone of Anitquity": Ys8ItemData("Accessory", 54800, "Item", ItemClassification.progression, pool_quantity = 2),
     "Garment of Many Tongues": Ys8ItemData("Accessory", 54900, "Item", ItemClassification.useful, pool_quantity = 3),
     "Recipe Book/Mushroom Omelet": Ys8ItemData("Recipe Book", 56900, "Item", ItemClassification.progression),
     "Recipe Book/Hearty Ratatouille": Ys8ItemData("Recipe Book", 57000, "Item", ItemClassification.progression),
@@ -288,11 +274,11 @@ item_table: Dict[str, Ys8ItemData] = {
     "Green Seal of Roaring Stone": Ys8ItemData("Consumable", 70100, "Item", ItemClassification.progression),
     "Golden Seal of Piercing Light": Ys8ItemData("Consumable", 70200, "Item", ItemClassification.progression),
     "Essence Key Stone": Ys8ItemData("Consumable", 70300, "Item", ItemClassification.progression, pool_quantity = 9),
-    "Battle Armlet": Ys8ItemData("Consumable", 72000, "Item", ItemClassification.useful, battle_logic = True, pool_quantity = 2),
+    "Battle Armlet": Ys8ItemData("Consumable", 72000, "Item", ItemClassification.progression, pool_quantity = 2),
     "Dragon Bone Necklace": Ys8ItemData("Consumable", 72200, "Item"),
     "Mushin's hairpin": Ys8ItemData("Consumable", 72500, "Item"),
     "Fairy Cape": Ys8ItemData("Consumable", 72600, "Item"),
-    "Shrine Maiden Amulet": Ys8ItemData("Consumable", 72700, "Item", ItemClassification.progression, battle_logic = True),
+    "Shrine Maiden Amulet": Ys8ItemData("Consumable", 72700, "Item", ItemClassification.progression),
     "Stone Crown": Ys8ItemData("Consumable", 72900, "Item"),
     "Blue Wind Staff": Ys8ItemData("Adventure Gear", 73000, "Item", ItemClassification.useful),
     "Nature Talisman": Ys8ItemData("Adventure Gear", 73100, "Item", ItemClassification.useful, pool_quantity = 2),
@@ -436,9 +422,10 @@ item_table: Dict[str, Ys8ItemData] = {
     "Piercing Tempest": Ys8ItemData("Laxia Skill", 99200, "SetFlag", ItemClassification.useful),
     "Assault Rain": Ys8ItemData("Hummel Skill", 99300, "SetFlag", ItemClassification.useful),
     "Brave Charge": Ys8ItemData("Adol Skill", 99400, "SetFlag", ItemClassification.useful),
-}
-
-landmark_item_table: Dict[str, Ys8ItemData] = {
+    "Mistilteinn": Ys8ItemData("Super Weapon", 900, "Item", ItemClassification.progression),
+    "Spirit Ring Celesdia": Ys8ItemData("Super Weapon", 1300, "Item", ItemClassification.progression),
+    "Broken Mistilteinn": Ys8ItemData("Progressive Super Weapon", 901, "Item", ItemClassification.progression),
+    "Broken Spirit Ring": Ys8ItemData("Progressive Super Weapon", 902, "Item", ItemClassification.progression),
     "Birdsong Rock": Ys8ItemData("Landmark", 99500, "SetFlag", ItemClassification.progression, default_loc = "Nameless Coast Shoreline North of Boulder Landmark"),
     "Cobalt Crag": Ys8ItemData("Landmark", 99600, "SetFlag", ItemClassification.progression, default_loc = "White Sand Cape Cobalt Crag Landmark"),
     "Rainbow Falls": Ys8ItemData("Landmark", 99700, "SetFlag", ItemClassification.progression, default_loc = "Towering Coral Forest Rainbow Falls Landmark"),
@@ -463,16 +450,6 @@ landmark_item_table: Dict[str, Ys8ItemData] = {
     "Soundless Hall": Ys8ItemData("Landmark", 101600, "SetFlag", ItemClassification.progression, default_loc = "The Submerged Cemetery The Submerged Cemetery Landmark"),
     "Graves of Ancient Heroes": Ys8ItemData("Landmark", 101700, "SetFlag", ItemClassification.progression, default_loc = "Eternal Hill Eternal Hill Landmark"),
     "Milky White Vein": Ys8ItemData("Landmark", 101800, "SetFlag", ItemClassification.progression, default_loc = "Waterfall Grotto Waterfall Grotto Landmark"),
-}
-
-super_weapons_item_table: Dict[str, Ys8ItemData] = {
-    "Mistilteinn": Ys8ItemData("Weapon", 900, "Item", ItemClassification.useful, battle_logic = True),
-    "Spirit Ring Celesdia": Ys8ItemData("Weapon", 1300, "Item", ItemClassification.useful, battle_logic = True),
-}
-
-progressive_super_weapon_item_table: Dict[str, Ys8ItemData] = {
-    "Broken Mistilteinn": Ys8ItemData("Weapon", 901, "Item", ItemClassification.progression, battle_logic = True),
-    "Broken Spirit Ring": Ys8ItemData("Weapon", 902, "Item", ItemClassification.progression, battle_logic = True),
 }
 
 event_item_table: Dict[str, Ys8ItemData] = {
@@ -508,7 +485,7 @@ event_item_table: Dict[str, Ys8ItemData] = {
     "Psyche-Ura Defeated": Ys8ItemData("Octus Overlook Path of the Sky Era Psyche-Ura", None, "Boss", ItemClassification.progression),
     "Serpentus Defeated": Ys8ItemData("Towering Coral Forest Mid-Boss Arena Serpentus", None, "Boss", ItemClassification.progression),
     "Silvia Defeated": Ys8ItemData("Calm Inlet Calm Inlet (Castaway Village Area) Silvia", None, "Boss", ItemClassification.progression),
-    "Force Garmr Defeated": Ys8ItemData("Lodinia Marshlands Back Force Garmr Encounter", None, "Encounter", ItemClassification.progression),
+    "Force Garmr Defeated": Ys8ItemData("Valley of Kings Before Door Force Garmr Encounter", None, "Encounter", ItemClassification.progression),
     "Gilkyra Encounter Defeated": Ys8ItemData("East Coast Cave East Coast Cave Gilkyra Encounter", None, "Encounter", ItemClassification.progression),
     # Grind area access events
     "Grind: Archeozoic Chasm": Ys8ItemData("Archeozoic Chasm Front Grind Access", None, "Grind", ItemClassification.progression),
@@ -575,20 +552,11 @@ event_item_table: Dict[str, Ys8ItemData] = {
     "Material: Thunder Claw (Valley of Kings)": Ys8ItemData("Thunder Claw Farming - Valley of Kings", None, "Material", ItemClassification.progression),
     "Material: Underworld Bone (Octus Overlook)": Ys8ItemData("Underworld Bone Farming - Octus Overlook", None, "Material", ItemClassification.progression),
     "Material: Underworld Hide (Octus Overlook)": Ys8ItemData("Underworld Hide Farming - Octus Overlook", None, "Material", ItemClassification.progression),
-}
-
-fsc_event_item_table: Dict[str, Ys8ItemData] = {
     "Melaiduma Defeated": Ys8ItemData("Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma", None, "Boss", ItemClassification.progression),
-}
-
-psyche_item_table: Dict[str, Ys8ItemData] = {
     "Psyches of the Sky Era": Ys8ItemData("Psyches", None, "SetFlag", ItemClassification.progression),
     "Psyches of the Insectoid Era": Ys8ItemData("Psyches", None, "SetFlag", ItemClassification.progression),
     "Psyches of the Ocean Era": Ys8ItemData("Psyches", None, "SetFlag", ItemClassification.progression),
-    "Psyches of the Frozen Era": Ys8ItemData("Psyches", None, "SetFlag", ItemClassification.progression)
-}
-
-psyche_access_item_table: Dict[str, Ys8ItemData] = {
+    "Psyches of the Frozen Era": Ys8ItemData("Psyches", None, "SetFlag", ItemClassification.progression),
     "Psyches of the Sky Era Access": Ys8ItemData("Psyches Access", None, "SetFlag", ItemClassification.progression),
     "Psyches of the Insectoid Era Access": Ys8ItemData("Psyches Access", None, "SetFlag", ItemClassification.progression),
     "Psyches of the Ocean Era Access": Ys8ItemData("Psyches Access", None, "SetFlag", ItemClassification.progression),

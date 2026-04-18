@@ -34,8 +34,6 @@ def dungeon_entrance_shuffle(Ys8World):
                                           "LMB VOKBD Entrance": "Lodinia Marshlands Back", "ST Entrance": "Silent Tower Entrance", "NCA ECCBG Entrance": "Nostalgia Cape Area"}
     merged_regions: list = []
     shuffled_connectors: dict[str, str] = {}
-    Ys8World.entrance_spoiler = []
-    Ys8World.dungeon_connections = {}
     
     # Manually set the connections for entrances that are not shuffled
     if not options.former_sanctuary_crypt.value:

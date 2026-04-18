@@ -658,7 +658,8 @@ def print_item_placement(multiworld):
             print(f"\n{region.name}:")
             for loc in sorted(locations, key=lambda l: l.name):
                 item = loc.item.name if loc.item else "EMPTY"
-                print(f"  {loc.name}: {item}")
+                classification = loc.item.classification if loc.item else "None"
+                print(f"  {loc.name}: {item} ({classification})")
     
     print("\n" + "="*100 + "\n")
 

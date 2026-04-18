@@ -1790,6 +1790,7 @@ class Spoiler:
 
             for location in sphere:
                 state.collect(location.item, True, location)
+                print(f"Collecting {location.item} from {location} into sphere {len(collection_spheres) + 1}")
 
             collection_spheres.append(sphere)
 

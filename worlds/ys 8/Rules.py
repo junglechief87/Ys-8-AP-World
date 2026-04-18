@@ -2,7 +2,7 @@ from typing import TYPE_CHECKING
 from BaseClasses import CollectionState, ItemClassification
 from worlds.generic.Rules import add_item_rule, add_rule, set_rule
 from BaseClasses import Entrance
-from .Items import psyche_access_item_table, landmark_item_table
+from .Items import item_table, event_item_table
 from .Options import Ys8Options
 from .Regions import regions
 
@@ -122,23 +122,23 @@ def set_all_rules(Ys8World: "Ys8World"):
 
 def has_required_crew(Ys8World: "Ys8World", state: CollectionState, crew_count: int) -> bool:
     """Check if the player has access to at least crew_count crew members."""
-    return state.has_from_list([item for item, data in Ys8World.item_table.items() if data.category == "Crew"], Ys8World.player, crew_count)
+    return state.has_from_list([item for item, data in item_table.items() if data.category == "Crew"], Ys8World.player, crew_count)
 
 def has_required_party(Ys8World: "Ys8World", state: CollectionState, party_count: int) -> bool:
     """Check if the player has access to at least party_count party members."""
-    return state.has_from_list([item for item, data in Ys8World.item_table.items() if data.is_party_member], Ys8World.player, party_count)
+    return state.has_from_list([item for item, data in item_table.items() if data.is_party_member], Ys8World.player, party_count)
 
 def has_required_recipes(Ys8World: "Ys8World", state: CollectionState, recipe_count: int) -> bool:
     """Check if the player has access to at least recipe_count recipes."""
-    return state.has_from_list([item for item, data in Ys8World.item_table.items() if data.category == "Recipe Book"], Ys8World.player, recipe_count)
+    return state.has_from_list([item for item, data in item_table.items() if data.category == "Recipe Book"], Ys8World.player, recipe_count)
 
 def has_discoveries(Ys8World: "Ys8World", state: CollectionState, discovery_count: int) -> bool:
     """Check if the player has collected at least discovery_count discoveries."""
-    return state.has_from_list(list(landmark_item_table.keys()), Ys8World.player, discovery_count)
+    return state.has_from_list([item for item, data in item_table.items() if data.category == "Landmark"], Ys8World.player, discovery_count)
 
 def bosses_defeated(Ys8World: "Ys8World", state: CollectionState) -> int:
     """Count the total number of bosses the player has defeated."""
-    return sum(1 for item, data in Ys8World.event_item_table.items() if data.type == "Boss" and state.has(item, Ys8World.player))
+    return sum(1 for item, data in event_item_table.items() if data.type == "Boss" and state.has(item, Ys8World.player))
 
 def has_jewels(state: CollectionState, player: int, jewel_count: int) -> bool:
     """Check if the player has access to at least jewel_count jewels, counting stackable jewel items."""
@@ -1119,29 +1119,29 @@ def set_location_rules(Ys8World: "Ys8World"):
     # STARTING SKILL RULES
     # =====================================================================
     add_item_rule(loc("Adol Starting Skill Skill 1 Sonic Slide"),
-        lambda item: item.name in {name for name, data in Ys8World.item_table.items() if data.category == "Adol Skill"})
+        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Adol Skill"})
     add_item_rule(loc("Adol Starting Skill Skill 2 Arc Shot"),
-        lambda item: item.name in {name for name, data in Ys8World.item_table.items() if data.category == "Adol Skill"})
+        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Adol Skill"})
     add_item_rule(loc("Laxia Starting Skill Skill 1 Dagger Fling"),
-        lambda item: item.name in {name for name, data in Ys8World.item_table.items() if data.category == "Laxia Skill"})
+        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Laxia Skill"})
     add_item_rule(loc("Laxia Starting Skill Skill 2 Wake Up!"),
-        lambda item: item.name in {name for name, data in Ys8World.item_table.items() if data.category == "Laxia Skill"})
+        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Laxia Skill"})
     add_item_rule(loc("Sahad Starting Skill Skill 1 High Wave"),
-        lambda item: item.name in {name for name, data in Ys8World.item_table.items() if data.category == "Sahad Skill"})
+        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Sahad Skill"})
     add_item_rule(loc("Sahad Starting Skill Skill 2 Grand Anchor"),
-        lambda item: item.name in {name for name, data in Ys8World.item_table.items() if data.category == "Sahad Skill"})
+        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Sahad Skill"})
     add_item_rule(loc("Hummel Starting Skill Skill 1 Burst Shot"),
-        lambda item: item.name in {name for name, data in Ys8World.item_table.items() if data.category == "Hummel Skill"})
+        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Hummel Skill"})
     add_item_rule(loc("Hummel Starting Skill Skill 2 Venomous Bullet"),
-        lambda item: item.name in {name for name, data in Ys8World.item_table.items() if data.category == "Hummel Skill"})
+        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Hummel Skill"})
     add_item_rule(loc("Ricotta Starting Skill Skill 1 Wild Spin"),
-        lambda item: item.name in {name for name, data in Ys8World.item_table.items() if data.category == "Ricotta Skill"})
+        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Ricotta Skill"})
     add_item_rule(loc("Ricotta Starting Skill Skill 2 Handmade Trap"),
-        lambda item: item.name in {name for name, data in Ys8World.item_table.items() if data.category == "Ricotta Skill"})
+        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Ricotta Skill"})
     add_item_rule(loc("Dana Starting Skill Skill 1 Twin Edge"),
-        lambda item: item.name in {name for name, data in Ys8World.item_table.items() if data.category == "Dana Skill"})
+        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Dana Skill"})
     add_item_rule(loc("Dana Starting Skill Skill 2 Sonic Rise"),
-        lambda item: item.name in {name for name, data in Ys8World.item_table.items() if data.category == "Dana Skill"})
+        lambda item: item.name in {name for name, data in item_table.items() if data.category == "Dana Skill"})
 
     # =====================================================================
     # BOSS SKILL CHECKS AND CHESTS BLOCKED BY BOSS CHECKS
@@ -1440,7 +1440,7 @@ def set_location_rules(Ys8World: "Ys8World"):
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["SILVIA"]) and state.has("Silvia", player))
 
     # --- 450 ---
-    set_rule(loc("Lodinia Marshlands Back Force Garmr Encounter"),
+    set_rule(loc("Valley of Kings Before Door Force Garmr Encounter"),
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["FORCE_GARMR"]) and state.has("Purifying Bell", player))
     set_rule(loc("Valley of Kings Mid-Boss Arena Doxa Griel"),
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["DOXA_GRIEL"]) and state.has("Purifying Bell", player))
@@ -1495,7 +1495,7 @@ def set_location_rules(Ys8World: "Ys8World"):
             "Eroded Valley Boss Arena": "Gargantula Defeated",
             "Towering Coral Forest Boss Arena": "Clareon Defeated"
         }
-        access_item_names = list(psyche_access_item_table.keys())
+        access_item_names = [item_name for item_name, data in event_item_table.items() if data.category == "Psyches Access"]
         for i, (psyche_location, psyche_fight) in enumerate(zip(Ys8World.chosen_psyche_location_list, Ys8World.chosen_psyche_fight_list)):
             access_item_name = access_item_names[i]
             psyche_loc = loc(psyche_location)

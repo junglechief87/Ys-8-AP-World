@@ -550,9 +550,6 @@ location_table: Dict[str, Ys8LocationData] = {
     "Western Foot of Gendarme Near Cavern of the Ancient King Chest": Ys8LocationData("Western Foot of Gendarme", 117, "chest"),
     "Western Foot of Gendarme Near Cavern of the Ancient King Austin Join": Ys8LocationData("Western Foot of Gendarme", 418, "event"),
     "Cavern of the Ancient King Cavern of the Ancient King Cave Wall": Ys8LocationData("Western Foot of Gendarme", 431, "event"),
-}
-
-landmark_location_table: Dict[str, Ys8LocationData] = {
     "White Sand Cape Cobalt Crag Landmark": Ys8LocationData("Calm Inlet Area", 638, "landmark"),
     "East Coast Cave East Coast Cave Landmark": Ys8LocationData("East Coast Cave Before Gilkyra", 651, "landmark"),
     "Eroded Valley Dark Passage Landmark": Ys8LocationData("Eroded Valley Indigo Mineral Vein", 643, "landmark"),
@@ -577,71 +574,69 @@ landmark_location_table: Dict[str, Ys8LocationData] = {
     "Underground Water Vein Lapis Mineral Vein Landmark": Ys8LocationData("Lapis Mineral Vein Area", 648, "landmark"),
     "Weathervane Hills Zephyr Hill Landmark": Ys8LocationData("Weathervane Hills", 647, "landmark"),
     "Western Foot of Gendarme Near Cavern of the Ancient King Landmark": Ys8LocationData("Western Foot of Gendarme", 646, "landmark"),
+    # Former Sanctuary Crypt - B1
+    "Former Sanctuary Crypt - B1 Entrance Chest 1": Ys8LocationData("Former Sanctuary Crypt First Barrier", 279, "fsc_chest"),
+    "Former Sanctuary Crypt - B1 Entrance Chest 2": Ys8LocationData("Former Sanctuary Crypt First Barrier", 280, "fsc_chest"),
+    "Former Sanctuary Crypt - B1 Entrance Chest 3": Ys8LocationData("Former Sanctuary Crypt First Barrier", 281, "fsc_chest"),
+    "Former Sanctuary Crypt - B1 First Brazier Chest 1": Ys8LocationData("Former Sanctuary Crypt Second Floor", 283, "fsc_chest"),
+    "Former Sanctuary Crypt - B1 First Brazier Chest 2": Ys8LocationData("Former Sanctuary Crypt Second Floor", 284, "fsc_chest"),
+    "Former Sanctuary Crypt - B1 North Brazier Room Chest 1": Ys8LocationData("Former Sanctuary Crypt First Barrier North Brazier Room", 287, "fsc_chest"),
+    "Former Sanctuary Crypt - B1 North Brazier Room Chest 2": Ys8LocationData("Former Sanctuary Crypt First Barrier North Brazier Room", 288, "fsc_chest"),
+    "Former Sanctuary Crypt - B1 Boss Arena Chest": Ys8LocationData("Former Sanctuary Crypt Second Floor", 291, "fsc_chest"),
+    # Former Sanctuary Crypt - B2
+    "Former Sanctuary Crypt - B2 Entrance Chest 1": Ys8LocationData("Former Sanctuary Crypt Second Floor", 293, "fsc_chest"),
+    "Former Sanctuary Crypt - B2 Entrance Chest 2": Ys8LocationData("Former Sanctuary Crypt Second Floor", 294, "fsc_chest"),
+    "Former Sanctuary Crypt - B2 Entrance Chest 3": Ys8LocationData("Former Sanctuary Crypt Second Floor", 295, "fsc_chest"),
+    "Former Sanctuary Crypt - B2 Stone and Rock Block Puzzle Chest 1": Ys8LocationData("Former Sanctuary Crypt Second Barrier", 296, "fsc_chest"),
+    "Former Sanctuary Crypt - B2 Stone and Rock Block Puzzle Chest 2": Ys8LocationData("Former Sanctuary Crypt Second Barrier", 297, "fsc_chest"),
+    "Former Sanctuary Crypt - B2 Boss Arena Chest": Ys8LocationData("Former Sanctuary Crypt Second Boss Arena", 301, "fsc_chest"),
+    # Former Sanctuary Crypt - B3
+    "Former Sanctuary Crypt - B3 Entrance Chest 1": Ys8LocationData("Former Sanctuary Crypt Third Floor", 303, "fsc_chest"),
+    "Former Sanctuary Crypt - B3 Entrance Chest 2": Ys8LocationData("Former Sanctuary Crypt Third Floor", 304, "fsc_chest"),
+    "Former Sanctuary Crypt - B3 Entrance Chest 3": Ys8LocationData("Former Sanctuary Crypt Third Floor", 305, "fsc_chest"),
+    "Former Sanctuary Crypt - B3 Entrance Chest 4": Ys8LocationData("Former Sanctuary Crypt Third Floor", 306, "fsc_chest"),
+    "Former Sanctuary Crypt - B3 Entrance Chest 5": Ys8LocationData("Former Sanctuary Crypt Third Floor", 307, "fsc_chest"),
+    "Former Sanctuary Crypt - B3 Entrance Chest 6": Ys8LocationData("Former Sanctuary Crypt Third Floor Side Rooms", 308, "fsc_chest"),
+    "Former Sanctuary Crypt - B3 Entrance Chest 7": Ys8LocationData("Former Sanctuary Crypt Third Floor Side Rooms", 309, "fsc_chest"),
+    "Former Sanctuary Crypt - B3 Floating Block Puzzle Chest 1": Ys8LocationData("Former Sanctuary Crypt Third Floor", 320, "fsc_chest"),
+    "Former Sanctuary Crypt - B3 Floating Block Puzzle Chest 2": Ys8LocationData("Former Sanctuary Crypt Third Floor", 321, "fsc_chest"),
+    "Former Sanctuary Crypt - B3 Floating Block Puzzle Chest 3": Ys8LocationData("Former Sanctuary Crypt Third Floor", 322, "fsc_chest"),
+    "Former Sanctuary Crypt - B3 Boss Arena Chest": Ys8LocationData("Former Sanctuary Crypt Third Floor", 329, "fsc_chest"),
+    # Former Sanctuary Crypt - B4
+    "Former Sanctuary Crypt - B4 Entrance Chest 1": Ys8LocationData("Former Sanctuary Crypt Third Barrier", 331, "fsc_chest"),
+    "Former Sanctuary Crypt - B4 Entrance Chest 2": Ys8LocationData("Former Sanctuary Crypt Third Barrier", 332, "fsc_chest"),
+    "Former Sanctuary Crypt - B4 Entrance Chest 3": Ys8LocationData("Former Sanctuary Crypt Third Barrier", 333, "fsc_chest"),
+    "Former Sanctuary Crypt - B4 Entrance Chest 4": Ys8LocationData("Former Sanctuary Crypt Third Barrier", 334, "fsc_chest"),
+    "Former Sanctuary Crypt - B4 Frozen Statue Room Chest 1": Ys8LocationData("Former Sanctuary Crypt Final Floors", 337, "fsc_chest"),
+    "Former Sanctuary Crypt - B4 Frozen Statue Room Chest 2": Ys8LocationData("Former Sanctuary Crypt Final Floors", 338, "fsc_chest"),
+    "Former Sanctuary Crypt - B4 Frozen Statue Room Chest 3": Ys8LocationData("Former Sanctuary Crypt Final Floors", 339, "fsc_chest"),
+    "Former Sanctuary Crypt - B4 Frozen Statue Room Chest 4": Ys8LocationData("Former Sanctuary Crypt Final Floors", 340, "fsc_chest"),
+    "Former Sanctuary Crypt - B4 Boss Arena Chest": Ys8LocationData("Former Sanctuary Crypt Final Floors", 344, "fsc_chest"),
+    # Former Sanctuary Crypt - B5
+    "Former Sanctuary Crypt - B5 Entrance Chest 1": Ys8LocationData("Former Sanctuary Crypt Final Floors Side Rooms", 346, "fsc_chest"),
+    "Former Sanctuary Crypt - B5 Entrance Chest 2": Ys8LocationData("Former Sanctuary Crypt Final Floors Side Rooms", 347, "fsc_chest"),
+    "Former Sanctuary Crypt - B5 Entrance Chest 3": Ys8LocationData("Former Sanctuary Crypt Final Floors Side Rooms", 348, "fsc_chest"),
+    "Former Sanctuary Crypt - B5 Eastern Hall Chest": Ys8LocationData("Former Sanctuary Crypt Final Floors", 351, "fsc_chest"),
+    "Former Sanctuary Crypt - B5 Western Hall Chest 1": Ys8LocationData("Former Sanctuary Crypt Final Floors", 357, "fsc_chest"),
+    "Former Sanctuary Crypt - B5 Western Hall Chest 2": Ys8LocationData("Former Sanctuary Crypt Final Floors", 358, "fsc_chest"),
+    "Former Sanctuary Crypt - B5 Western Hall Chest 3": Ys8LocationData("Former Sanctuary Crypt Final Floors", 359, "fsc_chest"),
+    "Former Sanctuary Crypt - B5 Western Hall Chest 4": Ys8LocationData("Former Sanctuary Crypt Final Floors Side Rooms", 360, "fsc_chest"),
+    "Former Sanctuary Crypt - B5 Large Stairwell Chest 1": Ys8LocationData("Former Sanctuary Crypt Final Floors", 364, "fsc_chest"),
+    "Former Sanctuary Crypt - B5 Large Stairwell Chest 2": Ys8LocationData("Former Sanctuary Crypt Final Floors", 365, "fsc_chest"),
+    "Former Sanctuary Crypt - B5 Boss Arena Chest": Ys8LocationData("Former Sanctuary Crypt Final Floors", 366, "fsc_chest"),
+    # Former Sanctuary Crypt - B6
+    "Former Sanctuary Crypt - B6 Big Staircase Chest 1": Ys8LocationData("Former Sanctuary Crypt Final Floors", 369, "fsc_chest"),
+    "Former Sanctuary Crypt - B6 Big Staircase Chest 2": Ys8LocationData("Former Sanctuary Crypt Final Floors", 370, "fsc_chest"),
+    "Former Sanctuary Crypt - B6 Big Staircase Chest 3": Ys8LocationData("Former Sanctuary Crypt Final Floors", 371, "fsc_chest"),
+    "Former Sanctuary Crypt - B6 Big Staircase Chest 4": Ys8LocationData("Former Sanctuary Crypt Final Floors", 372, "fsc_chest"),
+    # Former Sanctuary Crypt - Final Floor
+    "Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma Skill": Ys8LocationData("Former Sanctuary Crypt Boss Room", 533, "fsc_event"),
+    "Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma Medals": Ys8LocationData("Former Sanctuary Crypt Boss Room", 634, "fsc_event"),
 }
 
-fsc_location_table: Dict[str, Ys8LocationData] = {
-    # Former Sanctuary Crypt - B1
-    "Former Sanctuary Crypt - B1 Entrance Chest 1": Ys8LocationData("Former Sanctuary Crypt First Barrier", 279, "chest"),
-    "Former Sanctuary Crypt - B1 Entrance Chest 2": Ys8LocationData("Former Sanctuary Crypt First Barrier", 280, "chest"),
-    "Former Sanctuary Crypt - B1 Entrance Chest 3": Ys8LocationData("Former Sanctuary Crypt First Barrier", 281, "chest"),
-    "Former Sanctuary Crypt - B1 First Brazier Chest 1": Ys8LocationData("Former Sanctuary Crypt Second Floor", 283, "chest"),
-    "Former Sanctuary Crypt - B1 First Brazier Chest 2": Ys8LocationData("Former Sanctuary Crypt Second Floor", 284, "chest"),
-    "Former Sanctuary Crypt - B1 North Brazier Room Chest 1": Ys8LocationData("Former Sanctuary Crypt First Barrier North Brazier Room", 287, "chest"),
-    "Former Sanctuary Crypt - B1 North Brazier Room Chest 2": Ys8LocationData("Former Sanctuary Crypt First Barrier North Brazier Room", 288, "chest"),
-    "Former Sanctuary Crypt - B1 Boss Arena Chest": Ys8LocationData("Former Sanctuary Crypt Second Floor", 291, "chest"),
-    # Former Sanctuary Crypt - B2
-    "Former Sanctuary Crypt - B2 Entrance Chest 1": Ys8LocationData("Former Sanctuary Crypt Second Floor", 293, "chest"),
-    "Former Sanctuary Crypt - B2 Entrance Chest 2": Ys8LocationData("Former Sanctuary Crypt Second Floor", 294, "chest"),
-    "Former Sanctuary Crypt - B2 Entrance Chest 3": Ys8LocationData("Former Sanctuary Crypt Second Floor", 295, "chest"),
-    "Former Sanctuary Crypt - B2 Stone and Rock Block Puzzle Chest 1": Ys8LocationData("Former Sanctuary Crypt Second Barrier", 296, "chest"),
-    "Former Sanctuary Crypt - B2 Stone and Rock Block Puzzle Chest 2": Ys8LocationData("Former Sanctuary Crypt Second Barrier", 297, "chest"),
-    "Former Sanctuary Crypt - B2 Boss Arena Chest": Ys8LocationData("Former Sanctuary Crypt Second Boss Arena", 301, "chest"),
-    # Former Sanctuary Crypt - B3
-    "Former Sanctuary Crypt - B3 Entrance Chest 1": Ys8LocationData("Former Sanctuary Crypt Third Floor", 303, "chest"),
-    "Former Sanctuary Crypt - B3 Entrance Chest 2": Ys8LocationData("Former Sanctuary Crypt Third Floor", 304, "chest"),
-    "Former Sanctuary Crypt - B3 Entrance Chest 3": Ys8LocationData("Former Sanctuary Crypt Third Floor", 305, "chest"),
-    "Former Sanctuary Crypt - B3 Entrance Chest 4": Ys8LocationData("Former Sanctuary Crypt Third Floor", 306, "chest"),
-    "Former Sanctuary Crypt - B3 Entrance Chest 5": Ys8LocationData("Former Sanctuary Crypt Third Floor", 307, "chest"),
-    "Former Sanctuary Crypt - B3 Entrance Chest 6": Ys8LocationData("Former Sanctuary Crypt Third Floor Side Rooms", 308, "chest"),
-    "Former Sanctuary Crypt - B3 Entrance Chest 7": Ys8LocationData("Former Sanctuary Crypt Third Floor Side Rooms", 309, "chest"),
-    "Former Sanctuary Crypt - B3 Floating Block Puzzle Chest 1": Ys8LocationData("Former Sanctuary Crypt Third Floor", 320, "chest"),
-    "Former Sanctuary Crypt - B3 Floating Block Puzzle Chest 2": Ys8LocationData("Former Sanctuary Crypt Third Floor", 321, "chest"),
-    "Former Sanctuary Crypt - B3 Floating Block Puzzle Chest 3": Ys8LocationData("Former Sanctuary Crypt Third Floor", 322, "chest"),
-    "Former Sanctuary Crypt - B3 Boss Arena Chest": Ys8LocationData("Former Sanctuary Crypt Third Floor", 329, "chest"),
-    # Former Sanctuary Crypt - B4
-    "Former Sanctuary Crypt - B4 Entrance Chest 1": Ys8LocationData("Former Sanctuary Crypt Third Barrier", 331, "chest"),
-    "Former Sanctuary Crypt - B4 Entrance Chest 2": Ys8LocationData("Former Sanctuary Crypt Third Barrier", 332, "chest"),
-    "Former Sanctuary Crypt - B4 Entrance Chest 3": Ys8LocationData("Former Sanctuary Crypt Third Barrier", 333, "chest"),
-    "Former Sanctuary Crypt - B4 Entrance Chest 4": Ys8LocationData("Former Sanctuary Crypt Third Barrier", 334, "chest"),
-    "Former Sanctuary Crypt - B4 Frozen Statue Room Chest 1": Ys8LocationData("Former Sanctuary Crypt Final Floors", 337, "chest"),
-    "Former Sanctuary Crypt - B4 Frozen Statue Room Chest 2": Ys8LocationData("Former Sanctuary Crypt Final Floors", 338, "chest"),
-    "Former Sanctuary Crypt - B4 Frozen Statue Room Chest 3": Ys8LocationData("Former Sanctuary Crypt Final Floors", 339, "chest"),
-    "Former Sanctuary Crypt - B4 Frozen Statue Room Chest 4": Ys8LocationData("Former Sanctuary Crypt Final Floors", 340, "chest"),
-    "Former Sanctuary Crypt - B4 Boss Arena Chest": Ys8LocationData("Former Sanctuary Crypt Final Floors", 344, "chest"),
-    # Former Sanctuary Crypt - B5
-    "Former Sanctuary Crypt - B5 Entrance Chest 1": Ys8LocationData("Former Sanctuary Crypt Final Floors Side Rooms", 346, "chest"),
-    "Former Sanctuary Crypt - B5 Entrance Chest 2": Ys8LocationData("Former Sanctuary Crypt Final Floors Side Rooms", 347, "chest"),
-    "Former Sanctuary Crypt - B5 Entrance Chest 3": Ys8LocationData("Former Sanctuary Crypt Final Floors Side Rooms", 348, "chest"),
-    "Former Sanctuary Crypt - B5 Eastern Hall Chest": Ys8LocationData("Former Sanctuary Crypt Final Floors", 351, "chest"),
-    "Former Sanctuary Crypt - B5 Western Hall Chest 1": Ys8LocationData("Former Sanctuary Crypt Final Floors", 357, "chest"),
-    "Former Sanctuary Crypt - B5 Western Hall Chest 2": Ys8LocationData("Former Sanctuary Crypt Final Floors", 358, "chest"),
-    "Former Sanctuary Crypt - B5 Western Hall Chest 3": Ys8LocationData("Former Sanctuary Crypt Final Floors", 359, "chest"),
-    "Former Sanctuary Crypt - B5 Western Hall Chest 4": Ys8LocationData("Former Sanctuary Crypt Final Floors Side Rooms", 360, "chest"),
-    "Former Sanctuary Crypt - B5 Large Stairwell Chest 1": Ys8LocationData("Former Sanctuary Crypt Final Floors", 364, "chest"),
-    "Former Sanctuary Crypt - B5 Large Stairwell Chest 2": Ys8LocationData("Former Sanctuary Crypt Final Floors", 365, "chest"),
-    "Former Sanctuary Crypt - B5 Boss Arena Chest": Ys8LocationData("Former Sanctuary Crypt Final Floors", 366, "chest"),
-    # Former Sanctuary Crypt - B6
-    "Former Sanctuary Crypt - B6 Big Staircase Chest 1": Ys8LocationData("Former Sanctuary Crypt Final Floors", 369, "chest"),
-    "Former Sanctuary Crypt - B6 Big Staircase Chest 2": Ys8LocationData("Former Sanctuary Crypt Final Floors", 370, "chest"),
-    "Former Sanctuary Crypt - B6 Big Staircase Chest 3": Ys8LocationData("Former Sanctuary Crypt Final Floors", 371, "chest"),
-    "Former Sanctuary Crypt - B6 Big Staircase Chest 4": Ys8LocationData("Former Sanctuary Crypt Final Floors", 372, "chest"),
-    # Former Sanctuary Crypt - Final Floor
-    "Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma Skill": Ys8LocationData("Former Sanctuary Crypt Boss Room", 533, "event"),
-    "Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma Medals": Ys8LocationData("Former Sanctuary Crypt Boss Room", 634, "event"),
-}
 
 event_location_table: Dict[str, Ys8LocationData] = {
-    "Octus Overlook Selection Sphere Goal": Ys8LocationData("Selection Sphere", 10000, "None"),
+    "Octus Overlook Selection Sphere Goal": Ys8LocationData("Selection Sphere", 10000, None),
     "Silent Tower Second Basement Mephorash": Ys8LocationData("Silent Tower", 10001, None),
     "Octus Overlook Path of the Sky Era Psyche-Ura": Ys8LocationData("Octus Overlook", 10002, None),
     "Octus Overlook Path of the Insectoid Era Psyche-Nestor": Ys8LocationData("Octus Overlook", 10003, None),
@@ -655,7 +650,7 @@ event_location_table: Dict[str, Ys8LocationData] = {
     "Pirate Ship Eleftheria Deck Pirate Revenant": Ys8LocationData("Pirate Ship Eleftheria", 10011, None),
     "Baja Tower Boss Arena Carveros": Ys8LocationData("Baja Tower Boss Arena", 10012, None),
     "Baja Tower Mid-Boss Arena Exmetal": Ys8LocationData("Baja Tower Lower Floors", 10013, None),
-    "Temple of the Great Tree Temple Boss Arena Brachion": Ys8LocationData("Temple of the Great Tree", 10014, None),
+    "Temple of the Great Tree Temple Boss Arena Brachion": Ys8LocationData("Temple of the Great Tree Boss Arena", 10014, None),
     "Mont Gendarme Boss Arena Giasburn": Ys8LocationData("Mont Gendarme Boss Arena", 10015, None),
     "Mont Gendarme Mid-Boss Arena Avalodragil 2": Ys8LocationData("Mont Gendarme Mid-Boss Arena", 10016, None),
     "Odd Rock Coast Odd Rock Coast Kiergaard Weissman": Ys8LocationData("Odd Rock Coast", 10017, None),
@@ -674,7 +669,7 @@ event_location_table: Dict[str, Ys8LocationData] = {
     "Pangaia Plains Ancient Tree Master Kong Hummel": Ys8LocationData("Seiren North Access", 10030, None),
     "Vista Ridge Vista Ridge Lower Master Kong Adol": Ys8LocationData("Vista Ridge", 10031, None),
     "East Coast Cave East Coast Cave Gilkyra Encounter": Ys8LocationData("East Coast Cave Before Gilkyra", 10032, None),
-    "Lodinia Marshlands Back Force Garmr Encounter": Ys8LocationData("Lodinia Marshlands Back", 10033, None),
+    "Valley of Kings Before Door Force Garmr Encounter": Ys8LocationData("Valley of Kings Before Door", 10033, None),
     # Grind area access events
     "Towering Coral Forest Front Grind Access": Ys8LocationData("Towering Coral Forest Front", 10034, None),
     "Eroded Valley Front Grind Access": Ys8LocationData("Eroded Valley Front", 10035, None),
@@ -765,9 +760,6 @@ event_location_table: Dict[str, Ys8LocationData] = {
     "Towering Coral Forest (Night) Grind Access": Ys8LocationData("Towering Coral Forest (Night) Front Half", 10094, None),
     "Mont Gendarme (Night) Grind Access": Ys8LocationData("Mont Gendarme (Night) Front Half", 10095, None),
     "Pangaia Plains (Night) Grind Access": Ys8LocationData("Pangaia Plains (Night)", 10096, None),
-}
-
-fsc_event_location_table: Dict[str, Ys8LocationData] = {
     "Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma": Ys8LocationData("Former Sanctuary Crypt Boss Room", 10097, None),
 }
 
