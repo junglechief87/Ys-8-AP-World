@@ -345,38 +345,38 @@ def battle_logic(Ys8World: "Ys8World", state: CollectionState, required_str: int
         super_weapons = (state.has("Mistilteinn", player) and state.has("Adol", player)) or \
                         (state.has("Spirit Ring Celesdia", player) and state.has("Dana", player))
     
-    if options.progressive_super_weapons.value and state.has("Flame Stone", player, 7) and super_weapons:
+    if options.progressive_super_weapons.value and state.has("Progressive Shop Rank", player, 7) and super_weapons:
         weaponStr = 290
     elif not options.progressive_super_weapons.value and super_weapons:
         weaponStr = 290
-    elif state.has("Flame Stone", player, 7) and mat("Dragon Crest Stone"):
+    elif state.has("Progressive Shop Rank", player, 7) and mat("Dragon Crest Stone"):
         weaponStr = 270
-    elif state.has("Flame Stone", player, 6) and (
+    elif state.has("Progressive Shop Rank", player, 6) and (
             (mat("Essence Stone") and
              mat("Iron Ore") and
              mat("Tektite Ore")) or
             (mat("Dragon Crest Stone") and state.has("Dina", player))):
         weaponStr = 240
-    elif state.has("Flame Stone", player, 5) and (
+    elif state.has("Progressive Shop Rank", player, 5) and (
             (mat("Essence Stone") and
              mat("Iron Ore") and
              mat("Tektite Ore")) or
             (mat("Dragon Crest Stone") and state.has("Dina", player))):
         weaponStr = 210
-    elif state.has("Flame Stone", player, 4) and (
+    elif state.has("Progressive Shop Rank", player, 4) and (
             (mat("Essence Stone") and state.has("Dina", player)) or
             (mat("Dragon Crest Stone") and state.has("Dina", player)) or
             (mat("Iron Ore") and mat("Tektite Ore"))):
         weaponStr = 180
-    elif state.has("Flame Stone", player, 3):
+    elif state.has("Progressive Shop Rank", player, 3):
         weaponStr = 150
-    elif state.has("Flame Stone", player, 2) and (
+    elif state.has("Progressive Shop Rank", player, 2) and (
             (mat("Essence Stone") and state.has("Dina", player)) or
             (mat("Dragon Crest Stone") and state.has("Dina", player)) or
             (mat("Tektite Ore") and state.has("Dina", player)) or
             mat("Iron Ore")):
         weaponStr = 100
-    elif state.has("Flame Stone", player, 1) and (
+    elif state.has("Progressive Shop Rank", player, 1) and (
             (mat("Essence Stone") and state.has("Dina", player)) or
             (mat("Dragon Crest Stone") and state.has("Dina", player)) or
             (mat("Tektite Ore") and state.has("Dina", player)) or
@@ -384,24 +384,24 @@ def battle_logic(Ys8World: "Ys8World", state: CollectionState, required_str: int
         weaponStr = 50
 
     # Armor strength
-    if state.has("Flame Stone", player, 7) and mat("Underworld Hide") and \
+    if state.has("Progressive Shop Rank", player, 7) and mat("Underworld Hide") and \
             mat("Underworld Bone"):
         armorStr = 25
-    elif state.has("Flame Stone", player, 6) and (
+    elif state.has("Progressive Shop Rank", player, 6) and (
             (mat("Underworld Hide") and \
             mat("Underworld Bone") and state.has("Dina", player)) or
             (mat("Ancient Bone") and
              mat("Ancient Hide") and
              mat("Saurian Scale"))):
         armorStr = 20
-    elif state.has("Flame Stone", player, 5) and (
+    elif state.has("Progressive Shop Rank", player, 5) and (
             (mat("Underworld Hide") and \
             mat("Underworld Bone") and state.has("Dina", player)) or
             (mat("Ancient Bone") and
              mat("Ancient Hide") and
              mat("Saurian Scale"))):
         armorStr = 16
-    elif state.has("Flame Stone", player, 4) and (
+    elif state.has("Progressive Shop Rank", player, 4) and (
             (mat("Underworld Hide") and \
             mat("Underworld Bone") and state.has("Dina", player)) or
             (mat("Ancient Bone") and
@@ -410,7 +410,7 @@ def battle_logic(Ys8World: "Ys8World", state: CollectionState, required_str: int
             (mat("Beast Hide") and \
             mat("Beast Bone") and state.has("Dina", player))):
         armorStr = 13
-    elif state.has("Flame Stone", player, 2) and (
+    elif state.has("Progressive Shop Rank", player, 2) and (
             (mat("Underworld Hide") and \
             mat("Underworld Bone") and state.has("Dina", player)) or
             (mat("Ancient Bone") and
@@ -419,7 +419,7 @@ def battle_logic(Ys8World: "Ys8World", state: CollectionState, required_str: int
             (mat("Beast Hide") and \
             mat("Beast Bone"))):
         armorStr = 10
-    elif state.has("Flame Stone", player, 1) and (
+    elif state.has("Progressive Shop Rank", player, 1) and (
             (mat("Underworld Hide") and \
             mat("Underworld Bone") and state.has("Dina", player)) or
             (mat("Ancient Bone") and
@@ -431,16 +431,16 @@ def battle_logic(Ys8World: "Ys8World", state: CollectionState, required_str: int
         armorStr = 6
 
     # Armlet strength — take the higher of shop tiers and found items
-    if (state.has("Flame Stone", player, 7) and state.has("Euron", player) and \
+    if (state.has("Progressive Shop Rank", player, 7) and state.has("Euron", player) and \
             (mat("Beast Hide") and \
                 mat("Beast Bone"))) or \
                     state.has("Battle Armlet", player):
         armStr = 30
-    elif (state.has("Flame Stone", player, 6) and state.has("Euron", player) and \
+    elif (state.has("Progressive Shop Rank", player, 6) and state.has("Euron", player) and \
             mat("Saurian Scale") and mat("Ancient Hide")) or \
                 state.has("Warrior Wrist", player):
         armStr = 20
-    elif state.has("Flame Stone", player, 4) and state.has("Euron", player) and \
+    elif state.has("Progressive Shop Rank", player, 4) and state.has("Euron", player) and \
             mat("Dragon Crest Stone") and mat("Dandale Horn"):
         armStr = 10
 
@@ -459,7 +459,7 @@ def battle_logic(Ys8World: "Ys8World", state: CollectionState, required_str: int
         if mat("Glow Rock") and mat("Flexible Branch") and \
                     mat("Beautiful Flower") or state.has("Dina", player):
             hopeAndLum.append(20)  # Hope Stone
-    if state.has("Euron", player) and state.has("Flame Stone", player, 2):
+    if state.has("Euron", player) and state.has("Progressive Shop Rank", player, 2):
         if mat("Razor Feather") and mat("Stalactite"):
             fenrirAcc.append(5)   # Fenrir Talisman
         if mat("Sword Tip Fang") and mat("Thick Hide"):
@@ -470,7 +470,7 @@ def battle_logic(Ys8World: "Ys8World", state: CollectionState, required_str: int
             hopeAndLum.append(40) # Luminous Ring
         if mat("Accursed Shell") and mat("Stalactite"):
             pyriosAcc.append(5)   # Pyrios Talisman
-    if state.has("Euron", player) and state.has("Flame Stone", player, 4):
+    if state.has("Euron", player) and state.has("Progressive Shop Rank", player, 4):
         if mat("Thunder Claw") and mat("Tektite Ore"):
             otherAcc.append(10)   # Lightning Stone
         if mat("Thunder Claw") and mat("Beast Hide"):
@@ -479,7 +479,7 @@ def battle_logic(Ys8World: "Ys8World", state: CollectionState, required_str: int
             otherAcc.append(10)   # Crow Stone
         if mat("Tektite Ore") and mat("Ancient Lumber"):
             otherAcc.append(10)   # Snake Stone
-    if state.has("Euron", player) and state.has("Flame Stone", player, 5):
+    if state.has("Euron", player) and state.has("Progressive Shop Rank", player, 5):
         if mat("Lustrous Scale") and mat("Stalactite"):
             dragonAcc.append(10)  # Dragon Pauldron
         if mat("Dandale Horn"):
@@ -488,7 +488,7 @@ def battle_logic(Ys8World: "Ys8World", state: CollectionState, required_str: int
             fenrirAcc.append(15)  # Fenrir Stone
             pyriosAcc.append(15)  # Pyrios Stone
             otherAcc.append(10)   # Nature Talisman
-    if state.has("Euron", player) and state.has("Flame Stone", player, 7):
+    if state.has("Euron", player) and state.has("Progressive Shop Rank", player, 7):
         if mat("Dragon Crest Stone") and mat("Ancient Hide"):
             bladeRings.append(40) # Blade Ring 4
 
@@ -514,7 +514,7 @@ def battle_logic(Ys8World: "Ys8World", state: CollectionState, required_str: int
         if required_str >= threshold:
             if total < required_str or not has_required_party(Ys8World, state, party_required):
                 return False
-            return flame_required is None or state.has("Flame Stone", player, flame_required)
+            return flame_required is None or state.has("Progressive Shop Rank", player, flame_required)
     
     return total >= required_str
 
@@ -1053,10 +1053,10 @@ def set_location_rules(Ys8World: "Ys8World"):
             lambda state: (battle_logic(Ys8World, state, _BATTLE_REQ["GARGANTULA"]) and has_required_party(Ys8World, state, 2))
                     or battle_logic(Ys8World, state, _BATTLE_REQ["INTERCEPT_STAGE5_ALT"]))
         add_rule(loc("Calm Inlet Intercept Stage 7"),
-                lambda state: state.has("Flame Stone", player, 3)
+                lambda state: state.has("Progressive Shop Rank", player, 3)
                             and has_required_party(Ys8World, state, 2))
         add_rule(loc("Calm Inlet Intercept Stage 9"),
-                lambda state: state.has("Flame Stone", player, 3)
+                lambda state: state.has("Progressive Shop Rank", player, 3)
                     and battle_logic(Ys8World, state, _BATTLE_REQ["GARGANTULA"]))
     else:
         add_item_rule(loc("Calm Inlet Intercept Stage 2"),

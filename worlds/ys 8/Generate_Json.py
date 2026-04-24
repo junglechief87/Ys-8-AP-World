@@ -13,7 +13,7 @@ from worlds.Files import APPlayerContainer
 
 class Ys8Container(APPlayerContainer):
     game: str = 'Ys 8'
-    patch_file_ending = ".zip"
+    patch_file_ending = ".apbp"
 
     def __init__(
         self,
@@ -26,7 +26,7 @@ class Ys8Container(APPlayerContainer):
     ):
         self.patch_data = patch_data
         self.file_path = base_path
-        container_path = os.path.join(output_directory, base_path + ".zip")
+        container_path = os.path.join(output_directory, base_path + self.patch_file_ending)
         super().__init__(container_path, player, player_name, server)
 
     def write_contents(self, opened_zipfile: zipfile.ZipFile) -> None:
@@ -75,11 +75,15 @@ def get_item_location_map(world):
                 continue
             item_data = get_item_data(location.item.name)
             location_item_map[location_id] = {
+                "player": world.multiworld.get_file_safe_player_name(location.player),
                 "location_name": location.name,
                 "location_type": location_table[location.name].type if location.name in location_table else None,
-                "item_id": location.item.code,
+                # Convert item code to item ID by removing the last two digits,
+                # if offworld item make AP item code. If item code is None, set to None.
+                "item_id": (((location.item.code - (location.item.code % 100)) // 100) if location.player == world.player else 149) if location.item.code is not None else None,
                 "item_name": location.item.name,
                 "item_quantity": item_data.quantity if item_data else 1,
+                "item_type": item_data.type if item_data else None,
                 "category": item_data.category if item_data else None,
                 "party_flag": item_data.is_party_member if item_data else False,
             }
@@ -99,4 +103,5 @@ def get_location_id(location):
 
 def get_settings(world):
     settings = world.fill_slot_data()
+    settings["seed"] = world.multiworld.seed
     return settings

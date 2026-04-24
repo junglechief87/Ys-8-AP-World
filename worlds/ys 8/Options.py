@@ -287,7 +287,7 @@ class ExtraFlameStones(Range):
 
 class RecipesWithIngredients(Toggle):
     """
-    Grants the player all ingredients necessary to cook a dish
+    Grants the player essentially infinite ingredients necessary to cook a dish
     upon obtaining their respective Recipe Book.
     """
     display_name = "Recipes Come With Ingredients"

@@ -22,7 +22,7 @@ def get_items_by_category(category: str) -> Dict[str, Ys8ItemData]:
     return {name: data for name, data in item_table.items() if data.category == category}
 
 def get_item_pool_quantity(item_name: str, data: Ys8ItemData, options: Ys8Options) -> int:
-    if item_name == "Flame Stone":
+    if item_name == "Progressive Shop Rank":
         return data.pool_quantity + options.extra_flame_stones
     return data.pool_quantity
 
@@ -309,7 +309,7 @@ item_table: Dict[str, Ys8ItemData] = {
     "Logbook 4": Ys8ItemData("Consumable", 77300, "Item"),
     "Logbook 5": Ys8ItemData("Consumable", 77400, "Item"),
     "Monolith Fragment": Ys8ItemData("Consumable", 77700, "Item"),
-    "Flame Stone": Ys8ItemData("Consumable", 77800, "Item", ItemClassification.progression, pool_quantity = 7),
+    "Progressive Shop Rank": Ys8ItemData("Consumable", 13900, "Item", ItemClassification.progression, pool_quantity = 7), #Changed item ID to progressive shop rank
     "Ship Blueprint": Ys8ItemData("Consumable", 77900, "Item", ItemClassification.progression),
     "Sweet Pepper Seeds": Ys8ItemData("Consumable", 78000, "Item"),
     "Shiny Corn Seeds": Ys8ItemData("Consumable", 78300, "Item"),
@@ -425,7 +425,7 @@ item_table: Dict[str, Ys8ItemData] = {
     "Mistilteinn": Ys8ItemData("Super Weapon", 900, "Item", ItemClassification.progression),
     "Spirit Ring Celesdia": Ys8ItemData("Super Weapon", 1300, "Item", ItemClassification.progression),
     "Broken Mistilteinn": Ys8ItemData("Progressive Super Weapon", 901, "Item", ItemClassification.progression),
-    "Broken Spirit Ring": Ys8ItemData("Progressive Super Weapon", 902, "Item", ItemClassification.progression),
+    "Broken Spirit Ring": Ys8ItemData("Progressive Super Weapon", 1301, "Item", ItemClassification.progression),
     "Birdsong Rock": Ys8ItemData("Landmark", 99500, "SetFlag", ItemClassification.progression, default_loc = "Nameless Coast Shoreline North of Boulder Landmark"),
     "Cobalt Crag": Ys8ItemData("Landmark", 99600, "SetFlag", ItemClassification.progression, default_loc = "White Sand Cape Cobalt Crag Landmark"),
     "Rainbow Falls": Ys8ItemData("Landmark", 99700, "SetFlag", ItemClassification.progression, default_loc = "Towering Coral Forest Rainbow Falls Landmark"),
