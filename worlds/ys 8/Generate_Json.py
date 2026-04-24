@@ -44,13 +44,7 @@ def generate_json(world, output_directory):
 
     files = {
         "item_location_map.json": json.dumps(item_location_map),
-        "starting_character_and_skills.json": json.dumps({
-            "starting_character": world.starting_character,
-            "adol_starting_skills": world.adol_starting_skills,
-            "sahad_starting_skills": world.sahad_starting_skills,
-            "laxia_starting_skills": world.laxia_starting_skills,
-            "ricotta_starting_skills": world.ricotta_starting_skills,
-            "hummel_starting_skills": world.hummel_starting_skills,}),
+        "starting_character.json": json.dumps(world.starting_character),
         "dungeon_entrance_randomization.json": json.dumps(world.dungeon_connections),
         "settings.json": json.dumps(settings),
     }
@@ -102,6 +96,20 @@ def get_location_id(location):
     return event_location_data.code if event_location_data else None
 
 def get_settings(world):
-    settings = world.fill_slot_data()
+    settings = world.fill_slot_data() or {}
     settings["seed"] = world.multiworld.seed
+
+    # If Release the Psyches mode is enabled, include a map of psyche bosses
+    # and where their access items are placed    
+    if world.options.final_boss_access == 2:
+        # Build mapping: psyche boss location → access item location
+        fights = list(world.chosen_psyche_fight_list.keys())
+        locations = list(world.chosen_psyche_location_list.keys())
+        
+        psyche_map = {}
+        for fight_location, access_location in zip(fights, locations):
+            psyche_map[fight_location] = access_location
+        
+        settings["psyche_map"] = psyche_map
+    
     return settings

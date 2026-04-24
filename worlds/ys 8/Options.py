@@ -30,8 +30,7 @@ class FinalBossAccess(Choice):
 
 class GoalCountCrewMode(Range):
     """
-    For Find Crew mode: Sets the number of castaways required to open Octus Overlook Entrance
-    and unlock access to the Tree of Origin, a powerful grinding location.
+    For Find Crew mode: Sets the number of castaways required to open Octus Overlook Entrance.
     """
     display_name = "Goal Count to Open Octus (Find Crew)"
     range_start = 1
@@ -42,7 +41,7 @@ class GoalCountCrewMode(Range):
 class GoalCountPsychesMode(Range):
     """
     For Release the Psyches mode: Sets the number of Wardens of Evolution required to defeat
-    to open Octus Overlook Entrance and unlock access to the Tree of Origin.
+    to open Octus Overlook Entrance.
     """
     display_name = "Goal Count to Open Octus (Release the Psyches)"
     range_start = 1
