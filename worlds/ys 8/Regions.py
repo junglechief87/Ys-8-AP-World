@@ -88,7 +88,7 @@ def create_regions(Ys8World):
         "Mont Gendarme Mid-Boss Arena": ["MGMB MGM Exit", "MGMB MGU Link"],
         "Mont Gendarme Upper": ["MGU MB Exit", "MG Boss Entrance"],
         "Mont Gendarme Boss Arena": ["MG Boss Exit", "MG Post-Boss Link"],
-        "Mont Gendarme After Boss": ["MGPB Boss Exit", "MGPB SNA Exit"],
+        "Mont Gendarme After Boss": ["MGAB Boss Exit", "MGAB SNA Exit"],
         "Seiren North Access": ["SNA SPWC Link", "SNA TGT Link", "SNA ROE Link", "SNA PPN Link", "SNA MGAB Entrance"],
         "Stone Pillar Wind Cave": ["SPWC SNA Exit", "SPWC SPWCU Link"],
         "Stone Pillar Wind Cave Upper": ["SPWCU SPWC Exit"],
@@ -463,8 +463,8 @@ def connect_entrances(Ys8World: "Ys8World"):
     connect("MG Post-Boss Link", "Mont Gendarme After Boss")
     
     # Mont Gendarme Post Boss
-    connect("MGPB Boss Exit", "Mont Gendarme Boss Arena")
-    connect("MGPB SNA Exit", "Seiren North Access")
+    connect("MGAB Boss Exit", "Mont Gendarme Boss Arena")
+    connect("MGAB SNA Exit", "Seiren North Access")
     
     # Seiren North Access
     connect("SNA MGAB Entrance", "Mont Gendarme After Boss")

@@ -1376,8 +1376,8 @@ def set_location_rules(Ys8World: "Ys8World"):
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["AVALODRAGIL_2"]))
     set_rule(loc("Odd Rock Coast Odd Rock Coast Kiergaard Weissman"),
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["KIERGAARD_WEISSMAN"]))
-    add_rule(loc("Roaring Seashore Parasequoia Master Kong Ricotta"),
-             lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["MASTER_KONG_RICOTTA"]) and state.has("Ricotta", player))
+    add_rule(loc("Roaring Seashore Parasequoia Master Kong Ricotta"), # Gendarme Night grind required only to make sure Ripe Mango is farmable.
+             lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["MASTER_KONG_RICOTTA"]) and state.has_all(["Ricotta", "Grind: Mont Gendarme Night"], player)) 
     add_rule(loc("Sunrise Beach Sunrise Beach Master Kong Sahad"),
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["MASTER_KONG_SAHAD"]) and state.has_all(["Sahad","Master Kong Ricotta Defeated"], player))
 

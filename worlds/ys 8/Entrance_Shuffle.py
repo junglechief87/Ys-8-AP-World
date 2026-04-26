@@ -26,7 +26,7 @@ def dungeon_entrance_shuffle(Ys8World):
     north_side_connectors: list = ["SNA MGAB Entrance", "TGTG OO Entrance", "AC Entrance", "FSC Entrance", "BTLF Entrance", "LMB VOKBD Entrance"]
     entrance_pairs: list[dict[str, str]] = {"Towering Coral Forest Front": "TCF NCN Exit", "Towering Coral Forest After Boss": "TCFAB Meta Exit", "Eroded Valley Front": "EVF GRV Exit", 
                                              "Eroded Valley After Boss": "EVAB SB Exit", "Schlamm Jungle Front": "SJF GRVSC Exit", "Schlamm Jungle After Boss": "SJAB ORC Exit", 
-                                             "Mont Gendarme Front": "MGF PPGE Exit", "Mont Gendarme After Boss": "MGPB SNA Exit", "Waterdrop Cave": "WC Exit", 
+                                             "Mont Gendarme Front": "MGF PPGE Exit", "Mont Gendarme After Boss": "MGAB SNA Exit", "Waterdrop Cave": "WC Exit", 
                                              "East Coast Cave Before Gilkyra": "ECCBG NCA Exit", "Silent Tower": "STE OST Exit", "Octus Overlook": "OO TGT Exit", 
                                              "Former Sanctuary Crypt Front": "FSCF ROEHP Exit", "Baja Tower Lower Floors": "BTLF THBTE Exit", "Archeozoic Chasm Front": "ACF BTAC Exit", 
                                              "Valley of Kings Before Door": "VOKBD LMB Exit"}
