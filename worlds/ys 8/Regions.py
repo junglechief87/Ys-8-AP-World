@@ -165,7 +165,6 @@ def create_regions(Ys8World):
                              "Octus Overlook Path of the Ocean Era Psyche-Hydra Skill 1", 
                              "Octus Overlook Path of the Ocean Era Psyche-Hydra Skill 2"]
         
-        psyche_num = 4
         if options.former_sanctuary_crypt.value:
             psyche_location_table.update(fsc_psyche_location_table)
         else:
@@ -174,8 +173,8 @@ def create_regions(Ys8World):
         if options.mephorash_progression.value:
             psyche_location_table.update(silent_tower_psyche_location_table)
 
-        fight_samples = multiworld.random.sample(list(psyche_fight_names.items()), psyche_num)
-        location_samples = multiworld.random.sample(list(psyche_location_table.items()), psyche_num)
+        fight_samples = multiworld.random.sample(list(psyche_fight_names.items()), Ys8World.max_psyche_num)
+        location_samples = multiworld.random.sample(list(psyche_location_table.items()), Ys8World.max_psyche_num)
         
         Ys8World.chosen_psyche_fight_list = dict(fight_samples)
         Ys8World.chosen_psyche_location_list = dict(location_samples)
@@ -189,7 +188,7 @@ def create_regions(Ys8World):
             continue
         if location in excluded_locations:
             continue
-        
+
         regions[location_table[location].category].locations.append(location)
 
     for location in event_location_table:

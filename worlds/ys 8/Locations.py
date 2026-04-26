@@ -768,7 +768,7 @@ psyche_location_table: Dict[str, Ys8LocationData] = {
     "Archeozoic Chasm Boss Arena Oceanus Psyches": Ys8LocationData("Archeozoic Chasm Boss Arena", 10100, None),
     "Pirate Ship Eleftheria Deck Pirate Revenant Psyches": Ys8LocationData("Pirate Ship Eleftheria", 10101, None),
     "Baja Tower Boss Arena Carveros Psyches": Ys8LocationData("Baja Tower Boss Arena", 10102, None),
-    "Temple of the Great Tree Temple Boss Arena Brachion Psyches": Ys8LocationData("Temple of the Great Tree", 10103, None),
+    "Temple of the Great Tree Temple Boss Arena Brachion Psyches": Ys8LocationData("Temple of the Great Tree Boss Arena", 10103, None),
     "Mont Gendarme Boss Arena Giasburn Psyches": Ys8LocationData("Mont Gendarme Boss Arena", 10104, None),
     "Schlamm Jungle Boss Arena Laspisus Psyches": Ys8LocationData("Schlamm Jungle Boss Arena", 10105, None),
     "Eroded Valley Boss Arena Gargantula Psyches": Ys8LocationData("Eroded Valley Boss Arena", 10106, None),

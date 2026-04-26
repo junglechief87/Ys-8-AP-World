@@ -107,9 +107,14 @@ def get_settings(world):
         locations = list(world.chosen_psyche_location_list.keys())
         
         psyche_map = {}
+        psyche_rewards = {}
         for fight_location, access_location in zip(fights, locations):
+            location = world.multiworld.get_location(fight_location, world.player)
+            item_name = location.item.name if location.item else None
             psyche_map[fight_location] = access_location
+            psyche_rewards[fight_location] = item_name
         
         settings["psyche_map"] = psyche_map
+        settings["psyche_rewards"] = psyche_rewards
     
     return settings

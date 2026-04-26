@@ -758,11 +758,11 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     
     if options.final_boss_access == 0:
         set_rule(get_ent("TGTG OO Entrance"), lambda state: 
-                 has_required_crew(Ys8World, state, options.goal_count_crew_mode) and battle_logic(Ys8World, state, _BATTLE_REQ["OCTUS"]))
+                 has_required_crew(Ys8World, state, options.octus_count_crew_mode.value) and battle_logic(Ys8World, state, _BATTLE_REQ["OCTUS"]))
     if options.final_boss_access == 2:
         set_rule(get_ent("TGTG OO Entrance"), lambda state:
                  state.has_from_list(["Psyches of the Sky Era", "Psyches of the Insectoid Era", "Psyches of the Ocean Era", "Psyches of the Frozen Era"],\
-                                      player, options.goal_count_psyches_mode) and battle_logic(Ys8World, state, _BATTLE_REQ["OCTUS"]))
+                                      player, options.octus_count_psyches_mode.value) and battle_logic(Ys8World, state, _BATTLE_REQ["OCTUS"]))
     
 
 def set_location_rules(Ys8World: "Ys8World"):
@@ -1255,23 +1255,24 @@ def set_location_rules(Ys8World: "Ys8World"):
         add_rule(loc("Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma Medals"),
                  lambda state: state.has("Melaiduma Defeated", player))
 
-    # Octus Overlook — Psyche-Ura, Psyche-Nestor, Psyche-Minos, Psyche-Hydra
-    add_rule(loc("Octus Overlook Path of the Sky Era Psyche-Ura Skill 1"),
-             lambda state: state.has("Psyche-Ura Defeated", player))
-    add_rule(loc("Octus Overlook Path of the Sky Era Psyche-Ura Skill 2"),
-             lambda state: state.has("Psyche-Ura Defeated", player))
-    add_rule(loc("Octus Overlook Path of the Insectoid Era Psyche-Nestor Skill 1"),
-             lambda state: state.has("Psyche-Nestor Defeated", player))
-    add_rule(loc("Octus Overlook Path of the Insectoid Era Psyche-Nestor Skill 2"),
-             lambda state: state.has("Psyche-Nestor Defeated", player))
-    add_rule(loc("Octus Overlook Path of the Frozen Era Psyche-Minos Skill 1"),
-             lambda state: state.has("Psyche-Minos Defeated", player))
-    add_rule(loc("Octus Overlook Path of the Frozen Era Psyche-Minos Skill 2"),
-             lambda state: state.has("Psyche-Minos Defeated", player))
-    add_rule(loc("Octus Overlook Path of the Ocean Era Psyche-Hydra Skill 1"),
-             lambda state: state.has("Psyche-Hydra Defeated", player))
-    add_rule(loc("Octus Overlook Path of the Ocean Era Psyche-Hydra Skill 2"),
-             lambda state: state.has("Psyche-Hydra Defeated", player))
+    if not options.final_boss_access == 2:
+        # Octus Overlook — Psyche-Ura, Psyche-Nestor, Psyche-Minos, Psyche-Hydra
+        add_rule(loc("Octus Overlook Path of the Sky Era Psyche-Ura Skill 1"),
+                lambda state: state.has("Psyche-Ura Defeated", player))
+        add_rule(loc("Octus Overlook Path of the Sky Era Psyche-Ura Skill 2"),
+                lambda state: state.has("Psyche-Ura Defeated", player))
+        add_rule(loc("Octus Overlook Path of the Insectoid Era Psyche-Nestor Skill 1"),
+                lambda state: state.has("Psyche-Nestor Defeated", player))
+        add_rule(loc("Octus Overlook Path of the Insectoid Era Psyche-Nestor Skill 2"),
+                lambda state: state.has("Psyche-Nestor Defeated", player))
+        add_rule(loc("Octus Overlook Path of the Frozen Era Psyche-Minos Skill 1"),
+                lambda state: state.has("Psyche-Minos Defeated", player))
+        add_rule(loc("Octus Overlook Path of the Frozen Era Psyche-Minos Skill 2"),
+                lambda state: state.has("Psyche-Minos Defeated", player))
+        add_rule(loc("Octus Overlook Path of the Ocean Era Psyche-Hydra Skill 1"),
+                lambda state: state.has("Psyche-Hydra Defeated", player))
+        add_rule(loc("Octus Overlook Path of the Ocean Era Psyche-Hydra Skill 2"),
+                lambda state: state.has("Psyche-Hydra Defeated", player))
 
     # If paths aren't opened we need to check for boss beatability to access areas of octus, 
     # but if we're doing release the psyches then the bosses aren't there so we don't need to check for them.
@@ -1419,16 +1420,19 @@ def set_location_rules(Ys8World: "Ys8World"):
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["OCEANUS"]))
     set_rule(loc("Valley of Kings Boss Arena Basileus"),
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["BASILEUS"]) and state.has("Purifying Bell", player))
-    set_rule(loc("Octus Overlook Path of the Ocean Era Psyche-Hydra"),
-             lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["PSYCHE_HYDRA"]))
-    set_rule(loc("Octus Overlook Path of the Frozen Era Psyche-Minos"),
-             lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["PSYCHE_MINOS"]))
-    set_rule(loc("Octus Overlook Path of the Insectoid Era Psyche-Nestor"),
-             lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["PSYCHE_NESTOR"]))
-    set_rule(loc("Octus Overlook Path of the Sky Era Psyche-Ura"),
-             lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["PSYCHE_URA"]))
+    if not options.final_boss_access == 2:
+        set_rule(loc("Octus Overlook Path of the Ocean Era Psyche-Hydra"),
+                lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["PSYCHE_HYDRA"]))
+        set_rule(loc("Octus Overlook Path of the Frozen Era Psyche-Minos"),
+                lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["PSYCHE_MINOS"]))
+        set_rule(loc("Octus Overlook Path of the Insectoid Era Psyche-Nestor"),
+                lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["PSYCHE_NESTOR"]))
+        set_rule(loc("Octus Overlook Path of the Sky Era Psyche-Ura"),
+                lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["PSYCHE_URA"]))
+        
     set_rule(loc("Silent Tower Second Basement Mephorash"),
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["MEPHORASH"]))
+    
     if options.former_sanctuary_crypt.value:
         set_rule(loc("Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma"),
             lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["MELAIDUMA"]))
@@ -1450,21 +1454,22 @@ def set_location_rules(Ys8World: "Ys8World"):
     elif options.final_boss_access == 2:
         add_rule(loc("Octus Overlook Selection Sphere Goal"),
                  lambda state: state.has_from_list(["Psyches of the Sky Era", "Psyches of the Insectoid Era", "Psyches of the Ocean Era", "Psyches of the Frozen Era"], 
-                                                   player, options.goal_count_psyches_final_boss))
+                                                   player, options.goal_count_psyches_final_boss.value))
         
         region_boss_mapping = {
             "Silent Tower": "Mephorash Defeated",
-            "Former Sanctuary Crypt": "Melaiduma Defeated",
+            "Former Sanctuary Crypt Boss Room": "Melaiduma Defeated",
             "Valley of Kings Boss Arena": "Basileus Defeated",
             "Archeozoic Chasm Boss Arena": "Oceanus Defeated",
             "Baja Tower Boss Arena": "Carveros Defeated",
-            "Pirate Ship Eleftheria Deck": "Pirate Revenant Defeated",
+            "Pirate Ship Eleftheria": "Pirate Revenant Defeated",
             "Mont Gendarme Boss Arena": "Giasburn Defeated",
-            "Temple of the Great Tree Temple Boss Arena": "Brachion Defeated",
+            "Temple of the Great Tree Boss Arena": "Brachion Defeated",
             "Schlamm Jungle Boss Arena": "Laspisus Defeated",
             "Eroded Valley Boss Arena": "Gargantula Defeated",
             "Towering Coral Forest Boss Arena": "Clareon Defeated"
         }
+
         access_item_names = [item_name for item_name, data in event_item_table.items() if data.category == "Psyches Access"]
         for i, (psyche_location, psyche_fight) in enumerate(zip(Ys8World.chosen_psyche_location_list, Ys8World.chosen_psyche_fight_list)):
             access_item_name = access_item_names[i]

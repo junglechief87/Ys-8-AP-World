@@ -63,11 +63,14 @@ class Ys8World(World):
         self.hummel_starting_skills = []
         self.dana_starting_skills = []
         self.starting_skills = []
-    
+        self.max_psyche_num = 4
+
     def generate_early(self):
         # Force Former Sanctuary Crypt on if Untouchable final boss access is selected or esscence key sanity
         if self.options.final_boss_access.value == 3 or self.options.essence_key_sanity.value:
             self.options.former_sanctuary_crypt.value = True
+
+        
 
         if self.options.dungeon_entrance_shuffle.value:
             dungeon_entrance_shuffle(self)
@@ -189,6 +192,8 @@ class Ys8World(World):
                 continue
             if data.category in ["Psyches", "Psyches Access"]:
                 continue
+            if name in ["Psyche-Hydra Defeated", "Psyche-Minos Defeated", "Psyche-Nestor Defeated", "Psyche-Ura Defeated"] and self.options.final_boss_access.value == 2:
+                continue
             location_name = data.category  # Using category field to store associated location for event items
             item = self.create_event(name)
             location = self.multiworld.get_location(location_name, self.player)
@@ -211,7 +216,7 @@ class Ys8World(World):
 
     def fill_slot_data(self) -> Dict[str, Any]:
         slot_data = {}
-        slot_options = ["final_boss_access", "goal_count_crew_mode", "goal_count_psyches_mode", "goal_count_crew_final_boss", "goal_count_psyches_final_boss",
+        slot_options = ["final_boss_access", "octus_count_crew_mode", "octus_count_psyches_mode", "goal_count_crew_final_boss", "goal_count_psyches_final_boss",
                         "discovery_sanity", "dungeon_entrance_shuffle", "jewel_trade_items", "fish_trades", "food_trades", "map_completion", "discoveries", 
                         "dogi_intercept_rewards", "master_kong_rewards", "silvia_progression", "mephorash_progression", "former_sanctuary_crypt", "experience_multiplier", 
                         "additional_intercept_rewards", "battle_logic", "progressive_super_weapons", "octus_paths_opened", "extra_flame_stones", 
@@ -248,6 +253,15 @@ class Ys8World(World):
         spoiler_handle.write(f"\tRicotta Starting Skills: {', '.join(self.ricotta_starting_skills)}\n")
         spoiler_handle.write(f"\tHummel Starting Skills: {', '.join(self.hummel_starting_skills)}\n")
         spoiler_handle.write(f"\tDana Starting Skills: {', '.join(self.dana_starting_skills)}\n")
+
+        if self.options.final_boss_access == 2:
+            # Build mapping: psyche boss location → access item location
+            fights = list(self.chosen_psyche_fight_list.keys())
+            locations = list(self.chosen_psyche_location_list.keys())
+            
+            spoiler_handle.write(f"\n\nPsyche Fight Shuffle for {player_name}:\n")
+            for fight_location, access_location in zip(fights, locations):
+                spoiler_handle.write(f"\t{fight_location} is accessed by {access_location}\n")
 
     def generate_output(self, output_directory: str):
         generate_json(self, output_directory)

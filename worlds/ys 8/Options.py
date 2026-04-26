@@ -28,7 +28,7 @@ class FinalBossAccess(Choice):
     default = 0
 
 
-class GoalCountCrewMode(Range):
+class OctusCountCrewMode(Range):
     """
     For Find Crew mode: Sets the number of castaways required to open Octus Overlook Entrance.
     """
@@ -38,7 +38,7 @@ class GoalCountCrewMode(Range):
     default = 16
 
 
-class GoalCountPsychesMode(Range):
+class OctusCountPsychesMode(Range):
     """
     For Release the Psyches mode: Sets the number of Wardens of Evolution required to defeat
     to open Octus Overlook Entrance.
@@ -401,8 +401,8 @@ class StartingCharacterWeights(OptionCounter):
 class Ys8Options(PerGameCommonOptions):
     # Goal Settings
     final_boss_access: FinalBossAccess
-    goal_count_crew_mode: GoalCountCrewMode
-    goal_count_psyches_mode: GoalCountPsychesMode
+    octus_count_crew_mode: OctusCountCrewMode
+    octus_count_psyches_mode: OctusCountPsychesMode
     goal_count_crew_final_boss: GoalCountCrewFinalBoss
     goal_count_psyches_final_boss: GoalCountPsychesFinalBoss
     
@@ -448,8 +448,8 @@ class Ys8Options(PerGameCommonOptions):
 Ys8_option_groups = [
     OptionGroup("Goal Settings", [
         FinalBossAccess,
-        GoalCountCrewMode,
-        GoalCountPsychesMode,
+        OctusCountCrewMode,
+        OctusCountPsychesMode,
         GoalCountCrewFinalBoss,
         GoalCountPsychesFinalBoss,
     ]),
@@ -496,8 +496,8 @@ Ys8_option_groups = [
 Ys8_option_presets: Dict[str, Dict[str, Any]] = {
     "Default Find Crew": {
         "final_boss_access": FinalBossAccess.option_find_crew,
-        "goal_count_crew_mode": 16,
-        "goal_count_psyches_mode": 2,
+        "octus_count_crew_mode": 16,
+        "octus_count_psyches_mode": 2,
         "goal_count_crew_final_boss": 20,
         "goal_count_psyches_final_boss": 3,
         "discovery_sanity": False,
@@ -531,8 +531,8 @@ Ys8_option_presets: Dict[str, Dict[str, Any]] = {
     },
     "Default Release Psyches": {
         "final_boss_access": FinalBossAccess.option_release_the_psyches,
-        "goal_count_crew_mode": 16,
-        "goal_count_psyches_mode": 2,
+        "octus_count_crew_mode": 16,
+        "octus_count_psyches_mode": 2,
         "goal_count_crew_final_boss": 20,
         "goal_count_psyches_final_boss": 3,
         "discovery_sanity": False,

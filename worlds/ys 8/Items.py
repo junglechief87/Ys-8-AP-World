@@ -553,14 +553,14 @@ event_item_table: Dict[str, Ys8ItemData] = {
     "Material: Underworld Bone (Octus Overlook)": Ys8ItemData("Underworld Bone Farming - Octus Overlook", None, "Material", ItemClassification.progression),
     "Material: Underworld Hide (Octus Overlook)": Ys8ItemData("Underworld Hide Farming - Octus Overlook", None, "Material", ItemClassification.progression),
     "Melaiduma Defeated": Ys8ItemData("Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma", None, "Boss", ItemClassification.progression),
-    "Psyches of the Sky Era": Ys8ItemData("Psyches", None, "SetFlag", ItemClassification.progression),
-    "Psyches of the Insectoid Era": Ys8ItemData("Psyches", None, "SetFlag", ItemClassification.progression),
     "Psyches of the Ocean Era": Ys8ItemData("Psyches", None, "SetFlag", ItemClassification.progression),
     "Psyches of the Frozen Era": Ys8ItemData("Psyches", None, "SetFlag", ItemClassification.progression),
-    "Psyches of the Sky Era Access": Ys8ItemData("Psyches Access", None, "SetFlag", ItemClassification.progression),
-    "Psyches of the Insectoid Era Access": Ys8ItemData("Psyches Access", None, "SetFlag", ItemClassification.progression),
+    "Psyches of the Insectoid Era": Ys8ItemData("Psyches", None, "SetFlag", ItemClassification.progression),
+    "Psyches of the Sky Era": Ys8ItemData("Psyches", None, "SetFlag", ItemClassification.progression),
     "Psyches of the Ocean Era Access": Ys8ItemData("Psyches Access", None, "SetFlag", ItemClassification.progression),
-    "Psyches of the Frozen Era Access": Ys8ItemData("Psyches Access", None, "SetFlag", ItemClassification.progression)
+    "Psyches of the Frozen Era Access": Ys8ItemData("Psyches Access", None, "SetFlag", ItemClassification.progression),
+    "Psyches of the Insectoid Era Access": Ys8ItemData("Psyches Access", None, "SetFlag", ItemClassification.progression),
+    "Psyches of the Sky Era Access": Ys8ItemData("Psyches Access", None, "SetFlag", ItemClassification.progression)
 }
 
 #Make item categories
