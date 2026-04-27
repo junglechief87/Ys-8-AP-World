@@ -59,27 +59,24 @@ def generate_json(world, output_directory):
 
 def get_item_location_map(world):
     location_item_map = {}
-    for sphere in world.multiworld.get_spheres():
-        for location in sphere:
-            if location.player != world.player:
+    for location in world.multiworld.get_filled_locations(world.player):
+        location_id = get_location_id(location)
+        if location.item.code is None:
                 continue
-            location_id = get_location_id(location)
-            if location_id is None:
-                continue
-            item_data = get_item_data(location.item.name)
-            location_item_map[location_id] = {
-                "player": world.multiworld.get_file_safe_player_name(location.player),
-                "location_name": location.name,
-                "location_type": location_table[location.name].type if location.name in location_table else None,
-                # Convert item code to item ID by removing the last two digits,
-                # if offworld item make AP item code. If item code is None, set to None.
-                "item_id": (((location.item.code - (location.item.code % 100)) // 100) if location.player == world.player else 149) if location.item.code is not None else None,
-                "item_name": location.item.name,
-                "item_quantity": item_data.quantity if item_data else 1,
-                "item_type": item_data.type if item_data else None,
-                "category": item_data.category if item_data else None,
-                "party_flag": item_data.is_party_member if item_data else False,
-            }
+        item_data = get_item_data(location.item.name)
+        location_item_map[location_id] = {
+            "player": world.multiworld.get_player_name(location.item.player),
+            "location_name": location.name,
+            "location_type": location_table[location.name].type if location.name in location_table else "",
+            # Convert item code to item ID by removing the last two digits,
+            # if offworld item make AP item code. If item code is None, set to None.
+            "item_id": (((location.item.code - (location.item.code % 100)) // 100) if location.item.player == location.player else 149),
+            "item_name": location.item.name,
+            "item_quantity": item_data.quantity if item_data else 1,
+            "item_type": item_data.type if item_data else "",
+            "category": item_data.category if item_data else "",
+            "party_flag": item_data.is_party_member if item_data else False,
+        }
     return location_item_map
 
 def get_item_data(item_name):
