@@ -396,6 +396,13 @@ class StartingCharacterWeights(OptionCounter):
     min = 0
     default = {"Adol": 1, "Laxia": 1, "Sahad": 1, "Hummel": 1, "Ricotta": 1, "Dana": 1}
 
+class DeathLink(Toggle):
+    """
+    If enabled, players will share death. When one player dies, the other player(s) will also die.
+    """
+    display_name = "Death Link"
+    default = False
+
 
 @dataclass
 class Ys8Options(PerGameCommonOptions):
@@ -443,7 +450,7 @@ class Ys8Options(PerGameCommonOptions):
     # Misc Settings
     essence_key_sanity: EssenceKeySanity
     starting_character_weights: StartingCharacterWeights
-
+    death_link: DeathLink
 
 Ys8_option_groups = [
     OptionGroup("Goal Settings", [
@@ -490,6 +497,7 @@ Ys8_option_groups = [
     OptionGroup("Misc Settings", [
         EssenceKeySanity,
         StartingCharacterWeights,
+        DeathLink,
     ]),
 ]
 
@@ -528,6 +536,7 @@ Ys8_option_presets: Dict[str, Dict[str, Any]] = {
         "origin_start_phase": OriginStartPhase.option_second,
         "essence_key_sanity": False,
         "starting_character_weights": {"Adol": 1, "Laxia": 1, "Sahad": 1, "Hummel": 1, "Ricotta": 1, "Dana": 1},
+        "death_link": False,
     },
     "Default Release Psyches": {
         "final_boss_access": FinalBossAccess.option_release_the_psyches,
@@ -563,5 +572,6 @@ Ys8_option_presets: Dict[str, Dict[str, Any]] = {
         "origin_start_phase": OriginStartPhase.option_second,
         "essence_key_sanity": False,
         "starting_character_weights": {"Adol": 1, "Laxia": 1, "Sahad": 1, "Hummel": 1, "Ricotta": 1, "Dana": 1},
+        "death_link": False,
     }
 }

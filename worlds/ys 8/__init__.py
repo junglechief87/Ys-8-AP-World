@@ -221,7 +221,7 @@ class Ys8World(World):
                         "dogi_intercept_rewards", "master_kong_rewards", "silvia_progression", "mephorash_progression", "former_sanctuary_crypt", "experience_multiplier", 
                         "additional_intercept_rewards", "battle_logic", "progressive_super_weapons", "octus_paths_opened", "extra_flame_stones", 
                         "recipes_with_ingredients", "north_side_open", "infinity_mode", "scale_exp_items", "final_boss", "theos_start_phase", "origin_care_package", "origin_start_phase",
-                        "essence_key_sanity", "starting_character_weights"]
+                        "essence_key_sanity", "starting_character_weights", "death_link"]
 
         slot_data = {"options": {option_name: getattr(self.options, option_name).value for option_name in slot_options}}
 

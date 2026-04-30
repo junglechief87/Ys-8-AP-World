@@ -13,7 +13,7 @@ from worlds.Files import APPlayerContainer
 
 class Ys8Container(APPlayerContainer):
     game: str = 'Ys 8'
-    patch_file_ending = ".dana"
+    patch_file_ending = ".apdana"
 
     def __init__(
         self,
@@ -35,7 +35,7 @@ class Ys8Container(APPlayerContainer):
         super().write_contents(opened_zipfile)
 
 def generate_json(world, output_directory):
-    mod_name = f"AP-{world.multiworld.seed_name}-P{world.player}-{world.multiworld.get_file_safe_player_name(world.player)}"
+    mod_name = f"AP_{world.multiworld.seed_name}_P{world.player}_{world.multiworld.get_file_safe_player_name(world.player)}"
     mod_dir = os.path.join(output_directory, mod_name + "_" + Utils.__version__)
 
     item_location_map = get_item_location_map(world)
