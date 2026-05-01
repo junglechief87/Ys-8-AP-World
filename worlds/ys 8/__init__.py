@@ -1,5 +1,5 @@
 """
-Archipelago init file for The Ys 8
+Archipelago init file for Ys VIII: Lacrimosa of Dana
 """
 from logging import error, warning
 from typing import Any, Dict, List, TextIO
@@ -19,11 +19,11 @@ class Ys8Web(WebWorld):
     theme = "jungle"
     setup_en = Tutorial(
         "Multiworld Setup Guide",
-        "A guide to playing Ys 8 with Archipelago.",
+        "A guide to playing Ys VIII: Lacrimosa of Dana with Archipelago.",
         "English",
         "setup_en.md",
         "setup/en",
-        ["NewSoupVi", "Jarno"]
+        ["JungleChief87"]
     )
     tutorials = [setup_en]
 
@@ -32,7 +32,8 @@ class Ys8Web(WebWorld):
 
 class Ys8World(World):
     """
-    Description of game.
+    Ys VIII: Lacrimosa of Dana is an action RPG developed by Nihon Falcom. The player controls Adol Christin, a red-haired adventurer who finds himself stranded on the Isle of Seiren after his ship is attacked by monsters. 
+    The game features real-time combat, exploration, and a variety of characters to recruit and interact with. The main objective is to find a way off the island while uncovering its mysteries and forging bonds with the other survivors.
     """
     game = "Ys 8"
     origin_region_name = "Calm Inlet Area"

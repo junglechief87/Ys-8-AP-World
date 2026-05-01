@@ -94,6 +94,7 @@ def get_location_id(location):
 def get_settings(world):
     settings = world.fill_slot_data() or {}
     settings["seed"] = world.multiworld.seed
+    settings["seed_name"] = world.multiworld.seed_name
 
     # If Release the Psyches mode is enabled, include a map of psyche bosses
     # and where their access items are placed    
