@@ -9,6 +9,7 @@ from settings import get_settings
 from .Locations import Ys8Location, location_table, event_location_table
 from .Items import item_table, event_item_table
 from worlds.Files import APPlayerContainer
+from BaseClasses import ItemClassification
 
 
 class Ys8Container(APPlayerContainer):
@@ -74,11 +75,22 @@ def get_item_location_map(world):
             "item_name": location.item.name,
             "item_quantity": item_data.quantity if item_data else 1,
             "item_type": item_data.type if item_data else "",
+            "item_classification": get_classification(location.item.classification),
             "category": item_data.category if item_data else "",
             "party_flag": item_data.is_party_member if item_data else False,
         }
     return location_item_map
 
+def get_classification(classification_flag):
+    if classification_flag & ItemClassification.progression:
+        return "PROGRESSION"
+    elif classification_flag & ItemClassification.useful:
+        return "USEFUL"
+    elif classification_flag & ItemClassification.trap:
+        return "TRAP"
+    else:
+        return "FILLER"
+    
 def get_item_data(item_name):
     return item_table.get(item_name) or event_item_table.get(item_name)
 
