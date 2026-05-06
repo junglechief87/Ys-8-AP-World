@@ -199,7 +199,7 @@ item_table: Dict[str, Ys8ItemData] = {
     "Defense Elixir x3": Ys8ItemData("Consumable", 52401, "Item", quantity = 3),
     "Life Elixir": Ys8ItemData("Consumable", 52500, "Item", pool_quantity = 7),
     "Life Elixir x3": Ys8ItemData("Consumable", 52501, "Item", quantity = 3),
-    "Spirit Elixir": Ys8ItemData("Consumable", 52600, "Item", ItemClassification.useful, pool_quantity = 6),
+    "Spirit Elixir": Ys8ItemData("Consumable", 52600, "Item", ItemClassification.useful, pool_quantity = 10),
     "Tempest Elixir": Ys8ItemData("Consumable", 52700, "Item", pool_quantity = 3),
     "Beastiary Potion": Ys8ItemData("Consumable", 52800, "Item"),
     "Coconut x2": Ys8ItemData("Consumable", 53100, "Item", quantity = 2),
