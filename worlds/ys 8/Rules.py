@@ -288,7 +288,7 @@ def accessory_str(Ys8World: "Ys8World", state: CollectionState) -> int:
         ringStr = 0
 
     # Ancient accessories — mutually exclusive group, take best found
-    if state.has_any({"Stone of Anitquity", "Ocean Hogeki"}, player):
+    if state.has_any({"Stone of Antiquity", "Ocean Hogeki"}, player):
         ancientStr = 40
     elif state.has("Shrine Maiden Amulet", player) and \
             state.has_any({"Laxia", "Dana", "Ricotta"}, player):
@@ -438,10 +438,13 @@ def battle_logic(Ys8World: "Ys8World", state: CollectionState, required_str: int
         armStr = 30
     elif (state.has("Progressive Shop Rank", player, 6) and state.has("Euron", player) and \
             mat("Saurian Scale") and mat("Ancient Hide")) or \
-                state.has("Warrior Wrist", player):
+                state.has_any(["Warrior Wrist", "Luminous Gauntlets"], player):
         armStr = 20
-    elif state.has("Progressive Shop Rank", player, 4) and state.has("Euron", player) and \
-            mat("Dragon Crest Stone") and mat("Dandale Horn"):
+    elif (state.has("Impact Gauntlets", player)):
+        armStr = 15
+    elif (state.has("Progressive Shop Rank", player, 4) and state.has("Euron", player) and \
+            mat("Dragon Crest Stone") and mat("Dandale Horn")) or \
+                state.has_any(["Rai-Koo Gauntlets", "Needle Gauntlets"], player):
         armStr = 10
 
     # Accessory strength — shop logic; categories that conflict are kept separate, best-of each added together

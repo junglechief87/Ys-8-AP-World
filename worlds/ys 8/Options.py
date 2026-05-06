@@ -230,7 +230,7 @@ class ExperienceMultiplier(Range):
     """
     display_name = "Experience Multiplier"
     range_start = 1
-    range_end = 10
+    range_end = 20
     default = 3
 
 
@@ -279,7 +279,7 @@ class ExtraFlameStones(Range):
     Makes hitting max level more likely without being excessive.
     """
     display_name = "Extra Flame Stones"
-    range_start = 1
+    range_start = 0
     range_end = 10
     default = 3
 
@@ -520,7 +520,7 @@ Ys8_option_presets: Dict[str, Dict[str, Any]] = {
         "silvia_progression": False,
         "mephorash_progression": False,
         "former_sanctuary_crypt": False,
-        "experience_multiplier": 3,
+        "experience_multiplier": 6,
         "additional_intercept_rewards": False,
         "battle_logic": True,
         "progressive_super_weapons": True,
@@ -556,7 +556,7 @@ Ys8_option_presets: Dict[str, Dict[str, Any]] = {
         "silvia_progression": True,
         "mephorash_progression": True,
         "former_sanctuary_crypt": False,
-        "experience_multiplier": 3,
+        "experience_multiplier": 6,
         "additional_intercept_rewards": False,
         "battle_logic": True,
         "progressive_super_weapons": True,
