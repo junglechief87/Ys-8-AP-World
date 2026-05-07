@@ -835,7 +835,7 @@ def set_location_rules(Ys8World: "Ys8World"):
     add_rule(loc("Underground Water Vein Submerged Area Driftage"),
              lambda state: state.has("Grip Gloves", player))
     
-    # Towal Highway — katthew chest requires climb
+    # Towal Highway — katthew requires climb
     add_rule(loc("Towal Highway Baja Tower Approach Katthew Join"),
              lambda state: state.has("Grip Gloves", player))
     
@@ -1169,6 +1169,16 @@ def set_location_rules(Ys8World: "Ys8World"):
     # Nameless Coast — Avalodragil (early boss)
     add_rule(loc("Nameless Coast First Avalodragil Arena Avalodragil Skill"),
              lambda state: state.has("Avalodragil Defeated", player))
+    add_rule(loc("Nameless Coast Cliffs South - Treebridge Chest 1"),
+             lambda state: state.has("Avalodragil Defeated", player))
+    add_rule(loc("Nameless Coast First Avalodragil Arena Sahad Join"),
+             lambda state: state.has("Avalodragil Defeated", player))
+    add_rule(loc("Calm Inlet Calm Inlet (Castaway Village Area) Fishing Tutorial"),
+             lambda state: state.has("Avalodragil Defeated", player))
+    add_rule(loc("Calm Inlet Calm Inlet (Castaway Village Area) Little Paro Join"),
+             lambda state: state.has("Avalodragil Defeated", player))
+    add_rule(loc("Calm Inlet Calm Inlet (Castaway Village Area) Dogi Join"),
+             lambda state: state.has("Avalodragil Defeated", player))
 
     # Towering Coral Forest — Serpentus (mid-boss) and Clareon (boss)
     add_rule(loc("Towering Coral Forest Mid-Boss Arena Serpentus Skill 1"),
@@ -1215,6 +1225,8 @@ def set_location_rules(Ys8World: "Ys8World"):
              lambda state: state.has("Pirate Revenant Defeated", player))
     add_rule(loc("Pirate Ship Eleftheria Deck Chest"),
              lambda state: state.has("Pirate Revenant Defeated", player))
+    add_rule(loc("Pirate Ship Eleftheria Deck Seiren Chart"),
+             lambda state: state.has("Pirate Revenant Defeated", player))
 
     # Baja Tower — Exmetal (mid-boss) and Carveros (boss)
     add_rule(loc("Baja Tower Mid-Boss Arena Exmetal Skill 1"),
@@ -1226,6 +1238,8 @@ def set_location_rules(Ys8World: "Ys8World"):
     add_rule(loc("Baja Tower Boss Arena Carveros Skill 1"),
              lambda state: state.has("Carveros Defeated", player))
     add_rule(loc("Baja Tower Boss Arena Carveros Skill 2"),
+             lambda state: state.has("Carveros Defeated", player))
+    add_rule(loc("Baja Tower Top Floor Monolith Scene"),
              lambda state: state.has("Carveros Defeated", player))
 
     # Temple of the Great Tree — Brachion (boss)
@@ -1251,17 +1265,25 @@ def set_location_rules(Ys8World: "Ys8World"):
              lambda state: state.has("Kiergaard Weissman Defeated", player))
     add_rule(loc("Odd Rock Coast Odd Rock Coast Kiergaard Weissman Skill 2"),
              lambda state: state.has("Kiergaard Weissman Defeated", player))
+    add_rule(loc("Odd Rock Coast Odd Rock Coast Licht Join"),
+             lambda state: state.has("Kiergaard Weissman Defeated", player))
+    add_rule(loc("Odd Rock Coast Odd Rock Coast Quina Join"),
+             lambda state: state.has("Kiergaard Weissman Defeated", player))
 
     # Archeozoic Chasm — Coelacantos (mid-boss) and Oceanus (boss)
     add_rule(loc("Archeozoic Chasm Mid-Boss Arena Coelacantos Skill 1"),
              lambda state: state.has("Coelacantos Defeated", player))
     add_rule(loc("Archeozoic Chasm Mid-Boss Arena Coelacantos Skill 2"),
              lambda state: state.has("Coelacantos Defeated", player))
+    add_rule(loc("Archeozoic Chasm Submerged Cave Chest 1"),
+             lambda state: state.has("Coelacantos Defeated", player))
     add_rule(loc("Archeozoic Chasm Boss Arena Oceanus Skill 1"),
              lambda state: state.has("Oceanus Defeated", player))
     add_rule(loc("Archeozoic Chasm Boss Arena Oceanus Skill 2"),
              lambda state: state.has("Oceanus Defeated", player))
     add_rule(loc("Archeozoic Chasm Boss Arena Kill Boss"),
+             lambda state: state.has("Oceanus Defeated", player))
+    add_rule(loc("Archeozoic Chasm Boss Arena Driftage"),
              lambda state: state.has("Oceanus Defeated", player))
 
     # Valley of Kings — Doxa Griel (mid-boss) and Basileus (boss)
@@ -1286,6 +1308,8 @@ def set_location_rules(Ys8World: "Ys8World"):
         
     # Waterdrop Cave — Byfteriza
     add_rule(loc("Waterdrop Cave Boss Arena Byfteriza Skill"),
+             lambda state: state.has("Byfteriza Defeated", player))
+    add_rule(loc("Waterdrop Cave Coastal Outlook Captain Barbaros Join"),
              lambda state: state.has("Byfteriza Defeated", player))
 
     # Silent Tower — Mephorash

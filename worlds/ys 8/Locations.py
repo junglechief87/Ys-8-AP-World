@@ -24,7 +24,7 @@ location_table: Dict[str, Ys8LocationData] = {
     "Archeozoic Chasm Cliffs Overlooking Crater Chest 2": Ys8LocationData("Archeozoic Chasm Front", 250, "chest"),
     "Archeozoic Chasm Whirlpools Chest 1": Ys8LocationData("Archeozoic Chasm Front", 251, "chest"),
     "Archeozoic Chasm Whirlpools Chest 2": Ys8LocationData("Archeozoic Chasm Front", 252, "chest"),
-    "Archeozoic Chasm Submerged Cave Chest 1": Ys8LocationData("Archeozoic Chasm Submerged Area", 253, "chest"),
+    "Archeozoic Chasm Submerged Cave Chest 1": Ys8LocationData("Archeozoic Chasm Front", 253, "chest"),
     "Archeozoic Chasm Submerged Cave Chest 2": Ys8LocationData("Archeozoic Chasm Submerged Area", 254, "chest"),
     "Archeozoic Chasm Submerged Cave Chest 3": Ys8LocationData("Archeozoic Chasm Submerged Area", 255, "chest"),
     "Archeozoic Chasm Water Vents Chest 1": Ys8LocationData("Archeozoic Chasm Submerged Area", 256, "chest"),
@@ -132,11 +132,11 @@ location_table: Dict[str, Ys8LocationData] = {
     "White Sand Cape Alison's Shore Alison Join": Ys8LocationData("Calm Inlet Area", 406, "event"),
     "Calm Inlet Ricotta and Shoebill Reunite Shoebill Join": Ys8LocationData("Calm Inlet Area", 426, "event"),
     "Calm Inlet Calm Inlet (Castaway Village Area) Fishing Tutorial": Ys8LocationData("Calm Inlet Area", 471, "event"),
+    "Calm Inlet Discovery Rewards Half": Ys8LocationData("Calm Inlet Area", 478, "event"),
+    "Calm Inlet Discovery Rewards All": Ys8LocationData("Calm Inlet Area", 479, "event"),
     "Calm Inlet Calm Inlet (Castaway Village Area) Silvia Skill 1": Ys8LocationData("Calm Inlet Area", 542, "event"),
     "Calm Inlet Calm Inlet (Castaway Village Area) Silvia Skill 2": Ys8LocationData("Calm Inlet Area", 543, "event"),
     "Nameless Coast First Avalodragil Arena Avalodragil Skill": Ys8LocationData("Calm Inlet Area", 578, "event"),
-    "Calm Inlet Discovery Rewards Half": Ys8LocationData("Calm Inlet Area", 478, "event"),
-    "Calm Inlet Discovery Rewards All": Ys8LocationData("Calm Inlet Area", 479, "event"),
     # Dana Starting Skill
     "Dana Starting Skill Skill 1 Twin Edge": Ys8LocationData("Calm Inlet Area", 530, "event"),
     "Dana Starting Skill Skill 2 Sonic Rise": Ys8LocationData("Calm Inlet Area", 531, "event"),
@@ -144,8 +144,6 @@ location_table: Dict[str, Ys8LocationData] = {
     "East Coast Cave East Coast Cave Chest 1": Ys8LocationData("East Coast Cave After Gilkyra", 381, "chest"),
     "East Coast Cave East Coast Cave Chest 2": Ys8LocationData("East Coast Cave Before Gilkyra", 382, "chest"),
     "East Coast Cave East Coast Cave Chest 3": Ys8LocationData("East Coast Cave After Gilkyra", 383, "chest"),
-
-    #"East Coast Cave East Coast Cave Gilkyra Encounter": Ys8LocationData("East Coast Cave Before Gilkyra", 661, "event"),
     # Eroded Valley
     "Eroded Valley Entrance Chest 1": Ys8LocationData("Eroded Valley Front", 128, "chest"),
     "Eroded Valley Entrance Chest 2": Ys8LocationData("Eroded Valley Front", 129, "chest"),
@@ -172,7 +170,6 @@ location_table: Dict[str, Ys8LocationData] = {
     "Eroded Valley Boss Arena Gargantula Skill 2": Ys8LocationData("Eroded Valley Boss Arena", 571, "event"),
     "Eroded Valley Mid-Boss Arena Lonbrigius Skill 1": Ys8LocationData("Eroded Valley Mid-Boss Arena", 572, "event"),
     "Eroded Valley Mid-Boss Arena Lonbrigius Skill 2": Ys8LocationData("Eroded Valley Mid-Boss Arena", 573, "event"),
-    #"Eroded Valley Boss Arena Psyches": Ys8LocationData("Eroded Valley", 629, "event"),
     # Eternal Hill
     "Eternal Hill Eternal Hill Chest": Ys8LocationData("Graves of Ancient Heroes", 180, "chest"),
     "Eternal Hill Eternal Hill Griselda Join": Ys8LocationData("Graves of Ancient Heroes", 427, "event"),
@@ -220,8 +217,6 @@ location_table: Dict[str, Ys8LocationData] = {
     "Lodinia Marshlands Back Chest 4": Ys8LocationData("Lodinia Marshlands Back", 234, "chest"),
     "Lodinia Marshlands Back Chest 5": Ys8LocationData("Lodinia Marshlands Back", 235, "chest"),
     "Lodinia Marshlands Back Chest 6": Ys8LocationData("Lodinia Marshlands Back", 236, "chest"),
-    # Lombardia
-    # Lombardia Opening Cutscene Adol Join": Ys8LocationData("Calm Inlet Area", 429, "event"),
     # Longhorn Coast Area
     "Beast Hills Collapsed Cliff Chest 1": Ys8LocationData("Longhorn Coast Area", 30, "chest"),
     "Beast Hills Collapsed Cliff Chest 2": Ys8LocationData("Longhorn Coast Area", 31, "chest"),
@@ -267,7 +262,6 @@ location_table: Dict[str, Ys8LocationData] = {
     "Mont Gendarme Mid-Boss Arena Avalodragil 2 Skill 1": Ys8LocationData("Mont Gendarme Mid-Boss Arena", 562, "event"),
     "Mont Gendarme Mid-Boss Arena Avalodragil 2 Skill 2": Ys8LocationData("Mont Gendarme Mid-Boss Arena", 563, "event"),
     "Mont Gendarme Mid-Boss Arena Master Kong Skill Laxia": Ys8LocationData("Mont Gendarme Mid-Boss Arena", 583, "event"),
-    #"Mont Gendarme Boss Arena Psyches": Ys8LocationData("Mont Gendarme", 627, "event"),
     # Mont Gendarme (Night)
     "Mont Gendarme (Night) Entrance Chest": Ys8LocationData("Mont Gendarme (Night) Front Half", 146, "chest"),
     "Mont Gendarme (Night) Southern Lower Cliffside Trail Chest 1": Ys8LocationData("Mont Gendarme (Night) Front Half", 149, "chest"),
@@ -331,10 +325,6 @@ location_table: Dict[str, Ys8LocationData] = {
     "Octus Overlook Path of the Frozen Era Psyche-Minos Skill 2": Ys8LocationData("Octus Overlook", 539, "event"),
     "Octus Overlook Path of the Ocean Era Psyche-Hydra Skill 1": Ys8LocationData("Octus Overlook", 540, "event"),
     "Octus Overlook Path of the Ocean Era Psyche-Hydra Skill 2": Ys8LocationData("Octus Overlook", 541, "event"),
-    #"Octus Overlook Path of the Sky Era Psyches": Ys8LocationData("Octus Overlook", 618, "event"),
-    #"Octus Overlook Path of the Insectoid Era Psyches": Ys8LocationData("Octus Overlook", 619, "event"),
-    #"Octus Overlook Path of the Frozen Era Psyches": Ys8LocationData("Octus Overlook", 620, "event"),
-    #"Octus Overlook Path of the Ocean Era Psyches": Ys8LocationData("Octus Overlook", 621, "event"),
     # Odd Rock Coast
     "Odd Rock Coast Odd Rock Coast Licht Join": Ys8LocationData("Odd Rock Coast", 415, "event"),
     "Odd Rock Coast Odd Rock Coast Quina Join": Ys8LocationData("Odd Rock Coast", 416, "event"),
@@ -378,7 +368,6 @@ location_table: Dict[str, Ys8LocationData] = {
     "Pirate Ship Eleftheria Hold Corpse": Ys8LocationData("Pirate Ship Eleftheria", 515, "event"),
     "Pirate Ship Eleftheria Deck Pirate Revenant Skill 1": Ys8LocationData("Pirate Ship Eleftheria", 552, "event"),
     "Pirate Ship Eleftheria Deck Pirate Revenant Skill 2": Ys8LocationData("Pirate Ship Eleftheria", 553, "event"),
-    #"Pirate Ship Eleftheria Deck Psyches": Ys8LocationData("Pirate Ship Eleftheria", 624, "event"),
     # Ricotta Starting Skill
     "Ricotta Starting Skill Skill 1 Wild Spin": Ys8LocationData("Calm Inlet Area", 528, "event"),
     "Ricotta Starting Skill Skill 2 Handmade Trap": Ys8LocationData("Calm Inlet Area", 529, "event"),
@@ -402,7 +391,6 @@ location_table: Dict[str, Ys8LocationData] = {
     "Schlamm Jungle Boss Arena Laspisus Skill 2": Ys8LocationData("Schlamm Jungle Boss Arena", 567, "event"),
     "Schlamm Jungle Mid-Boss Arena Magamandra Skill 1": Ys8LocationData("Schlamm Jungle Mid-Boss Arena", 568, "event"),
     "Schlamm Jungle Mid-Boss Arena Magamandra Skill 2": Ys8LocationData("Schlamm Jungle Mid-Boss Arena", 569, "event"),
-    #"Schlamm Jungle Boss Arena Psyches": Ys8LocationData("Schlamm Jungle Boss Arena", 628, "event"),
     # Silent Tower
     "Silent Tower First Basement Chest 1": Ys8LocationData("Silent Tower", 262, "chest"),
     "Silent Tower First Basement Chest 2": Ys8LocationData("Silent Tower", 263, "chest"),
@@ -412,7 +400,6 @@ location_table: Dict[str, Ys8LocationData] = {
     "Silent Tower Second Basement Chest 3": Ys8LocationData("Silent Tower", 267, "chest"),
     "Silent Tower Second Basement Chest 4": Ys8LocationData("Silent Tower", 268, "chest"),
     "Silent Tower Second Basement Mephorash Skill": Ys8LocationData("Silent Tower", 532, "event"),
-    #"Silent Tower Second Basement Psyches": Ys8LocationData("Silent Tower", 617, "event"),
     # Solitude Island
     "Solitude Island Cave Chest": Ys8LocationData("Solitude Island", 50, "chest"),
     "Solitude Island Magna Carpa Second Carlan Join": Ys8LocationData("Solitude Island", 441, "event"),
@@ -433,7 +420,6 @@ location_table: Dict[str, Ys8LocationData] = {
     "Temple of the Great Tree Dana's Room Blue Score Location": Ys8LocationData("Temple of the Great Tree", 439, "event"),
     "Temple of the Great Tree Temple Boss Arena Brachion Skill 1": Ys8LocationData("Temple of the Great Tree Boss Arena", 558, "event"),
     "Temple of the Great Tree Temple Boss Arena Brachion Skill 2": Ys8LocationData("Temple of the Great Tree Boss Arena", 559, "event"),
-    #"Temple of the Great Tree Temple Boss Arena Psyches": Ys8LocationData("Temple of the Great Tree Boss Arena", 626, "event"),
     # The Primordial Passage
     "The Primordial Passage Dana's Tree Chest 1": Ys8LocationData("Primordial Passage", 118, "chest"),
     "The Primordial Passage Dana's Tree Chest 2": Ys8LocationData("Primordial Passage", 119, "chest"),
@@ -479,7 +465,6 @@ location_table: Dict[str, Ys8LocationData] = {
     "Towering Coral Forest Boss Arena Clareon Skill 2": Ys8LocationData("Towering Coral Forest Boss Arena", 575, "event"),
     "Towering Coral Forest Mid-Boss Arena Serpentus Skill 1": Ys8LocationData("Towering Coral Forest Mid-Boss Arena", 576, "event"),
     "Towering Coral Forest Mid-Boss Arena Serpentus Skill 2": Ys8LocationData("Towering Coral Forest Mid-Boss Arena", 577, "event"),
-    #"Towering Coral Forest Boss Arena Psyches": Ys8LocationData("Towering Coral Forest", 630, "event"),
     # Towering Coral Forest (Night)
     "Towering Coral Forest (Night) Entrance Chest 1": Ys8LocationData("Towering Coral Forest (Night) Front Half", 62, "chest"),
     "Towering Coral Forest (Night) Entrance Chest 2": Ys8LocationData("Towering Coral Forest (Night) Front Half", 63, "chest"),
@@ -519,7 +504,6 @@ location_table: Dict[str, Ys8LocationData] = {
     "Valley of Kings Boss Arena Basileus Skill 2": Ys8LocationData("Valley of Kings Boss Arena", 545, "event"),
     "Valley of Kings Mid-Boss Arena Doxa Griel Skill 1": Ys8LocationData("Valley of Kings Before Door", 546, "event"),
     "Valley of Kings Mid-Boss Arena Doxa Griel Skill 2": Ys8LocationData("Valley of Kings Before Door", 547, "event"),
-    #"Valley of Kings Boss Arena Psyches": Ys8LocationData("Valley of Kings Boss Arena", 622, "event"),
     # Vista Ridge
     "Vista Ridge Vista Ridge Upper Chest 1": Ys8LocationData("Vista Ridge Upper", 126, "chest"),
     "Vista Ridge Vista Ridge Upper Chest 2": Ys8LocationData("Vista Ridge Upper", 127, "chest"),
@@ -550,6 +534,7 @@ location_table: Dict[str, Ys8LocationData] = {
     "Western Foot of Gendarme Near Cavern of the Ancient King Chest": Ys8LocationData("Western Foot of Gendarme", 117, "chest"),
     "Western Foot of Gendarme Near Cavern of the Ancient King Austin Join": Ys8LocationData("Western Foot of Gendarme", 418, "event"),
     "Cavern of the Ancient King Cavern of the Ancient King Cave Wall": Ys8LocationData("Western Foot of Gendarme", 431, "event"),
+    # Landmarks
     "White Sand Cape Cobalt Crag Landmark": Ys8LocationData("Calm Inlet Area", 638, "landmark"),
     "East Coast Cave East Coast Cave Landmark": Ys8LocationData("East Coast Cave Before Gilkyra", 651, "landmark"),
     "Eroded Valley Dark Passage Landmark": Ys8LocationData("Eroded Valley Indigo Mineral Vein", 643, "landmark"),
