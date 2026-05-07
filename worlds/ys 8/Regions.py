@@ -149,21 +149,23 @@ def create_regions(Ys8World):
         regions[region] = Ys8RegionData([], connections)
 
     if options.final_boss_access == 2:  # Psyche Fight Shuffle, we do this here because it add locations to the regions
-        excluded_locations = ["Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma", 
-                             "Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma Skill", 
-                             "Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma Medals",
-                             "Octus Overlook Path of the Sky Era Psyche-Ura", 
-                             "Octus Overlook Path of the Insectoid Era Psyche-Nestor", 
-                             "Octus Overlook Path of the Frozen Era Psyche-Minos", 
-                             "Octus Overlook Path of the Ocean Era Psyche-Hydra",
-                             "Octus Overlook Path of the Sky Era Psyche-Ura Skill 1", 
-                             "Octus Overlook Path of the Sky Era Psyche-Ura Skill 2", 
-                             "Octus Overlook Path of the Insectoid Era Psyche-Nestor Skill 1", 
-                             "Octus Overlook Path of the Insectoid Era Psyche-Nestor Skill 2",
-                             "Octus Overlook Path of the Frozen Era Psyche-Minos Skill 1", 
-                             "Octus Overlook Path of the Frozen Era Psyche-Minos Skill 2", 
-                             "Octus Overlook Path of the Ocean Era Psyche-Hydra Skill 1", 
-                             "Octus Overlook Path of the Ocean Era Psyche-Hydra Skill 2"]
+        excluded_locations.extend([
+            "Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma", 
+            "Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma Skill", 
+            "Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma Medals",
+            "Octus Overlook Path of the Sky Era Psyche-Ura", 
+            "Octus Overlook Path of the Insectoid Era Psyche-Nestor", 
+            "Octus Overlook Path of the Frozen Era Psyche-Minos", 
+            "Octus Overlook Path of the Ocean Era Psyche-Hydra",
+            "Octus Overlook Path of the Sky Era Psyche-Ura Skill 1", 
+            "Octus Overlook Path of the Sky Era Psyche-Ura Skill 2", 
+            "Octus Overlook Path of the Insectoid Era Psyche-Nestor Skill 1", 
+            "Octus Overlook Path of the Insectoid Era Psyche-Nestor Skill 2",
+            "Octus Overlook Path of the Frozen Era Psyche-Minos Skill 1", 
+            "Octus Overlook Path of the Frozen Era Psyche-Minos Skill 2", 
+            "Octus Overlook Path of the Ocean Era Psyche-Hydra Skill 1", 
+            "Octus Overlook Path of the Ocean Era Psyche-Hydra Skill 2"
+        ])
         
         if options.former_sanctuary_crypt.value:
             psyche_location_table.update(fsc_psyche_location_table)

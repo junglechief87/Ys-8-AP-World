@@ -1423,6 +1423,7 @@ def set_location_rules(Ys8World: "Ys8World"):
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["OCEANUS"]))
     set_rule(loc("Valley of Kings Boss Arena Basileus"),
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["BASILEUS"]) and state.has("Purifying Bell", player))
+    
     if not options.final_boss_access == 2:
         set_rule(loc("Octus Overlook Path of the Ocean Era Psyche-Hydra"),
                 lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["PSYCHE_HYDRA"]))
@@ -1440,7 +1441,7 @@ def set_location_rules(Ys8World: "Ys8World"):
         set_rule(loc("Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma"),
             lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["MELAIDUMA"]))
 
-    # --- Goal (placeholder) ---
+    # --- Goal ---
     set_rule(loc("Octus Overlook Selection Sphere Goal"),
              lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["FINAL_BOSS"]))
     

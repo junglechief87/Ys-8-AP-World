@@ -147,17 +147,16 @@ class Ys8World(World):
         filler_pool: List[Ys8Item] = []
 
         # Always include all configured non-filler items so required progression cannot be dropped by pool size.
-        # Use global item_table for deterministic iteration, then add landmarks separately if needed
         for name, data in item_table.items():
             if name in ["Essence Key Stone", "Jade Pendant"] and not self.options.former_sanctuary_crypt.value:
                 continue
             if name == self.starting_character:
                 continue
-            if not self.options.discovery_sanity.value and data.category and data.category == "Landmark":
+            if not self.options.discovery_sanity.value and data.category == "Landmark":
                 continue
-            if self.options.progressive_super_weapons.value and data.category and data.category == "Progressive Super Weapon":
+            if self.options.progressive_super_weapons.value and data.category == "Super Weapon":
                 continue
-            if not self.options.progressive_super_weapons.value and data.category and data.category == "Progressive Super Weapon":
+            if not self.options.progressive_super_weapons.value and data.category == "Progressive Super Weapon":
                 continue
             if name in self.starting_skills:
                 continue
