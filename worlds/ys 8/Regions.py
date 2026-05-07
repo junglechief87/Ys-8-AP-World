@@ -133,7 +133,7 @@ def create_regions(Ys8World):
         "Valley of Kings After Door": ["VOKAD VOKBD Exit", "VOK Boss Entrance"],
         "Valley of Kings Boss Arena": ["VOKBA VOKAD Exit"],
         "Graves of Ancient Heroes": ["GOAH LMB Exit"],
-        "Sky Garden": ["SG LMNSG Exit"],
+        "Sky Garden": ["SG LMNSG Link"],
         "Submerged Cemetery": ["SC LMNSC Exit", "BMHR Link", "SC SH Link"],
         "Soundless Hall": ["SH SC Exit"],
         "Bolado Monastery Hidden Room": ["BMHR SC Exit"],
@@ -649,7 +649,7 @@ def connect_entrances(Ys8World: "Ys8World"):
     connect("GOAH LMB Exit", "Lodinia Marshlands Back")
     
     # Sky Garden
-    connect("SG LMNSG Exit", "Lodinia Marshlands Near Sky Garden")
+    connect("SG LMNSG Link", "Lodinia Marshlands Near Sky Garden")
     
     # Submerged Cemetery
     connect("SC LMNSC Exit", "Lodinia Marshlands Near Submerged Cemetery")

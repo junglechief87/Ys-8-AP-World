@@ -692,7 +692,7 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     set_rule(get_ent("ROE TGT Exit"), lambda state: state.has("Green Seal of Roaring Stone", player))
     set_rule(get_ent("ROE TH Link"), lambda state: state.has("Dana", player))
     set_rule(get_ent("ROE BM Link"), lambda state: state.has("Frozen Flower", player))
-    set_rule(get_ent("BM BMB Link"), lambda state: state.has("Glow Stone", player))
+    set_rule(get_ent("BM BMB Link"), lambda state: state.has("Glow Stone", player)) # Bolado Monastery Connection
     set_rule(get_ent("ROE BTAC Link"), lambda state: state.has("Frozen Flower", player))
     set_rule(get_ent("BTAC ROE Exit"), lambda state: state.has("Frozen Flower", player))
 
@@ -725,7 +725,8 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     set_rule(get_ent("AC Boss Entrance"), lambda state: state.has("Hermit's Scale", player))
 
     # Vista Ridge Connections
-    set_rule(get_ent("VR VRU Link"), lambda state: state.has("Grip Gloves", player) and has_required_crew(Ys8World, state, 21))
+    set_rule(get_ent("VR VRU Link"), lambda state: state.has_all(["Grip Gloves", "Archeopteryx Wings"], player) 
+             and has_required_crew(Ys8World, state, 21))
 
     # Lodinia Marshlands Connections
     set_rule(get_ent("LMF VR Exit"), lambda state: state.has("Archeopteryx Wings", player))
@@ -733,8 +734,10 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     set_rule(get_ent("LMNSC LMF Exit"), lambda state: state.has("Treasure Chest Key", player))
     set_rule(get_ent("LMF LMS Link"), lambda state: state.has("Float Shoes", player))
     set_rule(get_ent("LMNSC LMNSG Link"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
-    set_rule(get_ent("SC Entrance"), lambda state: has_required_crew(Ys8World, state, 22) and state.has_all(["Glow Stone", "Hermit's Scale"], player))
+    set_rule(get_ent("SC Entrance"), lambda state: has_required_crew(Ys8World, state, 22) 
+             and state.has_all(["Glow Stone", "Hermit's Scale"], player))
     set_rule(get_ent("LMNSG SG Link"), lambda state: state.has_all(["Grip Gloves", "Archeopteryx Wings"], player))
+    set_rule(get_ent("SG LMNSG Link"), lambda state: state.has_all(["Float Shoes", "Hermit's Scale"], player))
     set_rule(get_ent("LMNSG LMB Link"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
     set_rule(get_ent("LMNSG LMNSC Exit"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
     set_rule(get_ent("LMB LMNSG Exit"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
@@ -755,9 +758,6 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     # Night Connections
     set_rule(get_ent("TCFNFH TCFNRH Link"), lambda state: state.has("Grip Gloves", player))
     set_rule(get_ent("MGNFH MGNRH Link"), lambda state: state.has("Grip Gloves", player))
-    
-    
-
     
     if options.final_boss_access == 0:
         set_rule(get_ent("TGTG OO Entrance"), lambda state: 
@@ -785,7 +785,7 @@ def set_location_rules(Ys8World: "Ys8World"):
         add_rule(loc("Former Sanctuary Crypt - B4 Frozen Statue Room Chest 4"),
                  lambda state: state.has("Hermit's Scale", player))
 
-    # Bolado Monastery — dark entrance chests
+    # Bolado Monastery — requires basement access to open door
     add_rule(loc("Bolado Monastery Entrance Chest 1"),
              lambda state: state.has("Glow Stone", player))
     add_rule(loc("Bolado Monastery Entrance Chest 2"),
@@ -793,7 +793,7 @@ def set_location_rules(Ys8World: "Ys8World"):
     add_rule(loc("Bolado Monastery Entrance Chest 3"),
              lambda state: state.has("Glow Stone", player))
 
-    # White Sand Cape — Cobalt Crag upper chests
+    # White Sand Cape — Cobalt Crag
     add_rule(loc("White Sand Cape Cobalt Crag Chest 2"),
              lambda state: state.has("Archeopteryx Wings", player))
     add_rule(loc("White Sand Cape Cobalt Crag Chest 3"),
@@ -809,6 +809,12 @@ def set_location_rules(Ys8World: "Ys8World"):
     add_rule(loc("Towering Coral Forest Walkways Chest 6"),
              lambda state: state.has_any(["Grip Gloves", "Archeopteryx Wings"], player))
 
+    # Longhorn Coast Area
+    add_rule(loc("Beast Hills Collapsed Cliff Chest 3"),
+             lambda state: has_required_crew(Ys8World, state, 15))
+    add_rule(loc("Water and Wood Hills Water and Wood Hills - Camp Miralda Join"),
+             lambda state: has_required_crew(Ys8World, state, 12))
+    
     # Baja Tower — Third Floor Chest 3 requires double jump
     add_rule(loc("Baja Tower Third Floor Chest 3"),
              lambda state: state.has("Archeopteryx Wings", player))
@@ -821,15 +827,29 @@ def set_location_rules(Ys8World: "Ys8World"):
     add_rule(loc("Valley of Kings End Chest 2"),
              lambda state: state.has("Archeopteryx Wings", player))
 
-    # Towal Highway — kattheway chest requires climb
+    # Headwater Falls
+    add_rule(loc("Headwater Falls Headwater Falls Chest 1"),
+             lambda state: state.has("Grip Gloves", player))
+    
+    # Underground Water Vein
+    add_rule(loc("Underground Water Vein Submerged Area Driftage"),
+             lambda state: state.has("Grip Gloves", player))
+    
+    # Towal Highway — katthew chest requires climb
     add_rule(loc("Towal Highway Baja Tower Approach Katthew Join"),
              lambda state: state.has("Grip Gloves", player))
     
-    # Archeozoic Chasm — Crater overlook Chest 2 requires large crew
+    # Archeozoic Chasm
     add_rule(loc("Archeozoic Chasm Cliffs Overlooking Crater Chest 2"),
              lambda state: has_required_crew(Ys8World, state, 23))
+    add_rule(loc("Archeozoic Chasm Whirlpools Chest 1"),
+             lambda state: state.has("Hermit's Scale", player))
+    add_rule(loc("Archeozoic Chasm Whirlpools Chest 2"),
+             lambda state: state.has("Hermit's Scale", player))
+    add_rule(loc("Archeozoic Chasm Water Vents Chest 1"),
+             lambda state: state.has("Archeopteryx Wings", player))
 
-    # Schlamm Jungle Entrance — per-chest movement requirements
+    # Schlamm Jungle Entrance
     add_rule(loc("Schlamm Jungle Entrance Chest 2"),
              lambda state: state.has_all(["Grip Gloves", "Dina"], player))
     add_rule(loc("Schlamm Jungle Entrance Chest 3"),
@@ -837,8 +857,7 @@ def set_location_rules(Ys8World: "Ys8World"):
     add_rule(loc("Schlamm Jungle North of Entrance Chest"),
              lambda state: state.has("Grip Gloves", player))
 
-    # Schlamm Jungle Muddy Path — movement only (Magamandra gated by Mid-Boss connector,
-    # Dina/FoMH access gated by SJ FoMH to SJ Muddy Path connector)
+    # Schlamm Jungle Muddy Path
     add_rule(loc("Schlamm Jungle Midpoint Corpse"),
              lambda state: state.has_any(["Float Shoes", "Archeopteryx Wings"], player))
     add_rule(loc("Schlamm Jungle Small Passage Chest 1"),
@@ -850,13 +869,33 @@ def set_location_rules(Ys8World: "Ys8World"):
              lambda state: state.has("Archeopteryx Wings", player) or
                  state.has_all(["Float Shoes", "Grip Gloves"], player))
 
-    # Great River Valley — large shoreline behind boulder
+    # Great River Valley
     add_rule(loc("Great River Valley Large Shoreline Chest 2"),
              lambda state: has_required_crew(Ys8World, state, 10))
+    add_rule(loc("Great River Valley Lookout Tower Chest"),
+             lambda state: state.has("Dina", player))
 
     # Nostalgia Cape — Ed Join requires crew
     add_rule(loc("Nostalgia Cape Nostalgia Cape Ed Join"),
             lambda state: has_required_crew(Ys8World, state, 16))
+    
+    # Seiren North Access
+    add_rule(loc("Titis Primeval Forest Near Primordial Den Chest 1"),
+             lambda state: state.has("Blue Seal of Whirling Water", player))
+    
+    # Ruins of Eternia
+    add_rule(loc("The Ruins of Eternia Eastern Entrance Chest 1"),
+             lambda state: state.has("Green Seal of Roaring Stone", player))
+    add_rule(loc("The Ruins of Eternia Eastern Entrance Chest 2"),
+             lambda state: state.has("Green Seal of Roaring Stone", player))
+    add_rule(loc("The Ruins of Eternia Eastern Entrance Chest 3"),
+             lambda state: state.has("Green Seal of Roaring Stone", player))
+    add_rule(loc("The Ruins of Eternia Central District Chest 2"),
+             lambda state: state.has("Dina", player))
+    add_rule(loc("The Ruins of Eternia Central District Chest 1"),
+             lambda state: state.has("Dina", player))
+    add_rule(loc("The Ruins of Eternia Residence Chest 2"),
+             lambda state: state.has("Treasure Chest Key", player))
     
     # Stone Pillar Wind Cave — Chest 4 additionally needs double jump
     add_rule(loc("Stone Pillar Wind Cave Stone Pillar Wind Cave Chest 4"),
@@ -867,9 +906,19 @@ def set_location_rules(Ys8World: "Ys8World"):
              lambda state: state.has_any(["Archeopteryx Wings", "Float Shoes"], player))
     add_rule(loc("Lodinia Marshlands Entrance from Vista Ridge Chest 3"),
              lambda state: state.has_any(["Archeopteryx Wings", "Float Shoes"], player))
+    add_rule(loc("Lodinia Marshlands Near Submerged Cemetery Chest 1"),
+             lambda state: state.has_any(["Hermit's Scale", "Archeopteryx Wings", "Float Shoes"], player))
     add_rule(loc("Lodinia Marshlands Near Submerged Cemetery Chest 2"),
-             lambda state: state.has("Float Shoes", player))
-        
+             lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
+    add_rule(loc("Lodinia Marshlands Valley of Kings - Camp Chest"),
+             lambda state: state.has("Dina", player))
+    
+    # Outisde Silent Tower — chests require climb or jump
+    add_rule(loc("Water and Wood Hills Near Silent Tower Chest 1"),
+             lambda state: state.has("Grip Gloves", player))
+    add_rule(loc("Water and Wood Hills Near Silent Tower Chest 2"),
+             lambda state: state.has("Grip Gloves", player))
+    
     # NPC Checks for Calm Inlet Area
     # Jewel Trade - Dina
     if options.jewel_trade_items >= 25:
