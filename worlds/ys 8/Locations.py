@@ -619,7 +619,6 @@ location_table: Dict[str, Ys8LocationData] = {
     "Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma Medals": Ys8LocationData("Former Sanctuary Crypt Boss Room", 634, "fsc_event"),
 }
 
-
 event_location_table: Dict[str, Ys8LocationData] = {
     "Octus Overlook Selection Sphere Goal": Ys8LocationData("Selection Sphere", 10000, None),
     "Silent Tower Second Basement Mephorash": Ys8LocationData("Silent Tower", 10001, None),
