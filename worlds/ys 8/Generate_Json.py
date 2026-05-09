@@ -11,7 +11,6 @@ from .Items import item_table, event_item_table
 from worlds.Files import APPlayerContainer
 from BaseClasses import ItemClassification
 
-
 class Ys8Container(APPlayerContainer):
     game: str = 'Ys 8'
     patch_file_ending = ".apdana"
@@ -44,7 +43,6 @@ def generate_json(world, output_directory):
 
     files = {
         "item_location_map.json": json.dumps(item_location_map),
-        "starting_character.json": json.dumps(world.starting_character),
         "dungeon_entrance_randomization.json": json.dumps(world.dungeon_connections),
         "settings.json": json.dumps(settings),
     }
@@ -125,5 +123,4 @@ def get_settings(world):
         
         settings["psyche_map"] = psyche_map
         settings["psyche_rewards"] = psyche_rewards
-    
     return settings

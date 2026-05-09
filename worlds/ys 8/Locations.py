@@ -15,9 +15,6 @@ def get_locations_by_type(type: str) -> Dict[str, Ys8LocationData]:
     return {name: data for name, data in location_table.items() if data.type == type}
 
 location_table: Dict[str, Ys8LocationData] = {
-    # Adol Starting Skill
-    "Adol Starting Skill Skill 1 Sonic Slide": Ys8LocationData("Calm Inlet Area", 520, "event"),
-    "Adol Starting Skill Skill 2 Arc Shot": Ys8LocationData("Calm Inlet Area", 521, "event"),
     # Archeozoic Chasm
     "Archeozoic Chasm Entrance Chest": Ys8LocationData("Archeozoic Chasm Front", 248, "chest"),
     "Archeozoic Chasm Cliffs Overlooking Crater Chest 1": Ys8LocationData("Archeozoic Chasm Front", 249, "chest"),
@@ -137,9 +134,6 @@ location_table: Dict[str, Ys8LocationData] = {
     "Calm Inlet Calm Inlet (Castaway Village Area) Silvia Skill 1": Ys8LocationData("Calm Inlet Area", 542, "event"),
     "Calm Inlet Calm Inlet (Castaway Village Area) Silvia Skill 2": Ys8LocationData("Calm Inlet Area", 543, "event"),
     "Nameless Coast First Avalodragil Arena Avalodragil Skill": Ys8LocationData("Calm Inlet Area", 578, "event"),
-    # Dana Starting Skill
-    "Dana Starting Skill Skill 1 Twin Edge": Ys8LocationData("Calm Inlet Area", 530, "event"),
-    "Dana Starting Skill Skill 2 Sonic Rise": Ys8LocationData("Calm Inlet Area", 531, "event"),
     # East Coast Cave
     "East Coast Cave East Coast Cave Chest 1": Ys8LocationData("East Coast Cave After Gilkyra", 381, "chest"),
     "East Coast Cave East Coast Cave Chest 2": Ys8LocationData("East Coast Cave Before Gilkyra", 382, "chest"),
@@ -190,12 +184,6 @@ location_table: Dict[str, Ys8LocationData] = {
     # Waterfall Grotto
     "Waterfall Grotto Waterfall Grotto Chest 1": Ys8LocationData("Waterfall Grotto Dark Area", 392, "chest"),
     "Waterfall Grotto Waterfall Grotto Chest 2": Ys8LocationData("Waterfall Grotto Dark Area", 393, "chest"),
-    # Hummel Starting Skill
-    "Hummel Starting Skill Skill 1 Burst Shot": Ys8LocationData("Calm Inlet Area", 526, "event"),
-    "Hummel Starting Skill Skill 2 Venomous Bullet": Ys8LocationData("Calm Inlet Area", 527, "event"),
-    # Laxia Starting Skill
-    "Laxia Starting Skill Skill 1 Dagger Fling": Ys8LocationData("Calm Inlet Area", 522, "event"),
-    "Laxia Starting Skill Skill 2 Wake Up!": Ys8LocationData("Calm Inlet Area", 523, "event"),
     # Lodinia Marshland
     "Lodinia Marshlands Entrance from Vista Ridge Chest 1": Ys8LocationData("Lodinia Marshlands Front", 173, "chest"),
     "Lodinia Marshlands Entrance from Vista Ridge Chest 2": Ys8LocationData("Lodinia Marshlands Front", 174, "chest"),
@@ -368,12 +356,6 @@ location_table: Dict[str, Ys8LocationData] = {
     "Pirate Ship Eleftheria Hold Corpse": Ys8LocationData("Pirate Ship Eleftheria", 515, "event"),
     "Pirate Ship Eleftheria Deck Pirate Revenant Skill 1": Ys8LocationData("Pirate Ship Eleftheria", 552, "event"),
     "Pirate Ship Eleftheria Deck Pirate Revenant Skill 2": Ys8LocationData("Pirate Ship Eleftheria", 553, "event"),
-    # Ricotta Starting Skill
-    "Ricotta Starting Skill Skill 1 Wild Spin": Ys8LocationData("Calm Inlet Area", 528, "event"),
-    "Ricotta Starting Skill Skill 2 Handmade Trap": Ys8LocationData("Calm Inlet Area", 529, "event"),
-    # Sahad Starting Skill
-    "Sahad Starting Skill Skill 1 High Wave": Ys8LocationData("Calm Inlet Area", 524, "event"),
-    "Sahad Starting Skill Skill 2 Grand Anchor": Ys8LocationData("Calm Inlet Area", 525, "event"),
     # Schlamm Jungle
     "Schlamm Jungle Entrance Chest 1": Ys8LocationData("Schlamm Jungle Front", 101, "chest"),
     "Schlamm Jungle Entrance Chest 2": Ys8LocationData("Schlamm Jungle Front", 102, "chest"),

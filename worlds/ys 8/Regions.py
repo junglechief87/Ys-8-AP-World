@@ -147,7 +147,7 @@ def create_regions(Ys8World):
     for region in region_connections.keys():
         connections = region_connections[region]
         regions[region] = Ys8RegionData([], connections)
-
+    
     if options.final_boss_access == 2:  # Psyche Fight Shuffle, we do this here because it add locations to the regions
         excluded_locations.extend([
             "Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma", 

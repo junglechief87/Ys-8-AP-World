@@ -6,6 +6,7 @@ from typing import Any, Dict, List, TextIO
 from BaseClasses import ItemClassification, Tutorial
 from Options import OptionError
 from worlds.AutoWorld import WebWorld, World
+from worlds.apquest import world
 from worlds.generic.Rules import add_item_rule
 from .Options import Ys8Options, Ys8_option_groups, Ys8_option_presets
 from .Locations import location_table, location_name_groups
@@ -64,6 +65,7 @@ class Ys8World(World):
         self.hummel_starting_skills = []
         self.dana_starting_skills = []
         self.starting_skills = []
+        self.starting_skill_codes = {}
         self.max_psyche_num = 4
 
     def generate_early(self):
@@ -107,41 +109,16 @@ class Ys8World(World):
         item = self.create_item(self.starting_character)
         self.multiworld.push_precollected(item)
 
-        self.adol_starting_skills = self.multiworld.random.sample([item for item in get_items_by_category("Adol Skill").keys()], 2)
-        self.sahad_starting_skills = self.multiworld.random.sample([item for item in get_items_by_category("Sahad Skill").keys()], 2)
-        self.laxia_starting_skills = self.multiworld.random.sample([item for item in get_items_by_category("Laxia Skill").keys()], 2)
-        self.ricotta_starting_skills = self.multiworld.random.sample([item for item in get_items_by_category("Ricotta Skill").keys()], 2)
-        self.hummel_starting_skills = self.multiworld.random.sample([item for item in get_items_by_category("Hummel Skill").keys()], 2)
-        self.dana_starting_skills = self.multiworld.random.sample([item for item in get_items_by_category("Dana Skill").keys()], 2)
+        characters = ["Adol", "Sahad", "Laxia", "Ricotta", "Hummel", "Dana"]
 
-        self.starting_skills = (self.adol_starting_skills + self.sahad_starting_skills + self.laxia_starting_skills + 
-                                self.ricotta_starting_skills + self.hummel_starting_skills + self.dana_starting_skills)
+        for character in characters:
+            skill_category = f"{character} Skill"
+            skills = self.multiworld.random.sample(list(get_items_by_category(skill_category).keys()), 2)
+            setattr(self, f"{character.lower()}_starting_skills", skills)
+            skill_codes = [item_table[skill].code for skill in skills]
+            self.starting_skill_codes[character] = skill_codes
+            self.starting_skills.extend(skills)
         
-        location = self.get_location("Adol Starting Skill Skill 1 Sonic Slide")
-        location.place_locked_item(self.create_item(self.adol_starting_skills[0]))
-        location = self.get_location("Adol Starting Skill Skill 2 Arc Shot")
-        location.place_locked_item(self.create_item(self.adol_starting_skills[1]))
-        location = self.get_location("Sahad Starting Skill Skill 1 High Wave")
-        location.place_locked_item(self.create_item(self.sahad_starting_skills[0]))
-        location = self.get_location("Sahad Starting Skill Skill 2 Grand Anchor")
-        location.place_locked_item(self.create_item(self.sahad_starting_skills[1]))
-        location = self.get_location("Laxia Starting Skill Skill 1 Dagger Fling")
-        location.place_locked_item(self.create_item(self.laxia_starting_skills[0]))
-        location = self.get_location("Laxia Starting Skill Skill 2 Wake Up!")
-        location.place_locked_item(self.create_item(self.laxia_starting_skills[1]))
-        location = self.get_location("Ricotta Starting Skill Skill 1 Wild Spin")
-        location.place_locked_item(self.create_item(self.ricotta_starting_skills[0]))
-        location = self.get_location("Ricotta Starting Skill Skill 2 Handmade Trap")
-        location.place_locked_item(self.create_item(self.ricotta_starting_skills[1]))
-        location = self.get_location("Hummel Starting Skill Skill 1 Burst Shot")
-        location.place_locked_item(self.create_item(self.hummel_starting_skills[0]))
-        location = self.get_location("Hummel Starting Skill Skill 2 Venomous Bullet")
-        location.place_locked_item(self.create_item(self.hummel_starting_skills[1]))
-        location = self.get_location("Dana Starting Skill Skill 1 Twin Edge")
-        location.place_locked_item(self.create_item(self.dana_starting_skills[0]))
-        location = self.get_location("Dana Starting Skill Skill 2 Sonic Rise")
-        location.place_locked_item(self.create_item(self.dana_starting_skills[1]))
-
         locations_to_fill = len(self.multiworld.get_unfilled_locations(self.player))
         item_pool: List[Ys8Item] = []
         filler_pool: List[Ys8Item] = []
@@ -224,6 +201,8 @@ class Ys8World(World):
                         "essence_key_sanity", "starting_character_weights", "death_link"]
 
         slot_data = {"options": {option_name: getattr(self.options, option_name).value for option_name in slot_options}}
+        slot_data.update({"starting_character": self.starting_character})
+        slot_data.update({"starting_skills": self.starting_skill_codes})
 
         return slot_data
 
