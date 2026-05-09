@@ -577,6 +577,9 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     # Metavolicalis Area Connections
     set_rule(get_ent("Meta Para Link"), lambda state: has_required_crew(Ys8World, state, 14))
 
+    # Parasequoia Area Connections
+    set_rule(get_ent("Para Meta Link"), lambda state: has_required_crew(Ys8World, state, 14))
+
     # Nameless Coast North Connections
     set_rule(get_ent("NCN GRV Link"), lambda state: state.has("Archeopteryx Wings", player) or has_required_crew(Ys8World, state, 8))
     set_rule(get_ent("TCFNFH Link"), lambda state: state.has("Glow Stone", player))
@@ -643,7 +646,7 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     set_rule(get_ent("PSESH PSE Exit"), lambda state: state.has("Hermit's Scale", player))
 
     # Primordial Passage Connections
-    set_rule(get_ent("GRV PP Link"), lambda state: state.has("Maiden Journal", player))
+    set_rule(get_ent("GRV PP Link"), lambda state: state.has_all(["Maiden Journal", "Grip Gloves"], player))
     set_rule(get_ent("PP MGNFH Link"), lambda state: state.has("Glow Stone", player))
 
     # Primordial Passage Gendarme Entrance Connections
@@ -736,7 +739,7 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     set_rule(get_ent("LMNSC LMNSG Link"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
     set_rule(get_ent("SC Entrance"), lambda state: has_required_crew(Ys8World, state, 22) 
              and state.has_all(["Glow Stone", "Hermit's Scale"], player))
-    set_rule(get_ent("LMNSG SG Link"), lambda state: state.has_all(["Grip Gloves", "Archeopteryx Wings"], player))
+    set_rule(get_ent("LMNSG SG Link"), lambda state: state.has_all(["Grip Gloves", "Archeopteryx Wings", "Float Shoes"], player))
     set_rule(get_ent("SG LMNSG Link"), lambda state: state.has_all(["Float Shoes", "Hermit's Scale"], player))
     set_rule(get_ent("LMNSG LMB Link"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
     set_rule(get_ent("LMNSG LMNSC Exit"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
@@ -882,6 +885,8 @@ def set_location_rules(Ys8World: "Ys8World"):
     # Seiren North Access
     add_rule(loc("Titis Primeval Forest Near Primordial Den Chest 1"),
              lambda state: state.has("Blue Seal of Whirling Water", player))
+    add_rule(loc("Pangaia Plains Northern Plains Landmark"),
+             lambda state: state.has("Golden Seal of Piercing Light", player))
     
     # Ruins of Eternia
     add_rule(loc("The Ruins of Eternia Eastern Entrance Chest 1"),

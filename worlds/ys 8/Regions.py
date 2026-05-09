@@ -42,7 +42,7 @@ def create_regions(Ys8World):
         "Towering Coral Forest Boss Arena": ["TCF Boss Exit", "TCF Post-Boss Link"],
         "Towering Coral Forest After Boss": ["TCFAB Boss Exit", "TCFAB Meta Exit"],
         "Metavolicalis Area": ["Meta Para Link", "Meta TCF Entrance"],
-        "Parasequoia Area": ["Para Meta Exit"],
+        "Parasequoia Area": ["Para Meta Link"],
         "Great River Valley Area": ["GRV NCN Exit", "GRV BWFG Link", "GRV WGDA Link", "GRV LCA Link", "GRV PP Link", "GRV SC Link", "GRV EVF Entrance"],
         "Great River Valley South Camp": ["GRV SC Exit", "GRVSC SJ Entrance"],
         "Base of Western Foot of Gendarme": ["BWFG GRV Exit", "WFG Entrance"],
@@ -286,7 +286,7 @@ def connect_entrances(Ys8World: "Ys8World"):
     connect("Meta TCF Entrance", "Towering Coral Forest After Boss")
     
     # Parasequoia Area
-    connect("Para Meta Exit", "Metavolicalis Area")
+    connect("Para Meta Link", "Metavolicalis Area")
     
     # Great River Valley Area
     connect("GRV NCN Exit", "Nameless Coast North")
