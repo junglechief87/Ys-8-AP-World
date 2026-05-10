@@ -812,6 +812,12 @@ def set_location_rules(Ys8World: "Ys8World"):
     add_rule(loc("Towering Coral Forest Walkways Chest 6"),
              lambda state: state.has_any(["Grip Gloves", "Archeopteryx Wings"], player))
 
+    # Towering Coral Forest (Night) — entrance chests requires jump
+    add_rule(loc("Towering Coral Forest (Night) Entrance Chest 1"),
+             lambda state: state.has("Archeopteryx Wings", player))
+    add_rule(loc("Towering Coral Forest (Night) Entrance Chest 2"),
+             lambda state: state.has("Archeopteryx Wings", player))
+
     # Longhorn Coast Area
     add_rule(loc("Beast Hills Collapsed Cliff Chest 3"),
              lambda state: has_required_crew(Ys8World, state, 15))
@@ -1042,13 +1048,16 @@ def set_location_rules(Ys8World: "Ys8World"):
                  lambda state: map_completion_logic(state, player, 63))
     if options.map_completion >= 70:
         add_rule(loc("Calm Inlet Map Completion Percent 70"),
-                 lambda state: map_completion_logic(state, player, 73))
+                 lambda state: map_completion_logic(state, player, 73) 
+                 and state.has("Eagle Eye Orb", player))
     if options.map_completion >= 80:
         add_rule(loc("Calm Inlet Map Completion Percent 80"),
-                 lambda state: map_completion_logic(state, player, 83))
+                 lambda state: map_completion_logic(state, player, 83)
+                 and state.has("Eagle Eye Orb", player))
     if options.map_completion >= 90:
         add_rule(loc("Calm Inlet Map Completion Percent 90"),
-                 lambda state: map_completion_logic(state, player, 93))
+                 lambda state: map_completion_logic(state, player, 93)
+                 and state.has("Eagle Eye Orb", player))
         
     add_item_rule(loc("Calm Inlet Map Completion Percent 100"),
                   lambda item: item.classification == ItemClassification.filler)
