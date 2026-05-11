@@ -22,14 +22,19 @@ _GRIND_STR: dict[int, int] = {
 # Centralized battle requirement values used by battle_logic call sites.
 _BATTLE_REQ: dict[str, int] = {
     "BYFTERIZA": boss_stats["Byfteriza"].str_threshold,
+    "INTERCEPT_STAGE2": 65,
+    "INTERCEPT_STAGE2_ALT": 90,
     "AVALODRAGIL": boss_stats["Avalodragil"].str_threshold,
     "SERPENTUS": boss_stats["Serpentus"].str_threshold,
     "CLAREON": boss_stats["Clareon"].str_threshold,
+    "INTERCEPT_STAGE3": 90,
     "INTERCEPT_STAGE3_ALT": 150,
     "LONBRIGIUS": boss_stats["Lonbrigius"].str_threshold,
     "GARGANTULA": boss_stats["Gargantula"].str_threshold,
     "MAGAMANDRA": boss_stats["Magamandra"].str_threshold,
+    "INTERCEPT_STAGE5": 210,
     "INTERCEPT_STAGE5_ALT": 260,
+    "INTERCEPT_STAGE9": 210,
     "LASPISUS": boss_stats["Laspisus"].str_threshold,
     "GILKYRA": boss_stats["Gilkyra"].str_threshold,
     "AVALODRAGIL_2": boss_stats["Avalodragil 2"].str_threshold,
@@ -1108,20 +1113,21 @@ def set_location_rules(Ys8World: "Ys8World"):
     # Calm Inlet — Intercept stages
     if options.dogi_intercept_rewards.value:
         add_rule(loc("Calm Inlet Intercept Stage 2"),
-            lambda state: (battle_logic(Ys8World, state, _BATTLE_REQ["AVALODRAGIL"]) and has_required_party(Ys8World, state, 2))
-                    or battle_logic(Ys8World, state, _BATTLE_REQ["CLAREON"]))
+            lambda state: (battle_logic(Ys8World, state, _BATTLE_REQ["INTERCEPT_STAGE2"]) and has_required_party(Ys8World, state, 2))
+                    or battle_logic(Ys8World, state, _BATTLE_REQ["INTERCEPT_STAGE2_ALT"]))
         add_rule(loc("Calm Inlet Intercept Stage 3"),
-            lambda state: (battle_logic(Ys8World, state, _BATTLE_REQ["CLAREON"]) and has_required_party(Ys8World, state, 2))
+            lambda state: (battle_logic(Ys8World, state, _BATTLE_REQ["INTERCEPT_STAGE3"]) and has_required_party(Ys8World, state, 2))
                     or battle_logic(Ys8World, state, _BATTLE_REQ["INTERCEPT_STAGE3_ALT"]))
         add_rule(loc("Calm Inlet Intercept Stage 5"),
-            lambda state: (battle_logic(Ys8World, state, _BATTLE_REQ["GARGANTULA"]) and has_required_party(Ys8World, state, 2))
+            lambda state: (battle_logic(Ys8World, state, _BATTLE_REQ["INTERCEPT_STAGE5"]) and has_required_party(Ys8World, state, 2))
                     or battle_logic(Ys8World, state, _BATTLE_REQ["INTERCEPT_STAGE5_ALT"]))
         add_rule(loc("Calm Inlet Intercept Stage 7"),
                 lambda state: state.has("Progressive Shop Rank", player, 3)
-                            and has_required_party(Ys8World, state, 2))
+                    and has_required_party(Ys8World, state, 2))
         add_rule(loc("Calm Inlet Intercept Stage 9"),
                 lambda state: state.has("Progressive Shop Rank", player, 3)
-                    and battle_logic(Ys8World, state, _BATTLE_REQ["GARGANTULA"]))
+                    and has_required_party(Ys8World, state, 2)
+                    and battle_logic(Ys8World, state, _BATTLE_REQ["INTERCEPT_STAGE9"]))
     else:
         add_item_rule(loc("Calm Inlet Intercept Stage 2"),
             lambda item: item.classification == ItemClassification.filler)

@@ -22,7 +22,7 @@ from settings import Settings, get_settings
 from time import sleep
 from typing import BinaryIO, Coroutine, Optional, Set, Dict, Any, Union, TypeGuard
 from yaml import load, load_all, dump
-#from pathspec import PathSpec, GitIgnoreSpec
+from pathspec import PathSpec, GitIgnoreSpec
 from typing_extensions import deprecated
 
 try:
