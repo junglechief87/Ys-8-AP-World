@@ -17,7 +17,8 @@ class FinalBossAccess(Choice):
     
     Find Crew: Find the required number of castaways (1-28, tied to moving objects).
     Seiren Escape: Find three specific items: Seiren Nautical Chart, Ship Blueprints, and Mistilteinn.
-    Release the Psyches: Defeat the specified number of Wardens of Evolution (out of up to 6 possible).
+    Release the Psyches: Defeat the specified number of Wardens of Evolution (4 will exist and will be chosen randomly). 
+        Interact with the starting checkpoint crystal to see which bosses exist and what bosses are required to access them.
     Untouchable: Reach the bottom of Former Sanctuary Crypt and defeat Melaiduma. Forces Former Sanctuary Crypt on.
     """
     display_name = "Final Boss Access"
@@ -74,10 +75,12 @@ class GoalCountPsychesFinalBoss(Range):
 class DiscoverySanity(Toggle):
     """
     Puts the landmarks in the item pool. Finding a landmark unlocks the ability to warp to it on the map.
-    This drastically changes logic and movement around the world.
+    This drastically changes logic and movement around the world. This also creates way more ways to espace
+    the starting area and access the North Side early. It is recommended on for AP as it makes BK pretty unlikely 
+    outside of very early game scenarios.
     """
     display_name = "Discovery-Sanity"
-    default = False
+    default = True
 
 
 class DungeonEntranceShuffle(Toggle):
@@ -205,8 +208,9 @@ class SilviaProgression(Toggle):
 class MephorashProgression(Toggle):
     """
     Sets whether Mephorash can block progression.
-    Mephorash is the highest level optional fight in the game
-    and the Silent Tower is a high requirement location.
+    Mephorash is the highest level optional fight in the game outside Former Sanctuary Crypt
+    and the Silent Tower is a high requirement location. Silent Tower can still have progression,
+    just not the item from Mephorash or the chest behind him.
     """
     display_name = "Mephorash Progression"
     default = False
@@ -214,8 +218,10 @@ class MephorashProgression(Toggle):
 
 class FormerSanctuaryCrypt(Toggle):
     """
-    Sets whether Former Sanctuary Crypt is added to the item pool.
+    Sets whether Former Sanctuary Crypt exists as a location.
     If turned off, the dungeon is closed.
+    Also controls if it's entrances is used for dungeon entrance shuffle and if Melaiduma 
+    can be a boss in Release the Psyches mode.
     All essence keystones are placed within the dungeon unless Essence Key Sanity is on.
     """
     display_name = "Former Sanctuary Crypt"
@@ -226,18 +232,22 @@ class FormerSanctuaryCrypt(Toggle):
 class ExperienceMultiplier(Range):
     """
     Divides character's min and max Exp values allowing for quicker leveling.
-    A multiplier of 3 provides well-balanced pacing.
+    A multiplier of 8 provides well-balanced pacing for quick seeds.
+    A couple things to remember. Ys 8 has a pretty aggressive fall off 
+    for experience if you outlevel enemies and Nightmare and Inferno cut experience gain in half.
+    Level exp growth in Ys is also exponential. So it's a game that generally favors higher multipliers.
     """
     display_name = "Experience Multiplier"
     range_start = 1
     range_end = 20
-    default = 3
+    default = 8
 
 
 class AdditionalInterceptRewards(Toggle):
     """
     Causes intercepts to give out up to four additional rewards after returning
-    to Castaway Village post-intercept.
+    to Castaway Village post-intercept. These are meant to help with resource gathering,
+    leveling, etc.
     """
     display_name = "Additional Intercept Rewards"
     default = False
@@ -246,7 +256,9 @@ class AdditionalInterceptRewards(Toggle):
 class BattleLogic(Toggle):
     """
     Attempts to smooth combat pacing by guaranteeing the player always has access
-    to some amount of strength for each boss.
+    to some amount of strength for each boss. No battle logic is applied to non-forced 
+    encounters, with the small exceptions of Octus and Former Sanctuary Crypt having some 
+    battle logic applied to entering them.
     Highly recommended to be left on, especially for Inferno difficulty.
     """
     display_name = "Battle Logic"
@@ -254,7 +266,7 @@ class BattleLogic(Toggle):
 
 class ProgressiveSuperWeapons(Toggle):
     """
-    Both the Mistilteinn and Spirit Ring are in the pools.
+    Both the Mistilteinn and Spirit Ring are in the pool.
     Players find Broken Mistilteinn or Broken Spirit Ring instead.
     Speaking with Kathleen after maxing the forge will fix the broken weapon.
     """
@@ -274,7 +286,7 @@ class OctusPathsOpened(Toggle):
 
 class ExtraFlameStones(Range):
     """
-    Adds Flame Stones to the item pool (1-10 additional stones).
+    Adds Flame Stones to the item pool (0-10 additional stones).
     There are 7 Flame Stones by default, so 3 additional puts it at a round 10.
     Makes hitting max level more likely without being excessive.
     """
@@ -287,7 +299,10 @@ class ExtraFlameStones(Range):
 class RecipesWithIngredients(Toggle):
     """
     Grants the player essentially infinite ingredients necessary to cook a dish
-    upon obtaining their respective Recipe Book.
+    upon obtaining their respective Recipe Book. There's not currently havey logic 
+    around ingredient access so it's recommended to use this for things like Mishy.
+    The pacing of the rando also generally works better without having to farm ingredients
+    and things like the attack/defense recipes are used in battle logic as they're very powerful.
     """
     display_name = "Recipes Come With Ingredients"
     default = True
@@ -315,7 +330,7 @@ class InfinityMode(Toggle):
 
 class ScaleExpItems(Toggle):
     """
-    Scales experience reward items (Hermit's Elixir and Bitter Remedy) to attempt
+    Scales experience reward items (Hermit's Elixir, Bitter Remedy, Sweet Remedy) to attempt
     to make them less rewarding due to experience multiplier options and to smooth out pacing.
     """
     display_name = "Scale Exp Items"
@@ -508,7 +523,7 @@ Ys8_option_presets: Dict[str, Dict[str, Any]] = {
         "octus_count_psyches_mode": 2,
         "goal_count_crew_final_boss": 20,
         "goal_count_psyches_final_boss": 3,
-        "discovery_sanity": False,
+        "discovery_sanity": True,
         "dungeon_entrance_shuffle": False,
         "jewel_trade_items": JewelTradeItems.option_up_to_10_jewels,
         "fish_trades": FishTrades.option_6,
@@ -516,11 +531,11 @@ Ys8_option_presets: Dict[str, Dict[str, Any]] = {
         "map_completion": MapCompletion.option_60_percent,
         "discoveries": Discoveries.option_all,
         "dogi_intercept_rewards": True,
-        "master_kong_rewards": False,
-        "silvia_progression": False,
+        "master_kong_rewards": True,
+        "silvia_progression": True,
         "mephorash_progression": False,
         "former_sanctuary_crypt": False,
-        "experience_multiplier": 6,
+        "experience_multiplier": 8,
         "additional_intercept_rewards": False,
         "battle_logic": True,
         "progressive_super_weapons": True,
@@ -544,7 +559,7 @@ Ys8_option_presets: Dict[str, Dict[str, Any]] = {
         "octus_count_psyches_mode": 2,
         "goal_count_crew_final_boss": 20,
         "goal_count_psyches_final_boss": 3,
-        "discovery_sanity": False,
+        "discovery_sanity": True,
         "dungeon_entrance_shuffle": False,
         "jewel_trade_items": JewelTradeItems.option_up_to_10_jewels,
         "fish_trades": FishTrades.option_6,
@@ -552,11 +567,11 @@ Ys8_option_presets: Dict[str, Dict[str, Any]] = {
         "map_completion": MapCompletion.option_60_percent,
         "discoveries": Discoveries.option_all,
         "dogi_intercept_rewards": True,
-        "master_kong_rewards": False,
+        "master_kong_rewards": True,
         "silvia_progression": True,
         "mephorash_progression": True,
         "former_sanctuary_crypt": False,
-        "experience_multiplier": 6,
+        "experience_multiplier": 8,
         "additional_intercept_rewards": False,
         "battle_logic": True,
         "progressive_super_weapons": True,

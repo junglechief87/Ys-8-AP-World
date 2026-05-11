@@ -637,8 +637,8 @@ def set_entrance_rules(Ys8World: "Ys8World"):
 
     
     # East Coast Cave Connections
-    set_rule(get_ent("ECCBG ECCAG Link"), lambda state: state.has("Gilkyra Encounter Defeated", player))
-    set_rule(get_ent("ECCAG ECCBG Exit"), lambda state: state.has_all(["Gilkyra Encounter Defeated", "Archeopteryx Wings"], player))
+    set_rule(get_ent("ECCBG ECCAG Link"), lambda state: state.has_all(["Gilkyra Encounter Defeated", "Archeopteryx Wings"], player))
+    set_rule(get_ent("ECCAG ECCBG Exit"), lambda state: state.has("Gilkyra Encounter Defeated", player))
     set_rule(get_ent("PSE Entrance"), lambda state: state.has("Logbook 1", player))
 
     # Pirate Ship Eleftheria Connections
@@ -740,7 +740,7 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     set_rule(get_ent("SC Entrance"), lambda state: has_required_crew(Ys8World, state, 22) 
              and state.has_all(["Glow Stone", "Hermit's Scale"], player))
     set_rule(get_ent("LMNSG SG Link"), lambda state: state.has_all(["Grip Gloves", "Archeopteryx Wings", "Float Shoes"], player))
-    set_rule(get_ent("SG LMNSG Link"), lambda state: state.has_all(["Float Shoes", "Hermit's Scale"], player))
+    set_rule(get_ent("SG LMNSG Link"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
     set_rule(get_ent("LMNSG LMB Link"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
     set_rule(get_ent("LMNSG LMNSC Exit"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
     set_rule(get_ent("LMB LMNSG Exit"), lambda state: state.has_any(["Float Shoes", "Hermit's Scale"], player))
@@ -855,8 +855,6 @@ def set_location_rules(Ys8World: "Ys8World"):
              lambda state: state.has("Hermit's Scale", player))
     add_rule(loc("Archeozoic Chasm Whirlpools Chest 2"),
              lambda state: state.has("Hermit's Scale", player))
-    add_rule(loc("Archeozoic Chasm Water Vents Chest 1"),
-             lambda state: state.has("Archeopteryx Wings", player))
 
     # Schlamm Jungle Entrance
     add_rule(loc("Schlamm Jungle Entrance Chest 2"),

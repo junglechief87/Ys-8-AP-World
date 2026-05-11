@@ -1,0 +1,33 @@
+# Ys 8 Archipelago Randomizer Setup Guide
+
+## Required software
+
+- Ys VIII: Lacrimosa of Dana from [Steam](https://store.steampowered.com/app/579180/Ys_VIII_Lacrimosa_of_DANA/)
+
+- The latest release of [Seiren Shuffle Lite](https://github.com/junglechief87/Ys-8-Seiren-Shuffle-Lite/releases/latest)
+
+- The latest release of the [Ys 8 AP Client](https://github.com/junglechief87/Ys-8-Rando-Client/releases/latest)
+
+### Ys 8 AP World
+
+- Download the latest release of the AP World and install it into your custom worlds per AP instructions.
+- Generate template options to create an Ys 8.yaml file and setup your options and generate your seed.
+
+## Obtaining and using the patch
+- Download Seiren Shuffle Lite.
+- Run it and select Browse under "Ys 8 Executable Location" and navigate to the location of your Ys 8 Steam install, select the executable.
+- Click "Patch Files" (This only needs ran once the first time you run the randomizer or if there are new updates to the game's script files for the Rando).
+- Select your .apdana file that the AP world should have output using the Browse under "AP Patch File". 
+- Click "Generate Seed".
+- The game should now be ready to run. It's important to not have the game running while patchings. Certain files that are edited by the patcher are loaded into the game's memory on startup so patching while the game is running won't cause explicit errors but it will cause parts of the patch to not be loaded. 
+
+## Connecting to your multiworld via the Ys 8 Client
+
+## Running the client
+- Start the server
+- Start the game on Steam
+- Start the client
+- Click the burger icon in the client, put in host/slot/password info and click connect.
+
+## Things of note
+- Some items (Mistilteinn, Spirit Ring, and Party Members) have complex function chains that haven't been fully solved. To make these work when being sent remotely there is an item in the player's inventory that's given on game start, it's called AP Packages. If you received one of these items from another player use the AP Packages item and it will process the rest of the functions needed to finish giving the item. 
