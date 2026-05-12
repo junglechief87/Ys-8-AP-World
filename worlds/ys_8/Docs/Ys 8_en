@@ -4,7 +4,7 @@
 
 - Ys VIII: Lacrimosa of Dana from [Steam](https://store.steampowered.com/app/579180/Ys_VIII_Lacrimosa_of_DANA/)
 
-- The latest release of the [Ys 8 AP Client](https://github.com/junglechief87/Ys-8-AP-World/releases/latest)
+- The latest release of the [Ys 8 AP World](https://github.com/junglechief87/Ys-8-AP-World/releases/latest)
 
 - The latest release of [Seiren Shuffle Lite](https://github.com/junglechief87/Ys-8-AP-World/releases/latest)
 
@@ -21,7 +21,8 @@
 - Click "Patch Files" (This only needs ran once the first time you run the randomizer or if there are new updates to the game's script files for the Rando).
 - Select your .apdana file that the AP world should have output using the Browse under "AP Patch File". 
 - Click "Generate Seed".
-- The game should now be ready to run. It's important to not have the game running while patchings. Certain files that are edited by the patcher are loaded into the game's memory on startup so patching while the game is running won't cause explicit errors but it will cause parts of the patch to not be loaded. 
+- The game should now be ready to run. It's important to not have the game running while patching. Certain files that are edited by the patcher are loaded into the game's 
+memory on startup so patching while the game is running won't cause explicit errors but it will cause parts of the patch to not be loaded. 
 
 ## Connecting to your multiworld via the Ys 8 Client
 
@@ -32,4 +33,6 @@
 - Click the burger icon in the client, put in host/slot/password info and click connect.
 
 ## Things of note
-- Some items (Mistilteinn, Spirit Ring, and Party Members) have complex function chains that haven't been fully solved. To make these work when being sent remotely there is an item in the player's inventory that's given on game start, it's called AP Packages. If you received one of these items from another player use the AP Packages item and it will process the rest of the functions needed to finish giving the item. 
+- Some items (Mistilteinn, Spirit Ring, and Party Members) have complex function chains that haven't been fully solved. To make these work when being sent remotely there is an 
+item in the player's inventory that's given on game start, it's called AP Packages. If you received one of these items from another player use the AP Packages item and it will 
+process the rest of the functions needed to finish giving the item. 

@@ -6,7 +6,6 @@ from typing import Any, Dict, List, TextIO
 from BaseClasses import ItemClassification, Tutorial
 from Options import OptionError
 from worlds.AutoWorld import WebWorld, World
-from worlds.apquest import world
 from worlds.generic.Rules import add_item_rule
 from .Options import Ys8Options, Ys8_option_groups, Ys8_option_presets
 from .Locations import location_table, location_name_groups
