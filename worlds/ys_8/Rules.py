@@ -120,12 +120,12 @@ def material_access(Ys8World: "Ys8World", state: CollectionState, material: str)
             "Material: Iron Ore (Eroded Valley)",
             "Material: Iron Ore (Towering Coral Forest)",
         }, player)
-    if material == "Tektite Ore":
+    if material == "Tectite Ore":
         # Item points: Western Foot of Gendarme (10%), Mont Gendarme (10%), Towal Highway (10%)
         return state.has_any({
-            "Material: Tektite Ore (Western Foot of Gendarme)",
-            "Material: Tektite Ore (Mont Gendarme)",
-            "Material: Tektite Ore (Towal Highway)",
+            "Material: Tectite Ore (Western Foot of Gendarme)",
+            "Material: Tectite Ore (Mont Gendarme)",
+            "Material: Tectite Ore (Towal Highway)",
         }, player)
     if material == "Essence Stone":
         # Enemy drops: Baja Tower M0623 Masquard 15%, Valley of Kings M0642 80%
@@ -359,32 +359,32 @@ def battle_logic(Ys8World: "Ys8World", state: CollectionState, required_str: int
     elif state.has("Progressive Shop Rank", player, 6) and (
             (mat("Essence Stone") and
              mat("Iron Ore") and
-             mat("Tektite Ore")) or
+             mat("Tectite Ore")) or
             (mat("Dragon Crest Stone") and state.has("Dina", player))):
         weaponStr = 240
     elif state.has("Progressive Shop Rank", player, 5) and (
             (mat("Essence Stone") and
              mat("Iron Ore") and
-             mat("Tektite Ore")) or
+             mat("Tectite Ore")) or
             (mat("Dragon Crest Stone") and state.has("Dina", player))):
         weaponStr = 210
     elif state.has("Progressive Shop Rank", player, 4) and (
             (mat("Essence Stone") and state.has("Dina", player)) or
             (mat("Dragon Crest Stone") and state.has("Dina", player)) or
-            (mat("Iron Ore") and mat("Tektite Ore"))):
+            (mat("Iron Ore") and mat("Tectite Ore"))):
         weaponStr = 180
     elif state.has("Progressive Shop Rank", player, 3):
         weaponStr = 150
     elif state.has("Progressive Shop Rank", player, 2) and (
             (mat("Essence Stone") and state.has("Dina", player)) or
             (mat("Dragon Crest Stone") and state.has("Dina", player)) or
-            (mat("Tektite Ore") and state.has("Dina", player)) or
+            (mat("Tectite Ore") and state.has("Dina", player)) or
             mat("Iron Ore")):
         weaponStr = 100
     elif state.has("Progressive Shop Rank", player, 1) and (
             (mat("Essence Stone") and state.has("Dina", player)) or
             (mat("Dragon Crest Stone") and state.has("Dina", player)) or
-            (mat("Tektite Ore") and state.has("Dina", player)) or
+            (mat("Tectite Ore") and state.has("Dina", player)) or
             mat("Iron Ore")):
         weaponStr = 50
 
@@ -472,20 +472,20 @@ def battle_logic(Ys8World: "Ys8World", state: CollectionState, required_str: int
             fenrirAcc.append(5)   # Fenrir Talisman
         if mat("Sword Tip Fang") and mat("Thick Hide"):
             bladeRings.append(20) # Blade Ring 2
-        if ((state.has("Fishing Rod", player) and state.has("Large Pearl", player, 8)) or
+        if ((state.has("Fishing Rod", player) and state.has("Big Pearl", player, 8)) or
                 state.has("Dina", player)) and mat("Lustrous Scale") and \
                     mat("Beautiful Flower"):
             hopeAndLum.append(40) # Luminous Ring
         if mat("Accursed Shell") and mat("Stalactite"):
             pyriosAcc.append(5)   # Pyrios Talisman
     if state.has("Euron", player) and state.has("Progressive Shop Rank", player, 4):
-        if mat("Thunder Claw") and mat("Tektite Ore"):
+        if mat("Thunder Claw") and mat("Tectite Ore"):
             otherAcc.append(10)   # Lightning Stone
         if mat("Thunder Claw") and mat("Beast Hide"):
             bladeRings.append(30) # Blade Ring 3
-        if mat("Dandale Horn") and mat("Tektite Ore"):
+        if mat("Dandale Horn") and mat("Tectite Ore"):
             otherAcc.append(10)   # Crow Stone
-        if mat("Tektite Ore") and mat("Ancient Lumber"):
+        if mat("Tectite Ore") and mat("Ancient Lumber"):
             otherAcc.append(10)   # Snake Stone
     if state.has("Euron", player) and state.has("Progressive Shop Rank", player, 5):
         if mat("Lustrous Scale") and mat("Stalactite"):
@@ -544,9 +544,9 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     set_rule(get_ent("TCFRF Link"), lambda state: state.has("Rainbow Falls", player))
     set_rule(get_ent("Para Link"), lambda state: state.has("Parasequoia", player))
     set_rule(get_ent("Meta Link"), lambda state: state.has("Metavolicalis", player))
-    set_rule(get_ent("CIA IL1 Link"), lambda state: state.has_any(["T's Memo", "T's Memo A", "T's Memo B", "T's Memo C"], player))
-    set_rule(get_ent("CIA IL2 Link"), lambda state: state.has_from_list(["T's Memo", "T's Memo A", "T's Memo B", "T's Memo C"], player, 2))
-    set_rule(get_ent("CIA IL3 Link"), lambda state: state.has_from_list(["T's Memo", "T's Memo A", "T's Memo B", "T's Memo C"], player, 3))
+    set_rule(get_ent("CIA IL1 Link"), lambda state: state.has_any(["T's Note 1", "T's Note 2", "T's Note 3", "T's Note 4"], player))
+    set_rule(get_ent("CIA IL2 Link"), lambda state: state.has_from_list(["T's Note 1", "T's Note 2", "T's Note 3", "T's Note 4"], player, 2))
+    set_rule(get_ent("CIA IL3 Link"), lambda state: state.has_from_list(["T's Note 1", "T's Note 2", "T's Note 3", "T's Note 4"], player, 3))
     set_rule(get_ent("CIA MC Link"), lambda state: state.has("Euron", player))
     set_rule(get_ent("CIA JT Link"), lambda state: state.has("Dina", player) and has_jewels(state, player, 23))
     set_rule(get_ent("CIA FT Link"), lambda state: state.has("Fishing Rod", player))
@@ -560,7 +560,7 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     set_rule(get_ent("SJFMH Link"), lambda state: state.has("Field of Medicinal Herbs", player))
     set_rule(get_ent("ECCBG Link"), lambda state: state.has("Hidden Pirate Storehouse", player))
     set_rule(get_ent("NCA Link"), lambda state: state.has("Ship Graveyard", player))
-    set_rule(get_ent("SI Link"), lambda state: state.has_any(["Ship Blueprint", "Magna Carpa"], player))
+    set_rule(get_ent("SI Link"), lambda state: state.has_any(["Ship Blueprints", "Magna Carpa"], player))
     set_rule(get_ent("WH Link"), lambda state: (state.has("Grip Gloves", player) and has_required_crew(Ys8World, state, 11)) or state.has("Zephyr Hill", player))
     set_rule(get_ent("LMVA Link"), lambda state: state.has("Lapis Mineral Vein", player))
     set_rule(get_ent("SH Link"), lambda state: state.has("Soundless Hall", player))
@@ -644,7 +644,7 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     # East Coast Cave Connections
     set_rule(get_ent("ECCBG ECCAG Link"), lambda state: state.has_all(["Gilkyra Encounter Defeated", "Archeopteryx Wings"], player))
     set_rule(get_ent("ECCAG ECCBG Exit"), lambda state: state.has("Gilkyra Encounter Defeated", player))
-    set_rule(get_ent("PSE Entrance"), lambda state: state.has("Logbook 1", player))
+    set_rule(get_ent("PSE Entrance"), lambda state: state.has("Ship's Log 1", player))
 
     # Pirate Ship Eleftheria Connections
     set_rule(get_ent("PSE SH Entrance"), lambda state: state.has("Hermit's Scale", player))
@@ -1514,10 +1514,10 @@ def set_location_rules(Ys8World: "Ys8World"):
     elif options.final_boss_access == 1:
         if options.progressive_super_weapons.value:
             add_rule(loc("Octus Overlook Selection Sphere Goal"),
-                 lambda state: state.has_all(["Broken Mistilteinn", "Ship Blueprint", "Seiren Nautical Chart"], player))
+                 lambda state: state.has_all(["Broken Mistilteinn", "Ship Blueprints", "Seiren Area Map"], player))
         else:
             add_rule(loc("Octus Overlook Selection Sphere Goal"),
-                    lambda state: state.has_all(["Mistilteinn", "Ship Blueprint", "Seiren Nautical Chart"], player))
+                    lambda state: state.has_all(["Mistilteinn", "Ship Blueprints", "Seiren Area Map"], player))
     elif options.final_boss_access == 2:
         add_rule(loc("Octus Overlook Selection Sphere Goal"),
                  lambda state: state.has_from_list(["Psyches of the Sky Era", "Psyches of the Insectoid Era", "Psyches of the Ocean Era", "Psyches of the Frozen Era"], 

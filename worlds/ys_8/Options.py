@@ -16,7 +16,7 @@ class FinalBossAccess(Choice):
     Sets the goal for reaching the final boss and unlocking the Selection Sphere.
     
     Find Crew: Find the required number of castaways (1-28, tied to moving objects).
-    Seiren Escape: Find three specific items: Seiren Nautical Chart, Ship Blueprints, and Mistilteinn.
+    Seiren Escape: Find three specific items: Seiren Area Map, Ship Blueprints, and Mistilteinn.
     Release the Psyches: Defeat the specified number of Wardens of Evolution (4 will exist and will be chosen randomly). 
         Interact with the starting checkpoint crystal to see which bosses exist and what bosses are required to access them.
     Untouchable: Reach the bottom of Former Sanctuary Crypt and defeat Melaiduma. Forces Former Sanctuary Crypt on.
