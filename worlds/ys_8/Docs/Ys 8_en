@@ -40,3 +40,4 @@ memory on startup so patching while the game is running won't cause explicit err
 - Some items (Mistilteinn, Spirit Ring, and Party Members) have complex function chains that haven't been fully solved. To make these work when being sent remotely there is an 
 item in the player's inventory that's given on game start, it's called AP Packages. If you received one of these items from another player use the AP Packages item and it will 
 process the rest of the functions needed to finish giving the item. 
+- The patcher set the game's settings to display in English, this is because all of the item edits and text edits are in English. It's likely still playable in other languages but do so at your own risk. 
