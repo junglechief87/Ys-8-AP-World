@@ -32,6 +32,10 @@ memory on startup so patching while the game is running won't cause explicit err
 - Start the client
 - Click the burger icon in the client, put in host/slot/password info and click connect.
 
+## Linux users
+- Add the following path to launch arguments in Steam: PROTON_REMOTE_DEBUG_CMD="/full/path/to/Client.exe" %command%
+- The path should include \ (backslash) escape character before any spaces.
+
 ## Things of note
 - Some items (Mistilteinn, Spirit Ring, and Party Members) have complex function chains that haven't been fully solved. To make these work when being sent remotely there is an 
 item in the player's inventory that's given on game start, it's called AP Packages. If you received one of these items from another player use the AP Packages item and it will 
