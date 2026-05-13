@@ -149,10 +149,13 @@ def create_regions(Ys8World):
         regions[region] = Ys8RegionData([], connections)
     
     if options.final_boss_access == 2:  # Psyche Fight Shuffle, we do this here because it add locations to the regions
+        if not options.former_sanctuary_crypt.value:
+            excluded_locations.extend([
+                "Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma", 
+                "Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma Skill", 
+                "Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma Medals",
+            ])
         excluded_locations.extend([
-            "Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma", 
-            "Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma Skill", 
-            "Former Sanctuary Crypt - Final Floor Boss Arena Melaiduma Medals",
             "Octus Overlook Path of the Sky Era Psyche-Ura", 
             "Octus Overlook Path of the Insectoid Era Psyche-Nestor", 
             "Octus Overlook Path of the Frozen Era Psyche-Minos", 
