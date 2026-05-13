@@ -1148,9 +1148,9 @@ def set_location_rules(Ys8World: "Ys8World"):
     # Calm Inlet — Silvia (early boss)
     if options.silvia_progression.value:
         add_rule(loc("Calm Inlet Calm Inlet (Castaway Village Area) Silvia Skill 1"),
-                lambda state: state.has("Silvia Defeated", player))
+            lambda state: state.has("Silvia Defeated", player))
         add_rule(loc("Calm Inlet Calm Inlet (Castaway Village Area) Silvia Skill 2"),
-                lambda state: state.has("Silvia Defeated", player))
+            lambda state: state.has("Silvia Defeated", player))
     else:
         add_item_rule(loc("Calm Inlet Calm Inlet (Castaway Village Area) Silvia Skill 1"),
             lambda item: item.classification == ItemClassification.filler)

@@ -506,7 +506,7 @@ event_item_table: Dict[str, Ys8ItemData] = {
     "Grind: Towal Highway": Ys8ItemData("Towal Highway Grind Access", None, "Grind", ItemClassification.progression),
     "Grind: Towering Coral Forest": Ys8ItemData("Towering Coral Forest Front Grind Access", None, "Grind", ItemClassification.progression),
     "Grind: Towering Coral Forest Rear": Ys8ItemData("Towering Coral Forest Before Boss Grind Access", None, "Grind", ItemClassification.progression),
-    "Grind: Valley of Kings": Ys8ItemData("Lodinia Marshlands Back Grind Access", None, "Grind", ItemClassification.progression),
+    "Grind: Valley of Kings": Ys8ItemData("Valley of Kings Grind Access", None, "Grind", ItemClassification.progression),
     "Grind: Western Foot of Gendarme": Ys8ItemData("Western Foot of Gendarme Grind Access", None, "Grind", ItemClassification.progression),
     "Grind: Eroded Valley Rear": Ys8ItemData("Eroded Valley Before Boss Grind Access", None, "Grind", ItemClassification.progression),
     "Grind: Schlamm Jungle Rear": Ys8ItemData("Schlamm Jungle Before Boss Grind Access", None, "Grind", ItemClassification.progression),

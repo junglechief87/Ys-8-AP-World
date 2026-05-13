@@ -110,6 +110,9 @@ location_table: Dict[str, Ys8LocationData] = {
     "Calm Inlet Fish Trade Fish 16": Ys8LocationData("Calm Inlet: Fish Trade", 475, "event"),
     "Calm Inlet Fish Trade Fish 20": Ys8LocationData("Calm Inlet: Fish Trade", 476, "event"),
     "Calm Inlet Fish Trade Fish 24": Ys8LocationData("Calm Inlet: Fish Trade", 477, "event"),
+    # Calm Inlet Discovery Rewards
+    "Calm Inlet Discovery Rewards Half": Ys8LocationData("Calm Inlet: Discovery Turn In", 478, "event"),
+    "Calm Inlet Discovery Rewards All": Ys8LocationData("Calm Inlet: Discovery Turn In", 479, "event"),
     # Calm Inlet Area
     "Nameless Coast Cliffs South - Treebridge Chest 1": Ys8LocationData("Calm Inlet Area", 23, "chest"),
     "Nameless Coast Cliffs South - Treebridge Chest 2": Ys8LocationData("Calm Inlet Area", 24, "chest"),
@@ -129,8 +132,6 @@ location_table: Dict[str, Ys8LocationData] = {
     "White Sand Cape Alison's Shore Alison Join": Ys8LocationData("Calm Inlet Area", 406, "event"),
     "Calm Inlet Ricotta and Shoebill Reunite Shoebill Join": Ys8LocationData("Calm Inlet Area", 426, "event"),
     "Calm Inlet Calm Inlet (Castaway Village Area) Fishing Tutorial": Ys8LocationData("Calm Inlet Area", 471, "event"),
-    "Calm Inlet Discovery Rewards Half": Ys8LocationData("Calm Inlet Area", 478, "event"),
-    "Calm Inlet Discovery Rewards All": Ys8LocationData("Calm Inlet Area", 479, "event"),
     "Calm Inlet Calm Inlet (Castaway Village Area) Silvia Skill 1": Ys8LocationData("Calm Inlet Area", 542, "event"),
     "Calm Inlet Calm Inlet (Castaway Village Area) Silvia Skill 2": Ys8LocationData("Calm Inlet Area", 543, "event"),
     "Nameless Coast First Avalodragil Arena Avalodragil Skill": Ys8LocationData("Calm Inlet Area", 578, "event"),
@@ -199,12 +200,6 @@ location_table: Dict[str, Ys8LocationData] = {
     "Lodinia Marshlands Exit to Valley of Kings Chest 2": Ys8LocationData("Lodinia Marshlands Near Sky Garden", 189, "chest"),
     "Lodinia Marshlands Exit to Valley of Kings Chest 3": Ys8LocationData("Lodinia Marshlands Near Sky Garden", 190, "chest"),
     "Lodinia Marshlands Exit to Valley of Kings Fermented Sap": Ys8LocationData("Sky Garden", 445, "event"),
-    "Lodinia Marshlands Back Chest 1": Ys8LocationData("Lodinia Marshlands Back", 231, "chest"),
-    "Lodinia Marshlands Back Chest 2": Ys8LocationData("Lodinia Marshlands Back", 232, "chest"),
-    "Lodinia Marshlands Back Chest 3": Ys8LocationData("Lodinia Marshlands Back", 233, "chest"),
-    "Lodinia Marshlands Back Chest 4": Ys8LocationData("Lodinia Marshlands Back", 234, "chest"),
-    "Lodinia Marshlands Back Chest 5": Ys8LocationData("Lodinia Marshlands Back", 235, "chest"),
-    "Lodinia Marshlands Back Chest 6": Ys8LocationData("Lodinia Marshlands Back", 236, "chest"),
     # Longhorn Coast Area
     "Beast Hills Collapsed Cliff Chest 1": Ys8LocationData("Longhorn Coast Area", 30, "chest"),
     "Beast Hills Collapsed Cliff Chest 2": Ys8LocationData("Longhorn Coast Area", 31, "chest"),
@@ -469,6 +464,12 @@ location_table: Dict[str, Ys8LocationData] = {
     "Underground Water Vein Submerged Area Pikkard": Ys8LocationData("Lapis Mineral Vein Area", 442, "event"),
     "Underground Water Vein Submerged Area Driftage": Ys8LocationData("Underground Water Vein", 517, "event"),
     # Valley of Kings
+    "Valley of Kings Entrance Back Chest 1": Ys8LocationData("Valley of Kings Before Door", 231, "chest"),
+    "Valley of Kings Entrance Back Chest 2": Ys8LocationData("Valley of Kings Before Door", 232, "chest"),
+    "Valley of Kings Entrance Back Chest 3": Ys8LocationData("Valley of Kings Before Door", 233, "chest"),
+    "Valley of Kings Entrance Back Chest 4": Ys8LocationData("Valley of Kings Before Door", 234, "chest"),
+    "Valley of Kings Entrance Back Chest 5": Ys8LocationData("Valley of Kings Before Door", 235, "chest"),
+    "Valley of Kings Entrance Back Chest 6": Ys8LocationData("Valley of Kings Before Door", 236, "chest"),
     "Valley of Kings Northern Lower Level Chest 1": Ys8LocationData("Valley of Kings Before Door", 237, "chest"),
     "Valley of Kings Northern Lower Level Chest 2": Ys8LocationData("Valley of Kings Before Door", 238, "chest"),
     "Valley of Kings Mid-Boss Arena Chest": Ys8LocationData("Valley of Kings Before Door", 239, "chest"),
@@ -650,7 +651,7 @@ event_location_table: Dict[str, Ys8LocationData] = {
     "Archeozoic Chasm Front Grind Access": Ys8LocationData("Archeozoic Chasm Front", 10044, None),
     "Lodinia Marshlands Front Grind Access": Ys8LocationData("Lodinia Marshlands Front", 10045, None),
     "Bolado Monastery Grind Access": Ys8LocationData("Bolado Monastery", 10046, None),
-    "Lodinia Marshlands Back Grind Access": Ys8LocationData("Lodinia Marshlands Back", 10047, None),
+    "Valley of Kings Grind Access": Ys8LocationData("Valley of Kings Before Door", 10047, None),
     "Silent Tower Grind Access": Ys8LocationData("Silent Tower", 10048, None),
     "Octus Overlook Grind Access": Ys8LocationData("Octus Overlook", 10049, None),
     # Rear-entrance grind access events (for areas reachable from both ends)
@@ -669,9 +670,9 @@ event_location_table: Dict[str, Ys8LocationData] = {
     "Tektite Ore Farming - Towal Highway": Ys8LocationData("Towal Highway", 10059, None),
     # Essence Stone — enemy drops: Baja Tower M0623 Masquard 15%, Valley of Kings M0642 80%
     "Essence Stone Farming - Baja Tower": Ys8LocationData("Baja Tower Lower Floors", 10060, None),
-    "Essence Stone Farming - Valley of Kings": Ys8LocationData("Lodinia Marshlands Back", 10061, None),
+    "Essence Stone Farming - Valley of Kings": Ys8LocationData("Valley of Kings Before Door", 10061, None),
     # Dragon Crest Stone — enemy drops: Valley of Kings M0642 10%, Silent Tower M0942 15%
-    "Dragon Crest Stone Farming - Valley of Kings": Ys8LocationData("Lodinia Marshlands Back", 10062, None),
+    "Dragon Crest Stone Farming - Valley of Kings": Ys8LocationData("Valley of Kings Before Door", 10062, None),
     "Dragon Crest Stone Farming - Silent Tower": Ys8LocationData("Silent Tower", 10063, None),
     # Ancient Bone — enemy drops: TotGT M0680 Ratnilarda 80%, AC M0663 Dornicle 80%
     "Ancient Bone Farming - Temple of the Great Tree": Ys8LocationData("Temple of the Great Tree", 10064, None),
