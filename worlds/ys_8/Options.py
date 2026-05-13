@@ -46,7 +46,7 @@ class OctusCountPsychesMode(Range):
     """
     display_name = "Goal Count to Open Octus (Release the Psyches)"
     range_start = 1
-    range_end = 6
+    range_end = 4
     default = 2
 
 
@@ -67,8 +67,8 @@ class GoalCountPsychesFinalBoss(Range):
     """
     display_name = "Goal Count to Access Final Boss (Release the Psyches)"
     range_start = 1
-    range_end = 6
-    default = 4
+    range_end = 4
+    default = 3
 
 
 # Shuffle Modifiers

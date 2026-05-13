@@ -72,8 +72,6 @@ class Ys8World(World):
         if self.options.final_boss_access.value == 3 or self.options.essence_key_sanity.value:
             self.options.former_sanctuary_crypt.value = True
 
-        
-
         if self.options.dungeon_entrance_shuffle.value:
             dungeon_entrance_shuffle(self)
 

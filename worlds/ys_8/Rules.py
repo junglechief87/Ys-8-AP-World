@@ -20,6 +20,7 @@ _GRIND_STR: dict[int, int] = {
 }
 
 # Centralized battle requirement values used by battle_logic call sites.
+# Keys without hard coded values are built that way for potential randomization.
 _BATTLE_REQ: dict[str, int] = {
     "BYFTERIZA": boss_stats["Byfteriza"].str_threshold,
     "INTERCEPT_STAGE2": 65,
@@ -56,7 +57,7 @@ _BATTLE_REQ: dict[str, int] = {
     "MASTER_KONG_ADOL": 600,
     "OCEANUS": boss_stats["Oceanus"].str_threshold,
     "BASILEUS": boss_stats["Basileus"].str_threshold,
-    "OCTUS": boss_stats["Octus"].str_threshold,
+    "OCTUS": 700,
     "PSYCHE_HYDRA": boss_stats["Psyche Hydra"].str_threshold,
     "PSYCHE_MINOS": boss_stats["Psyche Minos"].str_threshold,
     "PSYCHE_NESTOR": boss_stats["Psyche Nestor"].str_threshold,
@@ -64,7 +65,7 @@ _BATTLE_REQ: dict[str, int] = {
     "MEPHORASH": boss_stats["Mephorash"].str_threshold,
     "FINAL_BOSS": boss_stats["Final Boss"].str_threshold,
     "PSYCHE_FIGHT_GENERIC": boss_stats["Psyche Ura"].str_threshold,
-    "FSC_FIRST_BARRIER": boss_stats["FSC First Barrier"].str_threshold,
+    "FSC_FIRST_BARRIER": 1000,
     "MELAIDUMA": boss_stats["Melaiduma"].str_threshold,
 }
 
