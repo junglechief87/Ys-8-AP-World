@@ -3,7 +3,7 @@ from typing import NamedTuple
 class boss(NamedTuple):
     str_threshold: int
     level: int
-    associated_entrances: list[str]
+    associated_entrances: list[str] = []
 
 boss_stats: dict[str, boss] = {}    
 
@@ -64,7 +64,7 @@ def randomize_levels_balanced(Ys8World):
     middle_regions = []
     early_boss = []
     middle_boss = []
-
+    later_boss = []
 
     if Ys8World.options.north_side_open.value or Ys8World.options.discoveries.value:
         early_regions.append("Temple of the Great Tree")
@@ -92,12 +92,30 @@ def randomize_levels_balanced(Ys8World):
     
     for boss_name, stats in boss_list.items():
         if any(region in early_regions for region in stats.associated_entrances):
-            early_boss.append((boss_name, stats))
+            early_boss.append(boss_name)
         elif any(region in middle_regions for region in stats.associated_entrances):
-            middle_boss.append((boss_name, stats))
+            middle_boss.append(boss_name)
+        else:
+            later_boss.append(boss_name)
 
-    boss_stats_list = [stats for stats in boss_list.values()]
-    Ys8World.random.shuffle(boss_stats_list)
-    for boss_name in boss_list.keys():
-        stats = boss_stats_list.pop(0)
-        boss_stats[boss_name] = stats
+    boss_list_values = list(boss_list.values())
+    early_boss_levels = boss_list_values[0:len(early_boss)]
+    middle_boss_levels = boss_list_values[len(early_boss):len(early_boss) + len(middle_boss)]
+    later_boss_levels = boss_list_values[len(early_boss) + len(middle_boss):]
+        
+    Ys8World.random.shuffle(early_boss_levels)
+    Ys8World.random.shuffle(middle_boss_levels)
+    Ys8World.random.shuffle(later_boss_levels)
+
+    for boss_name in early_boss:
+        new_stats = early_boss_levels.pop(0)
+        boss_stats[boss_name] = boss(new_stats.str_threshold, new_stats.level)
+
+    for boss_name in middle_boss:
+        new_stats = middle_boss_levels.pop(0)
+        boss_stats[boss_name] = boss(new_stats.str_threshold, new_stats.level)
+
+    for boss_name in later_boss:
+        new_stats = later_boss_levels.pop(0)
+        boss_stats[boss_name] = boss(new_stats.str_threshold, new_stats.level)
+
