@@ -33,8 +33,11 @@ memory on startup so patching while the game is running won't cause explicit err
 - Click the burger icon in the client, put in host/slot/password info and click connect.
 
 ## Linux users
+- Due to sandboxing: The patcher needs to be in the same directory or a parent directory of both the patch file and the game exe.
+- For the patcher the Ys 8 folder may be hidden. You will have to find it's path manually and paste it into the browse for "Ys 8 Executable Location" to find it.
 - Add the following path to launch arguments in Steam: PROTON_REMOTE_DEBUG_CMD="/full/path/to/Client.exe" %command%
 - The path should include \ (backslash) escape character before any spaces.
+- Make sure you're on the latest release of Proton that is not Hotfix or Experimental.
 
 ## Things of note
 - Some items (Mistilteinn, Spirit Ring, and Party Members) have complex function chains that haven't been fully solved. To make these work when being sent remotely there is an 
