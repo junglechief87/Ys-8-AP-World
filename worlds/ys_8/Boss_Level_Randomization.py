@@ -53,13 +53,16 @@ boss_list: dict[str, boss] = {
 boss_stats = boss_list.copy()
 
 def randomize_levels_chaotic(Ys8World):
+    multiworld = Ys8World.multiworld
+
     boss_stats_list = [stats for stats in boss_list.values()]
-    Ys8World.random.shuffle(boss_stats_list)
+    multiworld.random.shuffle(boss_stats_list)
     for boss_name in boss_list.keys():
         stats = boss_stats_list.pop()
         boss_stats[boss_name] = stats
 
 def randomize_levels_balanced(Ys8World):
+    multiworld = Ys8World.multiworld
     early_regions = ["Calm Inlet Area"]
     middle_regions = []
     early_boss = []
@@ -103,9 +106,9 @@ def randomize_levels_balanced(Ys8World):
     middle_boss_levels = boss_list_values[len(early_boss):len(early_boss) + len(middle_boss)]
     later_boss_levels = boss_list_values[len(early_boss) + len(middle_boss):]
         
-    Ys8World.random.shuffle(early_boss_levels)
-    Ys8World.random.shuffle(middle_boss_levels)
-    Ys8World.random.shuffle(later_boss_levels)
+    multiworld.random.shuffle(early_boss_levels)
+    multiworld.random.shuffle(middle_boss_levels)
+    multiworld.random.shuffle(later_boss_levels)
 
     for boss_name in early_boss:
         new_stats = early_boss_levels.pop(0)

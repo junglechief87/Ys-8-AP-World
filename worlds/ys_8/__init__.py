@@ -100,9 +100,9 @@ class Ys8World(World):
         party = [item_name for item_name in item_table.keys() if item_table[item_name].is_party_member]
         party_weights = [self.options.starting_character_weights.value.get(item_name, 0) for item_name in party]
         if not any(weight > 0 for weight in party_weights):
-            self.starting_character = self.random.choice(party) # Force even distribution if all weights are zero
+            self.starting_character = self.multiworld.random.choice(party) # Force even distribution if all weights are zero
         else:
-            self.starting_character = self.random.choices(party, weights=party_weights, k=1)[0]
+            self.starting_character = self.multiworld.random.choices(party, weights=party_weights, k=1)[0]
         item = self.create_item(self.starting_character)
         self.multiworld.push_precollected(item)
 
@@ -150,7 +150,7 @@ class Ys8World(World):
         # Use configured filler entries first, randomized without replacement,
         # then weighted filler draws for any remaining slots.
         remaining_slots = locations_to_fill - len(item_pool)
-        self.random.shuffle(filler_pool)
+        self.multiworld.random.shuffle(filler_pool)
         item_pool.extend(filler_pool[:remaining_slots])
 
         while len(item_pool) < locations_to_fill:
@@ -186,7 +186,7 @@ class Ys8World(World):
 
     def get_filler_item_name(self) -> str:
         weights = [data.weight for data in self.fillers.values()]
-        return self.random.choices([filler for filler in self.fillers.keys()], weights)[0]
+        return self.multiworld.random.choices([filler for filler in self.fillers.keys()], weights)[0]
 
     def fill_slot_data(self) -> Dict[str, Any]:
         slot_data = {}
