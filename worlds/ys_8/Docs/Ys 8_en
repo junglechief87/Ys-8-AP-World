@@ -15,32 +15,64 @@
 - Download the latest release of the AP World and install it into your custom worlds per AP instructions.
 - Generate template options to create an Ys 8.yaml file and setup your options and generate your seed.
 
+## Things of note
+- Some items (Mistilteinn, Spirit Ring, and Party Members) have complex function chains that haven't been fully solved. To make these work when being sent remotely there is an
+  item in the player's inventory that's given on game start, it's called AP Packages. If you received one of these items from another player use the AP Packages item and it will
+  process the rest of the functions needed to finish giving the item.
+- The patcher set the game's settings to display in English, this is because all of the item edits and text edits are in English. It's likely still playable in other languages but do so at your own risk.
+
 ## Obtaining and using the patch
+
+It's important to not have the game running while patching. Certain files that are edited by the patcher are loaded into the game's
+memory on startup so patching while the game is running won't cause explicit errors but it will cause parts of the patch to not be loaded.
+
+### Windows
 - Download Seiren Shuffle Lite.
 - Run it and select Browse under "Ys 8 Executable Location" and navigate to the location of your Ys 8 Steam install, select the executable.
 - Click "Patch Files" (This only needs ran once the first time you run the randomizer or if there are new updates to the game's script files for the Rando).
-- Select your .apdana file that the AP world should have output using the Browse under "AP Patch File". 
+- Select your .apdana file that the AP world should have output using the Browse under "AP Patch File".
 - Click "Generate Seed".
-- The game should now be ready to run. It's important to not have the game running while patching. Certain files that are edited by the patcher are loaded into the game's 
-memory on startup so patching while the game is running won't cause explicit errors but it will cause parts of the patch to not be loaded. 
+- The game should now be ready to run. 
+
+### Linux
+- Download Seiren Shuffle Lite.
+- Run it via wine/proton. This can be done in steam by adding it as a non-steam game, then forcing compatibility to proton.
+- Click Browse to find the executable location. You may need to manually enter the path due to steam's path being hidden. To do so:
+  - Go to Ys 8 in steam, and browse local files. Copy the directory path here.
+  - With the browser window open to the default area. Paste the directory into the filename and add `/ys8.exe`
+- Browse and select the AP Patch file as well.
+- Press Patch Files. (This is only needed once per patcher update.)
+- Then press Generate Seed. (This is needed every time.)
+- The game should now be ready to run.
+
+#### Selected files do not exist
+If you are running into this error on Linux, but your paths are correct, you may be running into sandboxing issues.
+If this is the Seiren Shuffle Lite program needs to be in the folder of or in a parent folder of both the steam application,
+and the patch file. A way to do this, if running with steam, without moving the .exe is to edit the `Start In` location in steam properties to your home folder.
 
 ## Connecting to your multiworld via the Ys 8 Client
 
-## Running the client
-- Start the server
+### Windows
+- Ensure that the AP server is started/active.
 - Start the game on Steam
 - Start the client
 - Click the burger icon in the client, put in host/slot/password info and click connect.
 
-## Linux users
-- Due to sandboxing: The patcher needs to be in the same directory or a parent directory of both the patch file and the game exe.
-- For the patcher the Ys 8 folder may be hidden. You will have to find it's path manually and paste it into the browse for "Ys 8 Executable Location" to find it.
-- Add the following path to launch arguments in Steam: PROTON_REMOTE_DEBUG_CMD="/full/path/to/Client.exe" %command%
-- The path should include \ (backslash) escape character before any spaces.
-- Make sure you're on the latest release of Proton that is not Hotfix or Experimental.
+### Linux
+- Add the following to Ys 8's Launch options: `PROTON_REMOTE_DEBUG_CMD="/path/to/Ys8.Seiren.Shuffle.AP.Client.exe" %command%`
+  - Be sure to replace the path with the path to your `Ys8.Seiren.Shuffle.AP.Client.exe`.
+  - Spaces in the path may need to be escaped with `\`.
+- Ensure that the AP server is started/active.
+- Start the game on Steam
+- After both clients open, click the burger icon in the client, put in host/slot/password info and click connect.
 
-## Things of note
-- Some items (Mistilteinn, Spirit Ring, and Party Members) have complex function chains that haven't been fully solved. To make these work when being sent remotely there is an 
-item in the player's inventory that's given on game start, it's called AP Packages. If you received one of these items from another player use the AP Packages item and it will 
-process the rest of the functions needed to finish giving the item. 
-- The patcher set the game's settings to display in English, this is because all of the item edits and text edits are in English. It's likely still playable in other languages but do so at your own risk. 
+#### Ys8.Seiren.Shuffle.AP.Client.exe not starting
+Double check the path was correct first, as it does not loudly complain if its wrong. 
+If the problem persists add the following to the start of your launch arguments: `PROTON_LOG=1`. 
+This will create a file `steam-579180.log` in your home directory. Open this up in a text editor.
+
+- Search the log for: `wine: failed to open`. This should show the path you entered in the launch arguments. If this occurs then the path you entered was wrong.
+- Search the log for: `The type initializer for 'SkiaSharp.SKImageInfo' threw an exception.` 
+  If this occurs then you have run into an error a dependency to the program isn't loading. 
+  A workaround is to head to download the [Ap Client Repo](https://github.com/junglechief87/Ys-8-Rando-Client) and build the exe yourself.
+- If none of the above work, this log should help in diagnosing the issue.
