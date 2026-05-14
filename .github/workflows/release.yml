@@ -97,6 +97,7 @@ jobs:
             build/exe.*/ArchipelagoServer.exe
             setups/*
       - name: Add to Release
+        if: ${{ false }} 
         uses: softprops/action-gh-release@975c1b265e11dd76618af1c374e7981f9a6ff44a
         with:
           draft: true  # see above
@@ -165,6 +166,7 @@ jobs:
             build/exe.*/ArchipelagoServer
             dist/*
       - name: Add to Release
+        if: ${{ false }}
         uses: softprops/action-gh-release@975c1b265e11dd76618af1c374e7981f9a6ff44a
         with:
           draft: true  # see above
