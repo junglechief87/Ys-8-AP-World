@@ -968,10 +968,9 @@ def set_location_rules(Ys8World: "Ys8World"):
             lambda item: item.classification == ItemClassification.filler)
     
     # Fish Trade
-    if options.fish_trades >= 5:
-        add_rule(loc("Calm Inlet Fish Trade Fish 20"), lambda state: state.can_reach_region("Nameless Coast North", player))
-    if options.fish_trades >= 6:
-        add_rule(loc("Calm Inlet Fish Trade Fish 24"), lambda state: state.can_reach_region("Great River Valley Area", player))
+    
+    add_rule(loc("Calm Inlet Fish Trade Fish 20"), lambda state: state.can_reach_region("Nameless Coast North", player))
+    add_rule(loc("Calm Inlet Fish Trade Fish 24"), lambda state: state.can_reach_region("Great River Valley Area", player))
     
     if options.fish_trades < 6:
         add_item_rule(loc("Calm Inlet Fish Trade Fish 24"),
@@ -993,24 +992,18 @@ def set_location_rules(Ys8World: "Ys8World"):
             lambda item: item.classification == ItemClassification.filler)
     
     # Mont Gendarme — Mishy Rewards require Avalodragil 2 Defeated
-    if options.food_trades >= 1:
-        add_rule(loc("Mont Gendarme Mishy Rewards Food 2"),
-            lambda state: state.has("Avalodragil 2 Defeated", player) and has_required_recipes(Ys8World, state, 1))
-    if options.food_trades >= 2:
-        add_rule(loc("Mont Gendarme Mishy Rewards Food 4"),
-            lambda state: state.has("Avalodragil 2 Defeated", player) and has_required_recipes(Ys8World, state, 2))
-    if options.food_trades >= 3:
-        add_rule(loc("Mont Gendarme Mishy Rewards Food 6"),
-            lambda state: state.has("Avalodragil 2 Defeated", player) and has_required_recipes(Ys8World, state, 3))
-    if options.food_trades >= 4:
-        add_rule(loc("Mont Gendarme Mishy Rewards Food 8"),
-            lambda state: state.has("Avalodragil 2 Defeated", player) and has_required_recipes(Ys8World, state, 4))
-    if options.food_trades >= 5:
-        add_rule(loc("Mont Gendarme Mishy Rewards Food 10"),
-            lambda state: state.has("Avalodragil 2 Defeated", player) and has_required_recipes(Ys8World, state, 5))
-    if options.food_trades >= 6:
-        add_rule(loc("Mont Gendarme Mishy Rewards Food 12"),
-            lambda state: state.has("Avalodragil 2 Defeated", player) and has_required_recipes(Ys8World, state, 6))
+    add_rule(loc("Mont Gendarme Mishy Rewards Food 2"),
+        lambda state: state.has("Avalodragil 2 Defeated", player) and has_required_recipes(Ys8World, state, 1))
+    add_rule(loc("Mont Gendarme Mishy Rewards Food 4"),
+        lambda state: state.has("Avalodragil 2 Defeated", player) and has_required_recipes(Ys8World, state, 2))
+    add_rule(loc("Mont Gendarme Mishy Rewards Food 6"),
+        lambda state: state.has("Avalodragil 2 Defeated", player) and has_required_recipes(Ys8World, state, 3))
+    add_rule(loc("Mont Gendarme Mishy Rewards Food 8"),
+        lambda state: state.has("Avalodragil 2 Defeated", player) and has_required_recipes(Ys8World, state, 4))
+    add_rule(loc("Mont Gendarme Mishy Rewards Food 10"),
+        lambda state: state.has("Avalodragil 2 Defeated", player) and has_required_recipes(Ys8World, state, 5))
+    add_rule(loc("Mont Gendarme Mishy Rewards Food 12"),
+        lambda state: state.has("Avalodragil 2 Defeated", player) and has_required_recipes(Ys8World, state, 6))
     
     if options.food_trades < 6:
         add_item_rule(loc("Mont Gendarme Mishy Rewards Food 12"),
@@ -1032,36 +1025,32 @@ def set_location_rules(Ys8World: "Ys8World"):
                 lambda item: item.classification == ItemClassification.filler)
     
     # Map Completion - Euron
-    if options.map_completion >= 10:
-        add_rule(loc("Calm Inlet Map Completion Percent 10"),
-                lambda state: map_completion_logic(state, player, 13))
-    if options.map_completion >= 20:
-        add_rule(loc("Calm Inlet Map Completion Percent 20"),
-                 lambda state: map_completion_logic(state, player, 23))
-    if options.map_completion >= 30:
-        add_rule(loc("Calm Inlet Map Completion Percent 30"),
-                 lambda state: map_completion_logic(state, player, 33))
-    if options.map_completion >= 40:
-        add_rule(loc("Calm Inlet Map Completion Percent 40"),
-                 lambda state: map_completion_logic(state, player, 43))
-    if options.map_completion >= 50:
-        add_rule(loc("Calm Inlet Map Completion Percent 50"),
-                 lambda state: map_completion_logic(state, player, 53))
-    if options.map_completion >= 60:
-        add_rule(loc("Calm Inlet Map Completion Percent 60"),
-                 lambda state: map_completion_logic(state, player, 63))
-    if options.map_completion >= 70:
-        add_rule(loc("Calm Inlet Map Completion Percent 70"),
-                 lambda state: map_completion_logic(state, player, 73) 
-                 and state.has("Eagle Eye Orb", player))
-    if options.map_completion >= 80:
-        add_rule(loc("Calm Inlet Map Completion Percent 80"),
-                 lambda state: map_completion_logic(state, player, 83)
-                 and state.has("Eagle Eye Orb", player))
-    if options.map_completion >= 90:
-        add_rule(loc("Calm Inlet Map Completion Percent 90"),
-                 lambda state: map_completion_logic(state, player, 93)
-                 and state.has("Eagle Eye Orb", player))
+    add_rule(loc("Calm Inlet Map Completion Percent 10"),
+            lambda state: map_completion_logic(state, player, 13))
+    add_rule(loc("Calm Inlet Map Completion Percent 20"),
+                lambda state: map_completion_logic(state, player, 23))
+    add_rule(loc("Calm Inlet Map Completion Percent 30"),
+                lambda state: map_completion_logic(state, player, 33))
+    add_rule(loc("Calm Inlet Map Completion Percent 40"),
+                lambda state: map_completion_logic(state, player, 43))
+    add_rule(loc("Calm Inlet Map Completion Percent 50"),
+                lambda state: map_completion_logic(state, player, 53))
+    add_rule(loc("Calm Inlet Map Completion Percent 60"),
+                lambda state: map_completion_logic(state, player, 63))
+    add_rule(loc("Calm Inlet Map Completion Percent 70"),
+                lambda state: map_completion_logic(state, player, 73) 
+                and state.has("Eagle Eye Orb", player))
+    add_rule(loc("Calm Inlet Map Completion Percent 80"),
+                lambda state: map_completion_logic(state, player, 83)
+                and state.has("Eagle Eye Orb", player))
+    add_rule(loc("Calm Inlet Map Completion Percent 90"),
+                lambda state: map_completion_logic(state, player, 93)
+                and state.has("Eagle Eye Orb", player))
+    # This is only here so it doesn't look weird when this a green in a tracker. 
+    # This check can never actually be required since map completion requires full access.
+    add_rule(loc("Calm Inlet Map Completion Percent 100"),
+                lambda state: map_completion_logic(state, player, 95)
+                and state.has("Eagle Eye Orb", player))
         
     add_item_rule(loc("Calm Inlet Map Completion Percent 100"),
                   lambda item: item.classification == ItemClassification.filler)
@@ -1095,16 +1084,14 @@ def set_location_rules(Ys8World: "Ys8World"):
             lambda item: item.classification == ItemClassification.filler)
     
     # Discoveries - Austin
-    if options.discoveries >= 1:
-        add_rule(loc("Calm Inlet Discovery Rewards Half"), lambda state: has_discoveries(Ys8World, state, 12))
-    if options.discoveries >= 2:
-        add_rule(loc("Calm Inlet Discovery Rewards All"), lambda state: has_discoveries(Ys8World, state, 24))
+    add_rule(loc("Calm Inlet Discovery Rewards Half"), lambda state: has_discoveries(Ys8World, state, 12))
+    add_rule(loc("Calm Inlet Discovery Rewards All"), lambda state: has_discoveries(Ys8World, state, 24))
 
-    if options.discoveries < 2:
-        add_item_rule(loc("Calm Inlet Discovery Rewards All"),
-            lambda item: item.classification == ItemClassification.filler)
-    if options.discoveries < 1:
+    if options.discoveries >= 1:
         add_item_rule(loc("Calm Inlet Discovery Rewards Half"),
+            lambda item: item.classification == ItemClassification.filler)
+    if options.discoveries >= 2:
+        add_item_rule(loc("Calm Inlet Discovery Rewards All"),
             lambda item: item.classification == ItemClassification.filler)
     
     # Shoebill
@@ -1112,24 +1099,23 @@ def set_location_rules(Ys8World: "Ys8World"):
              lambda state: state.has("Ricotta", player))
         
     # Calm Inlet — Intercept stages
-    if options.dogi_intercept_rewards.value:
-        add_rule(loc("Calm Inlet Intercept Stage 2"),
-            lambda state: (battle_logic(Ys8World, state, _BATTLE_REQ["INTERCEPT_STAGE2"]) and has_required_party(Ys8World, state, 2))
-                    or battle_logic(Ys8World, state, _BATTLE_REQ["INTERCEPT_STAGE2_ALT"]))
-        add_rule(loc("Calm Inlet Intercept Stage 3"),
-            lambda state: (battle_logic(Ys8World, state, _BATTLE_REQ["INTERCEPT_STAGE3"]) and has_required_party(Ys8World, state, 2))
-                    or battle_logic(Ys8World, state, _BATTLE_REQ["INTERCEPT_STAGE3_ALT"]))
-        add_rule(loc("Calm Inlet Intercept Stage 5"),
-            lambda state: (battle_logic(Ys8World, state, _BATTLE_REQ["INTERCEPT_STAGE5"]) and has_required_party(Ys8World, state, 2))
-                    or battle_logic(Ys8World, state, _BATTLE_REQ["INTERCEPT_STAGE5_ALT"]))
-        add_rule(loc("Calm Inlet Intercept Stage 7"),
-                lambda state: state.has("Progressive Shop Rank", player, 3)
-                    and has_required_party(Ys8World, state, 2))
-        add_rule(loc("Calm Inlet Intercept Stage 9"),
-                lambda state: state.has("Progressive Shop Rank", player, 3)
-                    and has_required_party(Ys8World, state, 2)
-                    and battle_logic(Ys8World, state, _BATTLE_REQ["INTERCEPT_STAGE9"]))
-    else:
+    add_rule(loc("Calm Inlet Intercept Stage 2"),
+        lambda state: (battle_logic(Ys8World, state, _BATTLE_REQ["INTERCEPT_STAGE2"]) and has_required_party(Ys8World, state, 2))
+                or battle_logic(Ys8World, state, _BATTLE_REQ["INTERCEPT_STAGE2_ALT"]))
+    add_rule(loc("Calm Inlet Intercept Stage 3"),
+        lambda state: (battle_logic(Ys8World, state, _BATTLE_REQ["INTERCEPT_STAGE3"]) and has_required_party(Ys8World, state, 2))
+                or battle_logic(Ys8World, state, _BATTLE_REQ["INTERCEPT_STAGE3_ALT"]))
+    add_rule(loc("Calm Inlet Intercept Stage 5"),
+        lambda state: (battle_logic(Ys8World, state, _BATTLE_REQ["INTERCEPT_STAGE5"]) and has_required_party(Ys8World, state, 2))
+                or battle_logic(Ys8World, state, _BATTLE_REQ["INTERCEPT_STAGE5_ALT"]))
+    add_rule(loc("Calm Inlet Intercept Stage 7"),
+            lambda state: state.has("Progressive Shop Rank", player, 3)
+                and has_required_party(Ys8World, state, 2))
+    add_rule(loc("Calm Inlet Intercept Stage 9"),
+            lambda state: state.has("Progressive Shop Rank", player, 3)
+                and has_required_party(Ys8World, state, 2)
+                and battle_logic(Ys8World, state, _BATTLE_REQ["INTERCEPT_STAGE9"]))
+    if not options.dogi_intercept_rewards.value:
         add_item_rule(loc("Calm Inlet Intercept Stage 2"),
             lambda item: item.classification == ItemClassification.filler)
         add_item_rule(loc("Calm Inlet Intercept Stage 3"),
@@ -1146,12 +1132,12 @@ def set_location_rules(Ys8World: "Ys8World"):
     # =====================================================================
 
     # Calm Inlet — Silvia (early boss)
-    if options.silvia_progression.value:
-        add_rule(loc("Calm Inlet Calm Inlet (Castaway Village Area) Silvia Skill 1"),
-            lambda state: state.has("Silvia Defeated", player))
-        add_rule(loc("Calm Inlet Calm Inlet (Castaway Village Area) Silvia Skill 2"),
-            lambda state: state.has("Silvia Defeated", player))
-    else:
+    
+    add_rule(loc("Calm Inlet Calm Inlet (Castaway Village Area) Silvia Skill 1"),
+        lambda state: state.has("Silvia Defeated", player))
+    add_rule(loc("Calm Inlet Calm Inlet (Castaway Village Area) Silvia Skill 2"),
+        lambda state: state.has("Silvia Defeated", player))
+    if  not options.silvia_progression.value:
         add_item_rule(loc("Calm Inlet Calm Inlet (Castaway Village Area) Silvia Skill 1"),
             lambda item: item.classification == ItemClassification.filler)
         add_item_rule(loc("Calm Inlet Calm Inlet (Castaway Village Area) Silvia Skill 2"),
@@ -1304,12 +1290,12 @@ def set_location_rules(Ys8World: "Ys8World"):
              lambda state: state.has("Byfteriza Defeated", player))
 
     # Silent Tower — Mephorash
-    if options.mephorash_progression.value:
-        add_rule(loc("Silent Tower Second Basement Mephorash Skill"),
-                lambda state: state.has("Mephorash Defeated", player))
-        add_rule(loc("Silent Tower Second Basement Chest 4"),
-                lambda state: state.has("Mephorash Defeated", player))
-    else:
+    
+    add_rule(loc("Silent Tower Second Basement Mephorash Skill"),
+            lambda state: state.has("Mephorash Defeated", player))
+    add_rule(loc("Silent Tower Second Basement Chest 4"),
+            lambda state: state.has("Mephorash Defeated", player))
+    if not options.mephorash_progression.value:
         add_item_rule(loc("Silent Tower Second Basement Mephorash Skill"),
             lambda item: item.classification == ItemClassification.filler)
         add_item_rule(loc("Silent Tower Second Basement Chest 4"),
@@ -1367,28 +1353,28 @@ def set_location_rules(Ys8World: "Ys8World"):
     # MASTER KONG SKILL CHECKS
     # =====================================================================
 
-    if options.master_kong_rewards.value:
-        # Parasequoia — Master Kong Ricotta
-        add_rule(loc("Roaring Seashore Parasequoia Master Kong Skill Ricotta"),
-                lambda state: state.has("Master Kong Ricotta Defeated", player))
-        # Sunrise Beach — Master Kong Sahad
-        add_rule(loc("Sunrise Beach Sunrise Beach Master Kong Skill Sahad"),
-                lambda state: state.has("Master Kong Sahad Defeated", player))
-        # Odd Rock Coast — Master Kong Dana
-        add_rule(loc("Odd Rock Coast Odd Rock Coast Master Kong Skill Dana"),
-                lambda state: state.has("Master Kong Dana Defeated", player))
-        # Mont Gendarme Boss Arena — Master Kong Laxia
-        add_rule(loc("Mont Gendarme Mid-Boss Arena Master Kong Skill Laxia"),
-                lambda state: state.has("Master Kong Laxia Defeated", player))
-        # Pangaia Plains — Master Kong Hummel
-        add_rule(loc("Pangaia Plains Ancient Tree Master Kong Skill Hummel"),
-                lambda state: state.has("Master Kong Hummel Defeated", player))
-        # Vista Ridge — Master Kong Adol
-        add_rule(loc("Vista Ridge Vista Ridge Lower Master Kong Skill Adol"),
-                lambda state: state.has("Master Kong Adol Defeated", player))
-        add_rule(loc("Vista Ridge Vista Ridge Lower Master Kong Join"),
-                lambda state: state.has("Master Kong Adol Defeated", player))
-    else:
+    
+    # Parasequoia — Master Kong Ricotta
+    add_rule(loc("Roaring Seashore Parasequoia Master Kong Skill Ricotta"),
+            lambda state: state.has("Master Kong Ricotta Defeated", player))
+    # Sunrise Beach — Master Kong Sahad
+    add_rule(loc("Sunrise Beach Sunrise Beach Master Kong Skill Sahad"),
+            lambda state: state.has("Master Kong Sahad Defeated", player))
+    # Odd Rock Coast — Master Kong Dana
+    add_rule(loc("Odd Rock Coast Odd Rock Coast Master Kong Skill Dana"),
+            lambda state: state.has("Master Kong Dana Defeated", player))
+    # Mont Gendarme Boss Arena — Master Kong Laxia
+    add_rule(loc("Mont Gendarme Mid-Boss Arena Master Kong Skill Laxia"),
+            lambda state: state.has("Master Kong Laxia Defeated", player))
+    # Pangaia Plains — Master Kong Hummel
+    add_rule(loc("Pangaia Plains Ancient Tree Master Kong Skill Hummel"),
+            lambda state: state.has("Master Kong Hummel Defeated", player))
+    # Vista Ridge — Master Kong Adol
+    add_rule(loc("Vista Ridge Vista Ridge Lower Master Kong Skill Adol"),
+            lambda state: state.has("Master Kong Adol Defeated", player))
+    add_rule(loc("Vista Ridge Vista Ridge Lower Master Kong Join"),
+            lambda state: state.has("Master Kong Adol Defeated", player))
+    if not options.master_kong_rewards.value:
         add_item_rule(loc("Roaring Seashore Parasequoia Master Kong Skill Ricotta"),
             lambda item: item.classification == ItemClassification.filler)
         add_item_rule(loc("Sunrise Beach Sunrise Beach Master Kong Skill Sahad"),
