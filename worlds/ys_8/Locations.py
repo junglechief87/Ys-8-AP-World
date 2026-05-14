@@ -36,7 +36,6 @@ location_table: Dict[str, Ys8LocationData] = {
     "Archeozoic Chasm Boss Arena Oceanus Skill 2": Ys8LocationData("Archeozoic Chasm Boss Arena", 549, "event"),
     "Archeozoic Chasm Mid-Boss Arena Coelacantos Skill 1": Ys8LocationData("Archeozoic Chasm Front", 550, "event"),
     "Archeozoic Chasm Mid-Boss Arena Coelacantos Skill 2": Ys8LocationData("Archeozoic Chasm Front", 551, "event"),
-    #"Archeozoic Chasm Boss Arena Psyches": Ys8LocationData("Archeozoic Chasm Boss Arena", 623, "event"),
     # Baja Tower
     "Baja Tower Second Floor Chest 1": Ys8LocationData("Baja Tower Lower Floors", 216, "chest"),
     "Baja Tower Second Floor Chest 2": Ys8LocationData("Baja Tower Lower Floors", 217, "chest"),
@@ -58,7 +57,6 @@ location_table: Dict[str, Ys8LocationData] = {
     "Baja Tower Boss Arena Carveros Skill 2": Ys8LocationData("Baja Tower Boss Arena", 555, "event"),
     "Baja Tower Mid-Boss Arena Exmetal Skill 1": Ys8LocationData("Baja Tower Lower Floors", 556, "event"),
     "Baja Tower Mid-Boss Arena Exmetal Skill 2": Ys8LocationData("Baja Tower Lower Floors", 557, "event"),
-    #"Baja Tower Boss Arena Psyches": Ys8LocationData("Baja Tower Boss Arena", 625, "event"),
     # Base of Western Foot of Gendarme
     "Great River Valley Cliffs Chest 1": Ys8LocationData("Base of Western Foot of Gendarme", 27, "chest"),
     "Great River Valley Falls Chest 1": Ys8LocationData("Base of Western Foot of Gendarme", 93, "chest"),
