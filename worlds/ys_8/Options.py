@@ -264,15 +264,27 @@ class BattleLogic(Toggle):
     display_name = "Battle Logic"
     default = True
 
-class ProgressiveSuperWeapons(Toggle):
+class ProgressiveSuperItems(Toggle):
     """
     Both the Mistilteinn and Spirit Ring are in the pool.
     Players find Broken Mistilteinn or Broken Spirit Ring instead.
     Speaking with Kathleen after maxing the forge will fix the broken weapon.
+    If "Fun Items" are on then there are broken versions of Laxia, Sahad, Hummel, and Ricotta's accessories.
+    These are turned into Euron at max forge instead of Kathleen, since he's the accessory guy.
     """
-    display_name = "Progressive Super Weapons"
+    display_name = "Progressive Super Items"
     default = True
 
+class FunItems(Toggle):
+    """
+    Adds fun, powerful items to the item pool.
+    The items are one new arm equipment anyone can equip,
+    and four unique accessories that can only be equipped by Laxia, Sahad, Hummel, and Ricotta respectively.
+    These are considered for combat logic, they are meant to be powerful 
+    and also give Laxia, Sahad, Hummel, and Ricotta items with parity to Mistilteinn and Spirit Ring.
+    """
+    display_name = "Fun Items"
+    default = False
 
 class OctusPathsOpened(Toggle):
     """
@@ -448,7 +460,8 @@ class Ys8Options(PerGameCommonOptions):
     experience_multiplier: ExperienceMultiplier
     additional_intercept_rewards: AdditionalInterceptRewards
     battle_logic: BattleLogic
-    progressive_super_weapons: ProgressiveSuperWeapons
+    progressive_super_items: ProgressiveSuperItems
+    fun_items: FunItems
     octus_paths_opened: OctusPathsOpened
     extra_flame_stones: ExtraFlameStones
     recipes_with_ingredients: RecipesWithIngredients
@@ -495,7 +508,8 @@ Ys8_option_groups = [
         ExperienceMultiplier,
         AdditionalInterceptRewards,
         BattleLogic,
-        ProgressiveSuperWeapons,
+        ProgressiveSuperItems,
+        FunItems,
         OctusPathsOpened,
         ExtraFlameStones,
         RecipesWithIngredients,
@@ -538,7 +552,8 @@ Ys8_option_presets: Dict[str, Dict[str, Any]] = {
         "experience_multiplier": 8,
         "additional_intercept_rewards": False,
         "battle_logic": True,
-        "progressive_super_weapons": True,
+        "progressive_super_items": True,
+        "fun_items": False,
         "octus_paths_opened": True,
         "extra_flame_stones": 3,
         "recipes_with_ingredients": True,
@@ -574,7 +589,8 @@ Ys8_option_presets: Dict[str, Dict[str, Any]] = {
         "experience_multiplier": 8,
         "additional_intercept_rewards": False,
         "battle_logic": True,
-        "progressive_super_weapons": True,
+        "progressive_super_items": True,
+        "fun_items": False,
         "octus_paths_opened": True,
         "extra_flame_stones": 3,
         "recipes_with_ingredients": True,

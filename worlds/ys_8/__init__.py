@@ -128,9 +128,11 @@ class Ys8World(World):
                 continue
             if not self.options.discovery_sanity.value and data.category == "Landmark":
                 continue
-            if self.options.progressive_super_weapons.value and data.category == "Super Weapon":
+            if not self.options.fun_items.value and data.category in ["Super Item", "Progressive Super Item", "Super Arm Equipment"]:
                 continue
-            if not self.options.progressive_super_weapons.value and data.category == "Progressive Super Weapon":
+            if self.options.progressive_super_items.value and data.category in ["Super Weapon", "Super Item"]:
+                continue
+            if not self.options.progressive_super_items.value and data.category in ["Progressive Super Weapon", "Progressive Super Item"]:
                 continue
             if name in self.starting_skills:
                 continue
@@ -193,7 +195,7 @@ class Ys8World(World):
         slot_options = ["final_boss_access", "octus_count_crew_mode", "octus_count_psyches_mode", "goal_count_crew_final_boss", "goal_count_psyches_final_boss",
                         "discovery_sanity", "dungeon_entrance_shuffle", "jewel_trade_items", "fish_trades", "food_trades", "map_completion", "discoveries", 
                         "dogi_intercept_rewards", "master_kong_rewards", "silvia_progression", "mephorash_progression", "former_sanctuary_crypt", "experience_multiplier", 
-                        "additional_intercept_rewards", "battle_logic", "progressive_super_weapons", "octus_paths_opened", "extra_flame_stones", 
+                        "additional_intercept_rewards", "battle_logic", "progressive_super_items", "octus_paths_opened", "extra_flame_stones", 
                         "recipes_with_ingredients", "north_side_open", "infinity_mode", "scale_exp_items", "final_boss", "theos_start_phase", "origin_care_package", "origin_start_phase",
                         "essence_key_sanity", "starting_character_weights", "death_link"]
 

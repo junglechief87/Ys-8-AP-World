@@ -352,16 +352,29 @@ def battle_logic(Ys8World: "Ys8World", state: CollectionState, required_str: int
     baseStr = _GRIND_STR[max(5, min((player_level // 5) * 5, 95))]
 
     # Weapon strength — based on rounded averages of accessible weapons at their base levels
-    if options.progressive_super_weapons.value:
-        super_weapons = (state.has("Broken Mistilteinn", player) and state.has("Adol", player)) or \
-                        (state.has("Broken Spirit Ring", player) and state.has("Dana", player))
+    if options.progressive_super_items.value:
+        super_weapons = state.has_all(["Broken Mistilteinn", "Adol"], player) or \
+                        state.has_all(["Broken Spirit Ring", "Dana"], player)
+        if options.fun_items.value:
+            super_items =   state.has("Euron", player) and \
+                            state.has_all(["Broken Glasses", "Laxia"], player) or \
+                            state.has_all(["Broken Lure", "Sahad"], player) or \
+                            state.has_all(["Odd Rock", "Hummel"], player) or \
+                            state.has_all(["Broken Necklace", "Ricotta"], player)
+            super_weapons = super_weapons or super_items
     else:
-        super_weapons = (state.has("Mistilteinn", player) and state.has("Adol", player)) or \
-                        (state.has("Spirit Ring Celesdia", player) and state.has("Dana", player))
+        super_weapons = state.has_all(["Mistilteinn", "Adol"], player) or \
+                        state.has_all(["Spirit Ring Celesdia", "Dana"], player)
+        if options.fun_items.value:
+             super_items =  state.has_all(["Primordial Knowledge", "Laxia"], player) or \
+                            state.has_all(["The Ultimate Catch", "Sahad"], player) or \
+                            state.has_all(["One Final Delivery", "Hummel"], player) or \
+                            state.has_all(["Wild and Free", "Ricotta"], player)
+             super_weapons = super_weapons or super_items      
     
-    if options.progressive_super_weapons.value and state.has("Progressive Shop Rank", player, 7) and super_weapons:
+    if options.progressive_super_items.value and state.has("Progressive Shop Rank", player, 7) and super_weapons:
         weaponStr = 290
-    elif not options.progressive_super_weapons.value and super_weapons:
+    elif not options.progressive_super_items.value and super_weapons:
         weaponStr = 290
     elif state.has("Progressive Shop Rank", player, 7) and mat("Dragon Crest Stone"):
         weaponStr = 270
@@ -445,7 +458,9 @@ def battle_logic(Ys8World: "Ys8World", state: CollectionState, required_str: int
         armorStr = 6
 
     # Armlet strength — take the higher of shop tiers and found items
-    if (state.has("Progressive Shop Rank", player, 7) and state.has("Euron", player) and \
+    if options.fun_items.value and state.has("AP Fury", player):
+        armStr = 50
+    elif (state.has("Progressive Shop Rank", player, 7) and state.has("Euron", player) and \
             (mat("Beast Hide") and \
                 mat("Beast Bone"))) or \
                     state.has("Battle Armlet", player):
@@ -1513,7 +1528,7 @@ def set_location_rules(Ys8World: "Ys8World"):
         add_rule(loc("Octus Overlook Selection Sphere Goal"),
                  lambda state: has_required_crew(Ys8World, state, options.goal_count_crew_final_boss))
     elif options.final_boss_access == 1:
-        if options.progressive_super_weapons.value:
+        if options.progressive_super_items.value:
             add_rule(loc("Octus Overlook Selection Sphere Goal"),
                  lambda state: state.has_all(["Broken Mistilteinn", "Ship Blueprints", "Seiren Area Map"], player))
         else:
