@@ -180,8 +180,8 @@ class Discoveries(Choice):
 class DogiInterceptRewards(Toggle):
     """
     Enables Dogi's 5 rewards for completing specific intercept stages (2, 3, 5, 7, and 9).
-    Dogi does not need to have joined the village.
-    Intercepts are now unlocked via T's Memos found in the world.
+    Intercepts are now unlocked via Progressive Raid Lists found in the world. 
+    Dogi is unlocked from the first one found. 
     """
     display_name = "Dogi Intercept Rewards"
     default = True

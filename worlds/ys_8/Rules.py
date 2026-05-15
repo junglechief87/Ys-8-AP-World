@@ -944,6 +944,10 @@ def set_location_rules(Ys8World: "Ys8World"):
     add_rule(loc("Water and Wood Hills Near Silent Tower Chest 2"),
              lambda state: state.has("Grip Gloves", player))
     
+    # Octus Overlook
+    add_rule(loc("Octus Overlook Path of the Insectoid Era Chest 2"),
+            lambda state: state.has("Archeopteryx Wing", player))
+    
     # NPC Checks for Calm Inlet Area
     # Jewel Trade - Dina
     if options.jewel_trade_items >= 25:
