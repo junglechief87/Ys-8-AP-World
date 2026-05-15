@@ -85,8 +85,16 @@ def set_all_rules(Ys8World: "Ys8World"):
     set_location_rules(Ys8World)
 
 def has_required_crew(Ys8World: "Ys8World", state: CollectionState, crew_count: int) -> bool:
-    """Check if the player has access to at least crew_count crew members."""
-    return state.has_from_list([item for item, data in item_table.items() if data.category == "Crew"], Ys8World.player, crew_count)
+    """Check if the player has access to at least crew_count crew members.
+    Progressive Shop Rank and Progressive Raid List each count as 1 toward the total.
+    For Kathleen and Dogi respectively."""
+    crew_items = [item for item, data in item_table.items() if data.category == "Crew"]
+    found = state.count_from_list(crew_items, Ys8World.player)
+    if state.has("Progressive Shop Rank", Ys8World.player):
+        found += 1
+    if state.has("Progressive Raid List", Ys8World.player):
+        found += 1
+    return found >= crew_count
 
 def has_required_party(Ys8World: "Ys8World", state: CollectionState, party_count: int) -> bool:
     """Check if the player has access to at least party_count party members."""
@@ -545,9 +553,11 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     set_rule(get_ent("TCFRF Link"), lambda state: state.has("Rainbow Falls", player))
     set_rule(get_ent("Para Link"), lambda state: state.has("Parasequoia", player))
     set_rule(get_ent("Meta Link"), lambda state: state.has("Metavolicalis", player))
-    set_rule(get_ent("CIA IL1 Link"), lambda state: state.has_any(["T's Note 1", "T's Note 2", "T's Note 3", "T's Note 4"], player))
-    set_rule(get_ent("CIA IL2 Link"), lambda state: state.has_from_list(["T's Note 1", "T's Note 2", "T's Note 3", "T's Note 4"], player, 2))
-    set_rule(get_ent("CIA IL3 Link"), lambda state: state.has_from_list(["T's Note 1", "T's Note 2", "T's Note 3", "T's Note 4"], player, 3))
+    set_rule(get_ent("CIA IL1 Link"), lambda state: state.has("Progressive Raid List", player, 1))
+    set_rule(get_ent("CIA IL2 Link"), lambda state: state.has("Progressive Raid List", player, 2))
+    set_rule(get_ent("CIA IL3 Link"), lambda state: state.has("Progressive Raid List", player, 3))
+    set_rule(get_ent("CIA IL4 Link"), lambda state: state.has("Progressive Raid List", player, 4))
+    set_rule(get_ent("CIA IL5 Link"), lambda state: state.has("Progressive Raid List", player, 5))
     set_rule(get_ent("CIA MC Link"), lambda state: state.has("Euron", player))
     set_rule(get_ent("CIA JT Link"), lambda state: state.has("Dina", player) and has_jewels(state, player, 23))
     set_rule(get_ent("CIA FT Link"), lambda state: state.has("Fishing Rod", player))

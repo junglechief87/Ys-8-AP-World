@@ -173,23 +173,29 @@ def dungeon_entrance_shuffle(world) -> None:
         bidir_slots[dungeon].remove(slot)
         _assign(world, exit_name, slot, connections)
 
-    # === Phase 2: Guarantee a north–south bridge (when required) ===
-    # Force one north-side and one south-side exit into the same bidirectional
-    # dungeon so both halves of the island remain mutually reachable.
-    if discovery_off and not options.north_side_open.value:
+    # === Phase 2: Guarantee connectivity bridges (when required) ===
+    # Each entry: (active: bool, flagged_exits: list[str]).
+    # When active, one flagged exit and one non-flagged exit are forced into the
+    # same bidirectional dungeon so both groups remain mutually reachable.
+    # To bridge a new region: append (condition, region_exits_list) below.
+    bridges: list[tuple[bool, list[str]]] = [
+        (discovery_off and not options.north_side_open.value, north_exits),
+    ]
+    active_bridges = [(cond, exits) for cond, exits in bridges if cond]
+    if active_bridges:
         rng.shuffle(free_exits)
-
+    for _, flagged_exits in active_bridges:
         bridge_dungeon = next(d for d in bidir_slots if len(bidir_slots[d]) >= 2)
 
         slot_a = rng.choice(bidir_slots[bridge_dungeon])
         bidir_slots[bridge_dungeon].remove(slot_a)
-        north_pick = rng.choice(north_exits)
-        _assign(world, north_pick, slot_a, connections)
+        flagged_pick = rng.choice([e for e in flagged_exits if e not in connections])
+        _assign(world, flagged_pick, slot_a, connections)
 
-        south_pick = next(e for e in free_exits if e not in connections and e not in north_exits)
         slot_b = rng.choice(bidir_slots[bridge_dungeon])
         bidir_slots[bridge_dungeon].remove(slot_b)
-        _assign(world, south_pick, slot_b, connections)
+        other_pick = next(e for e in free_exits if e not in connections and e not in flagged_exits)
+        _assign(world, other_pick, slot_b, connections)
 
     # === Phase 3: Assign all remaining exits to remaining slots ===
     remaining_slots: list[str] = [slot for slots in bidir_slots.values() for slot in slots]

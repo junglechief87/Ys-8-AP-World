@@ -75,8 +75,9 @@ location_table: Dict[str, Ys8LocationData] = {
     # Calm Inlet: Intercept List 1
     "Calm Inlet Intercept Stage 2": Ys8LocationData("Calm Inlet: Intercept List 1", 446, "event"),
     "Calm Inlet Intercept Stage 3": Ys8LocationData("Calm Inlet: Intercept List 1", 447, "event"),
-    "Calm Inlet Intercept Stage 5": Ys8LocationData("Calm Inlet: Intercept List 1", 448, "event"),
-    "Calm Inlet Intercept Stage 7": Ys8LocationData("Calm Inlet: Intercept List 1", 449, "event"),
+    # Calm Inlet: Intercept List 2
+    "Calm Inlet Intercept Stage 5": Ys8LocationData("Calm Inlet: Intercept List 2", 448, "event"),
+    "Calm Inlet Intercept Stage 7": Ys8LocationData("Calm Inlet: Intercept List 2", 449, "event"),
     # Calm Inlet: Intercept List 3
     "Calm Inlet Intercept Stage 9": Ys8LocationData("Calm Inlet: Intercept List 3", 450, "event"),
     # Calm Inlet Map Completion

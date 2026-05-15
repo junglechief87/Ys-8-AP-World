@@ -24,10 +24,12 @@ def create_regions(Ys8World):
         "Calm Inlet Area": ["WC Entrance", "NCN Link", "TCFRF Link", "Para Link", "Meta Link", "CIA IL1 Link", "CIA IL2 Link", "CIA IL3 Link", 
                             "CIA MC Link", "CIA JT Link", "CIA FT Link", "CIA DTI Link", "WFG Link", "GRV Link", "MWV Link", "EVIMV Link", 
                             "SB Link", "SJFMH Link", "BH Link", "ECCBG Link", "NCA Link", "WH Link", "SI Link", "LMVA Link",
-                            "SNA Link", "SH Link", "SG Link", "GOAH Link"],
+                            "SNA Link", "SH Link", "SG Link", "GOAH Link", "CIA IL4 Link", "CIA IL5 Link"],
         "Calm Inlet: Intercept List 1": [],
         "Calm Inlet: Intercept List 2": [],
         "Calm Inlet: Intercept List 3": [],
+        "Calm Inlet: Intercept List 4": [],
+        "Calm Inlet: Intercept List 5": [],
         "Calm Inlet: Map Completion": [],
         "Calm Inlet: Jewel Trade": [],
         "Calm Inlet: Fish Trade": [],
@@ -224,6 +226,8 @@ def connect_entrances(Ys8World: "Ys8World"):
     connect("CIA IL1 Link", "Calm Inlet: Intercept List 1")
     connect("CIA IL2 Link", "Calm Inlet: Intercept List 2")
     connect("CIA IL3 Link", "Calm Inlet: Intercept List 3")
+    connect("CIA IL4 Link", "Calm Inlet: Intercept List 4")
+    connect("CIA IL5 Link", "Calm Inlet: Intercept List 5")
     connect("CIA MC Link", "Calm Inlet: Map Completion")
     connect("CIA JT Link", "Calm Inlet: Jewel Trade")
     connect("CIA FT Link", "Calm Inlet: Fish Trade")
