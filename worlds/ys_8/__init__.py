@@ -23,7 +23,7 @@ class Ys8Web(WebWorld):
         "English",
         "setup_en.md",
         "setup/en",
-        ["JungleChief87"]
+        ["JungleChief87", "DeamonHunter"]
     )
     tutorials = [setup_en]
 
