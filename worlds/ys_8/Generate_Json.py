@@ -63,6 +63,7 @@ def get_item_location_map(world):
         if location.item.code is None:
                 continue
         item_data = get_item_data(location.item.name)
+        ifExistsAndLocal = (item_data and location.item.player == location.player)
         location_item_map[location_id] = {
             "player": world.multiworld.get_player_name(location.item.player),
             "location_name": location.name,
@@ -71,11 +72,11 @@ def get_item_location_map(world):
             # if offworld item make AP item code. If item code is None, set to None.
             "item_id": (((location.item.code - (location.item.code % 100)) // 100) if location.item.player == location.player else 149),
             "item_name": location.item.name,
-            "item_quantity": item_data.quantity if item_data else 1,
-            "item_type": item_data.type if item_data else "",
+            "item_quantity": item_data.quantity if ifExistsAndLocal else 1,
+            "item_type": item_data.type if ifExistsAndLocal else "",
             "item_classification": get_classification(location.item.classification),
-            "category": item_data.category if item_data else "",
-            "party_flag": item_data.is_party_member if item_data else False,
+            "category": item_data.category if ifExistsAndLocal else "",
+            "party_flag": item_data.is_party_member if ifExistsAndLocal else False,
         }
     return location_item_map
 

@@ -14,6 +14,7 @@ from .Rules import set_all_rules
 from .Regions import create_regions, connect_entrances
 from .Generate_Json import generate_json
 from .Entrance_Shuffle import dungeon_entrance_shuffle
+from .Boss_Level_Randomization import randomize_levels_balanced
 
 class Ys8Web(WebWorld):
     theme = "jungle"
