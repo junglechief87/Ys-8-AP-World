@@ -444,7 +444,7 @@ location_table: Dict[str, Ys8LocationData] = {
     # Towering Coral Forest (Night)
     "Towering Coral Forest (Night) Entrance Chest 1": Ys8LocationData("Towering Coral Forest (Night) Front Half", 62, "chest"),
     "Towering Coral Forest (Night) Entrance Chest 2": Ys8LocationData("Towering Coral Forest (Night) Front Half", 63, "chest"),
-    "Towering Coral Forest (Night) Entrance Chest 3": Ys8LocationData("Towering Coral Forest (Night) Front Half", 64, "chest"),
+    "Towering Coral Forest (Night) Entrance Chest 3": Ys8LocationData("Towering Coral Forest (Night) Rear Half", 64, "chest"),
     "Towering Coral Forest (Night) Walkways Chest 1": Ys8LocationData("Towering Coral Forest (Night) Front Half", 69, "chest"),
     "Towering Coral Forest (Night) Walkways Chest 2": Ys8LocationData("Towering Coral Forest (Night) Front Half", 70, "chest"),
     "Towering Coral Forest (Night) Walkways Chest 3": Ys8LocationData("Towering Coral Forest (Night) Front Half", 71, "chest"),
