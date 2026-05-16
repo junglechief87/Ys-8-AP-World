@@ -254,11 +254,14 @@ class Ys8World(World):
     def generate_output(self, output_directory: str):
         generate_json(self, output_directory)
     
-    # Necessary functions for Universal Tracker
+    # This functions specifies how to handle slot data for Universal tracker.
+    # Setting this to static stops it generating before grabbing slot data.
     @staticmethod
     def interpret_slot_data(slot_data: dict[str, Any]) -> dict[str, Any]:
         return slot_data
 
+    # This function actually loads the data from Universal Tracker and applies it to this generation.
+    # Doing so sets up the options to what was previously generated, including dungeon entrances if they exist.
     def setup_ut(self):
         if not hasattr(self.multiworld, "re_gen_passthrough") or self.game not in self.multiworld.re_gen_passthrough:
             return
