@@ -128,6 +128,10 @@ def _assign(world, exit_name: str, dungeon_region: str, connections: dict) -> No
 
 
 def dungeon_entrance_shuffle(world) -> None:
+    # If we are generating in Universal Tracker, it may already have locations saved for us
+    if world.generating_in_ut and world.dungeon_connections is not None:
+        return
+
     rng     = world.multiworld.random
     options = world.options
 

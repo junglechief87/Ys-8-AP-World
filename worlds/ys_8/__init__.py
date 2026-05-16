@@ -2,9 +2,9 @@
 Archipelago init file for Ys VIII: Lacrimosa of Dana
 """
 from logging import error, warning
-from typing import Any, Dict, List, TextIO
+from typing import Any, Dict, List, TextIO, Optional
 from BaseClasses import ItemClassification, Tutorial
-from Options import OptionError
+from Options import OptionError, Option
 from worlds.AutoWorld import WebWorld, World
 from worlds.generic.Rules import add_item_rule
 from .Options import Ys8Options, Ys8_option_groups, Ys8_option_presets
@@ -49,6 +49,10 @@ class Ys8World(World):
     fillers = {}
     fillers.update(get_items_by_category("Consumable"))
 
+    # Universal Tracker
+    ut_can_gen_without_yaml = True
+    generating_in_ut = False
+
     def __init__(self, multiworld, player):
         super(Ys8World, self).__init__(multiworld, player)
         self.chosen_psyche_fight_list = None
@@ -68,6 +72,8 @@ class Ys8World(World):
         self.max_psyche_num = 4
 
     def generate_early(self):
+        self.setup_ut()
+
         # Force Former Sanctuary Crypt on if Untouchable final boss access is selected or esscence key sanity
         if self.options.final_boss_access.value == 3 or self.options.essence_key_sanity.value:
             self.options.former_sanctuary_crypt.value = True
@@ -203,6 +209,10 @@ class Ys8World(World):
         slot_data.update({"starting_character": self.starting_character})
         slot_data.update({"starting_skills": self.starting_skill_codes})
 
+        # For Universal Tracker and other Tracker implementations
+        if self.options.dungeon_entrance_shuffle.value:
+            slot_data.update({"dungeon_entrances": self.dungeon_connections})
+
         return slot_data
 
     def create_item(self, name: str) -> Ys8Item:
@@ -244,5 +254,29 @@ class Ys8World(World):
     def generate_output(self, output_directory: str):
         generate_json(self, output_directory)
     
-    
+    # This functions specifies how to handle slot data for Universal tracker.
+    # Setting this to static stops it generating before grabbing slot data.
+    @staticmethod
+    def interpret_slot_data(slot_data: dict[str, Any]) -> dict[str, Any]:
+        return slot_data
+
+    # This function actually loads the data from Universal Tracker and applies it to this generation.
+    # Doing so sets up the options to what was previously generated, including dungeon entrances if they exist.
+    def setup_ut(self):
+        if not hasattr(self.multiworld, "re_gen_passthrough") or self.game not in self.multiworld.re_gen_passthrough:
+            return
+
+        self.generating_in_ut = True
+        slot_data: dict[str, Any] = self.multiworld.re_gen_passthrough[self.game]
+
+        # Load previous data of dungeon entrances if it exists.
+        dungeon_entrances = slot_data.get("dungeon_entrances", None)
+        if dungeon_entrances is not None:
+            self.dungeon_connections = dungeon_entrances
+
+        slot_options: dict[str, Any] = slot_data.get("options", {})
+        for key, value in slot_options.items():
+            opt: Optional[Option] = getattr(self.options, key, None)
+            if opt is not None:
+                setattr(self.options, key, opt.from_any(value))
 

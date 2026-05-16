@@ -961,7 +961,7 @@ def set_location_rules(Ys8World: "Ys8World"):
     
     # Octus Overlook
     add_rule(loc("Octus Overlook Path of the Insectoid Era Chest 2"),
-            lambda state: state.has("Archeopteryx Wing", player))
+            lambda state: state.has("Archeopteryx Wings", player))
     
     # NPC Checks for Calm Inlet Area
     # Jewel Trade - Dina
