@@ -20,6 +20,8 @@
   item in the player's inventory that's given on game start, it's called AP Packages. If you received one of these items from another player use the AP Packages item and it will
   process the rest of the functions needed to finish giving the item.
 - The patcher set the game's settings to display in English, this is because all of the item edits and text edits are in English. It's likely still playable in other languages but do so at your own risk.
+- Linux Only: Video Cutscenes, such as the Falcom logo, can render incorrectly and freeze the game when skipped. Using Proton 9 can sidestep this by not having them render.
+
 
 ## Obtaining and using the patch
 
@@ -29,9 +31,9 @@ memory on startup so patching while the game is running won't cause explicit err
 ### Windows
 - Download Seiren Shuffle Lite.
 - Run it and select Browse under "Ys 8 Executable Location" and navigate to the location of your Ys 8 Steam install, select the executable.
-- Click "Patch Files" (This only needs ran once the first time you run the randomizer or if there are new updates to the game's script files for the Rando).
+- Click "Patch Files" (This only needs ran once the first time you run the randomizer, or after a new updates to Seiren Shuffle Lite).
 - Select your .apdana file that the AP world should have output using the Browse under "AP Patch File".
-- Click "Generate Seed".
+- Click "Generate Seed". (This will be needed for every new seed time.)
 - The game should now be ready to run. 
 
 ### Linux
@@ -40,14 +42,15 @@ memory on startup so patching while the game is running won't cause explicit err
 - Click Browse to find the executable location. You may need to manually enter the path due to steam's path being hidden. To do so:
   - Go to Ys 8 in steam, and browse local files. Copy the directory path here.
   - With the browser window open to the default area. Paste the directory into the filename and add `/ys8.exe`
+  - If that doesn't work. Open the `/` folder and try the above instructions again.
 - Browse and select the AP Patch file as well.
-- Press Patch Files. (This is only needed once per patcher update.)
-- Then press Generate Seed. (This is needed every time.)
+- Press Patch Files. (This only needs ran once the first time you run the randomizer, or after a new updates to Seiren Shuffle Lite).
+- Then press Generate Seed. (This will be needed for every new seed time.)
 - The game should now be ready to run.
 
 #### Selected files do not exist
 If you are running into this error on Linux, but your paths are correct, you may be running into sandboxing issues.
-If this is the Seiren Shuffle Lite program needs to be in the folder of or in a parent folder of both the steam application,
+If this is the case, then Seiren Shuffle Lite program needs to be in the folder of or in a parent folder of both the steam application,
 and the patch file. A way to do this, if running with steam, without moving the .exe is to edit the `Start In` location in steam properties to your home folder.
 
 ## Connecting to your multiworld via the Ys 8 Client
