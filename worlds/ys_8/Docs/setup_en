@@ -31,7 +31,7 @@ memory on startup so patching while the game is running won't cause explicit err
 ### Windows
 - Download Seiren Shuffle Lite.
 - Run it and select Browse under "Ys 8 Executable Location" and navigate to the location of your Ys 8 Steam install, select the executable.
-- Click "Patch Files" (This only needs ran once the first time you run the randomizer, or after a new updates to Seiren Shuffle Lite).
+- Click "Patch Files" (This only needs to be ran once the first time you run the randomizer, or after a new updates to Seiren Shuffle Lite).
 - Select your .apdana file that the AP world should have output using the Browse under "AP Patch File".
 - Click "Generate Seed". (This will be needed for every new seed.)
 - The game should now be ready to run. 
@@ -44,7 +44,7 @@ memory on startup so patching while the game is running won't cause explicit err
   - With the browser window open to the default area. Paste the directory into the filename and add `/ys8.exe`
   - If that doesn't work. Open the `/` folder and try the above instructions again.
 - Browse and select the AP Patch file as well.
-- Press Patch Files. (This only needs ran once the first time you run the randomizer, or after a new updates to Seiren Shuffle Lite).
+- Press Patch Files. (This only needs to be ran once the first time you run the randomizer, or after a new updates to Seiren Shuffle Lite).
 - Click "Generate Seed". (This will be needed for every new seed.)
 - The game should now be ready to run.
 
