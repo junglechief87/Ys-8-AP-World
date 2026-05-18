@@ -41,8 +41,8 @@ Please reach out to junglechief87 on Discord or update the issues page on github
 
 ## How do I activate X trigger or event? 
 As is the case with most randomizers certain things have changed to both improve world gating and pacing for pick up and play. Below is a guide that should help new players navigate some of the items made to accomodate the needs of the randomizer:
-=================================================================================================================================================================
-## New Progression Items
+
+### New Progression Items
 The randomizer features a variety of new progression items that are meant to take story gated events and turn them into item gated events to improve the overall experience of the rando. 
 
 - The biggest edition is the Dana past event items. Throughout the original game Adol would have flashbacks to the ancient era of the Eternians where the player would take control of the titular Dana. In the past certain things Dana did would affect and change the present and certain events would be required for player progression. These sequences were pretty brief and mostly involved running around talking to NPCs and getting lore dumps. None of that is really great content for a randomizer so instead certain items now trip game flags for having completed all the side quests and main quests from a particular flashback. Here is the list, you'll notice most of them are based on key items from the past events:
@@ -79,6 +79,6 @@ A couple quick notes that might not be immediately obvious.
 - There was a check added to the monolith scene at the top of Baja Tower, this was because there were no checks behind the boss of Baja Tower otherwise.
 - *Ricotta* will get an item dropped on her the second she enters Castaway Village for the first time, including if you got her as a starting character, this is the scene where she would meet Shoebill and Shoebill would officially join.
 - Remember that *Dana* can open essence doors, there are two in the game, they are highly relevant to progression.
-================================================================================================================================================================
+
 ## Credits
 This is mostly the work of junglechief87 with helpful contributions by ooiale and Ballistixx99. Based on the stand alone rando Seiren Shuffle also by junglechief87
