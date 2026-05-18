@@ -253,7 +253,7 @@ class AdditionalInterceptRewards(Toggle):
     default = False
 
 
-class BattleLogic(Toggle):
+class BattleLogic(Choice):
     """
     Attempts to smooth combat pacing by guaranteeing the player always has access
     to some amount of strength for each boss. No battle logic is applied to non-forced 
@@ -262,7 +262,11 @@ class BattleLogic(Toggle):
     Highly recommended to be left on, especially for Inferno difficulty.
     """
     display_name = "Battle Logic"
-    default = True
+    option_none = 0
+    option_easy = 1
+    option_normal = 2
+    option_hard = 3
+    default = 2
 
 class ProgressiveSuperItems(Toggle):
     """
@@ -551,7 +555,7 @@ Ys8_option_presets: Dict[str, Dict[str, Any]] = {
         "former_sanctuary_crypt": False,
         "experience_multiplier": 8,
         "additional_intercept_rewards": False,
-        "battle_logic": True,
+        "battle_logic": 2,
         "progressive_super_items": True,
         "fun_items": False,
         "octus_paths_opened": True,
@@ -588,7 +592,7 @@ Ys8_option_presets: Dict[str, Dict[str, Any]] = {
         "former_sanctuary_crypt": False,
         "experience_multiplier": 8,
         "additional_intercept_rewards": False,
-        "battle_logic": True,
+        "battle_logic": 2,
         "progressive_super_items": True,
         "fun_items": False,
         "octus_paths_opened": True,

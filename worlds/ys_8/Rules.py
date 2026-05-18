@@ -70,14 +70,34 @@ _BATTLE_REQ: dict[str, int] = {
 }
 
 # (required_str_threshold, party_members_required, flame_stones_required_or_none)
-_BATTLE_LOGIC_GATES: tuple[tuple[int, int, int | None], ...] = (
+_BATTLE_LOGIC_GATES_HARD: tuple[tuple[int, int, int | None], ...] = (
+    (700, 3, 6),
+    (650, 3, 5),
+    (450, 3, 3),
+    (350, 2, 3),
+    (250, 2, 2),
+    (200, 2, None),
+)
+
+# (required_str_threshold, party_members_required, flame_stones_required_or_none)
+_BATTLE_LOGIC_GATES_NORMAL: tuple[tuple[int, int, int | None], ...] = (
     (700, 3, 7),
     (650, 3, 6),
     (500, 3, 5),
     (450, 3, 3),
     (350, 2, 3),
     (250, 2, 2),
-    (200, 2, None),
+    (200, 2, 1),
+)
+
+# (required_str_threshold, party_members_required, flame_stones_required_or_none)
+_BATTLE_LOGIC_GATES_EASY: tuple[tuple[int, int, int | None], ...] = (
+    (650, 3, 7),
+    (500, 3, 6),
+    (450, 3, 5),
+    (200, 3, 3),
+    (80,  3, 1),
+    (50,  2, None),
 )
 
 def set_all_rules(Ys8World: "Ys8World"):
@@ -328,10 +348,18 @@ def accessory_str(Ys8World: "Ys8World", state: CollectionState) -> int:
     accStrList.sort(reverse=True)
     return accStrList[0] + accStrList[1]
 
+def get_gate_by_difficulty(difficulty: int) -> tuple[tuple[int, int, int | None], ...]:
+    if difficulty == 3:
+        return _BATTLE_LOGIC_GATES_HARD
+    elif difficulty == 1:
+        return _BATTLE_LOGIC_GATES_EASY
+    else:
+        return _BATTLE_LOGIC_GATES_NORMAL
+    
 def battle_logic(Ys8World: "Ys8World", state: CollectionState, required_str: int) -> bool:
     options = Ys8World.options
     player = Ys8World.player
-    if not options.battle_logic.value:
+    if options.battle_logic.value == 0:  # None
         return True
 
     weaponStr = 0
@@ -542,7 +570,9 @@ def battle_logic(Ys8World: "Ys8World", state: CollectionState, required_str: int
     elif state.has("Recipe Book/Colorful Meuniere", player):
         total *= 1.2 
 
-    for threshold, party_required, flame_required in _BATTLE_LOGIC_GATES:
+    if options.battle_logic.value == 3: required_str *= 0.9
+
+    for threshold, party_required, flame_required in get_gate_by_difficulty(options.battle_logic.value):
         if required_str >= threshold:
             if total < required_str or not has_required_party(Ys8World, state, party_required):
                 return False
