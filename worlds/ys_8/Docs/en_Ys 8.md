@@ -66,7 +66,7 @@ gives Kathleen.
 
 - The *Ship Blueprints* repair the boat that leads to Solitude Island.
 
-## Other Notes for Progression
+### Other Notes for Progression
 A couple quick notes that might not be immediately obvious.
 
 - *Dina* is logically required for getting rid of insect nests, her joining grants the player the ability to trade, including Jewel Trades, which is access to Insect Repellant and the player will also get 99 Insect Repellant upon having her join.
