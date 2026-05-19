@@ -81,7 +81,7 @@ _BATTLE_LOGIC_GATES_HARD: tuple[tuple[int, int, int | None], ...] = (
 
 # (required_str_threshold, party_members_required, flame_stones_required_or_none)
 _BATTLE_LOGIC_GATES_NORMAL: tuple[tuple[int, int, int | None], ...] = (
-    (700, 3, 7),
+    (800, 3, 7),
     (650, 3, 6),
     (500, 3, 5),
     (450, 3, 3),
@@ -92,7 +92,7 @@ _BATTLE_LOGIC_GATES_NORMAL: tuple[tuple[int, int, int | None], ...] = (
 
 # (required_str_threshold, party_members_required, flame_stones_required_or_none)
 _BATTLE_LOGIC_GATES_EASY: tuple[tuple[int, int, int | None], ...] = (
-    (650, 3, 7),
+    (700, 3, 7),
     (500, 3, 6),
     (450, 3, 5),
     (200, 3, 3),
@@ -570,7 +570,13 @@ def battle_logic(Ys8World: "Ys8World", state: CollectionState, required_str: int
     elif state.has("Recipe Book/Colorful Meuniere", player):
         total *= 1.2 
 
-    if options.battle_logic.value == 3: required_str *= 0.9
+    if options.battle_logic.value == 3: required_str *= 0.85
+
+    if options.battle_logic.value == 1:
+        if required_str >= 200 and not state.has_any({"Grind: Towering Coral Forest Night", "Grind: Mont Gendarme Night"}, player):
+            return False
+        if required_str >= 900 and not super_weapons:
+            return False
 
     for threshold, party_required, flame_required in get_gate_by_difficulty(options.battle_logic.value):
         if required_str >= threshold:
@@ -823,13 +829,15 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     set_rule(get_ent("TCFNFH TCFNRH Link"), lambda state: state.has("Grip Gloves", player))
     set_rule(get_ent("MGNFH MGNRH Link"), lambda state: state.has("Grip Gloves", player))
     
+    if not options.battle_logic.value == 3: # if not hard
+        set_rule(get_ent("OO Entrance OO Link"), lambda state: battle_logic(Ys8World, state, _BATTLE_REQ["OCTUS"]))
     if options.final_boss_access == 0:
-        set_rule(get_ent("TGTG OO Entrance"), lambda state: 
-                 has_required_crew(Ys8World, state, options.octus_count_crew_mode.value) and battle_logic(Ys8World, state, _BATTLE_REQ["OCTUS"]))
+        set_rule(get_ent("OO Entrance"), lambda state: 
+                 has_required_crew(Ys8World, state, options.octus_count_crew_mode.value))
     if options.final_boss_access == 2:
-        set_rule(get_ent("TGTG OO Entrance"), lambda state:
+        set_rule(get_ent("OO Entrance"), lambda state:
                  state.has_from_list(["Psyches of the Sky Era", "Psyches of the Insectoid Era", "Psyches of the Ocean Era", "Psyches of the Frozen Era"],\
-                                      player, options.octus_count_psyches_mode.value) and battle_logic(Ys8World, state, _BATTLE_REQ["OCTUS"]))
+                                      player, options.octus_count_psyches_mode.value))
     
 
 def set_location_rules(Ys8World: "Ys8World"):

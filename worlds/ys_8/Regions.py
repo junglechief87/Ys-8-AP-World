@@ -96,8 +96,9 @@ def create_regions(Ys8World):
         "Stone Pillar Wind Cave Upper": ["SPWCU SPWC Exit"],
         "Temple of the Great Tree": ["TGT SNA Exit", "TGT Boss Entrance", "TGT ROE Link", "TGT VR Link"],
         "Temple of the Great Tree Boss Arena": ["TGT Boss Exit", "TGT Garden Link"],
-        "Temple of the Great Tree Garden": ["TGTG TGT Exit", "TGTG OO Entrance"],
-        "Octus Overlook": ["OO SS Link", "OO TGT Exit"],
+        "Temple of the Great Tree Garden": ["TGTG TGT Exit", "OO Entrance"],
+        "Octus Overlook Entrance": ["OO Entrance OO Link", "OO TGT Exit"],
+        "Octus Overlook": ["OO OO Entrance Link", "OO SS Link"],
         "Selection Sphere": ["SS OO Exit"],
         "Ruins of Eternia": ["ROE SNA Exit", "ROE TGT Exit", "ROE TH Link", "ROE BM Link", "ROE ROEHP Link", "ROE BTAC Link"],
         "Bridge to Archeozoic Chasm": ["BTAC ROE Exit", "AC Entrance"],
@@ -501,10 +502,12 @@ def connect_entrances(Ys8World: "Ys8World"):
     
     # Temple of the Great Tree Garden
     connect("TGTG TGT Exit", "Temple of the Great Tree Boss Arena")
-    connect("TGTG OO Entrance", "Octus Overlook")
+    connect("OO Entrance", "Octus Overlook Entrance")
 
     # Octus Overlook
     connect("OO TGT Exit", "Temple of the Great Tree Garden")
+    connect("OO Entrance OO Link", "Octus Overlook")
+    connect("OO OO Entrance Link", "Octus Overlook Entrance")
     connect("OO SS Link", "Selection Sphere")
     
     # Selection Sphere

@@ -434,6 +434,15 @@ class DeathLink(Toggle):
     display_name = "Death Link"
     default = False
 
+class HelperText(Toggle):
+    """
+    If enabled, this will display additional descriptive text about items.
+    This is meant to help with new player onboarding.
+    For remote items it will show the information in the client.
+    """
+    display_name = "Helper Text"
+    default = False
+
 
 @dataclass
 class Ys8Options(PerGameCommonOptions):
@@ -483,6 +492,7 @@ class Ys8Options(PerGameCommonOptions):
     essence_key_sanity: EssenceKeySanity
     starting_character_weights: StartingCharacterWeights
     death_link: DeathLink
+    helper_text: HelperText
 
 Ys8_option_groups = [
     OptionGroup("Goal Settings", [
@@ -531,6 +541,7 @@ Ys8_option_groups = [
         EssenceKeySanity,
         StartingCharacterWeights,
         DeathLink,
+        HelperText,   
     ]),
 ]
 
@@ -571,6 +582,7 @@ Ys8_option_presets: Dict[str, Dict[str, Any]] = {
         "essence_key_sanity": False,
         "starting_character_weights": {"Adol": 1, "Laxia": 1, "Sahad": 1, "Hummel": 1, "Ricotta": 1, "Dana": 1},
         "death_link": False,
+        "helper_text": False,
     },
     "Default Release Psyches": {
         "final_boss_access": FinalBossAccess.option_release_the_psyches,
@@ -608,5 +620,6 @@ Ys8_option_presets: Dict[str, Dict[str, Any]] = {
         "essence_key_sanity": False,
         "starting_character_weights": {"Adol": 1, "Laxia": 1, "Sahad": 1, "Hummel": 1, "Ricotta": 1, "Dana": 1},
         "death_link": False,
+        "helper_text": False,
     }
 }
