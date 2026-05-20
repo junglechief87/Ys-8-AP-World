@@ -44,25 +44,50 @@ boss_list: dict[str, boss] = {
     "Force Garmr":          boss(700,   59, 'M0643',    ["Valley of Kings Before Door"],                                            ["Doxa Griel", "Basileus"]),
     "Silvia":               boss(750,   60, 'B155',     ["Calm Inlet Area"]),
     "Basileus":             boss(750,   60, 'B005',     ["Valley of Kings Before Door"],                                            ["Doxa Griel", "Force Garmr"]),
-    "Psyche Hydra":         boss(900,   67, 'B112',     ["Octus Overlook"],                                                         ["Psyche Minos", "Psyche Nestor", "Psyche Ura"]),
-    "Psyche Minos":         boss(920,   70, 'B110',     ["Octus Overlook"],                                                         ["Psyche Hydra", "Psyche Nestor", "Psyche Ura"]),
-    "Psyche Nestor":        boss(940,   73, 'B111',     ["Octus Overlook"],                                                         ["Psyche Hydra", "Psyche Minos", "Psyche Ura"]),
-    "Psyche Ura":           boss(960,   75, 'B008',     ["Octus Overlook"],                                                         ["Psyche Hydra", "Psyche Minos", "Psyche Nestor"]),
-    "Final Boss":           boss(960,   79, 'B020',     ["Octus Overlook"]),
+    "Psyche Hydra":         boss(900,   67, 'B112',     ["Octus Overlook Entrance"],                                                ["Psyche Minos", "Psyche Nestor", "Psyche Ura"]),
+    "Psyche Minos":         boss(920,   70, 'B110',     ["Octus Overlook Entrance"],                                                ["Psyche Hydra", "Psyche Nestor", "Psyche Ura"]),
+    "Psyche Nestor":        boss(940,   73, 'B111',     ["Octus Overlook Entrance"],                                                ["Psyche Hydra", "Psyche Minos", "Psyche Ura"]),
+    "Psyche Ura":           boss(960,   75, 'B008',     ["Octus Overlook Entrance"],                                                ["Psyche Hydra", "Psyche Minos", "Psyche Nestor"]),
+    "Final Boss":           boss(960,   79, 'B020',     ["Octus Overlook Entrance"]),
     "Mephorash":            boss(1000,  80, 'B153',     ["Silent Tower"]),
     "Melaiduma":            boss(1100,  99, 'B170',     ["Former Sanctuary Crypt Front"]),
 }
 
 boss_stats = boss_list.copy()
 
-def randomize_levels_chaotic(Ys8World):
+def boss_excludes(options):
+    exclude_bosses = []
+    boss_option_dict = {
+        "Melaiduma": options.former_sanctuary_crypt.value == 0,
+        "Mephorash": options.mephorash_progression.value == 0,
+        "Silvia": options.silvia_progression.value == 0,
+        "Psyche Hydra": options.final_boss_access == 2,
+        "Psyche Minos": options.final_boss_access == 2,
+        "Psyche Nestor": options.final_boss_access == 2,
+        "Psyche Ura": options.final_boss_access == 2,
+    }
+    for boss_name, option_condition in boss_option_dict.items():
+        if option_condition:
+            exclude_bosses.append(boss_name)
+    exclude_bosses.append("Final Boss")
+    
+    return exclude_bosses
+
+def randomize_levels_chaotic(Ys8World, exclude_bosses=None):
+    exclude_bosses = boss_excludes(Ys8World.options)
     multiworld = Ys8World.multiworld
 
-    boss_stats_list = [stats for stats in boss_list.values()]
+    # Only shuffle bosses not in exclude_bosses
+    boss_names_to_shuffle = [name for name in boss_list.keys() if name not in exclude_bosses]
+    boss_stats_list = [boss_list[name] for name in boss_names_to_shuffle]
     multiworld.random.shuffle(boss_stats_list)
-    for boss_name in boss_list.keys():
+    for boss_name in boss_names_to_shuffle:
         stats = boss_stats_list.pop()
-        boss_stats[boss_name] = stats
+        original = boss_list[boss_name]
+        boss_stats[boss_name] = boss(stats.str_threshold, stats.level, original.boss_id, original.associated_entrances, original.paired_bosses)
+    # For excluded bosses, keep their original stats
+    for boss_name in exclude_bosses:
+        boss_stats[boss_name] = boss_list[boss_name]
 
 def randomize_levels_balanced(Ys8World):
     multiworld = Ys8World.multiworld
@@ -87,7 +112,7 @@ def randomize_levels_balanced(Ys8World):
             middle_regions.append("Mont Gendarme After Boss")
 
     if Ys8World.options.dungeon_entrance_shuffle.value:
-        for entrance, region in Ys8World.dungeon_connections:
+        for entrance, region in Ys8World.dungeon_connections.items():
             if entrance in early_entrances:
                 early_regions.append(region)
             elif entrance in middle_entrances:
@@ -104,54 +129,51 @@ def randomize_levels_balanced(Ys8World):
         else:
             later_boss.append(boss_name)
 
-    boss_list_values = list(boss_list.values())
-    early_boss_levels = boss_list_values[0:len(early_boss)]
-    middle_boss_levels = boss_list_values[len(early_boss):len(early_boss) + len(middle_boss)]
-    later_boss_levels = boss_list_values[len(early_boss) + len(middle_boss):]
-        
-    multiworld.random.shuffle(early_boss_levels)
-    multiworld.random.shuffle(middle_boss_levels)
-    multiworld.random.shuffle(later_boss_levels)
+    exclude_bosses = boss_excludes(Ys8World.options)
+    early_boss = [b for b in early_boss if b not in exclude_bosses]
+    middle_boss = [b for b in middle_boss if b not in exclude_bosses]
+    later_boss = [b for b in later_boss if b not in exclude_bosses]
+
+    early_boss_levels = [boss_list[b] for b in early_boss]
+    middle_boss_levels = [boss_list[b] for b in middle_boss]
+    later_boss_levels = [boss_list[b] for b in later_boss]
+
+    multiworld.random.shuffle(early_boss)
+    multiworld.random.shuffle(middle_boss)
+    multiworld.random.shuffle(later_boss)
 
     def assign_stats_with_pairs(boss_names, stats_pool):
-        used_indices = set()
+        sorted_boss_stats = sorted(stats_pool, key=lambda x: x.level)
+        sorted_boss_names = []
+        assigned = set()
+        
+        # build assingment order
         for boss_name in boss_names:
-            # Find next unused stat
-            stat_idx = None
-            for i in range(len(stats_pool)):
-                if i not in used_indices:
-                    stat_idx = i
-                    break
-            
-            if stat_idx is None:
-                break
-            
-            new_stats = stats_pool[stat_idx]
-            used_indices.add(stat_idx)
-            boss_stats[boss_name] = boss(new_stats.str_threshold, new_stats.level, new_stats.boss_id)
-            
-            # Handle paired bosses - find closest level/str_threshold match from remaining stats
+            if boss_name in exclude_bosses:
+                continue
             if boss_list[boss_name].paired_bosses:
-                for paired_boss in boss_list[boss_name].paired_bosses:
-                    target_level = new_stats.level
-                    closest_idx = None
-                    closest_diff = float('inf')
-                    
-                    for i in range(len(stats_pool)):
-                        if i not in used_indices:
-                            diff = abs(stats_pool[i].level - target_level)
-                            if diff < closest_diff:
-                                closest_diff = diff
-                                closest_idx = i
-                    
-                    if closest_idx is not None:
-                        paired_stats = stats_pool[closest_idx]
-                        used_indices.add(closest_idx)
-                        boss_stats[paired_boss] = boss(paired_stats.str_threshold, paired_stats.level, paired_stats.boss_id)
-
+                paired_boss_list = [boss_name]
+                for paired in boss_list[boss_name].paired_bosses:
+                    if boss_name in exclude_bosses:
+                        continue
+                    paired_boss_list.append(paired)
+                paired_boss_list_sorted = sorted(paired_boss_list, key=lambda name: list(boss_list.keys()).index(name))
+                sorted_boss_names.extend(paired_boss_list_sorted)
+            sorted_boss_names.append(boss_name)
+        
+        for boss_name in sorted_boss_names:
+            if boss_name in assigned or boss_name in exclude_bosses:
+                continue
+            stats = sorted_boss_stats.pop(0)
+            boss_stats[boss_name] = boss(stats.str_threshold, stats.level, boss_list[boss_name].boss_id, boss_list[boss_name].associated_entrances, boss_list[boss_name].paired_bosses)
+            assigned.add(boss_name)
+            
     assign_stats_with_pairs(early_boss, early_boss_levels)
     assign_stats_with_pairs(middle_boss, middle_boss_levels)
     assign_stats_with_pairs(later_boss, later_boss_levels)
+
+    for boss_name in exclude_bosses:
+        boss_stats[boss_name] = boss_list[boss_name]
     
     # Debug output
     debug_output = {
