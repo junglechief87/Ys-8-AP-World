@@ -88,6 +88,8 @@ def randomize_levels_chaotic(Ys8World, exclude_bosses=None):
     # For excluded bosses, keep their original stats
     for boss_name in exclude_bosses:
         boss_stats[boss_name] = boss_list[boss_name]
+    
+    build_boss_level_mapping(Ys8World)
 
 def randomize_levels_balanced(Ys8World):
     multiworld = Ys8World.multiworld
@@ -165,7 +167,9 @@ def randomize_levels_balanced(Ys8World):
             if boss_name in assigned or boss_name in exclude_bosses:
                 continue
             stats = sorted_boss_stats.pop(0)
-            boss_stats[boss_name] = boss(stats.str_threshold, stats.level, boss_list[boss_name].boss_id, boss_list[boss_name].associated_entrances, boss_list[boss_name].paired_bosses)
+            boss_stats[boss_name] = boss(stats.str_threshold, stats.level, 
+                                         boss_list[boss_name].boss_id, boss_list[boss_name].associated_entrances, 
+                                         boss_list[boss_name].paired_bosses)
             assigned.add(boss_name)
             
     assign_stats_with_pairs(early_boss, early_boss_levels)
@@ -175,25 +179,7 @@ def randomize_levels_balanced(Ys8World):
     for boss_name in exclude_bosses:
         boss_stats[boss_name] = boss_list[boss_name]
     
-    # Debug output
-    debug_output = {
-        "tier_distribution": {
-            "early_bosses": early_boss,
-            "middle_bosses": middle_boss,
-            "later_bosses": later_boss,
-        },
-        "boss_stats": {
-            boss_name: {
-                "str_threshold": stats.str_threshold,
-                "level": stats.level,
-                "boss_id": stats.boss_id,
-                "associated_entrances": stats.associated_entrances,
-                "paired_bosses": stats.paired_bosses,
-            }
-            for boss_name, stats in boss_stats.items()
-        }
-    }
-    print("\n=== BALANCED BOSS RANDOMIZATION DEBUG ===")
-    print(json.dumps(debug_output, indent=2))
-    print("=========================================\n")
+    build_boss_level_mapping(Ys8World)
 
+def build_boss_level_mapping(Ys8World):
+    Ys8World.boss_levels = {boss_name: {"level": stats.level, "boss_id": stats.boss_id} for boss_name, stats in boss_stats.items()} 

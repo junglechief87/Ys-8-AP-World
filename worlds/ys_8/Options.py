@@ -98,7 +98,7 @@ class ShuffleBossLevels(Choice):
     Balanced: Boss levels are shuffled but distributed in a way to avoid extreme outliers and to keep early game bosses at relatively lower levels.
     Chaotic: Boss levels are completely shuffled with no restrictions. This can lead to extreme outliers and early game bosses being late game levels.
     """
-    display_name = "Boss Level Randomization"
+    display_name = "Boss Level Shuffle"
     option_none = 0
     option_balanced = 1
     option_chaotic = 2

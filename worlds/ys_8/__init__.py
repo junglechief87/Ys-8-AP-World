@@ -7,14 +7,14 @@ from BaseClasses import ItemClassification, Tutorial
 from Options import OptionError, Option
 from worlds.AutoWorld import WebWorld, World
 from worlds.generic.Rules import add_item_rule
-from .Options import Ys8Options, Ys8_option_groups, Ys8_option_presets
+from .Options import Ys8Options, Ys8_option_groups
 from .Locations import location_table, location_name_groups
 from .Items import Ys8Item, get_item_pool_quantity, get_items_by_category, item_table, item_name_groups, event_item_table
 from .Rules import set_all_rules
 from .Regions import create_regions, connect_entrances
 from .Generate_Json import generate_json
 from .Entrance_Shuffle import dungeon_entrance_shuffle
-from .Boss_Level_Randomization import randomize_levels_balanced, randomize_levels_chaotic, boss_list
+from .Boss_Level_Randomization import randomize_levels_balanced, randomize_levels_chaotic
 
 class Ys8Web(WebWorld):
     theme = "jungle"
@@ -28,7 +28,6 @@ class Ys8Web(WebWorld):
     )
     tutorials = [setup_en]
 
-    options_presets = Ys8_option_presets
     option_groups = Ys8_option_groups
 
 class Ys8World(World):
@@ -58,9 +57,9 @@ class Ys8World(World):
         super(Ys8World, self).__init__(multiworld, player)
         self.chosen_psyche_fight_list = None
         self.chosen_psyche_location_list = None
-        self.boss_spoiler = []
         self.dungeon_connections = {}
         self.entrance_spoiler = []
+        self.boss_levels = {}
         self.starting_character = None
         self.adol_starting_skills = []
         self.sahad_starting_skills = []
@@ -82,9 +81,9 @@ class Ys8World(World):
         if self.options.dungeon_entrance_shuffle.value:
             dungeon_entrance_shuffle(self)
 
-        if self.options.boss_level_randomization.value == "balanced":
+        if self.options.shuffle_boss_levels == 1:
             randomize_levels_balanced(self)
-        elif self.options.boss_level_randomization.value == "chaotic":
+        elif self.options.shuffle_boss_levels == 2:
             randomize_levels_chaotic(self)
 
     def create_regions(self):
@@ -234,10 +233,6 @@ class Ys8World(World):
     
     def write_spoiler(self, spoiler_handle: TextIO) -> None:
         player_name = self.multiworld.get_player_name(self.player)
-        spoiler_handle.write(f"\n\nYs 8 Dungeon Entrance Randomization for {player_name}:\n")
-        
-        for entrance in self.entrance_spoiler:
-            spoiler_handle.write(f"\t{entrance}\n")
         
         spoiler_handle.write(f"\n\nYs 8 Starting Character and Skills for {player_name}:\n")
         spoiler_handle.write(f"\tStarting Character: {self.starting_character}\n")
@@ -248,6 +243,12 @@ class Ys8World(World):
         spoiler_handle.write(f"\tHummel Starting Skills: {', '.join(self.hummel_starting_skills)}\n")
         spoiler_handle.write(f"\tDana Starting Skills: {', '.join(self.dana_starting_skills)}\n")
 
+        if self.options.dungeon_entrance_shuffle.value:
+            spoiler_handle.write(f"\n\nYs 8 Dungeon Entrance Randomization for {player_name}:\n")
+            
+            for entrance in self.entrance_spoiler:
+                spoiler_handle.write(f"\t{entrance}\n")
+
         if self.options.final_boss_access == 2:
             # Build mapping: psyche boss location → access item location
             fights = list(self.chosen_psyche_fight_list.keys())
@@ -256,6 +257,11 @@ class Ys8World(World):
             spoiler_handle.write(f"\n\nPsyche Fight Shuffle for {player_name}:\n")
             for fight_location, access_location in zip(fights, locations):
                 spoiler_handle.write(f"\t{fight_location} is accessed by {access_location}\n")
+        
+        if self.options.shuffle_boss_levels in [1, 2]:
+            spoiler_handle.write(f"\n\nBoss Level Randomization for {player_name}:\n")
+            for boss_name, boss_data in self.boss_levels.items():
+                spoiler_handle.write(f"\t{boss_name} => level {boss_data['level']}\n")
 
     def generate_output(self, output_directory: str):
         generate_json(self, output_directory)
