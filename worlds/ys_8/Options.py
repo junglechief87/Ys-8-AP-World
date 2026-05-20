@@ -376,6 +376,7 @@ class FinalBoss(Choice):
     option_theos = 0
     option_origin = 1
     option_both = 2
+    option_io = 3
     default = 0
 
 

@@ -50,6 +50,16 @@ _BATTLE_LOGIC_GATES_EASY: tuple[tuple[int, int, int | None], ...] = (
     (50,  2, None),
 )
 
+_FIGHT_WEAKNESS_MAPPINGS: dict[str, list[str]] = {
+    "Grazios Psyches": ["Slash",],
+    "Nebritia Psyches": ["Strike",],
+    "Argura Psyches": ["Slash", "Strike"],
+    "Crusos Psyches": ["Pierce",],
+    "Blasphima Psyches": ["Slash", "Strike"],
+    "Le-Kyanos Psyches": ["Slash", "Strike", "Pierce"],
+    "FINAL_BOSS": ["Slash", "Strike", "Pierce"],
+}
+
 # Centralized battle requirement values used by battle_logic call sites.
 # Keys without hard coded values are built that way for potential randomization.
 def get_battle_req() -> dict[str, int]:
@@ -756,7 +766,7 @@ def set_entrance_rules(Ys8World: "Ys8World"):
     set_rule(get_ent("TGT SNA Exit"), lambda state: state.has("Dana", player))
     set_rule(get_ent("TGT ROE Link"), lambda state: state.has("Green Seal of Roaring Stone", player))
     set_rule(get_ent("TGT Boss Exit"), lambda state: state.has("Brachion Defeated", player))
-    set_rule(get_ent("TGT Garden Link"), lambda state: state.has("Brachion Defeated", player))
+    set_rule(get_ent("TGT Post-Boss Link"), lambda state: state.has("Brachion Defeated", player))
 
     # Ruins of Eternia Connections
     set_rule(get_ent("ROE SNA Exit"), lambda state: state.has("Blue Seal of Whirling Water", player))
@@ -848,6 +858,12 @@ def set_location_rules(Ys8World: "Ys8World"):
 
     def loc(name: str):
         return multiworld.get_location(name, player)
+    
+    def add_weakness_check(fight: str):
+        weakness_list = _FIGHT_WEAKNESS_MAPPINGS[fight]
+        characters_can_hit_weakness = [{damage_type: character} for damage_type, character in Ys8World.damage_mapping.items() if damage_type in weakness_list]
+        for damage_type in characters_can_hit_weakness:
+            add_rule(loc(fight), lambda state: state.has_any(damage_type.values(), player))
 
     # Former Sanctuary Crypt B4 — underwater chests
     if options.former_sanctuary_crypt.value:
@@ -1563,7 +1579,9 @@ def set_location_rules(Ys8World: "Ys8World"):
     # --- Goal ---
     set_rule(loc("Octus Overlook Selection Sphere Goal"),
              lambda state: battle_logic(Ys8World, state, get_battle_req()["FINAL_BOSS"]))
-    
+    if options.final_boss in [0, 2, 3]: # theos, theos + origin, or io
+        add_weakness_check("FINAL_BOSS")
+        
     if options.final_boss_access == 0:
         add_rule(loc("Octus Overlook Selection Sphere Goal"),
                  lambda state: has_required_crew(Ys8World, state, options.goal_count_crew_final_boss))
@@ -1601,6 +1619,8 @@ def set_location_rules(Ys8World: "Ys8World"):
             boss_defeat = region_boss_mapping.get(region_name)
             add_rule(psyche_loc, lambda state: state.has(boss_defeat, player))
             add_rule(loc(psyche_fight), lambda state: state.has(access_item_name, player) and battle_logic(Ys8World, state, get_battle_req()["PSYCHE_FIGHT_GENERIC"]))
+            if psyche_fight in _FIGHT_WEAKNESS_MAPPINGS.keys():
+                add_weakness_check(psyche_fight)
 
     elif options.final_boss_access == 3:
         add_rule(loc("Octus Overlook Selection Sphere Goal"),

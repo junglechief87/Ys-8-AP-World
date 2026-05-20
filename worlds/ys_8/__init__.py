@@ -69,6 +69,12 @@ class Ys8World(World):
         self.dana_starting_skills = []
         self.starting_skills = []
         self.starting_skill_codes = {}
+        self.damage_mapping = {
+            "Slash": ["Adol", "Dana"],
+            "Pierce": ["Laxia", "Hummel"],
+            "Strike": ["Sahad", "Ricotta"],
+
+        }
         self.max_psyche_num = 4
 
     def generate_early(self):
