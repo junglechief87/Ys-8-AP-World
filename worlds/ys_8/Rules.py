@@ -57,7 +57,7 @@ _FIGHT_WEAKNESS_MAPPINGS: dict[str, list[str]] = {
     "Crusos Psyches": ["Pierce",],
     "Blasphima Psyches": ["Slash", "Strike"],
     "Le-Kyanos Psyches": ["Slash", "Strike", "Pierce"],
-    "FINAL_BOSS": ["Slash", "Strike", "Pierce"],
+    "Octus Overlook Selection Sphere Goal": ["Slash", "Strike", "Pierce"],
 }
 
 # Centralized battle requirement values used by battle_logic call sites.
@@ -861,9 +861,9 @@ def set_location_rules(Ys8World: "Ys8World"):
     
     def add_weakness_check(fight: str):
         weakness_list = _FIGHT_WEAKNESS_MAPPINGS[fight]
-        characters_can_hit_weakness = [{damage_type: character} for damage_type, character in Ys8World.damage_mapping.items() if damage_type in weakness_list]
-        for damage_type in characters_can_hit_weakness:
-            add_rule(loc(fight), lambda state: state.has_any(damage_type.values(), player))
+        characters_can_hit_weakness = {damage_type: character for damage_type, character in Ys8World.damage_mapping.items() if damage_type in weakness_list}
+        for characters in characters_can_hit_weakness.values():
+            add_rule(loc(fight), lambda state: state.has_any(characters, player))
 
     # Former Sanctuary Crypt B4 — underwater chests
     if options.former_sanctuary_crypt.value:
@@ -1580,7 +1580,7 @@ def set_location_rules(Ys8World: "Ys8World"):
     set_rule(loc("Octus Overlook Selection Sphere Goal"),
              lambda state: battle_logic(Ys8World, state, get_battle_req()["FINAL_BOSS"]))
     if options.final_boss in [0, 2, 3]: # theos, theos + origin, or io
-        add_weakness_check("FINAL_BOSS")
+        add_weakness_check("Octus Overlook Selection Sphere Goal")
         
     if options.final_boss_access == 0:
         add_rule(loc("Octus Overlook Selection Sphere Goal"),

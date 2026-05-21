@@ -109,8 +109,8 @@ CONNECTORS: tuple[FieldConnector, ...] = (
     FieldConnector("BTLF Entrance",         "Towal Highway Baja Tower Entrance",        is_north=True),
     FieldConnector("LMB VOKBD Entrance",    "Lodinia Marshlands Back",                  is_north=True),
     FieldConnector("TGT Entrance",          "Temple of the Great Tree Entrance",        is_north=True),
-    FieldConnector("TGT Garden Entrance",   "Temple of the Great Tree Garden Entrance", is_garden=True),
-    FieldConnector("OO Entrance",           "Temple of the Great Tree Garden",          is_garden=True),
+    FieldConnector("TGT Garden Entrance",   "Temple of the Great Tree Garden Entrance", is_garden=True, always_isolated=True),
+    FieldConnector("OO Entrance",           "Temple of the Great Tree Garden",          is_garden=True, always_isolated=True),
     FieldConnector("ST Entrance",           "Silent Tower Entrance"),
     FieldConnector("NCA ECCBG Entrance",    "Nostalgia Cape Area"),
     # always_isolated — dead-end; never enters free_exits
