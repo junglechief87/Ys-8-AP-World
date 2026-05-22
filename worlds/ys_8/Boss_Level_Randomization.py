@@ -40,14 +40,14 @@ boss_list: dict[str, boss] = {
                                                          "Temple of the Great Tree After Boss"]),
     "Exmetal":              boss(500,   43, 'B104',     ["Baja Tower Lower Floors"]),
     "Carveros":             boss(550,   45, 'B004',     ["Baja Tower Lower Floors"]),
-    "Gilkyra":              boss(450,   48, 'M0902',    ["East Coast Cave Before Gilkyra"],       paired_bosses=["Pirate Revenant"]),
-    "Pirate Revenant":      boss(550,   48, 'B103',     ["East Coast Cave Before Gilkyra"],       paired_bosses=["Gilkyra"]),
+    "Gilkyra":              boss(450,   48, 'M0902',    ["East Coast Cave Before Gilkyra"],       ordered_paired_bosses=["Gilkyra", "Pirate Revenant"]),
+    "Pirate Revenant":      boss(550,   48, 'B103',     ["East Coast Cave Before Gilkyra"],       ordered_paired_bosses=["Gilkyra", "Pirate Revenant"]),
     "Coelacantos":          boss(580,   51, 'B106',     ["Archeozoic Chasm Front"]),
     "Oceanus":              boss(660,   53, 'B007',     ["Archeozoic Chasm Front"]),
-    "Doxa Griel":           boss(700,   58, 'B105',     ["Valley of Kings Before Door"],          paired_bosses=["Force Garmr", "Basileus"]),
-    "Force Garmr":          boss(700,   59, 'M0643',    ["Valley of Kings Before Door"],          paired_bosses=["Doxa Griel", "Basileus"]),
+    "Doxa Griel":           boss(700,   58, 'B105',     ["Valley of Kings Before Door"]),
+    "Force Garmr":          boss(700,   59, 'M0643',    ["Valley of Kings Before Door"],          ordered_paired_bosses=["Force Garmr", "Basileus"]),
     "Silvia":               boss(750,   60, 'B155',     ["Calm Inlet Area"]),
-    "Basileus":             boss(750,   60, 'B005',     ["Valley of Kings Before Door"],          paired_bosses=["Doxa Griel", "Force Garmr"]),
+    "Basileus":             boss(750,   60, 'B005',     ["Valley of Kings Before Door"],          ordered_paired_bosses=["Force Garmr", "Basileus"]),
     "Psyche Hydra":         boss(900,   67, 'B112',     ["Octus Overlook Entrance"],              paired_bosses=["Psyche Minos", "Psyche Nestor", "Psyche Ura"]),
     "Psyche Minos":         boss(920,   70, 'B110',     ["Octus Overlook Entrance"],              paired_bosses=["Psyche Hydra", "Psyche Nestor", "Psyche Ura"]),
     "Psyche Nestor":        boss(940,   73, 'B111',     ["Octus Overlook Entrance"],              paired_bosses=["Psyche Hydra", "Psyche Minos", "Psyche Ura"]),
@@ -144,25 +144,36 @@ def randomize_levels_balanced(Ys8World):
     later_boss = [b for b in later_boss if b not in exclude_bosses]
 
 
-    def build_assignment_list(boss_names, exclude_bosses):
+    def build_assignment_list(boss_names, exclude_bosses, used_bosses):
         assignment = []
         for boss_name in boss_names:
-            if boss_name in exclude_bosses or boss_name in assignment:
+            if boss_name in exclude_bosses or \
+               boss_name in assignment or \
+               boss_name in used_bosses:
                 continue
-            if boss_list[boss_name].paired_bosses:
+            elif boss_list[boss_name].paired_bosses:
+                assignment.append(boss_name)
                 for paired in boss_list[boss_name].paired_bosses:
-                    if paired not in exclude_bosses and paired not in assignment:
+                    if paired not in exclude_bosses and \
+                       paired not in assignment and \
+                       paired not in used_bosses:
                         assignment.append(paired)
-            if boss_list[boss_name].ordered_paired_bosses:
+            elif boss_list[boss_name].ordered_paired_bosses:
                 for paired in boss_list[boss_name].ordered_paired_bosses:
-                    if paired not in exclude_bosses and paired not in assignment:
+                    if paired not in exclude_bosses and \
+                       paired not in assignment and \
+                       paired not in used_bosses:
                         assignment.append(paired)
-            assignment.append(boss_name)
-        return assignment
-
-    early_assignment = build_assignment_list(early_boss, exclude_bosses)
-    middle_assignment = build_assignment_list(middle_boss, exclude_bosses)
-    later_assignment = build_assignment_list(later_boss, exclude_bosses)
+            else:
+                assignment.append(boss_name)
+        
+        used_bosses.extend(assignment)
+        return assignment,used_bosses
+    
+    used_bosses = []
+    early_assignment, used_bosses = build_assignment_list(early_boss, exclude_bosses, used_bosses)
+    middle_assignment, used_bosses = build_assignment_list(middle_boss, exclude_bosses, used_bosses)
+    later_assignment, used_bosses = build_assignment_list(later_boss, exclude_bosses, used_bosses)
 
     sorted_stats = sorted(boss_list.values(), key=lambda x: x.level)
     early_boss_levels = sorted_stats[:len(early_assignment)]
@@ -170,46 +181,44 @@ def randomize_levels_balanced(Ys8World):
     later_boss_levels = sorted_stats[len(early_assignment)+len(middle_assignment):len(early_assignment)+
                                      len(middle_assignment)+len(later_assignment)]
 
-    multiworld.random.shuffle(early_boss)
-    multiworld.random.shuffle(middle_boss)
-    multiworld.random.shuffle(later_boss)
-
     def assign_stats_with_pairs(boss_names, stats_pool):
-        sorted_boss_stats = sorted(stats_pool, key=lambda x: x.level)
-        sorted_boss_names = []
+        multiworld.random.shuffle(stats_pool)
         assigned = set()
-        
-        # build assingment order
-        for boss_name in boss_names:
-            if boss_name in exclude_bosses or boss_name in sorted_boss_names:
-                continue
-            if boss_list[boss_name].paired_bosses:
-                paired_boss_list = [boss_name]
-                for paired in boss_list[boss_name].paired_bosses:
-                    if boss_name in exclude_bosses:
-                        continue
-                    paired_boss_list.append(paired)
-                paired_boss_list_sorted = sorted(paired_boss_list, key=lambda name: list(boss_list.keys()).index(name))
-                sorted_boss_names.extend(paired_boss_list_sorted)
-            elif boss_list[boss_name].ordered_paired_bosses:
-                for paired in boss_list[boss_name].ordered_paired_bosses:
-                    if paired in exclude_bosses:
-                        continue
-                    sorted_boss_names.append(paired)
-            sorted_boss_names.append(boss_name)
-        
-        for boss_name in sorted_boss_names:
-            if boss_name in assigned or boss_name in exclude_bosses:
-                continue
-            stats = sorted_boss_stats.pop(0)
+        def assign_boss_stats(boss_name, stats):
             boss_stats[boss_name] = boss(stats.str_threshold, stats.level, 
                                          boss_list[boss_name].boss_id, boss_list[boss_name].associated_entrances, 
                                          boss_list[boss_name].paired_bosses)
             assigned.add(boss_name)
-            
-    assign_stats_with_pairs(early_boss, early_boss_levels)
-    assign_stats_with_pairs(middle_boss, middle_boss_levels)
-    assign_stats_with_pairs(later_boss, later_boss_levels)
+        
+        for boss_name in boss_names:
+            if boss_name in assigned:
+                continue
+            # If the bosses are an ordered pair we sort the remaining stats pool by level and assign in order
+            # then reshuffle the remaining pool. This keeps the levels close and in a specific order but still random.
+            if boss_stats[boss_name].ordered_paired_bosses:
+                stats_pool = sorted(stats_pool, key=lambda x: x.level)
+                for paired in boss_stats[boss_name].ordered_paired_bosses:
+                    if paired in assigned:
+                        continue
+                    assign_boss_stats(paired, stats_pool.pop(0))
+                multiworld.random.shuffle(stats_pool)
+            # If the bosses are an unordered pair we sort the stats pool gather our boss list
+            # then shuffle the list. This keeps the levels close but not perfectly ordered.
+            elif boss_stats[boss_name].paired_bosses:
+                stats_pool = sorted(stats_pool, key=lambda x: x.level)
+                paired_bosses = boss_stats[boss_name].paired_bosses.copy()
+                paired_bosses.append(boss_name)
+                multiworld.random.shuffle(paired_bosses)
+                for paired in paired_bosses:
+                    if paired in assigned:
+                        continue
+                    assign_boss_stats(paired, stats_pool.pop(0))
+            else:
+                assign_boss_stats(boss_name, stats_pool.pop(0))
+
+    assign_stats_with_pairs(early_assignment, early_boss_levels)
+    assign_stats_with_pairs(middle_assignment, middle_boss_levels)
+    assign_stats_with_pairs(later_assignment, later_boss_levels)
 
     for boss_name in exclude_bosses:
         boss_stats[boss_name] = boss_list[boss_name]
