@@ -1512,7 +1512,7 @@ def set_location_rules(Ys8World: "Ys8World"):
     set_rule(loc("Mont Gendarme Mid-Boss Arena Avalodragil 2"),
              lambda state: battle_logic(Ys8World, state, get_battle_req()["AVALODRAGIL_2"]))
     set_rule(loc("Odd Rock Coast Odd Rock Coast Kiergaard Weissman"),
-             lambda state: battle_logic(Ys8World, state, get_battle_req()["KIERGAARD_WEISSMAN"]))
+             lambda state: battle_logic(Ys8World, state, get_battle_req()["KIERGAARD_WEISSMAN"]) and state.has("Avalodragil Defeated", player))
     add_rule(loc("Roaring Seashore Parasequoia Master Kong Ricotta"), 
              lambda state: battle_logic(Ys8World, state, get_battle_req()["MASTER_KONG_RICOTTA"]) and state.has("Ricotta", player) and 
              state.has_any(["Grind: Mont Gendarme Night","Grind: Nostalgia Cape","Grind: Baja Tower"], player)) # Ripe Mango Farm
