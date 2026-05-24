@@ -504,12 +504,15 @@ def connect_entrances(Ys8World: "Ys8World"):
     connect("TGT Boss Entrance", "Temple of the Great Tree Boss Arena")
     
     # Temple of the Great Tree Boss Arena
-    connect("TGT Boss Exit", "Temple of the Great Tree Entrance")
+    connect("TGT Boss Exit", "Temple of the Great Tree")
     connect("TGT Post-Boss Link", "Temple of the Great Tree After Boss")
 
     # Clean connectors for Temple of the Great Tree
+    # Temple of the Great Tree After Boss
     connect("TGT Boss Link", "Temple of the Great Tree Boss Arena")
     connect("TGT Garden Exit", "Temple of the Great Tree Garden Entrance")
+
+    # Temple of the Great Tree Garden Entrance
     connect("TGT Garden Entrance", "Temple of the Great Tree After Boss")
     connect("TGT Garden Link", "Temple of the Great Tree Garden")
     
