@@ -94,9 +94,12 @@ def create_regions(Ys8World):
         "Seiren North Access": ["SNA SPWC Link", "SNA TGT Link", "SNA ROE Link", "SNA PPN Link", "SNA MGAB Entrance"],
         "Stone Pillar Wind Cave": ["SPWC SNA Exit", "SPWC SPWCU Link"],
         "Stone Pillar Wind Cave Upper": ["SPWCU SPWC Exit"],
-        "Temple of the Great Tree": ["TGT SNA Exit", "TGT Boss Entrance", "TGT ROE Link", "TGT VR Link"],
-        "Temple of the Great Tree Boss Arena": ["TGT Boss Exit", "TGT Garden Link"],
-        "Temple of the Great Tree Garden": ["TGTG TGT Exit", "OO Entrance"],
+        "Temple of the Great Tree Entrance": ["TGT SNA Exit", "TGT Entrance", "TGT ROE Link", "TGT VR Link"],
+        "Temple of the Great Tree": ["TGT Entrance Exit", "TGT Boss Entrance"],
+        "Temple of the Great Tree Boss Arena": ["TGT Boss Exit", "TGT Post-Boss Link"],
+        "Temple of the Great Tree After Boss": ["TGT Garden Exit", "TGT Boss Link"],
+        "Temple of the Great Tree Garden Entrance": ["TGT Garden Link", "TGT Garden Entrance"],
+        "Temple of the Great Tree Garden": ["TGTG TGT Entrance Link", "OO Entrance"],
         "Octus Overlook Entrance": ["OO Entrance OO Link", "OO TGT Exit"],
         "Octus Overlook": ["OO OO Entrance Link", "OO SS Link"],
         "Selection Sphere": ["SS OO Exit"],
@@ -479,7 +482,7 @@ def connect_entrances(Ys8World: "Ys8World"):
     # Seiren North Access
     connect("SNA MGAB Entrance", "Mont Gendarme After Boss")
     connect("SNA SPWC Link", "Stone Pillar Wind Cave")
-    connect("SNA TGT Link", "Temple of the Great Tree")
+    connect("SNA TGT Link", "Temple of the Great Tree Entrance")
     connect("SNA ROE Link", "Ruins of Eternia")
     connect("SNA PPN Link", "Pangaia Plains (Night)")
     
@@ -490,18 +493,32 @@ def connect_entrances(Ys8World: "Ys8World"):
     # Stone Pillar Wind Cave Upper
     connect("SPWCU SPWC Exit", "Stone Pillar Wind Cave")
     
-    # Temple of the Great Tree
+    # Temple of the Great Tree Entrance
     connect("TGT SNA Exit", "Seiren North Access")
-    connect("TGT Boss Entrance", "Temple of the Great Tree Boss Arena")
+    connect("TGT Entrance", "Temple of the Great Tree")
     connect("TGT ROE Link", "Ruins of Eternia")
     connect("TGT VR Link", "Vista Ridge")
+
+    # Temple of the Great Tree
+    connect("TGT Entrance Exit", "Temple of the Great Tree Entrance")
+    connect("TGT Boss Entrance", "Temple of the Great Tree Boss Arena")
     
     # Temple of the Great Tree Boss Arena
     connect("TGT Boss Exit", "Temple of the Great Tree")
+    connect("TGT Post-Boss Link", "Temple of the Great Tree After Boss")
+
+    # Clean connectors for Temple of the Great Tree
+    # Temple of the Great Tree After Boss
+    connect("TGT Boss Link", "Temple of the Great Tree Boss Arena")
+    connect("TGT Garden Exit", "Temple of the Great Tree Garden Entrance")
+
+    # Temple of the Great Tree Garden Entrance
+    connect("TGT Garden Entrance", "Temple of the Great Tree After Boss")
     connect("TGT Garden Link", "Temple of the Great Tree Garden")
     
+    
     # Temple of the Great Tree Garden
-    connect("TGTG TGT Exit", "Temple of the Great Tree Boss Arena")
+    connect("TGTG TGT Entrance Link", "Temple of the Great Tree Garden Entrance")
     connect("OO Entrance", "Octus Overlook Entrance")
 
     # Octus Overlook
@@ -515,7 +532,7 @@ def connect_entrances(Ys8World: "Ys8World"):
     
     # Ruins of Eternia
     connect("ROE SNA Exit", "Seiren North Access")
-    connect("ROE TGT Exit", "Temple of the Great Tree")
+    connect("ROE TGT Exit", "Temple of the Great Tree Entrance")
     connect("ROE TH Link", "Towal Highway")
     connect("ROE BM Link", "Bolado Monastery")
     connect("ROE ROEHP Link", "Ruins of Eternia Hidden Passage")
@@ -614,7 +631,7 @@ def connect_entrances(Ys8World: "Ys8World"):
     connect("ACBA ACSA Exit", "Archeozoic Chasm Submerged Area")
     
     # Vista Ridge
-    connect("VR TGT Exit", "Temple of the Great Tree")
+    connect("VR TGT Exit", "Temple of the Great Tree Entrance")
     connect("VR VRU Link", "Vista Ridge Upper")
     connect("VR LMF Link", "Lodinia Marshlands Front")
     

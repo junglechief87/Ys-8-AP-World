@@ -45,6 +45,7 @@ def generate_json(world, output_directory):
         "item_location_map.json": json.dumps(item_location_map),
         "dungeon_entrance_randomization.json": json.dumps(world.dungeon_connections),
         "settings.json": json.dumps(settings),
+        "boss_stats.json": json.dumps(world.boss_levels),
     }
 
     mod = Ys8Container(

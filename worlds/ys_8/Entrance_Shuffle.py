@@ -50,6 +50,7 @@ class FieldConnector:
     exit_name:       str
     source_region:   str
     is_north:        bool = False
+    is_garden:       bool = False
     always_isolated: bool = False
     landmark_only:   bool = False
     requires_option: str  = ""
@@ -77,6 +78,10 @@ DUNGEONS: tuple[Dungeon, ...] = (
         DungeonSlot("Mont Gendarme Front",      "MGF PPGE Exit"),
         DungeonSlot("Mont Gendarme After Boss", "MGAB SNA Exit"),
     )),
+    Dungeon("Temple of the Great Tree", (
+        DungeonSlot("Temple of the Great Tree",             "TGT Entrance Exit"),
+        DungeonSlot("Temple of the Great Tree After Boss",  "TGT Garden Exit"),
+    )),
     # Unidirectional (1 slot)
     Dungeon("Waterdrop Cave",                (DungeonSlot("Waterdrop Cave",                 "WC Exit"),)),
     Dungeon("East Coast Cave Before Gilkyra",(DungeonSlot("East Coast Cave Before Gilkyra", "ECCBG NCA Exit"),)),
@@ -93,25 +98,27 @@ DUNGEONS: tuple[Dungeon, ...] = (
 #   2. always_isolated  (appended after free, matching original single_connector_exits)
 #   3. landmark_only    (appended last, matching original DISCOVERY_DEPENDENT_EXITS extend)
 CONNECTORS: tuple[FieldConnector, ...] = (
-    FieldConnector("WC Entrance",        "Calm Inlet Area"),
-    FieldConnector("NCN TCF Entrance",   "Nameless Coast North"),
-    FieldConnector("GRV EVF Entrance",   "Great River Valley Area"),
-    FieldConnector("GRVSC SJ Entrance",  "Great River Valley South Camp"),
-    FieldConnector("PP MG Entrance",     "Primordial Passage Gendarme Entrance"),
-    FieldConnector("SNA MGAB Entrance",  "Seiren North Access",               is_north=True),
-    FieldConnector("OO Entrance",        "Temple of the Great Tree Garden",   is_north=True),
-    FieldConnector("AC Entrance",        "Bridge to Archeozoic Chasm",        is_north=True),
-    FieldConnector("FSC Entrance",       "Ruins of Eternia Hidden Passage",   is_north=True, requires_option="former_sanctuary_crypt"),
-    FieldConnector("BTLF Entrance",      "Towal Highway Baja Tower Entrance", is_north=True),
-    FieldConnector("LMB VOKBD Entrance", "Lodinia Marshlands Back",           is_north=True),
-    FieldConnector("ST Entrance",        "Silent Tower Entrance"),
-    FieldConnector("NCA ECCBG Entrance", "Nostalgia Cape Area"),
+    FieldConnector("WC Entrance",           "Calm Inlet Area"),
+    FieldConnector("NCN TCF Entrance",      "Nameless Coast North"),
+    FieldConnector("GRV EVF Entrance",      "Great River Valley Area"),
+    FieldConnector("GRVSC SJ Entrance",     "Great River Valley South Camp"),
+    FieldConnector("PP MG Entrance",        "Primordial Passage Gendarme Entrance"),
+    FieldConnector("SNA MGAB Entrance",     "Seiren North Access",                      is_north=True),
+    FieldConnector("AC Entrance",           "Bridge to Archeozoic Chasm",               is_north=True),
+    FieldConnector("FSC Entrance",          "Ruins of Eternia Hidden Passage",          is_north=True, requires_option="former_sanctuary_crypt"),
+    FieldConnector("BTLF Entrance",         "Towal Highway Baja Tower Entrance",        is_north=True),
+    FieldConnector("LMB VOKBD Entrance",    "Lodinia Marshlands Back",                  is_north=True),
+    FieldConnector("TGT Entrance",          "Temple of the Great Tree Entrance",        is_north=True),
+    FieldConnector("TGT Garden Entrance",   "Temple of the Great Tree Garden Entrance", is_garden=True, always_isolated=True),
+    FieldConnector("OO Entrance",           "Temple of the Great Tree Garden",          is_garden=True, always_isolated=True),
+    FieldConnector("ST Entrance",           "Silent Tower Entrance"),
+    FieldConnector("NCA ECCBG Entrance",    "Nostalgia Cape Area"),
     # always_isolated — dead-end; never enters free_exits
-    FieldConnector("ORC SJ Entrance",    "Odd Rock Coast",                    always_isolated=True),
+    FieldConnector("ORC SJ Entrance",       "Odd Rock Coast",                    always_isolated=True),
     # landmark_only — isolated without discovery_sanity; at end so free_exits
     # list comp appends them last when discovery_sanity is on (matching original .extend())
-    FieldConnector("Meta TCF Entrance",  "Metavolicalis Area",                landmark_only=True),
-    FieldConnector("SB EV Entrance",     "Sunrise Beach",                     landmark_only=True),
+    FieldConnector("Meta TCF Entrance",     "Metavolicalis Area",                landmark_only=True),
+    FieldConnector("SB EV Entrance",        "Sunrise Beach",                     landmark_only=True),
 )
 
 # Lookup tables derived from the above — no manual maintenance needed.

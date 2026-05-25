@@ -755,6 +755,12 @@ psyche_fight_names: Dict[str, Ys8LocationData] = {
     "Psyche-Nestor Psyches": Ys8LocationData("Calm Inlet Area", 10111, None),
     "Psyche-Minos Psyches": Ys8LocationData("Calm Inlet Area", 10112, None),
     "Psyche-Hydra Psyches": Ys8LocationData("Calm Inlet Area", 10113, None),
+    "Grazios Psyches": Ys8LocationData("Calm Inlet Area", 10114, None),
+    "Nebritia Psyches": Ys8LocationData("Calm Inlet Area", 10115, None),
+    "Argura Psyches": Ys8LocationData("Calm Inlet Area", 10116, None),
+    "Crusos Psyches": Ys8LocationData("Calm Inlet Area", 10117, None),
+    "Blasphima Psyches": Ys8LocationData("Calm Inlet Area", 10118, None),
+    "Le-Kyanos Psyches": Ys8LocationData("Calm Inlet Area", 10119, None),
 }
 
 fsc_psyche_fight_names: Dict[str, Ys8LocationData] = {

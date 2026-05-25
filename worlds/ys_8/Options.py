@@ -91,6 +91,19 @@ class DungeonEntranceShuffle(Toggle):
     display_name = "Dungeon Entrance Shuffle"
     default = False
 
+class ShuffleBossLevels(Choice):
+    """
+    Shuffles the levels of bosses.
+    With this setting off, bosses are found at their intended level.
+    Balanced: Boss levels are shuffled but distributed in a way to avoid extreme outliers and to keep early game bosses at relatively lower levels.
+    Chaotic: Boss levels are completely shuffled with no restrictions. This can lead to extreme outliers and early game bosses being late game levels.
+    """
+    display_name = "Boss Level Shuffle"
+    option_none = 0
+    option_balanced = 1
+    option_chaotic = 2
+    default = 0
+
 
 # Progression Placement Modifiers
 class JewelTradeItems(Choice):
@@ -363,6 +376,7 @@ class FinalBoss(Choice):
     option_theos = 0
     option_origin = 1
     option_both = 2
+    option_io = 3
     default = 0
 
 
@@ -456,6 +470,7 @@ class Ys8Options(PerGameCommonOptions):
     # Shuffle Modifiers
     discovery_sanity: DiscoverySanity
     dungeon_entrance_shuffle: DungeonEntranceShuffle
+    shuffle_boss_levels: ShuffleBossLevels
     
     # Progression Placement Modifiers
     jewel_trade_items: JewelTradeItems
@@ -505,6 +520,7 @@ Ys8_option_groups = [
     OptionGroup("Shuffle Modifiers", [
         DiscoverySanity,
         DungeonEntranceShuffle,
+        ShuffleBossLevels,
     ]),
     OptionGroup("Progression Placement Modifiers", [
         JewelTradeItems,
@@ -544,82 +560,3 @@ Ys8_option_groups = [
         HelperText,   
     ]),
 ]
-
-Ys8_option_presets: Dict[str, Dict[str, Any]] = {
-    "Default Find Crew": {
-        "final_boss_access": FinalBossAccess.option_find_crew,
-        "octus_count_crew_mode": 16,
-        "octus_count_psyches_mode": 2,
-        "goal_count_crew_final_boss": 20,
-        "goal_count_psyches_final_boss": 3,
-        "discovery_sanity": True,
-        "dungeon_entrance_shuffle": False,
-        "jewel_trade_items": JewelTradeItems.option_up_to_10_jewels,
-        "fish_trades": FishTrades.option_6,
-        "food_trades": FoodTrades.option_6,
-        "map_completion": MapCompletion.option_60_percent,
-        "discoveries": Discoveries.option_all,
-        "dogi_intercept_rewards": True,
-        "master_kong_rewards": True,
-        "silvia_progression": True,
-        "mephorash_progression": False,
-        "former_sanctuary_crypt": False,
-        "experience_multiplier": 8,
-        "additional_intercept_rewards": False,
-        "battle_logic": 2,
-        "progressive_super_items": True,
-        "fun_items": False,
-        "octus_paths_opened": True,
-        "extra_flame_stones": 3,
-        "recipes_with_ingredients": True,
-        "north_side_open": False,
-        "infinity_mode": False,
-        "scale_exp_items": False,
-        "final_boss": FinalBoss.option_theos,
-        "theos_start_phase": TheosStartPhase.option_first,
-        "origin_care_package": OriginCarePackage.option_none,
-        "origin_start_phase": OriginStartPhase.option_second,
-        "essence_key_sanity": False,
-        "starting_character_weights": {"Adol": 1, "Laxia": 1, "Sahad": 1, "Hummel": 1, "Ricotta": 1, "Dana": 1},
-        "death_link": False,
-        "helper_text": False,
-    },
-    "Default Release Psyches": {
-        "final_boss_access": FinalBossAccess.option_release_the_psyches,
-        "octus_count_crew_mode": 16,
-        "octus_count_psyches_mode": 2,
-        "goal_count_crew_final_boss": 20,
-        "goal_count_psyches_final_boss": 3,
-        "discovery_sanity": True,
-        "dungeon_entrance_shuffle": False,
-        "jewel_trade_items": JewelTradeItems.option_up_to_10_jewels,
-        "fish_trades": FishTrades.option_6,
-        "food_trades": FoodTrades.option_6,
-        "map_completion": MapCompletion.option_60_percent,
-        "discoveries": Discoveries.option_all,
-        "dogi_intercept_rewards": True,
-        "master_kong_rewards": True,
-        "silvia_progression": True,
-        "mephorash_progression": True,
-        "former_sanctuary_crypt": False,
-        "experience_multiplier": 8,
-        "additional_intercept_rewards": False,
-        "battle_logic": 2,
-        "progressive_super_items": True,
-        "fun_items": False,
-        "octus_paths_opened": True,
-        "extra_flame_stones": 3,
-        "recipes_with_ingredients": True,
-        "north_side_open": False,
-        "infinity_mode": False,
-        "scale_exp_items": True,
-        "final_boss": FinalBoss.option_theos,
-        "theos_start_phase": TheosStartPhase.option_first,
-        "origin_care_package": OriginCarePackage.option_none,
-        "origin_start_phase": OriginStartPhase.option_second,
-        "essence_key_sanity": False,
-        "starting_character_weights": {"Adol": 1, "Laxia": 1, "Sahad": 1, "Hummel": 1, "Ricotta": 1, "Dana": 1},
-        "death_link": False,
-        "helper_text": False,
-    }
-}

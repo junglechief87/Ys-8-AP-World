@@ -13,7 +13,9 @@
 ### Ys 8 AP World
 
 - Download the latest release of the AP World and install it into your custom worlds per AP instructions.
-- Generate template options to create an Ys 8.yaml file and setup your options and generate your seed.
+- "Generate Template Options" or use the "Options Creator" to create an "Ys 8.yaml" file and setup your options.
+- Make sure "Ys 8.yaml" is in players folder, click generate.
+- Take your obtained output and upload the zip to archipelago using "Host Game".
 
 ## Things of note
 - Some items (Mistilteinn, Spirit Ring, and Party Members) have complex function chains that haven't been fully solved. To make these work when being sent remotely there is an
@@ -24,12 +26,13 @@
 
 
 ## Obtaining and using the patch
+- Once you have setup your room via "Host Game", the room will have a link that can be used to download the .apdana file. This will be used in the next steps
 
 It's important to not have the game running while patching. Certain files that are edited by the patcher are loaded into the game's
 memory on startup so patching while the game is running won't cause explicit errors but it will cause parts of the patch to not be loaded.
 
 ### Windows
-- Download Seiren Shuffle Lite.
+- Download "Seiren Shuffle Lite".
 - Run it and select Browse under "Ys 8 Executable Location" and navigate to the location of your Ys 8 Steam install, select the executable.
 - Click "Patch Files" (This only needs to be ran once the first time you run the randomizer, or after a new update to Seiren Shuffle Lite).
 - Select your .apdana file that the AP world should have output using the Browse under "AP Patch File".
@@ -37,7 +40,7 @@ memory on startup so patching while the game is running won't cause explicit err
 - The game should now be ready to run. 
 
 ### Linux
-- Download Seiren Shuffle Lite.
+- Download "Seiren Shuffle Lite".
 - Run it via wine/proton. This can be done in steam by adding it as a non-steam game, then forcing compatibility to proton.
 - Click Browse to find the executable location. You may need to manually enter the path due to steam's path being hidden. To do so:
   - Go to Ys 8 in steam, and browse local files. Copy the directory path here.
@@ -56,18 +59,22 @@ and the patch file. A way to do this, if running with steam, without moving the 
 ## Connecting to your multiworld via the Ys 8 Client
 
 ### Windows
-- Ensure that the AP server is started/active.
+- Ensure that a room is started/active.
 - Start the game on Steam
-- Start the client
-- Click the burger icon in the client, put in host/slot/password info and click connect.
+- Run "Ys8 Seiren Shuffle AP Client"
+- Enter the user name you set in your "Ys 8.yaml" for the Slot value.
+- Enter a password if needed.
+- Click Connect.
 
 ### Linux
 - Add the following to Ys 8's Launch options: `PROTON_REMOTE_DEBUG_CMD="/path/to/Ys8.Seiren.Shuffle.AP.Client.exe" %command%`
   - Be sure to replace the path with the path to your `Ys8.Seiren.Shuffle.AP.Client.exe`.
   - Spaces in the path may need to be escaped with `\`.
-- Ensure that the AP server is started/active.
+- Ensure that a room is started/active.
 - Start the game on Steam
-- After both clients open, click the burger icon in the client, put in host/slot/password info and click connect.
+- After both clients open, click the burger icon in the client, enter the user name you set in your "Ys 8.yaml" for the Slot value.
+- Enter a password if needed.
+- Click Connect.
 
 #### Ys8.Seiren.Shuffle.AP.Client.exe not starting
 Double check the path was correct first, as it does not loudly complain if its wrong. 
