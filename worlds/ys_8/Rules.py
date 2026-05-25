@@ -838,7 +838,7 @@ def set_entrance_rules(Ys8World: "Ys8World"):
 
     # Night Connections
     set_rule(get_ent("TCFNFH TCFNRH Link"), lambda state: state.has("Grip Gloves", player))
-    set_rule(get_ent("MGNFH MGNRH Link"), lambda state: state.has("Grip Gloves", player))
+    set_rule(get_ent("MGNFH MGNRH Link"), lambda state: state.has_any(["Grip Gloves", "Avalodragil 2 Defeated"], player))
     
     if not options.battle_logic.value == 3: # if not hard
         set_rule(get_ent("OO Entrance OO Link"), lambda state: battle_logic(Ys8World, state, get_battle_req()["OCTUS"]))
@@ -915,8 +915,6 @@ def set_location_rules(Ys8World: "Ys8World"):
              lambda state: state.has("Archeopteryx Wings", player))
 
     # Valley of Kings — Mid-Boss Arena chest and End double-jump chests
-    add_rule(loc("Valley of Kings Mid-Boss Arena Chest"),
-             lambda state: state.has("Doxa Griel Defeated", player))
     add_rule(loc("Valley of Kings End Chest 1"),
              lambda state: state.has("Archeopteryx Wings", player))
     add_rule(loc("Valley of Kings End Chest 2"),
@@ -971,6 +969,14 @@ def set_location_rules(Ys8World: "Ys8World"):
     # Nostalgia Cape — Ed Join requires crew
     add_rule(loc("Nostalgia Cape Nostalgia Cape Ed Join"),
             lambda state: has_required_crew(Ys8World, state, 16))
+    
+    # Mont Gendarme Night
+    add_rule(loc("Mont Gendarme (Night) Northern Lower Cliffside Trail Chest 1"),
+             lambda state: state.has("Grip Gloves", player))
+    add_rule(loc("Mont Gendarme (Night) Northern Lower Cliffside Trail Chest 2"),
+             lambda state: state.has("Grip Gloves", player))
+    add_rule(loc("Mont Gendarme (Night) Upper Cliffs Chest 1"),
+             lambda state: state.has("Grip Gloves", player))
     
     # Seiren North Access
     add_rule(loc("Titis Primeval Forest Near Primordial Den Chest 1"),

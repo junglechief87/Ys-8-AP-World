@@ -253,8 +253,8 @@ location_table: Dict[str, Ys8LocationData] = {
     "Mont Gendarme (Night) Northern Lower Cliffside Trail Chest 2": Ys8LocationData("Mont Gendarme (Night) Rear Half", 156, "chest"),
     "Mont Gendarme (Night) Cliffside Midpoint Chest": Ys8LocationData("Mont Gendarme (Night) Rear Half", 160, "chest"),
     "Mont Gendarme (Night) Mid-Boss Arena Chest": Ys8LocationData("Mont Gendarme (Night) Rear Half", 161, "chest"),
-    "Mont Gendarme (Night) Upper Cliffs 1 Chest": Ys8LocationData("Mont Gendarme (Night) Rear Half", 164, "chest"),
-    "Mont Gendarme (Night) Upper Cliffs 2 Chest": Ys8LocationData("Mont Gendarme (Night) Rear Half", 166, "chest"),
+    "Mont Gendarme (Night) Upper Cliffs Chest 1": Ys8LocationData("Mont Gendarme (Night) Rear Half", 164, "chest"),
+    "Mont Gendarme (Night) Upper Cliffs Chest 2": Ys8LocationData("Mont Gendarme (Night) Rear Half", 166, "chest"),
     # Seiren North
     "Mountain Pinnacle Trail Top Chest": Ys8LocationData("Seiren North Access", 120, "chest"),
     "Mountain Pinnacle Trail Outside First Cave Exit Chest 1": Ys8LocationData("Seiren North Access", 121, "chest"),
