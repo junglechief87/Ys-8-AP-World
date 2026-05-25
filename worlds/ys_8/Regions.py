@@ -20,6 +20,8 @@ def create_regions(Ys8World):
     player     = Ys8World.player
     options    = Ys8World.options
     
+    excluded_locations.clear() # clear per world instance
+
     region_connections = {
         "Calm Inlet Area": ["WC Entrance", "NCN Link", "TCFRF Link", "Para Link", "Meta Link", "CIA IL1 Link", "CIA IL2 Link", "CIA IL3 Link", 
                             "CIA MC Link", "CIA JT Link", "CIA FT Link", "CIA DTI Link", "WFG Link", "GRV Link", "MWV Link", "EVIMV Link", 
