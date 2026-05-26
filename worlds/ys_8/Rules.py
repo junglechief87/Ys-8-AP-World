@@ -896,13 +896,15 @@ def set_location_rules(Ys8World: "Ys8World"):
     add_rule(loc("Towering Coral Forest Walkways Chest 3"),
              lambda state: state.has_any(["Grip Gloves", "Archeopteryx Wings"], player))
     add_rule(loc("Towering Coral Forest Walkways Chest 6"),
-             lambda state: state.has_any(["Grip Gloves", "Archeopteryx Wings"], player))
+             lambda state: state.has_any(["Grip Gloves", "Archeopteryx Wings", "Clareon Defeated"], player))
 
     # Towering Coral Forest (Night) — entrance chests requires jump
     add_rule(loc("Towering Coral Forest (Night) Entrance Chest 1"),
              lambda state: state.has("Archeopteryx Wings", player))
     add_rule(loc("Towering Coral Forest (Night) Entrance Chest 2"),
              lambda state: state.has("Archeopteryx Wings", player))
+    add_rule(loc("Towering Coral Forest (Night) Walkways Chest 2"),
+             lambda state: state.has_any(["Grip Gloves", "Archeopteryx Wings"], player))
 
     # Longhorn Coast Area
     add_rule(loc("Beast Hills Collapsed Cliff Chest 3"),

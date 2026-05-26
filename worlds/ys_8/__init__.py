@@ -77,6 +77,12 @@ class Ys8World(World):
         }
         self.max_psyche_num = 4
 
+    def shuffle_damage_types(self):
+        vals = [char for characters in self.damage_mapping.values() for char in characters]
+        for damage_type in self.damage_mapping.keys():
+            self.damage_mapping[damage_type] = self.multiworld.random.sample(vals, 2)
+            vals = [val for val in vals if val not in self.damage_mapping[damage_type]]
+
     def generate_early(self):
         self.setup_ut()
 
@@ -219,6 +225,7 @@ class Ys8World(World):
         slot_data = {"options": {option_name: getattr(self.options, option_name).value for option_name in slot_options}}
         slot_data.update({"starting_character": self.starting_character})
         slot_data.update({"starting_skills": self.starting_skill_codes})
+        slot_data.update({"damage_mapping": self.damage_mapping})
 
         # For Universal Tracker and other Tracker implementations
         if self.options.dungeon_entrance_shuffle.value:

@@ -273,7 +273,7 @@ item_table: Dict[str, Ys8ItemData] = {
     "Essence Key Stone": Ys8ItemData("Consumable", 70300, "Item", ItemClassification.progression, pool_quantity = 9),
     "Battle Armlet": Ys8ItemData("Accessory", 72000, "Item", ItemClassification.progression, pool_quantity = 2),
     "Dragon Bone Necklace": Ys8ItemData("Accessory", 72200, "Item", ItemClassification.useful),
-    "Mushin's hairpin": Ys8ItemData("Accessory", 72500, "Item", ItemClassification.useful),
+    "Dervish hairpin": Ys8ItemData("Accessory", 72500, "Item", ItemClassification.useful),
     "Fairy Cape": Ys8ItemData("Accessory", 72600, "Item", ItemClassification.useful),
     "Shrine Maiden Amulet": Ys8ItemData("Accessory", 72700, "Item", ItemClassification.progression),
     "Stone Crown": Ys8ItemData("Accessory", 72900, "Item", ItemClassification.useful),

@@ -35,7 +35,7 @@ class OctusCountCrewMode(Range):
     """
     display_name = "Goal Count to Open Octus (Find Crew)"
     range_start = 1
-    range_end = 28
+    range_end = 29
     default = 16
 
 
@@ -56,7 +56,7 @@ class GoalCountCrewFinalBoss(Range):
     """
     display_name = "Goal Count to Access Final Boss (Find Crew)"
     range_start = 1
-    range_end = 28
+    range_end = 29
     default = 20
 
 
