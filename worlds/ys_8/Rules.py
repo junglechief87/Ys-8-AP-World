@@ -1060,7 +1060,6 @@ def set_location_rules(Ys8World: "Ys8World"):
             lambda item: item.classification == ItemClassification.filler)
     
     # Fish Trade
-    
     add_rule(loc("Calm Inlet Fish Trade Fish 20"), lambda state: state.can_reach_region("Nameless Coast North", player))
     add_rule(loc("Calm Inlet Fish Trade Fish 24"), lambda state: state.can_reach_region("Great River Valley Area", player))
     
@@ -1224,7 +1223,6 @@ def set_location_rules(Ys8World: "Ys8World"):
     # =====================================================================
 
     # Calm Inlet — Silvia (early boss)
-    
     add_rule(loc("Calm Inlet Calm Inlet (Castaway Village Area) Silvia Skill 1"),
         lambda state: state.has("Silvia Defeated", player))
     add_rule(loc("Calm Inlet Calm Inlet (Castaway Village Area) Silvia Skill 2"),
@@ -1382,7 +1380,6 @@ def set_location_rules(Ys8World: "Ys8World"):
              lambda state: state.has("Byfteriza Defeated", player))
 
     # Silent Tower — Mephorash
-    
     add_rule(loc("Silent Tower Second Basement Mephorash Skill"),
             lambda state: state.has("Mephorash Defeated", player))
     add_rule(loc("Silent Tower Second Basement Chest 4"),

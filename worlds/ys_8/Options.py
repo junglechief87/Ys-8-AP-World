@@ -91,6 +91,7 @@ class DungeonEntranceShuffle(Toggle):
     display_name = "Dungeon Entrance Shuffle"
     default = False
 
+
 class ShuffleBossLevels(Choice):
     """
     Shuffles the levels of bosses.
@@ -103,6 +104,20 @@ class ShuffleBossLevels(Choice):
     option_balanced = 1
     option_chaotic = 2
     default = 0
+
+
+class ShuffleDamageTypes(Toggle):
+    """
+    Shuffles the damage types of characters.
+    Shuffles damage types like strike, slash, and pierce among the characters.
+    The distribution will remain the same with two characters having each damage type, but which character has which type will be random.
+    This will also carry over to the elements types associated with each damage type in the randomizer:
+    Slash: Water
+    Pierce: Light
+    Strike: Earth
+    """
+    display_name = "Shuffle Damage Types"
+    default = False
 
 
 # Progression Placement Modifiers
@@ -265,6 +280,15 @@ class AdditionalInterceptRewards(Toggle):
     display_name = "Additional Intercept Rewards"
     default = False
 
+class FastIntercepts(Toggle):
+    """
+    Shortens Raids and Hunts. 
+    Raids have their waves halved rounded down starting from the final wave. 
+    So a 5 wave raid becomes 2 waves and the makeup of the waves would be the same as wave 4 and 5.
+    Hunts spawn the boss during the first wave. 
+    """
+    display_name = "Fast Intercepts"
+    default = True
 
 class BattleLogic(Choice):
     """

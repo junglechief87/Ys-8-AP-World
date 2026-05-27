@@ -70,9 +70,9 @@ class Ys8World(World):
         self.starting_skills = []
         self.starting_skill_codes = {}
         self.damage_mapping = {
-            "Slash": ["Adol", "Dana"],
-            "Pierce": ["Laxia", "Hummel"],
-            "Strike": ["Sahad", "Ricotta"],
+            "Slash": ["ADOL", "DANA"],
+            "Pierce": ["LAXIA", "HUMMEL"],
+            "Strike": ["SAHAD", "RICOTTA"],
 
         }
         self.max_psyche_num = 4
