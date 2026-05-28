@@ -495,6 +495,7 @@ class Ys8Options(PerGameCommonOptions):
     discovery_sanity: DiscoverySanity
     dungeon_entrance_shuffle: DungeonEntranceShuffle
     shuffle_boss_levels: ShuffleBossLevels
+    shuffle_damage_types: ShuffleDamageTypes
     
     # Progression Placement Modifiers
     jewel_trade_items: JewelTradeItems
@@ -511,6 +512,7 @@ class Ys8Options(PerGameCommonOptions):
     # Pacing Modifiers
     experience_multiplier: ExperienceMultiplier
     additional_intercept_rewards: AdditionalInterceptRewards
+    fast_intercepts: FastIntercepts
     battle_logic: BattleLogic
     progressive_super_items: ProgressiveSuperItems
     fun_items: FunItems
@@ -545,6 +547,7 @@ Ys8_option_groups = [
         DiscoverySanity,
         DungeonEntranceShuffle,
         ShuffleBossLevels,
+        ShuffleDamageTypes,
     ]),
     OptionGroup("Progression Placement Modifiers", [
         JewelTradeItems,
@@ -561,6 +564,7 @@ Ys8_option_groups = [
     OptionGroup("Pacing Modifiers", [
         ExperienceMultiplier,
         AdditionalInterceptRewards,
+        FastIntercepts,
         BattleLogic,
         ProgressiveSuperItems,
         FunItems,

@@ -70,10 +70,9 @@ class Ys8World(World):
         self.starting_skills = []
         self.starting_skill_codes = {}
         self.damage_mapping = {
-            "Slash": ["ADOL", "DANA"],
-            "Pierce": ["LAXIA", "HUMMEL"],
-            "Strike": ["SAHAD", "RICOTTA"],
-
+            "Slash": ["Adol", "Dana"],
+            "Pierce": ["Laxia", "Hummel"],
+            "Strike": ["Sahad", "Ricotta"],
         }
         self.max_psyche_num = 4
 
@@ -97,6 +96,9 @@ class Ys8World(World):
             randomize_levels_balanced(self)
         elif self.options.shuffle_boss_levels == 2:
             randomize_levels_chaotic(self)
+
+        if self.options.shuffle_damage_types.value:
+            self.shuffle_damage_types()
 
     def create_regions(self):
         create_regions(self)
@@ -220,7 +222,7 @@ class Ys8World(World):
                         "dogi_intercept_rewards", "master_kong_rewards", "silvia_progression", "mephorash_progression", "former_sanctuary_crypt", "experience_multiplier", 
                         "additional_intercept_rewards", "battle_logic", "progressive_super_items", "octus_paths_opened", "extra_flame_stones", 
                         "recipes_with_ingredients", "north_side_open", "infinity_mode", "scale_exp_items", "final_boss", "theos_start_phase", "origin_care_package", "origin_start_phase",
-                        "essence_key_sanity", "starting_character_weights", "death_link", "helper_text", "fun_items", "shuffle_boss_levels"]
+                        "essence_key_sanity", "starting_character_weights", "death_link", "helper_text", "fun_items", "shuffle_boss_levels", "shuffle_damage_types", "fast_intercepts"]
 
         slot_data = {"options": {option_name: getattr(self.options, option_name).value for option_name in slot_options}}
         slot_data.update({"starting_character": self.starting_character})
@@ -255,6 +257,9 @@ class Ys8World(World):
         spoiler_handle.write(f"\tRicotta Starting Skills: {', '.join(self.ricotta_starting_skills)}\n")
         spoiler_handle.write(f"\tHummel Starting Skills: {', '.join(self.hummel_starting_skills)}\n")
         spoiler_handle.write(f"\tDana Starting Skills: {', '.join(self.dana_starting_skills)}\n")
+        if self.options.shuffle_damage_types.value:
+            for damage_type, characters in self.damage_mapping.items():
+                spoiler_handle.write(f"\t{damage_type}: {', '.join(characters)}\n")
 
         if self.options.dungeon_entrance_shuffle.value:
             spoiler_handle.write(f"\n\nYs 8 Dungeon Entrance Randomization for {player_name}:\n")
