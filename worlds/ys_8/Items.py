@@ -23,7 +23,7 @@ def get_items_by_category(category: str) -> Dict[str, Ys8ItemData]:
 
 def get_item_pool_quantity(item_name: str, data: Ys8ItemData, options: Ys8Options) -> int:
     if item_name == "Progressive Shop Rank":
-        return data.pool_quantity + options.extra_flame_stones
+        return data.pool_quantity + options.extra_shop_ranks
     return data.pool_quantity
 
 item_table: Dict[str, Ys8ItemData] = {

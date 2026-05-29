@@ -220,7 +220,7 @@ class Ys8World(World):
         slot_options = ["final_boss_access", "octus_count_crew_mode", "octus_count_psyches_mode", "goal_count_crew_final_boss", "goal_count_psyches_final_boss",
                         "discovery_sanity", "dungeon_entrance_shuffle", "jewel_trade_items", "fish_trades", "food_trades", "map_completion", "discoveries", 
                         "dogi_intercept_rewards", "master_kong_rewards", "silvia_progression", "mephorash_progression", "former_sanctuary_crypt", "experience_multiplier", 
-                        "additional_intercept_rewards", "battle_logic", "progressive_super_items", "octus_paths_opened", "extra_flame_stones", 
+                        "additional_intercept_rewards", "battle_logic", "progressive_super_items", "octus_paths_opened", "extra_shop_ranks", 
                         "recipes_with_ingredients", "north_side_open", "infinity_mode", "scale_exp_items", "final_boss", "theos_start_phase", "origin_care_package", "origin_start_phase",
                         "essence_key_sanity", "starting_character_weights", "death_link", "helper_text", "fun_items", "shuffle_boss_levels", "shuffle_damage_types", "fast_intercepts"]
 

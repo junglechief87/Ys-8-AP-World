@@ -337,13 +337,13 @@ class OctusPathsOpened(Toggle):
     default = True
 
 
-class ExtraFlameStones(Range):
+class ExtraShopRanks(Range):
     """
-    Adds Flame Stones to the item pool (0-10 additional stones).
-    There are 7 Flame Stones by default, so 3 additional puts it at a round 10.
+    Adds Progressive Shop Ranks to the item pool (0-10 additional stones).
+    There are 7 Progressive Shop Ranks by default, so 3 additional puts it at a round 10.
     Makes hitting max level more likely without being excessive.
     """
-    display_name = "Extra Flame Stones"
+    display_name = "Extra Shop Ranks"
     range_start = 0
     range_end = 10
     default = 3
@@ -517,7 +517,7 @@ class Ys8Options(PerGameCommonOptions):
     progressive_super_items: ProgressiveSuperItems
     fun_items: FunItems
     octus_paths_opened: OctusPathsOpened
-    extra_flame_stones: ExtraFlameStones
+    extra_shop_ranks: ExtraShopRanks
     recipes_with_ingredients: RecipesWithIngredients
     north_side_open: NorthSideOpen
     infinity_mode: InfinityMode
@@ -569,7 +569,7 @@ Ys8_option_groups = [
         ProgressiveSuperItems,
         FunItems,
         OctusPathsOpened,
-        ExtraFlameStones,
+        ExtraShopRanks,
         RecipesWithIngredients,
         NorthSideOpen,
         InfinityMode,
