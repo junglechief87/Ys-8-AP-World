@@ -60,6 +60,7 @@ class Ys8World(World):
         self.dungeon_connections = {}
         self.entrance_spoiler = []
         self.boss_levels = {}
+        self.boss_stats = {}
         self.starting_character = None
         self.adol_starting_skills = []
         self.sahad_starting_skills = []

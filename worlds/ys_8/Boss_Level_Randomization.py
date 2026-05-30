@@ -1,5 +1,4 @@
 from typing import NamedTuple
-import json
 
 class boss(NamedTuple):
     str_threshold: int
@@ -8,8 +7,6 @@ class boss(NamedTuple):
     associated_entrances: list[str] = []
     paired_bosses: list[str] = []
     ordered_paired_bosses: list[str] = [] # used for balanced shuffle to ensure paired bosses are assigned in a specific order
-
-boss_stats: dict[str, boss] = {}    
 
 early_entrances = [
     "WC Entrance",
@@ -78,6 +75,8 @@ def boss_excludes(options):
     return exclude_bosses
 
 def randomize_levels_chaotic(Ys8World, exclude_bosses=None):
+    # Ensure we start from the canonical boss list for this world on the world instance
+    Ys8World.boss_stats = boss_list.copy()
     exclude_bosses = boss_excludes(Ys8World.options)
     multiworld = Ys8World.multiworld
 
@@ -88,14 +87,16 @@ def randomize_levels_chaotic(Ys8World, exclude_bosses=None):
     for boss_name in boss_names_to_shuffle:
         stats = boss_stats_list.pop()
         original = boss_list[boss_name]
-        boss_stats[boss_name] = boss(stats.str_threshold, stats.level, original.boss_id, original.associated_entrances, original.paired_bosses)
+        Ys8World.boss_stats[boss_name] = boss(stats.str_threshold, stats.level, original.boss_id, original.associated_entrances, original.paired_bosses)
     # For excluded bosses, keep their original stats
     for boss_name in exclude_bosses:
-        boss_stats[boss_name] = boss_list[boss_name]
+        Ys8World.boss_stats[boss_name] = boss_list[boss_name]
     
     build_boss_level_mapping(Ys8World)
 
 def randomize_levels_balanced(Ys8World):
+    # Ensure we start from the canonical boss list for this world on the world instance
+    Ys8World.boss_stats = boss_list.copy()
     multiworld = Ys8World.multiworld
     early_regions = []
     middle_regions = []
@@ -185,9 +186,9 @@ def randomize_levels_balanced(Ys8World):
         multiworld.random.shuffle(stats_pool)
         assigned = set()
         def assign_boss_stats(boss_name, stats):
-            boss_stats[boss_name] = boss(stats.str_threshold, stats.level, 
-                                         boss_list[boss_name].boss_id, boss_list[boss_name].associated_entrances, 
-                                         boss_list[boss_name].paired_bosses)
+            Ys8World.boss_stats[boss_name] = boss(stats.str_threshold, stats.level, 
+                                                 boss_list[boss_name].boss_id, boss_list[boss_name].associated_entrances, 
+                                                 boss_list[boss_name].paired_bosses)
             assigned.add(boss_name)
         
         for boss_name in boss_names:
@@ -195,18 +196,18 @@ def randomize_levels_balanced(Ys8World):
                 continue
             # If the bosses are an ordered pair we sort the remaining stats pool by level and assign in order
             # then reshuffle the remaining pool. This keeps the levels close and in a specific order but still random.
-            if boss_stats[boss_name].ordered_paired_bosses:
+            if Ys8World.boss_stats[boss_name].ordered_paired_bosses:
                 stats_pool = sorted(stats_pool, key=lambda x: x.level)
-                for paired in boss_stats[boss_name].ordered_paired_bosses:
+                for paired in Ys8World.boss_stats[boss_name].ordered_paired_bosses:
                     if paired in assigned:
                         continue
                     assign_boss_stats(paired, stats_pool.pop(0))
                 multiworld.random.shuffle(stats_pool)
             # If the bosses are an unordered pair we sort the stats pool gather our boss list
             # then shuffle the list. This keeps the levels close but not perfectly ordered.
-            elif boss_stats[boss_name].paired_bosses:
+            elif Ys8World.boss_stats[boss_name].paired_bosses:
                 stats_pool = sorted(stats_pool, key=lambda x: x.level)
-                paired_bosses = boss_stats[boss_name].paired_bosses.copy()
+                paired_bosses = Ys8World.boss_stats[boss_name].paired_bosses.copy()
                 paired_bosses.append(boss_name)
                 multiworld.random.shuffle(paired_bosses)
                 for paired in paired_bosses:
@@ -221,9 +222,9 @@ def randomize_levels_balanced(Ys8World):
     assign_stats_with_pairs(later_assignment, later_boss_levels)
 
     for boss_name in exclude_bosses:
-        boss_stats[boss_name] = boss_list[boss_name]
+        Ys8World.boss_stats[boss_name] = boss_list[boss_name]
     
     build_boss_level_mapping(Ys8World)
 
 def build_boss_level_mapping(Ys8World):
-    Ys8World.boss_levels = {boss_name: {"level": stats.level, "boss_id": stats.boss_id} for boss_name, stats in boss_stats.items()} 
+    Ys8World.boss_levels = {boss_name: {"level": stats.level, "boss_id": stats.boss_id} for boss_name, stats in Ys8World.boss_stats.items()}
