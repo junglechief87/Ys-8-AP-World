@@ -74,6 +74,17 @@ def boss_excludes(options):
     
     return exclude_bosses
 
+def randomize_boss_levels(Ys8World: "Ys8World"):
+    if Ys8World.generating_in_ut and len(Ys8World.boss_stats) > 0:
+        return
+
+    if Ys8World.options.shuffle_boss_levels == 1:
+        randomize_levels_balanced(Ys8World)
+    elif Ys8World.options.shuffle_boss_levels == 2:
+        randomize_levels_chaotic(Ys8World)
+    else:
+        Ys8World.boss_stats = boss_list.copy()
+
 def randomize_levels_chaotic(Ys8World, exclude_bosses=None):
     # Ensure we start from the canonical boss list for this world on the world instance
     Ys8World.boss_stats = boss_list.copy()
@@ -228,3 +239,16 @@ def randomize_levels_balanced(Ys8World):
 
 def build_boss_level_mapping(Ys8World):
     Ys8World.boss_levels = {boss_name: {"level": stats.level, "boss_id": stats.boss_id} for boss_name, stats in Ys8World.boss_stats.items()}
+
+def ut_build_boss_stats(Ys8World: "Ys8World", boss_levels: dict[str, int]):
+    id_to_stats = {b.boss_id: b for b in boss_list.values()}
+
+    Ys8World.boss_stats = dict()
+    for name, level in boss_levels.items():
+        stat = id_to_stats.get(level)
+        if stat is not None:
+            Ys8World.boss_stats[name] = stat
+        else: # Missing boss. Try to recover by getting the normal stats, and if that fails just use Byfteriza.
+            Ys8World.boss_stats[name] = boss_levels.get(name, boss_levels["Byfteriza"])
+
+    build_boss_level_mapping(Ys8World)
