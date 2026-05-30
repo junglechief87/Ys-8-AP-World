@@ -92,13 +92,19 @@ class Ys8World(World):
         if self.options.dungeon_entrance_shuffle.value:
             dungeon_entrance_shuffle(self)
 
+        self.shuffle_boss_levels()
+
+        if self.options.shuffle_damage_types.value:
+            self.shuffle_damage_types()
+
+    def shuffle_boss_levels(self):
+        if self.generating_in_ut and len(self.boss_levels) > 0:
+            return
+
         if self.options.shuffle_boss_levels == 1:
             randomize_levels_balanced(self)
         elif self.options.shuffle_boss_levels == 2:
             randomize_levels_chaotic(self)
-
-        if self.options.shuffle_damage_types.value:
-            self.shuffle_damage_types()
 
     def create_regions(self):
         create_regions(self)
@@ -233,6 +239,9 @@ class Ys8World(World):
         if self.options.dungeon_entrance_shuffle.value:
             slot_data.update({"dungeon_entrances": self.dungeon_connections})
 
+        if self.options.shuffle_boss_levels.value != self.options.shuffle_boss_levels.option_none:
+            slot_data.update({"boss_levels": self.boss_levels})
+
         return slot_data
 
     def create_item(self, name: str) -> Ys8Item:
@@ -303,6 +312,10 @@ class Ys8World(World):
         dungeon_entrances = slot_data.get("dungeon_entrances", None)
         if dungeon_entrances is not None:
             self.dungeon_connections = dungeon_entrances
+
+        boss_levels = slot_data.get("boss_levels", None)
+        if boss_levels is not None:
+            self.boss_levels = boss_levels
 
         slot_options: dict[str, Any] = slot_data.get("options", {})
         for key, value in slot_options.items():
