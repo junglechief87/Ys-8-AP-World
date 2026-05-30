@@ -240,7 +240,8 @@ class Ys8World(World):
             slot_data.update({"dungeon_entrances": self.dungeon_connections})
 
         if self.options.shuffle_boss_levels.value != self.options.shuffle_boss_levels.option_none:
-            slot_data.update({"boss_levels": self.boss_levels})
+            level_dict = {n: s["level"] for n, s in self.boss_levels.items()}
+            slot_data.update({"boss_levels": level_dict})
 
         return slot_data
 
