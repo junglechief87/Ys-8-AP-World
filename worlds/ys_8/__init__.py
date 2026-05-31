@@ -14,7 +14,7 @@ from .Rules import set_all_rules
 from .Regions import create_regions, connect_entrances
 from .Generate_Json import generate_json
 from .Entrance_Shuffle import dungeon_entrance_shuffle
-from .Boss_Level_Randomization import randomize_levels_balanced, randomize_levels_chaotic
+from .Boss_Level_Randomization import randomize_boss_levels, ut_build_boss_stats
 
 class Ys8Web(WebWorld):
     theme = "jungle"
@@ -93,10 +93,7 @@ class Ys8World(World):
         if self.options.dungeon_entrance_shuffle.value:
             dungeon_entrance_shuffle(self)
 
-        if self.options.shuffle_boss_levels == 1:
-            randomize_levels_balanced(self)
-        elif self.options.shuffle_boss_levels == 2:
-            randomize_levels_chaotic(self)
+        randomize_boss_levels(self)
 
         if self.options.shuffle_damage_types.value:
             self.shuffle_damage_types()
@@ -234,6 +231,10 @@ class Ys8World(World):
         if self.options.dungeon_entrance_shuffle.value:
             slot_data.update({"dungeon_entrances": self.dungeon_connections})
 
+        if self.options.shuffle_boss_levels.value != self.options.shuffle_boss_levels.option_none:
+            shuffle_dict = {n: s.boss_id for n, s in self.boss_stats.items()}
+            slot_data.update({"boss_level_shuffles": shuffle_dict})
+
         return slot_data
 
     def create_item(self, name: str) -> Ys8Item:
@@ -304,6 +305,10 @@ class Ys8World(World):
         dungeon_entrances = slot_data.get("dungeon_entrances", None)
         if dungeon_entrances is not None:
             self.dungeon_connections = dungeon_entrances
+
+        boss_level_shuffles = slot_data.get("boss_level_shuffles", None)
+        if boss_level_shuffles is not None:
+            ut_build_boss_stats(self, boss_level_shuffles)
 
         slot_options: dict[str, Any] = slot_data.get("options", {})
         for key, value in slot_options.items():
