@@ -54,8 +54,6 @@ boss_list: dict[str, boss] = {
     "Melaiduma":            boss(1100,  99, 'B170',     ["Former Sanctuary Crypt Front"]),
 }
 
-boss_stats = boss_list.copy()
-
 def boss_excludes(options):
     exclude_bosses = []
     boss_option_dict = {
