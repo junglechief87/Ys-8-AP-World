@@ -974,7 +974,7 @@ def set_location_rules(Ys8World: "Ys8World"):
              lambda state: state.has("Grip Gloves", player))
     add_rule(loc("Mont Gendarme (Night) Northern Lower Cliffside Trail Chest 2"),
              lambda state: state.has("Grip Gloves", player))
-    add_rule(loc("Mont Gendarme (Night) Upper Cliffs Chest 1"),
+    add_rule(loc("Mont Gendarme (Night) Upper Cliffs Chest 2"),
              lambda state: state.has("Grip Gloves", player))
     
     # Seiren North Access
