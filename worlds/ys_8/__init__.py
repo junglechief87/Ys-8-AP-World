@@ -72,8 +72,8 @@ class Ys8World(World):
         self.starting_skill_codes = {}
         self.damage_mapping = {
             "Slash": ["Adol", "Dana"],
-            "Pierce": ["Laxia", "Hummel"],
-            "Strike": ["Sahad", "Ricotta"],
+            "Pierce": ["Laxia", "Hummel", "Luminous"],
+            "Strike": ["Sahad", "Ricotta", "Gratika"],
         }
         self.max_psyche_num = 4
 
@@ -129,7 +129,7 @@ class Ys8World(World):
         item = self.create_item(self.starting_character)
         self.multiworld.push_precollected(item)
 
-        characters = ["Adol", "Sahad", "Laxia", "Ricotta", "Hummel", "Dana"]
+        characters = ["Adol", "Sahad", "Laxia", "Ricotta", "Hummel", "Dana", "Gratika", "Luminous"]
 
         for character in characters:
             skill_category = f"{character} Skill"

@@ -115,9 +115,21 @@ def set_all_rules(Ys8World: "Ys8World"):
 def has_required_crew(Ys8World: "Ys8World", state: CollectionState, crew_count: int) -> bool:
     """Check if the player has access to at least crew_count crew members.
     Progressive Shop Rank and Progressive Raid List each count as 1 toward the total.
-    For Kathleen and Dogi respectively."""
+    For Kathleen and Dogi respectively.
+    Party members among the crew are capped at 6 (reserve slots don't count)."""
     crew_items = [item for item, data in item_table.items() if data.category == "Crew"]
-    found = state.count_from_list(crew_items, Ys8World.player)
+    party_items = [item for item, data in item_table.items() if data.is_party_member]
+    
+    # Count crew that are also party members (capped at 6)
+    party_crew_items = [item for item in crew_items if item in party_items]
+    party_crew_count = min(state.count_from_list(party_crew_items, Ys8World.player), 6)
+    
+    # Count crew that are NOT party members (all of them)
+    non_party_crew_items = [item for item in crew_items if item not in party_items]
+    non_party_crew_count = state.count_from_list(non_party_crew_items, Ys8World.player)
+    
+    found = party_crew_count + non_party_crew_count
+    
     if state.has("Progressive Shop Rank", Ys8World.player):
         found += 1
     if state.has("Progressive Raid List", Ys8World.player):
