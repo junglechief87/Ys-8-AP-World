@@ -68,6 +68,8 @@ class Ys8World(World):
         self.ricotta_starting_skills = []
         self.hummel_starting_skills = []
         self.dana_starting_skills = []
+        self.gratika_starting_skills = []
+        self.luminous_starting_skills = []
         self.starting_skills = []
         self.starting_skill_codes = {}
         self.damage_mapping = {
@@ -80,7 +82,10 @@ class Ys8World(World):
     def shuffle_damage_types(self):
         vals = [char for characters in self.damage_mapping.values() for char in characters]
         for damage_type in self.damage_mapping.keys():
-            self.damage_mapping[damage_type] = self.multiworld.random.sample(vals, 2)
+            if damage_type == "Slash":
+                self.damage_mapping[damage_type] = self.multiworld.random.sample(vals, 2)
+            else:
+                self.damage_mapping[damage_type] = self.multiworld.random.sample(vals, 3)
             vals = [val for val in vals if val not in self.damage_mapping[damage_type]]
 
     def generate_early(self):
@@ -259,6 +264,8 @@ class Ys8World(World):
         spoiler_handle.write(f"\tRicotta Starting Skills: {', '.join(self.ricotta_starting_skills)}\n")
         spoiler_handle.write(f"\tHummel Starting Skills: {', '.join(self.hummel_starting_skills)}\n")
         spoiler_handle.write(f"\tDana Starting Skills: {', '.join(self.dana_starting_skills)}\n")
+        spoiler_handle.write(f"\tGratika Starting Skills: {', '.join(self.gratika_starting_skills)}\n")
+        spoiler_handle.write(f"\tLuminous Starting Skills: {', '.join(self.luminous_starting_skills)}\n")
         if self.options.shuffle_damage_types.value:
             for damage_type, characters in self.damage_mapping.items():
                 spoiler_handle.write(f"\t{damage_type}: {', '.join(characters)}\n")
