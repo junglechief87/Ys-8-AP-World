@@ -139,6 +139,11 @@ class Ys8World(World):
         for character in characters:
             skill_category = f"{character} Skill"
             skills = self.multiworld.random.sample(list(get_items_by_category(skill_category).keys()), 2)
+            # we do this so that the starting skills received are tracked by the server and can't be lost,
+            # their display will be handled by slot data and the client upon receiving the character that uses those skills.
+            for skill in skills:
+                item = self.create_item(skill)
+                self.multiworld.push_precollected(item)
             setattr(self, f"{character.lower()}_starting_skills", skills)
             skill_codes = [item_table[skill].code for skill in skills]
             self.starting_skill_codes[character] = skill_codes
