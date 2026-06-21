@@ -461,9 +461,9 @@ class StartingCharacterWeights(OptionCounter):
     Set to 0 to disable a character from being selectable.
     """
     display_name = "Starting Character Weights"
-    valid_keys = {"Adol", "Laxia", "Sahad", "Hummel", "Ricotta", "Dana"}
+    valid_keys = {"Adol", "Laxia", "Sahad", "Hummel", "Ricotta", "Dana", "Gratika", "Luminous"}
     min = 0
-    default = {"Adol": 1, "Laxia": 1, "Sahad": 1, "Hummel": 1, "Ricotta": 1, "Dana": 1}
+    default = {"Adol": 1, "Laxia": 1, "Sahad": 1, "Hummel": 1, "Ricotta": 1, "Dana": 1, "Gratika": 1, "Luminous": 1}
 
 class DeathLink(Toggle):
     """
