@@ -192,7 +192,6 @@ class Ys8World(World):
             item_pool.append(self.create_item(self.get_filler_item_name()))
 
         self.multiworld.itempool += item_pool
-        print(self.multiworld.itempool)
 
     def place_predetermined_items(self):
         # Place event items that are required for progression or victory

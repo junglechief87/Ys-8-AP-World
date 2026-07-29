@@ -39,11 +39,26 @@ class FieldConnector:
     An overworld exit that leads into a shuffled dungeon.
 
     Flags (all default False/""):
-      is_north         – source region is on the north side of the island
-      always_isolated  – dead-end area with no other access; MUST land in a
-                         bidirectional dungeon regardless of options
+      is_north         – source region is part of the north-side cluster.
+                         Its regions are already mutually reachable with each
+                         other without dungeon shuffle, but the whole cluster
+                         may be cut off from the mainland depending on
+                         options — guaranteed connected via a forced bridge
+                         pairing (see bridges in dungeon_entrance_shuffle)
+                         when needed.
+      is_garden        – source region is part of the garden cluster: a
+                         single-screen area with two doors that are already
+                         freely linked to each other, but with no other
+                         access of its own (no landmarks, so unaffected by
+                         discovery_sanity). Handled exactly like is_north —
+                         guaranteed connected via a forced bridge pairing —
+                         except the guarantee is unconditional since the
+                         garden never has an alternate access path.
+      always_isolated  – single dead-end exit with no other access; MUST
+                         land in a bidirectional dungeon of its own
+                         regardless of options
       landmark_only    – only reachable via a discovery landmark; behaves as
-                         isolated when discovery_sanity is disabled
+                         always_isolated when discovery_sanity is disabled
       requires_option  – options attribute name that must be truthy to include
                          this connector; "" = always active
     """
@@ -109,8 +124,8 @@ CONNECTORS: tuple[FieldConnector, ...] = (
     FieldConnector("BTLF Entrance",         "Towal Highway Baja Tower Entrance",        is_north=True),
     FieldConnector("LMB VOKBD Entrance",    "Lodinia Marshlands Back",                  is_north=True),
     FieldConnector("TGT Entrance",          "Temple of the Great Tree Entrance",        is_north=True),
-    FieldConnector("TGT Garden Entrance",   "Temple of the Great Tree Garden Entrance", is_garden=True, always_isolated=True),
-    FieldConnector("OO Entrance",           "Temple of the Great Tree Garden",          is_garden=True, always_isolated=True),
+    FieldConnector("TGT Garden Entrance",   "Temple of the Great Tree Garden Entrance", is_garden=True),
+    FieldConnector("OO Entrance",           "Temple of the Great Tree Garden",          is_garden=True),
     FieldConnector("ST Entrance",           "Silent Tower Entrance"),
     FieldConnector("NCA ECCBG Entrance",    "Nostalgia Cape Area"),
     # always_isolated — dead-end; never enters free_exits
@@ -169,7 +184,14 @@ def dungeon_entrance_shuffle(world) -> None:
         c.exit_name for c in active_connectors
         if not c.always_isolated and not (c.landmark_only and discovery_off)
     ]
-    north_exits: list[str] = [c.exit_name for c in active_connectors if c.is_north]
+    north_exits:  list[str] = [c.exit_name for c in active_connectors if c.is_north]
+    garden_exits: list[str] = [c.exit_name for c in active_connectors if c.is_garden]
+    # "Safe" exits: unconditionally reachable from the mainland on their own
+    # (no cluster flag), used as the guaranteed-good partner when bridging a
+    # cluster. Keeping bridge partners restricted to this pool (rather than
+    # any free exit) avoids one cluster's bridge accidentally pairing with
+    # another still-unbridged cluster.
+    safe_exits: list[str] = [e for e in free_exits if e not in north_exits and e not in garden_exits]
 
     connections: dict[str, str] = {}
 
@@ -184,19 +206,35 @@ def dungeon_entrance_shuffle(world) -> None:
         bidir_slots[dungeon].remove(slot)
         _assign(world, exit_name, slot, connections)
 
-    # === Phase 2: Guarantee connectivity bridges (when required) ===
+    # === Phase 2: Guarantee cluster connectivity bridges ===
     # Each entry: (active: bool, flagged_exits: list[str]).
-    # When active, one flagged exit and one non-flagged exit are forced into the
-    # same bidirectional dungeon so both groups remain mutually reachable.
-    # To bridge a new region: append (condition, region_exits_list) below.
+    # is_north/is_garden mark regions that are already mutually reachable
+    # WITHIN their own cluster (no dungeon shuffle needed there), but the
+    # cluster itself may have no other route to the mainland. When active,
+    # one cluster exit is forced into a bidirectional dungeon alongside one
+    # safe (unconditionally mainland-reachable) exit, guaranteeing the whole
+    # cluster becomes reachable. To add a new cluster: give its connectors a
+    # new flag, build its exit list above, and append (condition, list) below.
     bridges: list[tuple[bool, list[str]]] = [
         (discovery_off and not options.north_side_open.value, north_exits),
+        (True, garden_exits),  # garden has no landmarks; always needs its own bridge
     ]
     active_bridges = [(cond, exits) for cond, exits in bridges if cond]
     if active_bridges:
-        rng.shuffle(free_exits)
+        rng.shuffle(safe_exits)
     for _, flagged_exits in active_bridges:
-        bridge_dungeon = next(d for d in bidir_slots if len(bidir_slots[d]) >= 2)
+        # Don't rely on the SNA Link item-gated overworld rule as a fallback
+        # for north: its gating items (Prismatic Mineral Vein / Unicalamites /
+        # Breath Fountain / Ancient Tree) default to landmark locations that
+        # are themselves on the north side, so that path is circular.
+        bridge_dungeon = next((d for d in bidir_slots if len(bidir_slots[d]) >= 2), None)
+        if bridge_dungeon is None:
+            raise RuntimeError(
+                "dungeon_entrance_shuffle: no fully-free bidirectional dungeon "
+                "available for a required cluster connectivity bridge. Check "
+                "isolated/cluster connector counts against the number of "
+                "bidirectional dungeons."
+            )
 
         slot_a = rng.choice(bidir_slots[bridge_dungeon])
         bidir_slots[bridge_dungeon].remove(slot_a)
@@ -205,8 +243,8 @@ def dungeon_entrance_shuffle(world) -> None:
 
         slot_b = rng.choice(bidir_slots[bridge_dungeon])
         bidir_slots[bridge_dungeon].remove(slot_b)
-        other_pick = next(e for e in free_exits if e not in connections and e not in flagged_exits)
-        _assign(world, other_pick, slot_b, connections)
+        safe_pick = next(e for e in safe_exits if e not in connections)
+        _assign(world, safe_pick, slot_b, connections)
 
     # === Phase 3: Assign all remaining exits to remaining slots ===
     remaining_slots: list[str] = [slot for slots in bidir_slots.values() for slot in slots]
